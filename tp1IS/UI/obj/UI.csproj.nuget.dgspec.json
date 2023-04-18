@@ -1,14 +1,14 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\renag\\source\\repos\\tp1IS\\UI\\UI.csproj": {}
+    "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\UI\\UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\renag\\source\\repos\\tp1IS\\abstraccion\\abstraccion.csproj": {
+    "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\abstraccion\\abstraccion.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\renag\\source\\repos\\tp1IS\\abstraccion\\abstraccion.csproj",
+        "projectUniqueName": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\abstraccion\\abstraccion.csproj",
         "projectName": "abstraccion",
-        "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\abstraccion\\abstraccion.csproj",
+        "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\abstraccion\\abstraccion.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
@@ -19,16 +19,16 @@
         "net472": {}
       }
     },
-    "C:\\Users\\renag\\source\\repos\\tp1IS\\BE\\BE.csproj": {
+    "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BE\\BE.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\renag\\source\\repos\\tp1IS\\BE\\BE.csproj",
+        "projectUniqueName": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BE\\BE.csproj",
         "projectName": "BE",
-        "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\BE\\BE.csproj",
+        "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BE\\BE.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\renag\\source\\repos\\tp1IS\\abstraccion\\abstraccion.csproj": {
-                "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\abstraccion\\abstraccion.csproj"
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\abstraccion\\abstraccion.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\abstraccion\\abstraccion.csproj"
               }
             }
           }
@@ -38,22 +38,22 @@
         "net472": {}
       }
     },
-    "C:\\Users\\renag\\source\\repos\\tp1IS\\BLL\\BLL.csproj": {
+    "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BLL\\BLL.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\renag\\source\\repos\\tp1IS\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\BLL\\BLL.csproj",
+        "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BLL\\BLL.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\renag\\source\\repos\\tp1IS\\BE\\BE.csproj": {
-                "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\BE\\BE.csproj"
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BE\\BE.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BE\\BE.csproj"
               },
-              "C:\\Users\\renag\\source\\repos\\tp1IS\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\DAL\\DAL.csproj"
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\MPP\\MPP.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\MPP\\MPP.csproj"
               },
-              "C:\\Users\\renag\\source\\repos\\tp1IS\\servicios\\servicios.csproj": {
-                "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\servicios\\servicios.csproj"
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\servicios\\servicios.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\servicios\\servicios.csproj"
               }
             }
           }
@@ -63,19 +63,19 @@
         "net472": {}
       }
     },
-    "C:\\Users\\renag\\source\\repos\\tp1IS\\DAL\\DAL.csproj": {
+    "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\DAL\\DAL.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\renag\\source\\repos\\tp1IS\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\DAL\\DAL.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\renag\\source\\repos\\tp1IS\\BE\\BE.csproj": {
-                "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\BE\\BE.csproj"
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BE\\BE.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BE\\BE.csproj"
               },
-              "C:\\Users\\renag\\source\\repos\\tp1IS\\servicios\\servicios.csproj": {
-                "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\servicios\\servicios.csproj"
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\servicios\\servicios.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\servicios\\servicios.csproj"
               }
             }
           }
@@ -85,16 +85,22 @@
         "net472": {}
       }
     },
-    "C:\\Users\\renag\\source\\repos\\tp1IS\\servicios\\servicios.csproj": {
+    "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\MPP\\MPP.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\renag\\source\\repos\\tp1IS\\servicios\\servicios.csproj",
-        "projectName": "servicios",
-        "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\servicios\\servicios.csproj",
+        "projectUniqueName": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\MPP\\MPP.csproj",
+        "projectName": "MPP",
+        "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\MPP\\MPP.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\renag\\source\\repos\\tp1IS\\abstraccion\\abstraccion.csproj": {
-                "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\abstraccion\\abstraccion.csproj"
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BE\\BE.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BE\\BE.csproj"
+              },
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\DAL\\DAL.csproj"
+              },
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\servicios\\servicios.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\servicios\\servicios.csproj"
               }
             }
           }
@@ -104,14 +110,33 @@
         "net472": {}
       }
     },
-    "C:\\Users\\renag\\source\\repos\\tp1IS\\UI\\UI.csproj": {
+    "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\servicios\\servicios.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\servicios\\servicios.csproj",
+        "projectName": "servicios",
+        "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\servicios\\servicios.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\abstraccion\\abstraccion.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\abstraccion\\abstraccion.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\UI\\UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\renag\\source\\repos\\tp1IS\\UI\\UI.csproj",
+        "projectUniqueName": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\UI\\UI.csproj",
         "projectName": "UI",
-        "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\UI\\UI.csproj",
+        "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\UI\\UI.csproj",
         "packagesPath": "C:\\Users\\renag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\UI\\obj\\",
+        "outputPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\UI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\renag\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -128,14 +153,14 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\renag\\source\\repos\\tp1IS\\BE\\BE.csproj": {
-                "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\BE\\BE.csproj"
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BE\\BE.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BE\\BE.csproj"
               },
-              "C:\\Users\\renag\\source\\repos\\tp1IS\\BLL\\BLL.csproj": {
-                "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\BLL\\BLL.csproj"
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BLL\\BLL.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\BLL\\BLL.csproj"
               },
-              "C:\\Users\\renag\\source\\repos\\tp1IS\\servicios\\servicios.csproj": {
-                "projectPath": "C:\\Users\\renag\\source\\repos\\tp1IS\\servicios\\servicios.csproj"
+              "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\servicios\\servicios.csproj": {
+                "projectPath": "C:\\Users\\renag\\Documents\\tpIngSoft\\tp1IS\\servicios\\servicios.csproj"
               }
             }
           }
@@ -149,6 +174,12 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "MetroModernUI": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -1,0 +1,6 @@
+C:\Users\renag\Documents\tpIngSoft\tp1IS\abstraccion\bin\Debug\abstraccion.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\abstraccion\bin\Debug\abstraccion.pdb
+C:\Users\renag\Documents\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.csproj.AssemblyReference.cache
+C:\Users\renag\Documents\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.csproj.CoreCompileInputs.cache
+C:\Users\renag\Documents\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.pdb

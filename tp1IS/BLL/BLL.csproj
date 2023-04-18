@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BLLUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,9 +49,9 @@
       <Project>{f39929bf-2dce-4346-9c4a-c94e1eed36b6}</Project>
       <Name>BE</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{2cb1ad4c-2e49-4c82-ae8e-3b1b633d9ff2}</Project>
-      <Name>DAL</Name>
+    <ProjectReference Include="..\MPP\MPP.csproj">
+      <Project>{f75877f2-3556-4e70-8ac2-363aaf591cce}</Project>
+      <Name>MPP</Name>
     </ProjectReference>
     <ProjectReference Include="..\servicios\servicios.csproj">
       <Project>{7b6b2eed-1774-4747-b947-f13422f733c6}</Project>

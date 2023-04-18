@@ -1,0 +1,11 @@
+C:\Users\renag\Documents\tpIngSoft\tp1IS\DAL\bin\Debug\DAL.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\DAL\bin\Debug\DAL.pdb
+C:\Users\renag\Documents\tpIngSoft\tp1IS\DAL\bin\Debug\BE.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\DAL\bin\Debug\servicios.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\DAL\bin\Debug\BE.pdb
+C:\Users\renag\Documents\tpIngSoft\tp1IS\DAL\bin\Debug\servicios.pdb
+C:\Users\renag\Documents\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\renag\Documents\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\renag\Documents\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\renag\Documents\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.pdb
