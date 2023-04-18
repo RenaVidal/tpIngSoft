@@ -35,25 +35,25 @@
             metroButton1 = new MetroFramework.Controls.MetroButton();
             metroButton2 = new MetroFramework.Controls.MetroButton();
             groupBox1 = new GroupBox();
+            metroButton3 = new MetroFramework.Controls.MetroButton();
             metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
             metroLabel3 = new MetroFramework.Controls.MetroLabel();
             textBox4 = new TextBox();
             metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
-            metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
+            metroLabel5 = new MetroFramework.Controls.MetroLabel();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(135, 93);
+            textBox1.Location = new Point(135, 95);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(219, 27);
             textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(135, 140);
+            textBox2.Location = new Point(135, 142);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(219, 27);
             textBox2.TabIndex = 1;
@@ -61,7 +61,7 @@
             // metroLabel1
             // 
             metroLabel1.AutoSize = true;
-            metroLabel1.Location = new Point(45, 93);
+            metroLabel1.Location = new Point(45, 95);
             metroLabel1.Name = "metroLabel1";
             metroLabel1.Size = new Size(73, 20);
             metroLabel1.TabIndex = 2;
@@ -70,7 +70,7 @@
             // metroLabel2
             // 
             metroLabel2.AutoSize = true;
-            metroLabel2.Location = new Point(45, 140);
+            metroLabel2.Location = new Point(45, 142);
             metroLabel2.Name = "metroLabel2";
             metroLabel2.Size = new Size(66, 20);
             metroLabel2.TabIndex = 3;
@@ -78,36 +78,47 @@
             // 
             // metroButton1
             // 
-            metroButton1.Location = new Point(234, 189);
+            metroButton1.Location = new Point(234, 191);
             metroButton1.Name = "metroButton1";
             metroButton1.Size = new Size(120, 32);
             metroButton1.TabIndex = 4;
             metroButton1.Text = "Sign In";
             metroButton1.UseSelectable = true;
+            metroButton1.Click += metroButton1_Click;
             // 
             // metroButton2
             // 
-            metroButton2.Location = new Point(108, 189);
+            metroButton2.Location = new Point(108, 191);
             metroButton2.Name = "metroButton2";
             metroButton2.Size = new Size(120, 32);
             metroButton2.TabIndex = 5;
             metroButton2.Text = "Sign Up";
             metroButton2.UseSelectable = true;
+            metroButton2.Click += metroButton2_Click;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(metroRadioButton2);
-            groupBox1.Controls.Add(metroRadioButton1);
+            groupBox1.Controls.Add(metroButton3);
             groupBox1.Controls.Add(metroDateTime1);
             groupBox1.Controls.Add(metroLabel3);
             groupBox1.Controls.Add(textBox4);
             groupBox1.Controls.Add(metroLabel4);
             groupBox1.Location = new Point(37, 249);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(317, 166);
+            groupBox1.Size = new Size(317, 178);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Sign Up Data";
+            // 
+            // metroButton3
+            // 
+            metroButton3.Location = new Point(189, 131);
+            metroButton3.Name = "metroButton3";
+            metroButton3.Size = new Size(120, 32);
+            metroButton3.TabIndex = 7;
+            metroButton3.Text = "Confirm";
+            metroButton3.UseSelectable = true;
+            metroButton3.Click += metroButton3_Click;
             // 
             // metroDateTime1
             // 
@@ -142,31 +153,22 @@
             metroLabel4.TabIndex = 9;
             metroLabel4.Text = "id";
             // 
-            // metroRadioButton1
+            // metroLabel5
             // 
-            metroRadioButton1.AutoSize = true;
-            metroRadioButton1.Location = new Point(147, 131);
-            metroRadioButton1.Name = "metroRadioButton1";
-            metroRadioButton1.Size = new Size(49, 17);
-            metroRadioButton1.TabIndex = 7;
-            metroRadioButton1.Text = "user";
-            metroRadioButton1.UseSelectable = true;
-            // 
-            // metroRadioButton2
-            // 
-            metroRadioButton2.AutoSize = true;
-            metroRadioButton2.Location = new Point(215, 131);
-            metroRadioButton2.Name = "metroRadioButton2";
-            metroRadioButton2.Size = new Size(60, 17);
-            metroRadioButton2.TabIndex = 11;
-            metroRadioButton2.Text = "admin";
-            metroRadioButton2.UseSelectable = true;
+            metroLabel5.AutoSize = true;
+            metroLabel5.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            metroLabel5.Location = new Point(23, 28);
+            metroLabel5.Name = "metroLabel5";
+            metroLabel5.Size = new Size(71, 20);
+            metroLabel5.TabIndex = 7;
+            metroLabel5.Text = "Welcome!";
             // 
             // SignIn
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(426, 450);
+            Controls.Add(metroLabel5);
             Controls.Add(groupBox1);
             Controls.Add(metroButton2);
             Controls.Add(metroButton1);
@@ -196,7 +198,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private TextBox textBox4;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
+        private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
     }
 }

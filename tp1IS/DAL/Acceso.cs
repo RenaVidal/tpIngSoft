@@ -11,9 +11,9 @@ namespace DAL
 {
     public class Acceso
     {
-        private SqlConnection oCnn = new SqlConnection(@"Data Source=.;Initial Catalog=TryGym;Integrated Security=True");
-        private SqlTransaction Tranx;
-        private SqlCommand Cmd;
+        public SqlConnection oCnn = new SqlConnection(@"Data Source=.;Initial Catalog=TryGym;Integrated Security=True");
+        public SqlTransaction Tranx;
+        public SqlCommand Cmd;
 
 
         public string TestConnection()

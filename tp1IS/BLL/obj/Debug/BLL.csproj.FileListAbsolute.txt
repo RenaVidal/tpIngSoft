@@ -11,3 +11,7 @@ C:\Users\renag\Documents\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.csproj.CoreCompileInp
 C:\Users\renag\Documents\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\renag\Documents\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.dll
 C:\Users\renag\Documents\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.pdb
+C:\Users\renag\Documents\tpIngSoft\tp1IS\BLL\bin\Debug\MPP.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\BLL\bin\Debug\abstraccion.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\BLL\bin\Debug\MPP.pdb
+C:\Users\renag\Documents\tpIngSoft\tp1IS\BLL\bin\Debug\abstraccion.pdb

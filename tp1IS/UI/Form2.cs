@@ -18,7 +18,7 @@ namespace UI
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        public void Form2_Load(object sender, EventArgs e)
         {
 
         }

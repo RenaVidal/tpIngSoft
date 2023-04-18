@@ -14,7 +14,6 @@ C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\net6.0-windows\servicios.p
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\net6.0-windows\abstraccion.pdb
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\net6.0-windows\DAL.pdb
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\net6.0-windows\UI.csproj.AssemblyReference.cache
-C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\net6.0-windows\UI.Form1.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\net6.0-windows\UI.Form2.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\net6.0-windows\UI.csproj.GenerateResource.cache
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\net6.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
@@ -27,3 +26,9 @@ C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\net6.0-windows\refint\UI.d
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\net6.0-windows\UI.pdb
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\net6.0-windows\UI.genruntimeconfig.cache
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\net6.0-windows\ref\UI.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\net6.0-windows\MetroFramework.Design.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\net6.0-windows\MetroFramework.Fonts.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\net6.0-windows\MetroFramework.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\net6.0-windows\MPP.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\net6.0-windows\MPP.pdb
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\net6.0-windows\UI.SignIn.resources
