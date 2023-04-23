@@ -9,7 +9,8 @@ namespace BE
 {
     public class Entidad : IEntidad
     {
-        public int Codigo { get; set; }
+        public int id { get; set; }
+        public string user { get; set; }
     }
 }
 

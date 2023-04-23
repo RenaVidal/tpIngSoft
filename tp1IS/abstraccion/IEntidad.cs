@@ -8,6 +8,7 @@ namespace Abstraccion
 {
     public interface IEntidad
     {
-        int Codigo { get; set; }
+        int id { get; set; }
+        string user { get; set; }
     }
 }

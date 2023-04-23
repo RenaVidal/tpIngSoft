@@ -3,14 +3,14 @@
     partial class SignIn
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Limpiar los recursos que se estén usando.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,185 +20,189 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Código generado por el Diseñador de Windows Forms
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Método necesario para admitir el Diseñador. No se puede modificar
+        /// el contenido de este método con el editor de código.
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            metroButton1 = new MetroFramework.Controls.MetroButton();
-            metroButton2 = new MetroFramework.Controls.MetroButton();
-            groupBox1 = new GroupBox();
-            metroButton3 = new MetroFramework.Controls.MetroButton();
-            metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
-            metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            textBox4 = new TextBox();
-            metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            groupBox1.SuspendLayout();
-            SuspendLayout();
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(135, 95);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(219, 27);
-            textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(135, 142);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(219, 27);
-            textBox2.TabIndex = 1;
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // metroLabel1
             // 
-            metroLabel1.AutoSize = true;
-            metroLabel1.Location = new Point(45, 95);
-            metroLabel1.Name = "metroLabel1";
-            metroLabel1.Size = new Size(73, 20);
-            metroLabel1.TabIndex = 2;
-            metroLabel1.Text = "Username";
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel1.Location = new System.Drawing.Point(20, 27);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(97, 25);
+            this.metroLabel1.TabIndex = 0;
+            this.metroLabel1.Text = "Welcome!";
             // 
             // metroLabel2
             // 
-            metroLabel2.AutoSize = true;
-            metroLabel2.Location = new Point(45, 142);
-            metroLabel2.Name = "metroLabel2";
-            metroLabel2.Size = new Size(66, 20);
-            metroLabel2.TabIndex = 3;
-            metroLabel2.Text = "Password";
-            // 
-            // metroButton1
-            // 
-            metroButton1.Location = new Point(234, 191);
-            metroButton1.Name = "metroButton1";
-            metroButton1.Size = new Size(120, 32);
-            metroButton1.TabIndex = 4;
-            metroButton1.Text = "Sign In";
-            metroButton1.UseSelectable = true;
-            metroButton1.Click += metroButton1_Click;
-            // 
-            // metroButton2
-            // 
-            metroButton2.Location = new Point(108, 191);
-            metroButton2.Name = "metroButton2";
-            metroButton2.Size = new Size(120, 32);
-            metroButton2.TabIndex = 5;
-            metroButton2.Text = "Sign Up";
-            metroButton2.UseSelectable = true;
-            metroButton2.Click += metroButton2_Click;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(metroButton3);
-            groupBox1.Controls.Add(metroDateTime1);
-            groupBox1.Controls.Add(metroLabel3);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(metroLabel4);
-            groupBox1.Location = new Point(37, 249);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(317, 178);
-            groupBox1.TabIndex = 6;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Sign Up Data";
-            // 
-            // metroButton3
-            // 
-            metroButton3.Location = new Point(189, 131);
-            metroButton3.Name = "metroButton3";
-            metroButton3.Size = new Size(120, 32);
-            metroButton3.TabIndex = 7;
-            metroButton3.Text = "Confirm";
-            metroButton3.UseSelectable = true;
-            metroButton3.Click += metroButton3_Click;
-            // 
-            // metroDateTime1
-            // 
-            metroDateTime1.Location = new Point(147, 81);
-            metroDateTime1.MinimumSize = new Size(0, 30);
-            metroDateTime1.Name = "metroDateTime1";
-            metroDateTime1.Size = new Size(162, 30);
-            metroDateTime1.TabIndex = 7;
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(30, 80);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(73, 20);
+            this.metroLabel2.TabIndex = 1;
+            this.metroLabel2.Text = "Username";
             // 
             // metroLabel3
             // 
-            metroLabel3.AutoSize = true;
-            metroLabel3.Location = new Point(10, 91);
-            metroLabel3.Name = "metroLabel3";
-            metroLabel3.Size = new Size(71, 20);
-            metroLabel3.TabIndex = 10;
-            metroLabel3.Text = "Birth Date";
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(30, 117);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(66, 20);
+            this.metroLabel3.TabIndex = 2;
+            this.metroLabel3.Text = "Password";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(132, 77);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(191, 22);
+            this.textBox1.TabIndex = 0;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(132, 117);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
+            this.textBox2.Size = new System.Drawing.Size(191, 22);
+            this.textBox2.TabIndex = 1;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(61, 152);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(122, 31);
+            this.metroButton1.TabIndex = 5;
+            this.metroButton1.Text = "Sing Up";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click_1);
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(201, 152);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(122, 31);
+            this.metroButton2.TabIndex = 6;
+            this.metroButton2.Text = "Sign In";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click_1);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.metroDateTime1);
+            this.groupBox1.Controls.Add(this.metroButton3);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.metroLabel5);
+            this.groupBox1.Controls.Add(this.metroLabel4);
+            this.groupBox1.Location = new System.Drawing.Point(30, 201);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(293, 152);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sign Up";
+            // 
+            // metroDateTime1
+            // 
+            this.metroDateTime1.Location = new System.Drawing.Point(93, 72);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 30);
+            this.metroDateTime1.Name = "metroDateTime1";
+            this.metroDateTime1.Size = new System.Drawing.Size(200, 30);
+            this.metroDateTime1.TabIndex = 3;
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.Location = new System.Drawing.Point(165, 115);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(122, 31);
+            this.metroButton3.TabIndex = 8;
+            this.metroButton3.Text = "Confirm";
+            this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click_1);
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(147, 44);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(162, 27);
-            textBox4.TabIndex = 7;
-            // 
-            // metroLabel4
-            // 
-            metroLabel4.AutoSize = true;
-            metroLabel4.Location = new Point(10, 44);
-            metroLabel4.Name = "metroLabel4";
-            metroLabel4.Size = new Size(20, 20);
-            metroLabel4.TabIndex = 9;
-            metroLabel4.Text = "id";
+            this.textBox4.Location = new System.Drawing.Point(93, 44);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(200, 22);
+            this.textBox4.TabIndex = 2;
             // 
             // metroLabel5
             // 
-            metroLabel5.AutoSize = true;
-            metroLabel5.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            metroLabel5.Location = new Point(23, 28);
-            metroLabel5.Name = "metroLabel5";
-            metroLabel5.Size = new Size(71, 20);
-            metroLabel5.TabIndex = 7;
-            metroLabel5.Text = "Welcome!";
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(15, 44);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(22, 20);
+            this.metroLabel5.TabIndex = 8;
+            this.metroLabel5.Text = "ID";
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(6, 77);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(69, 20);
+            this.metroLabel4.TabIndex = 9;
+            this.metroLabel4.Text = "Birth date";
             // 
             // SignIn
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(426, 450);
-            Controls.Add(metroLabel5);
-            Controls.Add(groupBox1);
-            Controls.Add(metroButton2);
-            Controls.Add(metroButton1);
-            Controls.Add(metroLabel2);
-            Controls.Add(metroLabel1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Name = "SignIn";
-            Text = "Form1";
-            Load += Form1_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(351, 389);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.metroButton2);
+            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.metroLabel3);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.metroLabel1);
+            this.Name = "SignIn";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.SignIn_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton metroButton2;
-        private GroupBox groupBox1;
-        private MetroFramework.Controls.MetroDateTime metroDateTime1;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private TextBox textBox4;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private System.Windows.Forms.GroupBox groupBox1;
         private MetroFramework.Controls.MetroButton metroButton3;
+        private System.Windows.Forms.TextBox textBox4;
         private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroDateTime metroDateTime1;
     }
 }
+

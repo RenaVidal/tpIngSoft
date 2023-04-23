@@ -8,12 +8,21 @@ namespace BE
 {
     public class BEUsuario : Entidad
     {
-        public string usuario { get; set; }
-        public string contrasena { get; set; }
+        
+        public string password { get; set; }
+        public string birthDate {get; set;}
         public BEUsuario(string usuario_e, string contrasena_e)
         {
-            this.usuario = usuario_e;
-            this.contrasena = contrasena_e;
+            this.user = usuario_e;
+            this.password = contrasena_e;
         }
+        public BEUsuario(string usuario_e, string contrasena_e, int id, string nacimiento)
+        {
+            this.user = usuario_e;
+            this.password = contrasena_e;
+            this.id= id;
+            this.birthDate = nacimiento;
+        }
+        public BEUsuario() { }
     }
 }
