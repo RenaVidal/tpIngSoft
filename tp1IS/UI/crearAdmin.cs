@@ -29,22 +29,32 @@ namespace UI
         {
             try
             {
-                if (textBox1.Text == string.Empty || textBox2.Text == string.Empty || textBox3.Text == string.Empty || metroDateTime2.Value == null)
+
+                var error = 0;
+                if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
                 {
-                    throw new Exception();
+                    errorProvider1.SetError(textBox1, "Debe ingresar un usuario sin caracteres especiales");
+                    error++;
+
                 }
-                bool respuesta = Regex.IsMatch(textBox1.Text, "^([a-zA-Z0-9]{1,25}$)") && Regex.IsMatch(textBox2.Text, "^([a-zA-Z]{5,15})([1-9]{1,10}$)");
-                bool respuestaID = Regex.IsMatch(textBox3.Text, "^([0-9]{1,9}$)");
-                if (respuesta == false)
+                if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^([a-zA-Z]{5,15})([1-9]{1,10}$)"))
                 {
-                    MetroMessageBox.Show(this, "La contraseña debe poseer al menos un numero y 5 letras, el usuario no debe poseer caracteres especiales", "ERROR");
-                }
-                else if (respuestaID == false)
-                {
-                    MetroMessageBox.Show(this, "El ID deben ser de 1 a 9 numeros", "ERROR");
+                    errorProvider1.SetError(textBox2, "Debe ingresar una contraseña de al menos un numero y 5 letras");
+                    error++;
                 }
 
-                else
+                if (textBox3.Text == string.Empty || !Regex.IsMatch(textBox3.Text, "^([0-9]{1,9}$)"))
+                {
+                    errorProvider1.SetError(textBox3, "Debe ingresar un id de 1 a 9 numeros");
+                    error++;
+                }
+                if (metroDateTime2.Value == null)
+                {
+                    errorProvider1.SetError(metroDateTime2, "Debe ingresar una fecha");
+                    error++;
+                }
+
+                if (error == 0)
                 {
                     if (oLog.usuario_existente(Convert.ToInt32(textBox3.Text))) MessageBox.Show("Ya hay un usuario registrado con este id", "ERROR");
                     else

@@ -18,7 +18,7 @@ namespace Negocio
         MPPUsuario oUsuario;
         public bool validar(BEUsuario usuario)
         {
-            usuario.password = Servicios.Encriptar(usuario.password);
+            usuario.password = encriptar.Encriptar(usuario.password);
             return oUsuario.validar(usuario);
         }
         public BEUsuario buscar_usuario(string username)
@@ -35,7 +35,7 @@ namespace Negocio
         }
         public bool cargar_usuario(BEUsuario usuario)
         {
-            usuario.password = Servicios.Encriptar(usuario.password);
+            usuario.password = encriptar.Encriptar(usuario.password);
             return oUsuario.cargar_usuario(usuario);
         }
         public bool es_admin(string username)
@@ -48,7 +48,7 @@ namespace Negocio
         }
         public bool crear_admin(BEUsuario usuario)
         {
-            usuario.password = Servicios.Encriptar(usuario.password);
+            usuario.password = encriptar.Encriptar(usuario.password);
             return oUsuario.crear_admin(usuario);
         }
         public bool es_activo(string username)

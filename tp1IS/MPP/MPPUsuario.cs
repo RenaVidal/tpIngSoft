@@ -15,7 +15,7 @@ namespace MPP
     {
         Acceso oDatos;
         Hashtable Hdatos;
-        Servicios servicioUsuario = new Servicios();
+        encriptar servicioUsuario = new encriptar();
         public bool validar(BEUsuario usuario)
         {
             DataTable Ds2 = new DataTable();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -41,7 +42,9 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -117,7 +120,7 @@
             this.groupBox1.Controls.Add(this.metroLabel4);
             this.groupBox1.Location = new System.Drawing.Point(30, 201);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(293, 152);
+            this.groupBox1.Size = new System.Drawing.Size(372, 152);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sign Up";
@@ -165,11 +168,15 @@
             this.metroLabel4.TabIndex = 9;
             this.metroLabel4.Text = "Birth date";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 389);
+            this.ClientSize = new System.Drawing.Size(425, 389);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
@@ -183,6 +190,7 @@
             this.Load += new System.EventHandler(this.SignIn_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,6 +211,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

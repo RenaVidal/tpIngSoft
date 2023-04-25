@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace servicios
 {
-    public class Servicios
+    public class encriptar
     {
         Hashtable Hdatos;
         public static string GenerarSHA(string sCadena)

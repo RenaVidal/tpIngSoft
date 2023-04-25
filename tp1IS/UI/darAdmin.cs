@@ -37,17 +37,10 @@ namespace UI
         {
             try
             {
-                System.Windows.Forms.ErrorProvider nameErrorProvider = new System.Windows.Forms.ErrorProvider();
-                if (textBox2.Text == null)
+                if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^([0-9]{1,9}$)"))
                 {
-                    throw new Exception();
+                    errorProvider1.SetError(textBox2, "Debe ingresar un id de 1 a 9 numeros");
                 }
-                bool respuestaID = Regex.IsMatch(textBox2.Text, "^([0-9]{1,9}$)");
-                if (!respuestaID)
-                {
-                    MetroMessageBox.Show(this, "El ID deben ser de 1 a 9 numeros", "ERROR");
-                }
-
                 else
                 {
                     if (oLog.usuario_existente(Convert.ToInt32(textBox2.Text))){

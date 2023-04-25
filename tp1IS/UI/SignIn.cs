@@ -86,20 +86,32 @@ namespace UI
         {
             try
             {
-                if (textBox1.Text == string.Empty || textBox2.Text == string.Empty)
+                var error = 0;
+                if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
                 {
-                    throw new Exception();
-                }
-                oUsuraio = new BEUsuario(textBox1.Text,textBox2.Text);
-                if (oLog.validar(oUsuraio))
-                {
-                    logIn(textBox1.Text);
+                    errorProvider1.SetError(textBox1, "Debe ingresar un usuario sin caracteres especiales");
+                    error++;
 
                 }
-                else
+                if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^([a-zA-Z]{5,15})([1-9]{1,10}$)"))
                 {
-                    MetroMessageBox.Show(this, "Usuario o contraseña incorrecta ");
+                    errorProvider1.SetError(textBox2, "Debe ingresar una contraseña de 1 a 10 numeros y 5-15 letras");
+                    error++;
                 }
+                if(error == 0)
+                {
+                    oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text);
+                    if (oLog.validar(oUsuraio))
+                    {
+                        logIn(textBox1.Text);
+
+                    }
+                    else
+                    {
+                        MetroMessageBox.Show(this, "Usuario o contraseña incorrecta ");
+                    }
+                }
+               
             }
             catch (Exception ex)
             {
@@ -116,22 +128,31 @@ namespace UI
         {
             try
             {
-                if (textBox1.Text == string.Empty || textBox2.Text == string.Empty || textBox4.Text == string.Empty || metroDateTime1.Value == null)
+                var error = 0;
+                if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
                 {
-                    throw new Exception();
+                    errorProvider1.SetError(textBox1, "Debe ingresar un usuario sin caracteres especiales");
+                    error++;
+
                 }
-                bool respuesta = Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)") && Regex.IsMatch(textBox2.Text, "^([a-zA-Z]{5,15})([1-9]{1,10}$)");
-                bool respuestaID = Regex.IsMatch(textBox4.Text, "^([0-9]{1,9}$)");
-                if (respuesta == false)
+                if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^([a-zA-Z]{5,15})([1-9]{1,10}$)"))
                 {
-                    MetroMessageBox.Show(this, "La contraseña debe poseer al menos un numero y 5 letras, el usuario no debe poseer caracteres especiales", "ERROR");
-                }
-                else if (respuestaID == false)
-                {
-                    MetroMessageBox.Show(this, "El ID deben ser de 1 a 9 numeros", "ERROR");
+                    errorProvider1.SetError(textBox2, "Debe ingresar una contraseña de al menos un numero y 5 letras");
+                    error++;
                 }
 
-                else
+                if (textBox4.Text == string.Empty || !Regex.IsMatch(textBox4.Text, "^([0-9]{1,9}$)"))
+                {
+                    errorProvider1.SetError(textBox4, "Debe ingresar un id de 1 a 9 numeros");
+                    error++;
+                }
+                if (metroDateTime1.Value == null)
+                {
+                    errorProvider1.SetError(metroDateTime1, "Debe ingresar una fecha");
+                    error++;
+                }
+
+                if(error == 0)
                 {
                     if (oLog.usuario_existente(Convert.ToInt32(textBox4.Text))) MessageBox.Show("Ya hay un usuario registrado con este id", "ERROR");
                     else
