@@ -38,6 +38,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -153,18 +154,38 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // metroButton5
+            // 
+            this.metroButton5.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.metroButton5.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton5.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.metroButton5.Location = new System.Drawing.Point(292, 63);
+            this.metroButton5.Name = "metroButton5";
+            this.metroButton5.Size = new System.Drawing.Size(138, 181);
+            this.metroButton5.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton5.TabIndex = 8;
+            this.metroButton5.Text = "Reset Password";
+            this.metroButton5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroButton5.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton5.UseCustomBackColor = true;
+            this.metroButton5.UseCustomForeColor = true;
+            this.metroButton5.UseSelectable = true;
+            this.metroButton5.UseStyleColors = true;
+            this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
+            // 
             // AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.metroButton5);
             this.Controls.Add(this.metroButton4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.Name = "AdminHome";
-            this.Text = "AdminHome";
+            this.Text = "Admin Home";
             this.Load += new System.EventHandler(this.AdminHome_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -183,5 +204,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroButton metroButton4;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private MetroFramework.Controls.MetroButton metroButton5;
     }
 }

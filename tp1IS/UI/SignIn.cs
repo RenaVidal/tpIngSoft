@@ -50,6 +50,7 @@ namespace UI
         {
 
         }
+        BLLBitacora oBit = new BLLBitacora();
         public void logIn(string username)
         {
             try
@@ -59,6 +60,8 @@ namespace UI
                     BEUsuario user=  oLog.buscar_usuario(username);
                     SessionManager.Login(user);
                     SessionManager u = SessionManager.GetInstance;
+                    oBit.guardar_logIn();
+
                     if (oLog.es_admin(username))
                     {
                         this.Hide();
@@ -86,6 +89,9 @@ namespace UI
         {
             try
             {
+                errorProvider1.Clear();
+                errorProvider1.SetError(textBox1, "");
+                errorProvider1.SetError(textBox2, "");
                 var error = 0;
                 if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
                 {
@@ -129,6 +135,10 @@ namespace UI
             try
             {
                 var error = 0;
+                errorProvider1.Clear();
+                errorProvider1.SetError(textBox1, "");
+                errorProvider1.SetError(textBox2, "");
+                errorProvider1.SetError(textBox4, "");
                 if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
                 {
                     errorProvider1.SetError(textBox1, "Debe ingresar un usuario sin caracteres especiales");
@@ -178,6 +188,11 @@ namespace UI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void metroLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

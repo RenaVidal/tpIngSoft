@@ -41,7 +41,7 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel3.Location = new System.Drawing.Point(18, 27);
+            this.metroLabel3.Location = new System.Drawing.Point(18, 57);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(441, 25);
             this.metroLabel3.TabIndex = 12;
@@ -88,7 +88,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.metroLabel4);
             this.Name = "darAdmin";
-            this.Text = "darAdmin";
+            this.Text = "Give admin";
             this.Load += new System.EventHandler(this.darAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

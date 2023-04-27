@@ -53,6 +53,8 @@ namespace UI
         {
             try
             {
+                errorProvider1.Clear();
+                errorProvider1.SetError(textBox1, "");
                 if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([0-9]{1,9}$)"))
                 {
                     errorProvider1.SetError(textBox1, "Debe ingresar un id de 1 a 9 numeros");
@@ -63,6 +65,8 @@ namespace UI
                     {
                         if (oLog.eliminar_usuario(Convert.ToInt32(textBox1.Text)))
                         {
+                            var accion = "elimino el usuario" + textBox1.Text;
+                            oBit.guardar_accion(accion);
                             MetroMessageBox.Show(this, "Usuario borrado");
                         }
                         else
@@ -79,11 +83,12 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
-
+        BLLBitacora oBit = new BLLBitacora();
         private void metroButton4_Click(object sender, EventArgs e)
         {
             try
             {
+                oBit.guardar_logOut();
                 SessionManager.Logout();
                 this.Hide();
                 SignIn form = new SignIn();
@@ -99,6 +104,12 @@ namespace UI
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void metroButton5_Click(object sender, EventArgs e)
+        {
+            borrarPassword passForm = new borrarPassword();
+            passForm.Show();
         }
     }
 }

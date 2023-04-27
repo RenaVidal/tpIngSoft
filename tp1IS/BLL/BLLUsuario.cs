@@ -16,6 +16,11 @@ namespace Negocio
             oUsuario = new MPPUsuario();
         }
         MPPUsuario oUsuario;
+        public bool cambiar_contrasena(int id, string contra)
+        {
+            string contrasena = encriptar.Encriptar(contra);
+            return oUsuario.cambiar_contrasena(id, contrasena);
+        }
         public bool validar(BEUsuario usuario)
         {
             usuario.password = encriptar.Encriptar(usuario.password);

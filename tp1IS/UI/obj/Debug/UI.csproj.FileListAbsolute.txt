@@ -29,3 +29,4 @@ C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.exe
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.pdb
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.crearAdmin.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.darAdmin.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.borrarPassword.resources

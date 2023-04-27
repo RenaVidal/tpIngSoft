@@ -32,11 +32,13 @@ namespace UI
         private void metroLabel3_Click(object sender, EventArgs e)
         {
         }
-
+        BLLBitacora oBit = new BLLBitacora();
         private void metroButton1_Click(object sender, EventArgs e)
         {
             try
             {
+                errorProvider1.Clear();
+                errorProvider1.SetError(textBox2, "");
                 if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^([0-9]{1,9}$)"))
                 {
                     errorProvider1.SetError(textBox2, "Debe ingresar un id de 1 a 9 numeros");
@@ -46,6 +48,8 @@ namespace UI
                     if (oLog.usuario_existente(Convert.ToInt32(textBox2.Text))){
                        if( oLog.dar_admin(Convert.ToInt32(textBox2.Text)))
                         {
+                            var accion = "dio privilegios de admin a el usuario" + textBox2.Text;
+                            oBit.guardar_accion(accion);
                             MetroMessageBox.Show(this, "El usuario indicado ya posee provilegios de administrador");
                             this.Hide();
                         }

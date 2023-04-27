@@ -57,7 +57,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.metroButton4);
             this.Name = "UserHome";
-            this.Text = "UserHome";
+            this.Text = "User Home";
             this.Load += new System.EventHandler(this.UserHome_Load);
             this.ResumeLayout(false);
 

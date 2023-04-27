@@ -15,7 +15,17 @@ namespace MPP
     {
         Acceso oDatos;
         Hashtable Hdatos;
-        encriptar servicioUsuario = new encriptar();
+        public bool cambiar_contrasena(int id, string contrasena)
+        {
+
+            Hdatos = new Hashtable();
+            string Consulta = "s_Usuario_cambiar_contrasena";
+            Hdatos.Add("@id", id);
+            Hdatos.Add("@password", contrasena);
+
+            oDatos = new Acceso();
+            return oDatos.Escribir(Consulta, Hdatos);
+        }
         public bool validar(BEUsuario usuario)
         {
             DataTable Ds2 = new DataTable();

@@ -24,13 +24,17 @@ namespace UI
         }
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
-
+        BLLBitacora oBit = new BLLBitacora();
         private void metroButton4_Click(object sender, EventArgs e)
         {
             try
             {
 
                 var error = 0;
+                errorProvider1.Clear();
+                errorProvider1.SetError(textBox1, "");
+                errorProvider1.SetError(textBox2, "");
+                errorProvider1.SetError(textBox3, "");
                 if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
                 {
                     errorProvider1.SetError(textBox1, "Debe ingresar un usuario sin caracteres especiales");
@@ -62,6 +66,8 @@ namespace UI
                         oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), metroDateTime2.Value.ToString());
                         if (oLog.crear_admin(oUsuraio))
                         {
+                            var accion = "creo el usuario admin" + textBox1.Text;
+                            oBit.guardar_accion(accion);
                             MetroMessageBox.Show(this, "Usuario admin rcreado");
                             this.Hide();
                         }
@@ -78,6 +84,11 @@ namespace UI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void crearAdmin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

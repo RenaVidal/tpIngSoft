@@ -137,7 +137,8 @@
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Name = "crearAdmin";
-            this.Text = "crearAdmin";
+            this.Text = "Create Admin";
+            this.Load += new System.EventHandler(this.crearAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

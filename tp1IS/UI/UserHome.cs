@@ -1,4 +1,5 @@
-﻿using Patrones.Singleton.Core;
+﻿using Negocio;
+using Patrones.Singleton.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,12 +24,13 @@ namespace UI
 
         }
 
-
+        BLLBitacora oBit = new BLLBitacora();
         private void metroButton4_Click(object sender, EventArgs e)
         {
 
             try
             {
+                oBit.guardar_logOut();
                 SessionManager.Logout();
                 this.Hide();
                 SignIn form = new SignIn();
