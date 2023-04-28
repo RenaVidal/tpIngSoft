@@ -73,7 +73,7 @@ namespace UI
                         }
                         else
                         {
-                            MetroMessageBox.Show(this, "Ocurrio un error");
+                            MetroMessageBox.Show(this, "Ocurrio un error, pruebe modificando el nombre de usuario");
                         }
                     }
 

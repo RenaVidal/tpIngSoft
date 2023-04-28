@@ -50,7 +50,7 @@ namespace UI
                         {
                             var accion = "dio privilegios de admin a el usuario" + textBox2.Text;
                             oBit.guardar_accion(accion);
-                            MetroMessageBox.Show(this, "El usuario indicado ya posee provilegios de administrador");
+                            MetroMessageBox.Show(this, "Operacion realizada con exito");
                             this.Hide();
                         }
                         else

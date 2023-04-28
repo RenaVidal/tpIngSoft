@@ -61,7 +61,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(204, 87);
+            this.metroLabel4.Location = new System.Drawing.Point(204, 101);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(20, 20);
             this.metroLabel4.TabIndex = 11;
@@ -69,7 +69,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(241, 85);
+            this.textBox2.Location = new System.Drawing.Point(241, 99);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(188, 22);
             this.textBox2.TabIndex = 9;
