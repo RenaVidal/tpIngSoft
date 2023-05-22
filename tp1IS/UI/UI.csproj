@@ -73,11 +73,23 @@
     <Compile Include="crearAdmin.Designer.cs">
       <DependentUpon>crearAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="crearRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="crearRol.Designer.cs">
+      <DependentUpon>crearRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="darAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="darAdmin.Designer.cs">
       <DependentUpon>darAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="eliminarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eliminarRol.Designer.cs">
+      <DependentUpon>eliminarRol.cs</DependentUpon>
     </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
@@ -102,8 +114,14 @@
     <EmbeddedResource Include="crearAdmin.resx">
       <DependentUpon>crearAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="crearRol.resx">
+      <DependentUpon>crearRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="darAdmin.resx">
       <DependentUpon>darAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eliminarRol.resx">
+      <DependentUpon>eliminarRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

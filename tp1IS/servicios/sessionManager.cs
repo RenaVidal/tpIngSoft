@@ -21,7 +21,7 @@ namespace Patrones.Singleton.Core
         {
             get
             {
-                if (_session == null) throw new Exception("Sesión no iniciada");
+                if (_session == null) _session = new SessionManager();
 
                 return _session;
             }
@@ -32,15 +32,14 @@ namespace Patrones.Singleton.Core
 
             lock (_lock)
             {
-                if (_session == null)
+                if (_session != null)
                 {
-                    _session = new SessionManager();
                     _session.Usuario = usuario;
                     _session.FechaInicio = DateTime.Now;
                 }
                 else
                 {
-                    throw new Exception("Sesión ya iniciada");
+                    throw new Exception("No hay sesion iniciada");
                 }
             }
         }

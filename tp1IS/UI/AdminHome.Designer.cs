@@ -39,6 +39,7 @@
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
+            this.metroButton6 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -173,11 +174,31 @@
             this.metroButton5.UseStyleColors = true;
             this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
             // 
+            // metroButton6
+            // 
+            this.metroButton6.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.metroButton6.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton6.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.metroButton6.Location = new System.Drawing.Point(436, 63);
+            this.metroButton6.Name = "metroButton6";
+            this.metroButton6.Size = new System.Drawing.Size(138, 181);
+            this.metroButton6.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton6.TabIndex = 9;
+            this.metroButton6.Text = "Create Rol";
+            this.metroButton6.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroButton6.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton6.UseCustomBackColor = true;
+            this.metroButton6.UseCustomForeColor = true;
+            this.metroButton6.UseSelectable = true;
+            this.metroButton6.UseStyleColors = true;
+            this.metroButton6.Click += new System.EventHandler(this.metroButton6_Click);
+            // 
             // AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.metroButton6);
             this.Controls.Add(this.metroButton5);
             this.Controls.Add(this.metroButton4);
             this.Controls.Add(this.groupBox1);
@@ -205,5 +226,6 @@
         private MetroFramework.Controls.MetroButton metroButton4;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private MetroFramework.Controls.MetroButton metroButton5;
+        private MetroFramework.Controls.MetroButton metroButton6;
     }
 }

@@ -15,14 +15,18 @@ namespace MPP
         Hashtable Hdatos;
         public bool cargar_bitacora(BEUsuario usuario, DateTime date, string accion)
         {
-            Hdatos = new Hashtable();
-            string Consulta = "s_bitacora_crear";
-            Hdatos.Add("@user", usuario.user);
-            Hdatos.Add("@time", date);
-            Hdatos.Add("@action", accion);
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_bitacora_crear";
+                Hdatos.Add("@user", usuario.user);
+                Hdatos.Add("@time", date);
+                Hdatos.Add("@action", accion);
 
-            oDatos = new Acceso();
-            return oDatos.Escribir(Consulta, Hdatos);
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (Exception ex) {  throw ex; }
         }
     }
 }

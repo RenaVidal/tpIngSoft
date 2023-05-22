@@ -48,7 +48,7 @@ namespace UI
         {
             groupBox1.Show();
         }
-
+        SessionManager session = SessionManager.GetInstance;
         private void metroButton3_Click(object sender, EventArgs e)
         {
             try
@@ -65,9 +65,14 @@ namespace UI
                     {
                         if (oLog.eliminar_usuario(Convert.ToInt32(textBox1.Text)))
                         {
-                            var accion = "elimino el usuario" + textBox1.Text;
+                            var accion = "elimino el usuario " + textBox1.Text;
                             oBit.guardar_accion(accion);
                             MetroMessageBox.Show(this, "Usuario borrado");
+                            if(Convert.ToInt32( textBox1.Text) == session.Usuario.id)
+                            {
+                                MetroMessageBox.Show(this, "Su usuario se encuentra deshabilitado, no podra ingresar al sistema");
+                                this.Hide();
+                            }
                         }
                         else
                         {
@@ -110,6 +115,12 @@ namespace UI
         {
             borrarPassword passForm = new borrarPassword();
             passForm.Show();
+        }
+
+        private void metroButton6_Click(object sender, EventArgs e)
+        {
+            crearRol rol = new crearRol();
+            rol.Show();
         }
     }
 }

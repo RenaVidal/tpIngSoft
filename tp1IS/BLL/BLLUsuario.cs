@@ -18,47 +18,85 @@ namespace Negocio
         MPPUsuario oUsuario;
         public bool cambiar_contrasena(int id, string contra)
         {
-            string contrasena = encriptar.Encriptar(contra);
-            return oUsuario.cambiar_contrasena(id, contrasena);
+            try { 
+             string contrasena = encriptar.Encriptar(contra);
+             return oUsuario.cambiar_contrasena(id, contrasena);
+            }
+            catch (Exception ex) { throw ex; }
         }
         public bool validar(BEUsuario usuario)
         {
-            usuario.password = encriptar.Encriptar(usuario.password);
-            return oUsuario.validar(usuario);
+            try
+            {
+                 usuario.password = encriptar.Encriptar(usuario.password);
+                 return oUsuario.validar(usuario);
+            }
+            catch (Exception ex) { throw ex; }
         }
         public BEUsuario buscar_usuario(string username)
         {
-            return oUsuario.buscar_usuario(username);
+            try
+            {
+                return oUsuario.buscar_usuario(username);
+             }
+             catch (Exception ex) { throw ex; }
         }
         public bool usuario_existente(int id)
         {
-            return oUsuario.usuario_existente(id);
+          try
+            {
+                return oUsuario.usuario_existente(id);
+            }
+            catch (Exception ex) { throw ex; }
         }
         public bool eliminar_usuario(int id)
         {
-            return oUsuario.eliminar_usuario(id);
+            try
+            {
+                return oUsuario.eliminar_usuario(id);
+            }
+            catch (Exception ex) { throw ex; }
         }
         public bool cargar_usuario(BEUsuario usuario)
         {
-            usuario.password = encriptar.Encriptar(usuario.password);
-            return oUsuario.cargar_usuario(usuario);
+            try
+            {
+                usuario.password = encriptar.Encriptar(usuario.password);
+                return oUsuario.cargar_usuario(usuario);
+            }
+            catch (Exception ex) { throw ex; }
         }
         public bool es_admin(string username)
         {
-            return oUsuario.es_admin(username);
+            try
+            {
+                return oUsuario.es_admin(username);
+            }
+            catch (Exception ex) { throw ex; }
         }
         public  bool dar_admin(int id)
         {
-            return oUsuario.dar_admin(id);
+            try
+            {
+                return oUsuario.dar_admin(id);
+            }
+            catch (Exception ex) { throw ex; }
         }
         public bool crear_admin(BEUsuario usuario)
         {
-            usuario.password = encriptar.Encriptar(usuario.password);
-            return oUsuario.crear_admin(usuario);
+            try
+            {
+                usuario.password = encriptar.Encriptar(usuario.password);
+                return oUsuario.crear_admin(usuario);
+            }
+            catch (Exception ex) { throw ex; }
         }
         public bool es_activo(string username)
         {
-            return oUsuario.es_activo(username);
+            try
+            {
+                return oUsuario.es_activo(username);
+            }catch(Exception ex) { throw ex; }
         }
     }
     

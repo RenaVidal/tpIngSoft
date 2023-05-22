@@ -85,7 +85,7 @@
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(122, 31);
             this.metroButton1.TabIndex = 5;
-            this.metroButton1.Text = "Sing Up";
+            this.metroButton1.Text = "Sign Up";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click_1);
             // 

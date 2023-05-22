@@ -17,126 +17,202 @@ namespace MPP
         Hashtable Hdatos;
         public bool cambiar_contrasena(int id, string contrasena)
         {
+            try
+            {
 
-            Hdatos = new Hashtable();
-            string Consulta = "s_Usuario_cambiar_contrasena";
-            Hdatos.Add("@id", id);
-            Hdatos.Add("@password", contrasena);
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_cambiar_contrasena";
+                Hdatos.Add("@id", id);
+                Hdatos.Add("@password", contrasena);
 
-            oDatos = new Acceso();
-            return oDatos.Escribir(Consulta, Hdatos);
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public bool validar(BEUsuario usuario)
         {
-            DataTable Ds2 = new DataTable();
-            Acceso oDatos = new Acceso();
-            string Consulta = "s_Usuario_listar";
-            Ds2 = oDatos.Leer(Consulta, null);
-            foreach (DataRow fila in Ds2.Rows)
+            try
             {
-                if (usuario.user == fila["username"].ToString() && usuario.password == fila["password"].ToString()) return true;
+                DataTable Ds2 = new DataTable();
+                Acceso oDatos = new Acceso();
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_login";
+                Hdatos.Add("@username", usuario.user);
+                Hdatos.Add("@password", usuario.password);
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    if( usuario.user == fila["username"].ToString() && usuario.password == fila["password"].ToString()) return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public BEUsuario buscar_usuario(string username)
         {
-            BEUsuario user = new BEUsuario();
-            DataTable Ds2 = new DataTable();
-            Acceso oDatos = new Acceso();
-            string Consulta = "s_Usuario_listar";
-            Ds2 = oDatos.Leer(Consulta, null);
-            foreach (DataRow fila in Ds2.Rows)
+            try
             {
-                if (username == fila["username"].ToString())
+                BEUsuario user = new BEUsuario();
+                DataTable Ds2 = new DataTable();
+                Acceso oDatos = new Acceso();
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_buscar";
+                Hdatos.Add("@username", username);
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                foreach (DataRow fila in Ds2.Rows)
                 {
-                    user.user = username;
-                    user.password = fila["password"].ToString();
-                    user.id = Convert.ToInt32(fila["id"]);
-                    user.birthDate = fila["birthdate"].ToString();
+                        user.user = username;
+                        user.password = fila["password"].ToString();
+                        user.id = Convert.ToInt32(fila["id"]);
+                        user.birthDate = fila["birthdate"].ToString();
                 }
+                return user;
             }
-            return user;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public bool es_activo(string username)
         {
-            DataTable Ds2 = new DataTable();
-            Acceso oDatos = new Acceso();
-            string Consulta = "s_Usuario_listar";
-            Ds2 = oDatos.Leer(Consulta, null);
-            foreach (DataRow fila in Ds2.Rows)
+            try
             {
-                if (username == fila["username"].ToString() && Convert.ToBoolean( fila["active"]) ==true) return true;
+                DataTable Ds2 = new DataTable();
+                Acceso oDatos = new Acceso();
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_activo";
+                Hdatos.Add("@username", username);
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    if (username == fila["username"].ToString() && true == Convert.ToBoolean( fila["active"])) return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public bool usuario_existente(int id)
         {
-            DataTable Ds2 = new DataTable();
-            Acceso oDatos = new Acceso();
-            string Consulta = "s_Usuario_listar";
-            Ds2 = oDatos.Leer(Consulta, null);
-            foreach (DataRow fila in Ds2.Rows)
+            try
             {
-                if (id == Convert.ToInt32( fila["id"])) return true;
+                DataTable Ds2 = new DataTable();
+                Acceso oDatos = new Acceso();
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_porid";
+                Hdatos.Add("@id", id);
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    if (id == Convert.ToInt32(fila["id"])) return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public bool cargar_usuario(BEUsuario usuario)
         {
-            Hdatos = new Hashtable();
-            string Consulta = "s_Usuario_crear";
-            Hdatos.Add("@id", usuario.id);
-            Hdatos.Add("@user", usuario.user);
-            Hdatos.Add("@password", usuario.password);
-            Hdatos.Add("@admin", false);
-            Hdatos.Add("@active", true);
-            Hdatos.Add("@birthdate", usuario.birthDate);
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_crear";
+                Hdatos.Add("@id", usuario.id);
+                Hdatos.Add("@user", usuario.user);
+                Hdatos.Add("@password", usuario.password);
+                Hdatos.Add("@active", true);
+                Hdatos.Add("@birthdate", usuario.birthDate);
 
-            oDatos = new Acceso();
-            return oDatos.Escribir(Consulta, Hdatos);
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public bool eliminar_usuario(int id)
-        { 
-           
-            Hdatos = new Hashtable();
-            string Consulta = "s_Usuario_eliminar";
-            Hdatos.Add("@id", id);
-            oDatos = new Acceso();
-            return oDatos.Escribir(Consulta, Hdatos);
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_eliminar";
+                Hdatos.Add("@id", id);
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public bool es_admin(string username)
         {
-            DataTable Ds2 = new DataTable();
-            Acceso oDatos = new Acceso();
-            string Consulta = "s_Usuario_listar";
-            Ds2 = oDatos.Leer(Consulta, null);
-            foreach (DataRow fila in Ds2.Rows)
+            try
             {
-                if (username == fila["username"].ToString() && Convert.ToBoolean( fila["admin"]) == true) return true;
+                DataTable Ds2 = new DataTable();
+                Acceso oDatos = new Acceso();
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_buscar";
+                Hdatos.Add("@username", username);
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    if (username == fila["username"].ToString() && Convert.ToBoolean(fila["admin"]) == true) return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public bool dar_admin(int id)
         {
-            Hdatos = new Hashtable();
-            string Consulta = "s_Usuario_dar_admin";
-            Hdatos.Add("@id", id);
-            oDatos = new Acceso();
-            return oDatos.Escribir(Consulta, Hdatos);
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_dar_admin";
+                Hdatos.Add("@id", id);
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public bool crear_admin(BEUsuario usuario)
         {
-            Hdatos = new Hashtable();
-            string Consulta = "s_Usuario_crear";
-            Hdatos.Add("@id", usuario.id);
-            Hdatos.Add("@user", usuario.user);
-            Hdatos.Add("@password", usuario.password);
-            Hdatos.Add("@admin", true);
-            Hdatos.Add("@active", true);
-            Hdatos.Add("@birthdate", usuario.birthDate);
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_crear";
+                Hdatos.Add("@id", usuario.id);
+                Hdatos.Add("@user", usuario.user);
+                Hdatos.Add("@password", usuario.password);
+                Hdatos.Add("@admin", true);
+                Hdatos.Add("@active", true);
+                Hdatos.Add("@birthdate", usuario.birthDate);
 
-            oDatos = new Acceso();
-            return oDatos.Escribir(Consulta, Hdatos);
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
