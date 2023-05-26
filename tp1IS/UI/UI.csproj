@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddLenguaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLenguaje.Designer.cs">
+      <DependentUpon>AddLenguaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <Compile Include="UserHome.Designer.cs">
       <DependentUpon>UserHome.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddLenguaje.resx">
+      <DependentUpon>AddLenguaje.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminHome.resx">
       <DependentUpon>AdminHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +122,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
@@ -135,6 +145,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\abstraccion\abstraccion.csproj">
+      <Project>{fade44a9-3949-4853-932f-9d604a4a0707}</Project>
+      <Name>abstraccion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{f39929bf-2dce-4346-9c4a-c94e1eed36b6}</Project>
       <Name>BE</Name>
@@ -147,6 +161,12 @@
       <Project>{7b6b2eed-1774-4747-b947-f13422f733c6}</Project>
       <Name>servicios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ojoAbierto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ojoCerrado.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

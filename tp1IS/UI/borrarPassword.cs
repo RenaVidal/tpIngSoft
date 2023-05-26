@@ -12,10 +12,13 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using servicios.ClasesMultiLenguaje;
+using abstraccion;
+using servicios;
+using Patrones.Singleton.Core;
 namespace UI
 {
-    public partial class borrarPassword : MetroFramework.Forms.MetroForm
+    public partial class borrarPassword : MetroFramework.Forms.MetroForm,IdiomaObserver
     {
         public borrarPassword()
         {
@@ -24,7 +27,7 @@ namespace UI
 
         private void borrarPassword_Load(object sender, EventArgs e)
         {
-
+            SessionManager.agregarObservador(this);
         }
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
@@ -72,6 +75,90 @@ namespace UI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+       public void CambiarIdioma(Iidioma Idioma)
+        {
+            ListarIidomas();
+            Traducir();
+        }
+        public void ListarIidomas()
+        {
+
+            comboBox1.Items.Clear();
+            BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+            var ListaIdiomas = Traductor.ObtenerIdiomas();
+
+            foreach (Iidioma idioma in ListaIdiomas)
+            {
+                comboBox1.Items.Add(idioma.Nombre);
+             
+            }
+
+        }
+        public void Traducir()
+        {
+            Iidioma Idioma = null;
+
+            if (SessionManager.TraerUsuario())
+                Idioma = SessionManager.GetInstance.Usuario.Idioma;
+            if (Idioma.Nombre == "ingles")
+            {
+                VolverAidiomaOriginal();
+            }
+            else
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                var traducciones = Traductor.obtenertraducciones(Idioma);
+                if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
+                {
+                    this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
+                }
+                if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
+                {
+                    this.metroLabel1.Text = traducciones[metroLabel1.Tag.ToString()].texto;
+                }
+                if (metroLabel2.Tag != null && traducciones.ContainsKey(metroLabel2.Tag.ToString()))
+                {
+                    this.metroLabel2.Text = traducciones[metroLabel2.Tag.ToString()].texto;
+                }
+            }
+
+        }
+        public void VolverAidiomaOriginal()
+        {
+            BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+            List<string> palabras = Traductor.obtenerIdiomaOriginal();
+
+            if (metroButton1.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
+            {
+                string traduccion = palabras.Find(p => p.Equals(metroButton1.Tag.ToString()));
+                this.metroButton1.Text = traduccion;
+            }
+            if (metroLabel1.Tag != null && palabras.Contains(metroLabel1.Tag.ToString()))
+            {
+                string traduccion = palabras.Find(p => p.Equals(metroLabel1.Tag.ToString()));
+                this.metroLabel1.Text = traduccion;
+            }
+            if (metroLabel2.Tag != null && palabras.Contains(metroLabel2.Tag.ToString()))
+            {
+                string traduccion = palabras.Find(p => p.Equals(metroLabel2.Tag.ToString()));
+                this.metroLabel2.Text = traduccion;
+            }
+
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string idiomaSelec = comboBox1.SelectedItem.ToString();
+            BLL.BLLTraductor traductor = new BLL.BLLTraductor();
+            Idioma Oidioma = new Idioma();
+            Oidioma = traductor.TraerIdioma(idiomaSelec);
+
+            SessionManager.cambiarIdioma(Oidioma);
         }
     }
 }

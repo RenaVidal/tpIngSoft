@@ -41,7 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClasesMultiLenguaje\Palabra.cs" />
+    <Compile Include="ClasesMultiLenguaje\Idioma.cs" />
+    <Compile Include="ClasesMultiLenguaje\IdiomaObserver.cs" />
+    <Compile Include="ClasesMultiLenguaje\Traduccion.cs" />
     <Compile Include="encriptar.cs" />
+    <Compile Include="EntidadServicio.cs" />
+    <Compile Include="Observer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sessionManager.cs" />
   </ItemGroup>

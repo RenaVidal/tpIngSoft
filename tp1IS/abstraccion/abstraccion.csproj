@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IEntidad.cs" />
+    <Compile Include="Ipalabra.cs" />
+    <Compile Include="Iidioma.cs" />
+    <Compile Include="Itraduccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

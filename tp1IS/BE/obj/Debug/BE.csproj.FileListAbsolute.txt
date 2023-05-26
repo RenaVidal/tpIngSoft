@@ -7,3 +7,12 @@ C:\Users\renag\Documents\tpIngSoft\tp1IS\BE\obj\Debug\BE.csproj.CoreCompileInput
 C:\Users\renag\Documents\tpIngSoft\tp1IS\BE\obj\Debug\BE.csproj.CopyComplete
 C:\Users\renag\Documents\tpIngSoft\tp1IS\BE\obj\Debug\BE.dll
 C:\Users\renag\Documents\tpIngSoft\tp1IS\BE\obj\Debug\BE.pdb
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BE\bin\Debug\BE.dll
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BE\bin\Debug\BE.pdb
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BE\bin\Debug\abstraccion.dll
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BE\bin\Debug\abstraccion.pdb
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BE\obj\Debug\BE.csproj.AssemblyReference.cache
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BE\obj\Debug\BE.csproj.CopyComplete
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BE\obj\Debug\BE.dll
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BE\obj\Debug\BE.pdb

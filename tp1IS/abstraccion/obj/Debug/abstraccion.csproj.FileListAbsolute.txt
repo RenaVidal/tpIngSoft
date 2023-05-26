@@ -4,3 +4,9 @@ C:\Users\renag\Documents\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.cspro
 C:\Users\renag\Documents\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.csproj.CoreCompileInputs.cache
 C:\Users\renag\Documents\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.dll
 C:\Users\renag\Documents\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.pdb
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\abstraccion\bin\Debug\abstraccion.dll
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\abstraccion\bin\Debug\abstraccion.pdb
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.csproj.AssemblyReference.cache
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.csproj.CoreCompileInputs.cache
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.dll
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.pdb

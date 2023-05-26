@@ -40,7 +40,7 @@ namespace servicios
                 ICryptoTransform cTransform = tdes.CreateEncryptor();
                 byte[] ArrayResultado = cTransform.TransformFinalBlock(Arreglo_a_Cifrar, 0, Arreglo_a_Cifrar.Length);
                 tdes.Clear();
-
+                
                 texto = Convert.ToBase64String(ArrayResultado, 0, ArrayResultado.Length);
             }
             catch (Exception ex)
