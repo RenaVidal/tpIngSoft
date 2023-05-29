@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using abstraccion;
 using MPP;
 using servicios.ClasesMultiLenguaje;
 namespace BLL
@@ -18,18 +17,19 @@ namespace BLL
             OMPPtraductor = new MPPtraductor();
         }
         MPPtraductor OMPPtraductor;
-      /*  public  Iidioma ObtenerIdiomaBase()
+       public  Idioma ObtenerIdiomaBase()
         {
             // return ObtenerIdiomas().Where(i => i.Default).FirstOrDefault();
             return OMPPtraductor.ObtenerIdiomaBase();
-        }*/
+        }
        
-        public IList<Iidioma> ObtenerIdiomas()
+        public List<Idioma> ObtenerIdiomas()
         {
             return OMPPtraductor.ObtenerIdiomas();
         }
-        public IDictionary<string,Itraduccion> obtenertraducciones(Iidioma Idioma)
+        public Dictionary<string,Traduccion> obtenertraducciones(Idioma Idioma)
         {
+            //return OMPPtraductor.obtenertraducciones(Idioma);
             return OMPPtraductor.obtenertraducciones(Idioma);
         }
 
@@ -48,9 +48,9 @@ namespace BLL
             return OMPPtraductor.CrearIdioma(Oidioma);
         }
 
-        public bool IdiomaExistente(int id,string idioma)
+        public bool IdiomaExistente(string idioma)
         {
-            return OMPPtraductor.idiomaExistente(id,idioma);
+            return OMPPtraductor.idiomaExistente(idioma);
         }
 
         public bool TraduccionExistente(int id_idioma,int id_palabra)

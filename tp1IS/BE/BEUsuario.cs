@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using abstraccion;
+
 namespace BE
 {
     public class BEUsuario : Entidad
@@ -12,7 +12,7 @@ namespace BE
         public string password { get; set; }
         public string birthDate {get; set;}
 
-        public Iidioma Idioma { get; set; }
+        //public  IIdioma { get; set; }
 
         public BEUsuario(string usuario_e, string contrasena_e)
         {

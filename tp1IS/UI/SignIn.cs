@@ -12,7 +12,6 @@ using Patrones.Singleton.Core;
 using System.Drawing;
 using System.ComponentModel;
 using servicios.ClasesMultiLenguaje;
-using abstraccion;
 
 namespace UI
 {
@@ -202,7 +201,7 @@ namespace UI
         }
        
       
-        public void CambiarIdioma(Iidioma Idioma)
+        public void CambiarIdioma(Idioma Idioma)
         {
 
         }

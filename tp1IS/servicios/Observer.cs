@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using servicios.ClasesMultiLenguaje;
-using abstraccion;
+using Patrones.Singleton.Core;
 namespace servicios
 {
   public static class Observer
@@ -24,7 +24,7 @@ namespace servicios
         }
         
 
-        public static void notificarObeservadores(Iidioma Idioma)   //se notifica a los observadores
+        public static void notificarObeservadores(Idioma Idioma)   //se notifica a los observadores
         {
             foreach (var observer in Observadores)
             {
@@ -32,16 +32,17 @@ namespace servicios
             }
         }
 
-        public static void cambiarIdioma(Iidioma Idioma)    //Cambio de idioma
+        public static void cambiarIdioma(Idioma Idioma)    //Cambio de idioma
         {
             
             
-            /*  if (_session != null)
+              if (SessionManager.GetInstance != null)
               {
-                  _session.Usuario.Idioma = Idioma;
+                //_session.Usuario.Idioma = Idioma;
+                SessionManager.GetInstance.idioma = Idioma;
                   notificarObeservadores(Idioma);
               }
-          */
+          
             
         }
     }

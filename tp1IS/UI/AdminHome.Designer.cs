@@ -208,7 +208,7 @@
             this.metroButton6.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.metroButton6.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton6.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton6.Location = new System.Drawing.Point(466, 51);
+            this.metroButton6.Location = new System.Drawing.Point(436, 51);
             this.metroButton6.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton6.Name = "metroButton6";
             this.metroButton6.Size = new System.Drawing.Size(124, 147);

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using abstraccion;
 namespace servicios.ClasesMultiLenguaje
 {
   public interface IdiomaObserver
     {
-        void CambiarIdioma(Iidioma Idioma);
+        void CambiarIdioma(Idioma Idioma);
     }
 }

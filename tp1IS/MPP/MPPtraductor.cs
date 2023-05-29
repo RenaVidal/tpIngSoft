@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using abstraccion;
 using DAL;
 using System.Collections;
 using System.Data;
@@ -19,9 +18,10 @@ namespace MPP
         }
         Acceso Datos;
         Hashtable Hdatos;
-        public IList<Iidioma> ObtenerIdiomas()
+        
+        public List<Idioma> ObtenerIdiomas()
         {
-            IList<Iidioma> ListaIdiomas = new List<Iidioma>();
+            List<Idioma> ListaIdiomas = new List<Idioma>();
             try
             {
                 DataTable DT = new DataTable();
@@ -46,18 +46,33 @@ namespace MPP
             return ListaIdiomas;
         }
 
-        public Iidioma ObtenerIdiomaBase()
+        public Idioma ObtenerIdiomaBase()
         {
-            return ObtenerIdiomas().Where(idioma => idioma.Default).FirstOrDefault();
+            //return ObtenerIdiomas().Where(idioma => idioma.Default).FirstOrDefault();
+
+            string consulta = "S_listar_idioma";
+            DataTable DT = new DataTable();
+            DT = Datos.Leer(consulta, null);
+            Idioma Oidioma = new Idioma();
+            foreach(DataRow fila in DT.Rows)
+            {
+                if (Convert.ToBoolean(fila["predeterminado"]) == true)
+                {
+                    Oidioma.ID = Convert.ToInt32(fila["id"]);
+                    Oidioma.Nombre = fila["idioma"].ToString();
+                    Oidioma.Default = Convert.ToBoolean(fila["predeterminado"]);
+                }
+            }
+            return Oidioma;
         }
-        public IDictionary<string, Itraduccion> obtenertraducciones(Iidioma Idioma)
+        public Dictionary<string, Traduccion> obtenertraducciones(Idioma Idioma)
         {
             if (Idioma == null)
             {
                 Idioma=ObtenerIdiomaBase();
             }
 
-            IDictionary<string, Itraduccion> Traducciones = new Dictionary<string, Itraduccion>();
+            Dictionary<string, Traduccion> Traducciones = new Dictionary<string, Traduccion>();
 
             try
             {
@@ -105,7 +120,7 @@ namespace MPP
                 {
                     string Palabraa = fila["palabra"].ToString();
                     Palabra Opalabra = new Palabra();
-                    Opalabra.Id = Convert.ToInt32(fila["id"].ToString());
+                    Opalabra.ID = Convert.ToInt32(fila["id"].ToString());
                     Opalabra.Nombre = Palabraa;
 
                     Palabras.Add(Palabraa);
@@ -151,7 +166,7 @@ namespace MPP
             {
                 Hashtable hdatos = new Hashtable();
                 string consulta = "S_Crear_Idioma";
-                hdatos.Add("@id", Oidioma.ID);
+             //   hdatos.Add("@id", Oidioma.ID);
                 hdatos.Add("idioma", Oidioma.Nombre);
                 hdatos.Add("predeterminado", Oidioma.Default);
                 Datos = new Acceso();
@@ -164,7 +179,7 @@ namespace MPP
 
         }
 
-        public bool idiomaExistente(int id,string idioma)
+        public bool idiomaExistente(string idioma)
         {
             string consulta = "S_Listar_Idioma";
 
@@ -173,7 +188,7 @@ namespace MPP
             DT = Datos.Leer(consulta, null);
             foreach (DataRow fila in DT.Rows)
             {
-                if (id == Convert.ToInt32(fila["id"])|| idioma == fila["idioma"].ToString()) return true;
+                if (idioma == fila["idioma"].ToString()) return true;
                
             }
             return false;
@@ -227,7 +242,7 @@ namespace MPP
                 string consulta = "S_altaTraduccion";
                 Hdatos = new Hashtable();
                 Hdatos.Add("@IDidioma", ID_idioma);
-                Hdatos.Add("@IDpalabra", Otraduccion.Palabra);
+                Hdatos.Add("@IDpalabra", Otraduccion.Palabra.ID);
                 Hdatos.Add("@traduccion", Otraduccion.texto);
                 Datos = new Acceso();
                 return Datos.Escribir(consulta, Hdatos);

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using abstraccion;
 namespace servicios.ClasesMultiLenguaje
 {
-   public class Traduccion:Itraduccion
+   public class Traduccion
     {
-        public Ipalabra Palabra { get; set; }
+        public Palabra Palabra { get; set; }
         public string texto { get; set; }
     }
 }

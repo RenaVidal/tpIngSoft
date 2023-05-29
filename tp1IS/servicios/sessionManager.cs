@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
-using abstraccion;
 using servicios.ClasesMultiLenguaje;
 namespace Patrones.Singleton.Core
 {
@@ -15,7 +14,7 @@ namespace Patrones.Singleton.Core
         private static object _lock = new Object();
         private static SessionManager _session;
 
-        
+        public Idioma idioma { get; set; }
 
        static IList<IdiomaObserver> Observadores = new List<IdiomaObserver>();  //creo lista de observadores
         public BEUsuario Usuario { get; set; }
@@ -88,7 +87,7 @@ namespace Patrones.Singleton.Core
             Observadores.Remove(Observer);
         }
 
-        public static void notificarObeservadores(Iidioma Idioma)   //se notifica a los observadores
+        public static void notificarObeservadores(Idioma Idioma)   //se notifica a los observadores
         {
             foreach(var observer in Observadores)
             {
@@ -96,11 +95,12 @@ namespace Patrones.Singleton.Core
             }
         }
 
-        public static void cambiarIdioma(Iidioma Idioma)    //Cambio de idioma
+        public static void cambiarIdioma(Idioma Idioma)    //Cambio de idioma
         {
             if (_session != null)
             {
-                _session.Usuario.Idioma = Idioma;
+                // _session.Usuario.Idioma = Idioma;
+                _session.idioma = Idioma;
                 notificarObeservadores(Idioma);
             }
         }
