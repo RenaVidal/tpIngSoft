@@ -33,6 +33,21 @@ namespace MPP
                 throw ex;
             }
         }
+        public bool borrar_rol(int id)
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_sacar_rol";
+                Hdatos.Add("@id", id);
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool validar(BEUsuario usuario)
         {
             try
@@ -46,7 +61,7 @@ namespace MPP
                 Ds2 = oDatos.Leer(Consulta, Hdatos);
                 foreach (DataRow fila in Ds2.Rows)
                 {
-                    if( usuario.user == fila["username"].ToString() && usuario.password == fila["password"].ToString()) return true;
+                    if (usuario.user == fila["username"].ToString() && usuario.password == fila["password"].ToString()) return true;
                 }
                 return false;
             }
@@ -68,10 +83,11 @@ namespace MPP
                 Ds2 = oDatos.Leer(Consulta, Hdatos);
                 foreach (DataRow fila in Ds2.Rows)
                 {
-                        user.user = username;
-                        user.password = fila["password"].ToString();
-                        user.id = Convert.ToInt32(fila["id"]);
-                        user.birthDate = fila["birthdate"].ToString();
+                    user.user = username;
+                    user.password = fila["password"].ToString();
+                    user.id = Convert.ToInt32(fila["id"]);
+                    user.rol = Convert.ToInt32(fila["rol"]);
+                    user.birthDate = fila["birthdate"].ToString();
                 }
                 return user;
             }
@@ -80,6 +96,7 @@ namespace MPP
                 throw ex;
             }
         }
+
         public bool es_activo(string username)
         {
             try
@@ -92,7 +109,7 @@ namespace MPP
                 Ds2 = oDatos.Leer(Consulta, Hdatos);
                 foreach (DataRow fila in Ds2.Rows)
                 {
-                    if (username == fila["username"].ToString() && true == Convert.ToBoolean( fila["active"])) return true;
+                    if (username == fila["username"].ToString() && true == Convert.ToBoolean(fila["active"])) return true;
                 }
                 return false;
             }
@@ -169,7 +186,7 @@ namespace MPP
                 Ds2 = oDatos.Leer(Consulta, Hdatos);
                 foreach (DataRow fila in Ds2.Rows)
                 {
-                    if (username == fila["username"].ToString() && Convert.ToBoolean(fila["admin"]) == true) return true;
+                    if (username == fila["username"].ToString() && Convert.ToInt32(fila["rol"]) == 5) return true;
                 }
                 return false;
             }
@@ -212,6 +229,25 @@ namespace MPP
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+        public bool cambiar_rol(int id, int rol)
+        {
+            try
+            {
+
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_cambiar_rol";
+                Hdatos.Add("@id", id);
+                Hdatos.Add("@rol", rol);
+
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
             }
         }
     }

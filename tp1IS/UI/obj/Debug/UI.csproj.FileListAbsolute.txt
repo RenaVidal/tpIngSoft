@@ -32,3 +32,4 @@ C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.darAdmin.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.borrarPassword.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.crearRol.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.eliminarRol.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.darRol.resources

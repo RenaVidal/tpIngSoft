@@ -65,7 +65,7 @@ namespace UI
                     {
                         if (oLog.eliminar_usuario(Convert.ToInt32(textBox1.Text)))
                         {
-                            var accion = "elimino el usuario " + textBox1.Text;
+                            var accion = " elimino el usuario " + textBox1.Text;
                             oBit.guardar_accion(accion);
                             MetroMessageBox.Show(this, "Usuario borrado");
                             if(Convert.ToInt32( textBox1.Text) == session.Usuario.id)
@@ -121,6 +121,12 @@ namespace UI
         {
             crearRol rol = new crearRol();
             rol.Show();
+        }
+
+        private void metroButton7_Click(object sender, EventArgs e)
+        {
+            darRol darRol = new darRol();
+            darRol.Show();
         }
     }
 }

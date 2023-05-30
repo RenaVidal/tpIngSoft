@@ -18,9 +18,18 @@ namespace Negocio
         MPPUsuario oUsuario;
         public bool cambiar_contrasena(int id, string contra)
         {
-            try { 
-             string contrasena = encriptar.Encriptar(contra);
-             return oUsuario.cambiar_contrasena(id, contrasena);
+            try
+            {
+                string contrasena = encriptar.Encriptar(contra);
+                return oUsuario.cambiar_contrasena(id, contrasena);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public bool borrar_rol(int id)
+        {
+            try
+            {
+                return oUsuario.borrar_rol(id);
             }
             catch (Exception ex) { throw ex; }
         }
@@ -28,8 +37,8 @@ namespace Negocio
         {
             try
             {
-                 usuario.password = encriptar.Encriptar(usuario.password);
-                 return oUsuario.validar(usuario);
+                usuario.password = encriptar.Encriptar(usuario.password);
+                return oUsuario.validar(usuario);
             }
             catch (Exception ex) { throw ex; }
         }
@@ -38,12 +47,12 @@ namespace Negocio
             try
             {
                 return oUsuario.buscar_usuario(username);
-             }
-             catch (Exception ex) { throw ex; }
+            }
+            catch (Exception ex) { throw ex; }
         }
         public bool usuario_existente(int id)
         {
-          try
+            try
             {
                 return oUsuario.usuario_existente(id);
             }
@@ -74,7 +83,7 @@ namespace Negocio
             }
             catch (Exception ex) { throw ex; }
         }
-        public  bool dar_admin(int id)
+        public bool dar_admin(int id)
         {
             try
             {
@@ -96,7 +105,16 @@ namespace Negocio
             try
             {
                 return oUsuario.es_activo(username);
-            }catch(Exception ex) { throw ex; }
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public bool cambiar_rol(int id, int rol)
+        {
+            try
+            {
+                return oUsuario.cambiar_rol(id, rol);
+            }
+            catch (Exception ex) { throw ex; }
         }
     }
     

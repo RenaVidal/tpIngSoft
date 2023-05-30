@@ -103,6 +103,103 @@ namespace MPP
             }
          
         }
+        public IList<Componente> GetFamilias()
+        {
+            try
+            {
+                IList<Componente> lista = new List<Componente>();
+                Hdatos = new Hashtable();
+                string Consulta = "s_buscar_familia";
+                oDatos = new Acceso();
+                DataTable Ds2 = new DataTable();
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                Componente c;
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    c = new Familia();
+                    c.Nombre = fila["nombre"].ToString();
+                    c.Id = Convert.ToInt32(fila["id"]);
+                    lista.Add(c);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public IList<Componente> GetPermisos()
+        {
+            try
+            {
+                IList<Componente> lista = new List<Componente>();
+                Hdatos = new Hashtable();
+                string Consulta = "s_buscar_permisos";
+                oDatos = new Acceso();
+                DataTable Ds2 = new DataTable();
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                Componente c;
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    c = new Familia();
+                    c.Nombre = fila["nombre"].ToString();
+                    c.Id = Convert.ToInt32(fila["id"]);
+                    lista.Add(c);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public List<int> get_permisos(int rol)
+        {
+            try
+            {
+                List<int> lista = new List<int>();
+                Hdatos = new Hashtable();
+                string Consulta = "s_buscar_permisos";
+                IList<Componente> componentes = GetAll(rol);
+                oDatos = new Acceso();
+                DataTable Ds2 = new DataTable();
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                int c;
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    if (Convert.ToBoolean(fila["es_patente"]) == true)
+                    {
+                        c = Convert.ToInt32(fila["id"]);
+                        lista.Add(c);
+                    }
+                }
+                List<int> objetosFiltrados = componentes.Where(obj => lista.Contains(obj.Id)).Select(obj => obj.Id).ToList();
+                return objetosFiltrados;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public bool borrar(int id)
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_componente_borrar";
+                Hdatos.Add("@id", id);
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public int buscar_id(string nombre) 
         {
@@ -119,6 +216,28 @@ namespace MPP
                     if (nombre == fila["nombre"].ToString() && Convert.ToInt32(fila["id"]) != 0) return Convert.ToInt32(fila["id"]);
                 }
                 return 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool buscar_rol_usado(int rol)
+        {
+            try
+            {
+                DataTable Ds2 = new DataTable();
+                Acceso oDatos = new Acceso();
+                Hdatos = new Hashtable();
+                string Consulta = "s_rol_usado";
+                Hdatos.Add("@rol", rol);
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                foreach (DataRow fila in Ds2.Rows)
+                {
+
+                    if (rol == Convert.ToInt32(fila["rol"])) return true;
+                }
+                return false;
             }
             catch (Exception ex)
             {

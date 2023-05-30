@@ -85,6 +85,12 @@
     <Compile Include="darAdmin.Designer.cs">
       <DependentUpon>darAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="darRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="darRol.Designer.cs">
+      <DependentUpon>darRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="eliminarRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="darAdmin.resx">
       <DependentUpon>darAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="darRol.resx">
+      <DependentUpon>darRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="eliminarRol.resx">
       <DependentUpon>eliminarRol.cs</DependentUpon>

@@ -40,6 +40,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.metroButton6 = new MetroFramework.Controls.MetroButton();
+            this.metroButton7 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -137,7 +138,7 @@
             this.metroButton4.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.metroButton4.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton4.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton4.Location = new System.Drawing.Point(676, 63);
+            this.metroButton4.Location = new System.Drawing.Point(976, 63);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(101, 181);
             this.metroButton4.Style = MetroFramework.MetroColorStyle.Blue;
@@ -193,11 +194,31 @@
             this.metroButton6.UseStyleColors = true;
             this.metroButton6.Click += new System.EventHandler(this.metroButton6_Click);
             // 
+            // metroButton7
+            // 
+            this.metroButton7.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.metroButton7.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton7.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.metroButton7.Location = new System.Drawing.Point(580, 63);
+            this.metroButton7.Name = "metroButton7";
+            this.metroButton7.Size = new System.Drawing.Size(138, 181);
+            this.metroButton7.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton7.TabIndex = 10;
+            this.metroButton7.Text = "Modify Role";
+            this.metroButton7.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroButton7.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton7.UseCustomBackColor = true;
+            this.metroButton7.UseCustomForeColor = true;
+            this.metroButton7.UseSelectable = true;
+            this.metroButton7.UseStyleColors = true;
+            this.metroButton7.Click += new System.EventHandler(this.metroButton7_Click);
+            // 
             // AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1169, 450);
+            this.Controls.Add(this.metroButton7);
             this.Controls.Add(this.metroButton6);
             this.Controls.Add(this.metroButton5);
             this.Controls.Add(this.metroButton4);
@@ -227,5 +248,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private MetroFramework.Controls.MetroButton metroButton5;
         private MetroFramework.Controls.MetroButton metroButton6;
+        private MetroFramework.Controls.MetroButton metroButton7;
     }
 }

@@ -1,6 +1,8 @@
 ﻿using BE;
 using BLL;
+using MetroFramework;
 using MetroFramework.Controls;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,8 +46,9 @@ namespace UI
             return null;
         }
 
-
-
+        BLLUsuario oUser = new BLLUsuario();
+        
+        BLLBitacora oBit = new BLLBitacora();
         private void metroButton2_Click(object sender, EventArgs e)
         {
             try
@@ -58,12 +61,21 @@ namespace UI
                 }
                 else
                 {
-                    IList<Componente> list = oComp.GetAll(4);
+                    IList<Componente> list = oComp.GetFamilias();
                     Componente item = findInList(list, treeView2.SelectedNode.Text);
                     if (item != null && !oComp.es_patente(item.Nombre))
                     {
-                        //borrar
-                        //fijarse que no lo tengo asignado ningun user
+                        int rolID = oComp.buscar_id(item.Nombre);
+                        if (!oComp.buscar_rol_usado(rolID)) 
+                        {
+                            var accion = "elimino el rol " + item.Nombre;
+                            oBit.guardar_accion(accion);
+                            oComp.borrar(rolID);
+                        }
+                        else
+                        {
+                            MetroMessageBox.Show(this, "El rol esta en uso, no puede borrarse");
+                        }
                     }
                     else
                     {

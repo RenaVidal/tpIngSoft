@@ -16,6 +16,7 @@ namespace Patrones.Singleton.Core
 
         public BEUsuario Usuario { get; set; }
         public DateTime FechaInicio { get; set; }
+        public List<int> permisos { get; set; }
 
         public static SessionManager GetInstance
         {
@@ -26,7 +27,7 @@ namespace Patrones.Singleton.Core
                 return _session;
             }
         }
-
+        
         public static void Login(BEUsuario usuario)
         {
 

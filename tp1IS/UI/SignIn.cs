@@ -9,6 +9,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MetroFramework;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Patrones.Singleton.Core;
+using BLL;
+using System.Collections.Generic;
 
 namespace UI
 {
@@ -51,6 +53,7 @@ namespace UI
 
         }
         BLLBitacora oBit = new BLLBitacora();
+        BLLComposite oComp = new BLLComposite();
         public void logIn(string username)
         {
             try
@@ -58,8 +61,11 @@ namespace UI
                 if (oLog.es_activo(username))
                 {
                     BEUsuario user=  oLog.buscar_usuario(username);
-                    SessionManager.Login(user);
+                    List<int> permisos = oComp.get_permisos(user.rol);
+                    if (permisos.Count == 0 && user.rol != 0) permisos.Add(user.rol);
+                    user.permisos = permisos;
                     SessionManager u = SessionManager.GetInstance;
+                    SessionManager.Login(user);
                     oBit.guardar_logIn();
 
                     if (oLog.es_admin(username))
