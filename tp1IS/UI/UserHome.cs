@@ -23,6 +23,17 @@ namespace UI
         {
 
         }
+        private Form formularioAbierto = null;
+        private void AbrirFormulario(Form formulario)
+        {
+            if (formularioAbierto != null)
+            {
+                formularioAbierto.Close();
+            }
+
+            formularioAbierto = formulario;
+            formularioAbierto.Show();
+        }
 
         BLLBitacora oBit = new BLLBitacora();
         private void metroButton4_Click(object sender, EventArgs e)

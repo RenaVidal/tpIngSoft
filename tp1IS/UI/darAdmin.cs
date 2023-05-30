@@ -1,6 +1,7 @@
 ﻿using BE;
 using MetroFramework;
 using Negocio;
+using servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,7 @@ namespace UI
         }
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
+        validaciones validar = new validaciones();
         private void darAdmin_Load(object sender, EventArgs e)
         {
 
@@ -39,9 +41,9 @@ namespace UI
             {
                 errorProvider1.Clear();
                 errorProvider1.SetError(textBox2, "");
-                if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^([0-9]{1,9}$)"))
+                if (textBox2.Text == string.Empty || !validar.id(textBox2.Text))
                 {
-                    errorProvider1.SetError(textBox2, "Debe ingresar un id de 1 a 9 numeros");
+                    errorProvider1.SetError(textBox2, "You should enter an id with 1 to 9 numbers");
                 }
                 else
                 {
@@ -50,15 +52,15 @@ namespace UI
                         {
                             var accion = "dio privilegios de admin a el usuario" + textBox2.Text;
                             oBit.guardar_accion(accion);
-                            MetroMessageBox.Show(this, "Operacion realizada con exito");
+                            MetroMessageBox.Show(this, "Success");
                             this.Hide();
                         }
                         else
                         {
-                            MetroMessageBox.Show(this, "Ocurrio un error");
+                            MetroMessageBox.Show(this, "Error");
                         }
                     }
-                    else { MetroMessageBox.Show(this, "No hay usuarios registrados con ese ID"); }
+                    else { MetroMessageBox.Show(this, "There are no users with provided id"); }
                 }
             }
             catch (Exception ex)

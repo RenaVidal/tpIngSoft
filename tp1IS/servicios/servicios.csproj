@@ -44,6 +44,7 @@
     <Compile Include="encriptar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sessionManager.cs" />
+    <Compile Include="validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\abstraccion\abstraccion.csproj">

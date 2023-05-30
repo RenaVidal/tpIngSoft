@@ -25,6 +25,18 @@ namespace UI
         }
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
+
+        private Form formularioAbierto = null;
+        private void AbrirFormulario(Form formulario)
+        {
+            if (formularioAbierto != null)
+            {
+                formularioAbierto.Close();
+            }
+
+            formularioAbierto = formulario;
+            formularioAbierto.Show();
+        }
         private void AdminHome_Load(object sender, EventArgs e)
         {
 
@@ -34,13 +46,15 @@ namespace UI
         {
            if( MetroMessageBox.Show(this, "Yes/No",  "¿Do you wish to give admin privileges to a user that already exist?", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+
                 darAdmin formadmin = new darAdmin();
-                formadmin.ShowDialog();
+                AbrirFormulario(formadmin);
             }
             else
             {
                 crearAdmin formcrearAdmin = new crearAdmin();
-                formcrearAdmin.ShowDialog();
+                AbrirFormulario(formcrearAdmin);
+
             }
         }
 
@@ -57,7 +71,7 @@ namespace UI
                 errorProvider1.SetError(textBox1, "");
                 if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([0-9]{1,9}$)"))
                 {
-                    errorProvider1.SetError(textBox1, "Debe ingresar un id de 1 a 9 numeros");
+                    errorProvider1.SetError(textBox1, "You should enter an id from 1 to 9 numbers");
                 }
                 else
                 {
@@ -67,20 +81,20 @@ namespace UI
                         {
                             var accion = " elimino el usuario " + textBox1.Text;
                             oBit.guardar_accion(accion);
-                            MetroMessageBox.Show(this, "Usuario borrado");
+                            MetroMessageBox.Show(this, "User deleted");
                             if(Convert.ToInt32( textBox1.Text) == session.Usuario.id)
                             {
-                                MetroMessageBox.Show(this, "Su usuario se encuentra deshabilitado, no podra ingresar al sistema");
+                                MetroMessageBox.Show(this, "Your user is disabled, you are going to be redirected to log in page");
                                 this.Hide();
                             }
                         }
                         else
                         {
-                            MetroMessageBox.Show(this, "Hubo un problema borrando el usuario");
+                            MetroMessageBox.Show(this, "There has been an error deleting the user");
                         }
                     }
                        
-                    else { MetroMessageBox.Show(this, "No hay usuarios registrados con ese ID"); }
+                    else { MetroMessageBox.Show(this, "There are no users registered with this is"); }
                 }
             }
             catch (Exception ex)
@@ -114,19 +128,19 @@ namespace UI
         private void metroButton5_Click(object sender, EventArgs e)
         {
             borrarPassword passForm = new borrarPassword();
-            passForm.Show();
+            AbrirFormulario(passForm);
         }
 
         private void metroButton6_Click(object sender, EventArgs e)
         {
             crearRol rol = new crearRol();
-            rol.Show();
+            AbrirFormulario(rol);
         }
 
         private void metroButton7_Click(object sender, EventArgs e)
         {
             darRol darRol = new darRol();
-            darRol.Show();
+            AbrirFormulario(darRol);
         }
     }
 }

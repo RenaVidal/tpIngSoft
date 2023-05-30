@@ -33,7 +33,7 @@ namespace MPP
                 throw ex;
             }
         }
-        public bool borrar_rol(int id)
+        public bool borrar_rol(int id, int rol)
         {
             try
             {
@@ -86,7 +86,6 @@ namespace MPP
                     user.user = username;
                     user.password = fila["password"].ToString();
                     user.id = Convert.ToInt32(fila["id"]);
-                    user.rol = Convert.ToInt32(fila["rol"]);
                     user.birthDate = fila["birthdate"].ToString();
                 }
                 return user;
@@ -231,13 +230,13 @@ namespace MPP
                 throw ex;
             }
         }
-        public bool cambiar_rol(int id, int rol)
+        public bool agregar_rol(int id, int rol)
         {
             try
             {
 
                 Hdatos = new Hashtable();
-                string Consulta = "s_Usuario_cambiar_rol";
+                string Consulta = "s_Usuario_agregar_rol";
                 Hdatos.Add("@id", id);
                 Hdatos.Add("@rol", rol);
 
@@ -248,6 +247,29 @@ namespace MPP
             {
                 throw ex;
 
+            }
+        }
+       
+        public bool tiene_rol(int id, int rol)
+        {
+            try
+            {
+                DataTable Ds2 = new DataTable();
+                Acceso oDatos = new Acceso();
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_rol_buscar";
+                Hdatos.Add("@id", id);
+                Hdatos.Add("@rol", rol);
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    if (Convert.ToInt32(fila["id_rol"]) == rol && Convert.ToInt32(fila["id_usuario"]) == id) return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

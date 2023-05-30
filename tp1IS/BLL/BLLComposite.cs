@@ -65,6 +65,28 @@ namespace BLL
             }
             catch (Exception ex) { throw ex; }
         }
+        public IList<Componente> GetPermisosdeUser(int id)
+        {
+            try
+            {
+                IList<Componente> permisos = mPPComposite.get_permisos_usuario(id);
+                IList<Componente> hijos = null;
+                foreach (Componente p in permisos)
+                {
+                    hijos = GetAll(p.Id);
+                    if (hijos != null)
+                    {
+                        foreach (Componente o in hijos)
+                        {
+                            p.AgregarHijo(o);
+                        }
+                    }
+                }
+                return permisos;
+
+            }
+            catch (Exception ex) { throw ex; }
+        }
         public List<int> get_permisos(int rol)
         {
             try
@@ -120,6 +142,49 @@ namespace BLL
             catch (Exception ex) { throw ex; }
         }
 
+        public bool contiene(Componente padre, Componente Hijo)
+        {
+            try
+            {
+                foreach (Componente comp in padre.Hijos)
+                {
+                    if (comp.Nombre == Hijo.Nombre) return true;
+                    else if (comp.Hijos != null) return contiene(comp, Hijo);
+                }
+                return false;
 
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public Componente llenar_padre(Componente padre)
+        {
+            try
+            {
+                IList<Componente> HijosFamilia = GetAll(padre.Id);
+
+
+                foreach (var item in HijosFamilia)
+                {
+                    padre.AgregarHijo(item);
+                }
+
+                return padre;
+
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public bool evitar_loop(Componente padre, Componente hijo)
+        {
+            try
+            {
+                padre = llenar_padre(padre);
+                hijo = llenar_padre(hijo);
+                if (padre.Nombre == hijo.Nombre) return true;
+                else return (padre.Hijos.Contains(hijo) || contiene(hijo, padre));
+
+            }
+            catch (Exception ex) { throw ex; }
+
+        }
     }
 }

@@ -44,7 +44,24 @@ namespace Patrones.Singleton.Core
                 }
             }
         }
-
+        public static bool recursiva(int id, IList<Componente> roles)
+        {
+            foreach (Componente rol in _session.Usuario.permisos)
+            {
+                if (rol.Id == id) return true;
+                if (rol.Hijos != null) return recursiva(id, rol.Hijos);
+            }
+            return false;
+        }
+        public static bool tiene_permiso(int id)
+        {
+            foreach(Componente rol in _session.Usuario.permisos)
+            {
+                if (rol.Id == id) return true;
+                if (rol.Hijos != null) return recursiva(id, rol.Hijos);
+            }
+            return false;
+        }
         public static void Logout()
         {
             lock (_lock)

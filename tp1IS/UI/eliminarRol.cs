@@ -57,7 +57,7 @@ namespace UI
                 errorProvider1.SetError(treeView2, "");
                 if (treeView2.SelectedNode == null)
                 {
-                    errorProvider1.SetError(treeView2, "Seleccione un rol");
+                    errorProvider1.SetError(treeView2, "Select a role");
                 }
                 else
                 {
@@ -74,12 +74,12 @@ namespace UI
                         }
                         else
                         {
-                            MetroMessageBox.Show(this, "El rol esta en uso, no puede borrarse");
+                            MetroMessageBox.Show(this, "the role is being used, it can not be deleted");
                         }
                     }
                     else
                     {
-                        errorProvider1.SetError(treeView2, "Seleccione un rol padre diferente a Main");
+                        errorProvider1.SetError(treeView2, "Select a father role different from Main");
                     }
                 }
             }

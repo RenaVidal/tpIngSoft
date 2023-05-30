@@ -25,11 +25,11 @@ namespace Negocio
             }
             catch (Exception ex) { throw ex; }
         }
-        public bool borrar_rol(int id)
+        public bool borrar_rol(int id, int rol)
         {
             try
             {
-                return oUsuario.borrar_rol(id);
+                return oUsuario.borrar_rol(id, rol);
             }
             catch (Exception ex) { throw ex; }
         }
@@ -108,11 +108,19 @@ namespace Negocio
             }
             catch (Exception ex) { throw ex; }
         }
-        public bool cambiar_rol(int id, int rol)
+        public bool agregar_rol(int id, int rol)
         {
             try
             {
-                return oUsuario.cambiar_rol(id, rol);
+                return oUsuario.agregar_rol(id, rol);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public bool tiene_rol(int id, int rol)
+        {
+            try
+            {
+                return oUsuario.tiene_rol(id, rol);
             }
             catch (Exception ex) { throw ex; }
         }

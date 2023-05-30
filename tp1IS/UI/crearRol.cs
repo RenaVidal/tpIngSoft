@@ -16,6 +16,7 @@ using System.Collections;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using Negocio;
 using System.Security.Cryptography.X509Certificates;
+using servicios;
 
 namespace UI
 {
@@ -122,7 +123,7 @@ namespace UI
                 errorProvider1.SetError(metroButton1, "");
                 if (treeView2.SelectedNode == null && comboBox1.SelectedIndex == -1 && comboBox2.SelectedIndex == -1)
                 {
-                    errorProvider1.SetError(metroButton1, "Selecciona un permiso o rol para agregar");
+                    errorProvider1.SetError(metroButton1, "Select a role to add");
                 }
                 IList<Componente> listFam = oComp.GetFamilias();
                 IList<Componente> listPer = oComp.GetPermisos();
@@ -151,7 +152,7 @@ namespace UI
                     }
                     else
                     {
-                        errorProvider1.SetError(metroButton1, "No debe agregar roles o permisos repetidos");
+                        errorProvider1.SetError(metroButton1, "You should not repeat roles");
                     }
                 }
                 else if (itemFamilia != null)
@@ -163,47 +164,19 @@ namespace UI
                     }
                     else
                     {
-                        errorProvider1.SetError(metroButton1, "No debe agregar roles o permisos repetidos");
+                        errorProvider1.SetError(metroButton1, "You should not repeat roles");
                     }
                     
                 }
                 else
                 {
-                    MetroMessageBox.Show(this, "Ocurrio un problema agregando el rol, seleccione un rol o permiso diferente de main");
+                    MetroMessageBox.Show(this, "there has been an error, try selecting a father role different from Main");
                 }
                 resetControls();
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }    
         }
-        public bool contiene(Componente padre, Componente Hijo)
-        {
-            foreach( Componente comp in padre.Hijos)
-            {
-                if (comp.Nombre == Hijo.Nombre) return true;
-                else if(comp.Hijos != null) return contiene(comp, Hijo);
-            }
-            return false;
-        }
-        public Componente llenar_padre(Componente padre)
-        {
-            IList<Componente> HijosFamilia = oComp.GetAll(padre.Id);
-
-
-            foreach (var item in HijosFamilia)
-            {
-                padre.AgregarHijo(item);
-            }
-
-            return padre;
-        }
-        public bool evitar_loop(Componente padre, Componente hijo)
-        {
-            padre = llenar_padre(padre);
-            hijo = llenar_padre(hijo);
-            if (padre.Nombre == hijo.Nombre) return true;
-            else return (padre.Hijos.Contains(hijo) || contiene(hijo, padre));
-
-        }
+     
         public bool cargar_familia()
         {
             try { 
@@ -222,15 +195,15 @@ namespace UI
                     hijoFam = findInList(listFam, comp.Text);
                     hijoPer =findInList(listPer, comp.Text);
                     if(hijoFam != null) {
-                        if (evitar_loop(abuelo, hijoFam)) {
-                            MetroMessageBox.Show(this, "esta accion no es posible");
+                        if (oComp.evitar_loop(abuelo, hijoFam)) {
+                            MetroMessageBox.Show(this, "this action is not possible");
                             return false; 
                         }
                     }
                     else if(hijoPer != null)
                     {
-                        if (evitar_loop(abuelo, hijoPer)) {
-                            MetroMessageBox.Show(this, "esta accion no es posible");
+                        if (oComp.evitar_loop(abuelo, hijoPer)) {
+                            MetroMessageBox.Show(this, "this action is not possible");
                             return false; 
                         }
                     }
@@ -250,17 +223,17 @@ namespace UI
                         componente.Nombre = tree[0].Text;
                         id_hijo = oComp.buscar_id(componente.Nombre);
                         if (id_hijo != 0 && id_padre != 0) oComp.escribir_relacion(id_hijo, id_padre);
-                        else { MetroMessageBox.Show(this, "Hubo un error guardando los datos, intente nuevamente"); return false; }
+                        else { MetroMessageBox.Show(this, "There has been an error, try again"); return false; }
                     }
                 }
-                else { MetroMessageBox.Show(this, "Hubo un error guardando los datos, intente nuevamente"); return false; }
+                else { MetroMessageBox.Show(this, "There has been an error, try again"); return false; }
 
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }
             return true;
 
         }
-        
+        validaciones validar = new validaciones();
         private void metroButton2_Click(object sender, EventArgs e)
         {
             try
@@ -271,33 +244,33 @@ namespace UI
                 errorProvider1.SetError(treeView3, "");
                 if (treeView1.Nodes == null)
                 {
-                    errorProvider1.SetError(treeView1, "Debe seleccionar un nodo");
+                    errorProvider1.SetError(treeView1, "You should select a node");
                 }
-                else if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
+                else if (textBox1.Text == string.Empty || !validar.usuario(textBox1.Text))
                 {
-                    errorProvider1.SetError(textBox1, "Debe ingresar un nombre sin caracteres especiales");
+                    errorProvider1.SetError(textBox1, "The name should not have special characters");
                 }
                 else if (treeView3.Nodes == null)
                 {
-                    errorProvider1.SetError(treeView2, "Debe seleccionar un nodo padre");
+                    errorProvider1.SetError(treeView2, "You should select a father role");
                 }
                 else if (findInList(oComp.GetFamilias(), textBox1.Text) != null || findInList(oComp.GetPermisos(), textBox1.Text) != null)
                 {
-                    errorProvider1.SetError(textBox1, "Debe seleccionar un nombre que no exista dentro de los permisos");
+                    errorProvider1.SetError(textBox1, "Select a name that is not already used");
                 }
                 else
                 {
                         var accion = "creo el rol " + textBox1.Text;
-                        //oBit.guardar_accion(accion);  //ACA SACAR EL COMENTADO
+                        oBit.guardar_accion(accion); 
                         if (cargar_familia())
                         {
                             iniciarTreeView();
                             treeView1.Nodes.Clear();
-                            MetroMessageBox.Show(this, "Rol agregado");
+                            MetroMessageBox.Show(this, "Role saved");
                         }
                         else
                         {
-                            MetroMessageBox.Show(this, "Ocurrio un error");
+                            MetroMessageBox.Show(this, "Error");
                         }
                 }
             }
@@ -319,7 +292,7 @@ namespace UI
 
                 if (treeView2.SelectedNode == null && comboBox2.SelectedIndex == -1)
                 {
-                    errorProvider1.SetError(treeView2, "Seleccione un rol");
+                    errorProvider1.SetError(treeView2, "Select a role");
                 }
                 else
                 {
@@ -341,7 +314,7 @@ namespace UI
                     }
                     else
                     {
-                        errorProvider1.SetError(treeView2, "Seleccione un rol padre diferente a Main");
+                        errorProvider1.SetError(treeView2, "Select a father role different from Main");
                     }
                 }
                 resetControls();
@@ -362,6 +335,22 @@ namespace UI
         private void metroLabel3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void metroLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            TreeNode ultimoNodo = treeView1.Nodes[treeView1.Nodes.Count - 1];
+            ultimoNodo.Remove();
         }
     }
 }

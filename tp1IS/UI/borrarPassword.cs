@@ -1,6 +1,7 @@
 ﻿using BE;
 using MetroFramework;
 using Negocio;
+using servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,7 @@ namespace UI
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
         BLLBitacora oBit = new BLLBitacora();
+        validaciones validar = new validaciones();
         private void metroButton1_Click(object sender, EventArgs e)
         {
             try
@@ -37,14 +39,14 @@ namespace UI
                 errorProvider1.Clear();
                 errorProvider1.SetError(textBox1, "");
                 errorProvider1.SetError(textBox2, "");
-                if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([0-9]{1,9}$)"))
+                if (textBox1.Text == string.Empty || !validar.id(textBox1.Text))
                 {
-                    errorProvider1.SetError(textBox1, "Debe ingresar un id de 1 a 9 numeros");
+                    errorProvider1.SetError(textBox1, "You should enter an id with 1 to 9 numbers");
                     error++;
                 }
-                if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^([a-zA-Z]{5,15})([1-9]{1,10}$)"))
+                if (textBox2.Text == string.Empty || !validar.contrasena(textBox2.Text))
                 {
-                    errorProvider1.SetError(textBox2, "Debe ingresar una contraseña de 1 a 10 numeros y 5-15 letras");
+                    errorProvider1.SetError(textBox2, "You should enter a password with at least 1 number and 5 letters");
                     error++;
                 }
                 if (error == 0)
@@ -56,14 +58,14 @@ namespace UI
                         {
                             var accion = "cambio la contraseña del usuario de id" + textBox1.Text;
                             oBit.guardar_accion(accion);
-                            MetroMessageBox.Show(this, "Contrasena modificada");
+                            MetroMessageBox.Show(this, "Password changed");
                             this.Hide();
                         }
-                        else MetroMessageBox.Show(this, "Ocurrio un error");
+                        else MetroMessageBox.Show(this, "Error");
                     }
                     else
                     {
-                        MetroMessageBox.Show(this, "Usuario inexistente o deshabilitado ");
+                        MetroMessageBox.Show(this, "There is no active user with provided id");
                     }
                 }
 

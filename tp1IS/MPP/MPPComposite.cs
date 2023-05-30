@@ -184,7 +184,34 @@ namespace MPP
             }
 
         }
+        public IList<Componente> get_permisos_usuario(int usuario)
+        {
+            try
+            {
+                IList<Componente> lista = new List<Componente>();
+                Hdatos = new Hashtable();
+                Hdatos.Add("@id", usuario);
+                string Consulta = "s_buscar_permisos_user";
+                oDatos = new Acceso();
+                DataTable Ds2 = new DataTable();
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                Componente c;
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    c = new Familia();
+                    c.Nombre = fila["nombre"].ToString();
+                    c.Id = Convert.ToInt32(fila["id"]);
+                    lista.Add(c);
+                }
+                
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
+        }
         public bool borrar(int id)
         {
             try

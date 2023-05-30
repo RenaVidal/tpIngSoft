@@ -29,6 +29,7 @@ namespace UI
             textBox2.Text = null;
             textBox4.Text = null;
         }
+        validaciones validar = new validaciones();
         public void SignIn_Load(object sender, EventArgs e)
         {
         }
@@ -54,6 +55,7 @@ namespace UI
         }
         BLLBitacora oBit = new BLLBitacora();
         BLLComposite oComp = new BLLComposite();
+        
         public void logIn(string username)
         {
             try
@@ -61,14 +63,12 @@ namespace UI
                 if (oLog.es_activo(username))
                 {
                     BEUsuario user=  oLog.buscar_usuario(username);
-                    List<int> permisos = oComp.get_permisos(user.rol);
-                    if (permisos.Count == 0 && user.rol != 0) permisos.Add(user.rol);
-                    user.permisos = permisos;
+                    user.permisos = oComp.GetPermisosdeUser(user.id);
                     SessionManager u = SessionManager.GetInstance;
                     SessionManager.Login(user);
                     oBit.guardar_logIn();
 
-                    if (oLog.es_admin(username))
+                    if (SessionManager.tiene_permiso(5))
                     {
                         this.Hide();
                         AdminHome home = new AdminHome();
@@ -83,7 +83,7 @@ namespace UI
                 }
                 else
                 {
-                    MetroMessageBox.Show(this, "El usuario se encuentra deshabilitado");
+                    MetroMessageBox.Show(this, "The user is disabled");
                 }
             }
             catch (Exception ex)
@@ -93,21 +93,21 @@ namespace UI
         }
         private void metroButton2_Click_1(object sender, EventArgs e)
         {
-            try
+           try
             {
                 errorProvider1.Clear();
                 errorProvider1.SetError(textBox1, "");
                 errorProvider1.SetError(textBox2, "");
                 var error = 0;
-                if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
+                if (textBox1.Text == string.Empty || !validar.usuario(textBox1.Text))
                 {
-                    errorProvider1.SetError(textBox1, "Debe ingresar un usuario sin caracteres especiales");
+                    errorProvider1.SetError(textBox1, "The username should not have special characters");
                     error++;
 
                 }
-                if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^([a-zA-Z]{5,15})([1-9]{1,10}$)"))
+                if (textBox2.Text == string.Empty || !validar.contrasena(textBox2.Text))
                 {
-                    errorProvider1.SetError(textBox2, "Debe ingresar una contraseña de 1 a 10 numeros y 5-15 letras");
+                    errorProvider1.SetError(textBox2, "You should enter a password with at least 1 number and 5 letters");
                     error++;
                 }
                 if(error == 0)
@@ -120,7 +120,7 @@ namespace UI
                     }
                     else
                     {
-                        MetroMessageBox.Show(this, "Usuario o contraseña incorrecta ");
+                        MetroMessageBox.Show(this, "Incorrect user or password");
                     }
                 }
                
@@ -145,45 +145,45 @@ namespace UI
                 errorProvider1.SetError(textBox1, "");
                 errorProvider1.SetError(textBox2, "");
                 errorProvider1.SetError(textBox4, "");
-                if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
+                if (textBox1.Text == string.Empty || !validar.usuario(textBox1.Text))
                 {
-                    errorProvider1.SetError(textBox1, "Debe ingresar un usuario sin caracteres especiales");
+                    errorProvider1.SetError(textBox1, "The username should not have special character");
                     error++;
 
                 }
-                if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^([a-zA-Z]{5,15})([1-9]{1,10}$)"))
+                if (textBox2.Text == string.Empty || !validar.contrasena(textBox2.Text))
                 {
-                    errorProvider1.SetError(textBox2, "Debe ingresar una contraseña de al menos un numero y 5 letras");
+                    errorProvider1.SetError(textBox2, "You should enter a password with at least 1 number and 5 letters");
                     error++;
                 }
 
-                if (textBox4.Text == string.Empty || !Regex.IsMatch(textBox4.Text, "^([0-9]{1,9}$)"))
+                if (textBox4.Text == string.Empty || !validar.id(textBox4.Text))
                 {
-                    errorProvider1.SetError(textBox4, "Debe ingresar un id de 1 a 9 numeros");
+                    errorProvider1.SetError(textBox4, "You should enter an id with 1 to 9 numbers");
                     error++;
                 }
                 if (metroDateTime1.Value == null)
                 {
-                    errorProvider1.SetError(metroDateTime1, "Debe ingresar una fecha");
+                    errorProvider1.SetError(metroDateTime1, "You should enter a date");
                     error++;
                 }
 
                 if(error == 0)
                 {
-                    if (oLog.usuario_existente(Convert.ToInt32(textBox4.Text))) MessageBox.Show("Ya hay un usuario registrado con este id", "ERROR");
+                    if (oLog.usuario_existente(Convert.ToInt32(textBox4.Text))) MessageBox.Show("There is an user with that id already", "ERROR");
                     else
                     {
                         oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox4.Text), metroDateTime1.Value.ToString());
                         if (oLog.cargar_usuario(oUsuraio))
                         {
-                            MetroMessageBox.Show(this, "Usuario creado");
+                            MetroMessageBox.Show(this, "User created");
                             limpiar();
                             logIn(oUsuraio.user);
                         }
                         else
                         {
                             limpiar();
-                            MetroMessageBox.Show(this, "Ocurrio un error, pruebe modificando el nombre de usuario");
+                            MetroMessageBox.Show(this, "There has been an error, try changing the username");
                         }
                     }
 

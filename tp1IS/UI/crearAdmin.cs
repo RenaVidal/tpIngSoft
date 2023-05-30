@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using servicios;
 
 namespace UI
 {
@@ -25,6 +26,7 @@ namespace UI
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
         BLLBitacora oBit = new BLLBitacora();
+        validaciones validar = new validaciones();
         private void metroButton4_Click(object sender, EventArgs e)
         {
             try
@@ -35,32 +37,32 @@ namespace UI
                 errorProvider1.SetError(textBox1, "");
                 errorProvider1.SetError(textBox2, "");
                 errorProvider1.SetError(textBox3, "");
-                if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
+                if (textBox1.Text == string.Empty || !validar.usuario(textBox1.Text))
                 {
-                    errorProvider1.SetError(textBox1, "Debe ingresar un usuario sin caracteres especiales");
+                    errorProvider1.SetError(textBox1, "You should enter a name without special characters");
                     error++;
 
                 }
-                if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^([a-zA-Z]{5,15})([1-9]{1,10}$)"))
+                if (textBox2.Text == string.Empty || !validar.contrasena(textBox2.Text))
                 {
-                    errorProvider1.SetError(textBox2, "Debe ingresar una contraseña de al menos un numero y 5 letras");
+                    errorProvider1.SetError(textBox2, "You should enter a password with at least 1 number and 5 letters");
                     error++;
                 }
 
-                if (textBox3.Text == string.Empty || !Regex.IsMatch(textBox3.Text, "^([0-9]{1,9}$)"))
+                if (textBox3.Text == string.Empty || !validar.id(textBox3.Text))
                 {
-                    errorProvider1.SetError(textBox3, "Debe ingresar un id de 1 a 9 numeros");
+                    errorProvider1.SetError(textBox3, "You should enter an id with 1 to 9 numbers");
                     error++;
                 }
                 if (metroDateTime2.Value == null)
                 {
-                    errorProvider1.SetError(metroDateTime2, "Debe ingresar una fecha");
+                    errorProvider1.SetError(metroDateTime2, "You should enter a date");
                     error++;
                 }
 
                 if (error == 0)
                 {
-                    if (oLog.usuario_existente(Convert.ToInt32(textBox3.Text))) MessageBox.Show("Ya hay un usuario registrado con este id", "ERROR");
+                    if (oLog.usuario_existente(Convert.ToInt32(textBox3.Text))) MessageBox.Show("There is an user with that id already", "ERROR");
                     else
                     {
                         oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), metroDateTime2.Value.ToString());
@@ -68,12 +70,12 @@ namespace UI
                         {
                             var accion = "creo el usuario admin" + textBox1.Text;
                             oBit.guardar_accion(accion);
-                            MetroMessageBox.Show(this, "Usuario admin rcreado");
+                            MetroMessageBox.Show(this, "Admin user created");
                             this.Hide();
                         }
                         else
                         {
-                            MetroMessageBox.Show(this, "Ocurrio un error, pruebe modificando el nombre de usuario");
+                            MetroMessageBox.Show(this, "There has been an error, try changing the username");
                         }
                     }
 
