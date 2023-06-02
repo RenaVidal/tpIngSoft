@@ -201,6 +201,10 @@ namespace UI
                     {
                         this.metroButton5.Text = traducciones[metroButton5.Tag.ToString()].texto;
                     }
+                    if (metroButton6.Tag != null && traducciones.ContainsKey(metroButton6.Tag.ToString()))
+                    {
+                        this.metroButton6.Text = traducciones[metroButton6.Tag.ToString()].texto;
+                    }
                     if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
                     {
                         this.metroLabel1.Text = traducciones[metroLabel1.Tag.ToString()].texto;

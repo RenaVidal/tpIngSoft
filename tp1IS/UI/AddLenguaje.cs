@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 using Negocio;
 namespace UI
 {
-    public partial class AddLenguaje : Form
+    public partial class AddLenguaje : Form, IdiomaObserver
     {
         public AddLenguaje()
         {
@@ -22,12 +22,21 @@ namespace UI
 
         private void AddLenguaje_Load(object sender, EventArgs e)
         {
+            servicios.Observer.agregarObservador(this);
             Escondercontroles();
             ListarIdiomas();
             ListarPalabras();
+            Traducir();
         }
-
-        public void ListarIdiomas()
+        // private void AddLenguaje_Load(object sender, EventArgs e) 
+        private void AddLenguaje_FormClosing(object sender, EventArgs e)
+        {
+            // ListarIdiomas();
+            //SessionManager.agregarObservador(this);
+            servicios.Observer.eliminarObservador(this);
+            // traducir();
+        }
+            public void ListarIdiomas()
         {
             comboBox2.Items.Clear();
             BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
@@ -36,6 +45,7 @@ namespace UI
             foreach (Idioma idioma in ListaIdiomas)
             {
                 comboBox2.Items.Add(idioma.Nombre);
+                comboBox3.Items.Add(idioma.Nombre);
 
             }
 
@@ -57,7 +67,7 @@ namespace UI
         {
             BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
             List<string> ListaPalabras = Traductor.obtenerIdiomaOriginal();
-            foreach(string Opalabra in ListaPalabras)
+            foreach (string Opalabra in ListaPalabras)
             {
                 comboBox1.Items.Add(Opalabra);
             }
@@ -92,12 +102,12 @@ namespace UI
                         //  NewIdioma.ID = Convert.ToInt32(textBox3.Text);
                         NewIdioma.Nombre = textBox1.Text;
                         NewIdioma.Default = false;
-                        
+
                         Otraductor.CrearIdioma(NewIdioma);
 
                         MessageBox.Show("Languaje create");
                         textBox1.Text = "";
-                        string accion ="creo el idioma: "+NewIdioma.Nombre+" ";
+                        string accion = "creo el idioma: " + NewIdioma.Nombre + " ";
                         Obitacora.guardar_accion(accion);
                     }
 
@@ -115,7 +125,7 @@ namespace UI
                 throw ex;
             }
 
-            
+
         }
 
         private void metroButton2_Click(object sender, EventArgs e)
@@ -124,9 +134,9 @@ namespace UI
             try
             {
                 int error = 0;
-              //  if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
-                    BLL.BLLTraductor OBLLtraductor = new BLL.BLLTraductor();
-                if (textBox2.Text == string.Empty ||  !Regex.IsMatch(textBox2.Text, "^[a-zA-Z\\s]{1,200}$"))
+                //  if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
+                BLL.BLLTraductor OBLLtraductor = new BLL.BLLTraductor();
+                if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^[a-zA-Z\\s]{1,200}$"))
                 {
                     errorProvider1.SetError(textBox2, "The translation should not have special characters");
                     error++;
@@ -149,15 +159,16 @@ namespace UI
                         OBLLtraductor.CrearTraduccion(Oidioma.ID, Otraduccion);
                         string accion = "creo la traduccion: " + Otraduccion.texto + " ";
                         Obitacora.guardar_accion(accion);
+                        MessageBox.Show("you create new traduccion in lenguaje" +Oidioma);
                     }
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
-          
+
             //traductor.obtener idioma
             //traductor.obtener. palabra
 
@@ -201,11 +212,131 @@ namespace UI
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string idiomaSelec = comboBox1.SelectedItem.ToString();
+            string idiomaSelec = comboBox3.SelectedItem.ToString();
             BLL.BLLTraductor traductor = new BLL.BLLTraductor();
             Idioma Oidioma = new Idioma();
             Oidioma = traductor.TraerIdioma(idiomaSelec);
             servicios.Observer.cambiarIdioma(Oidioma);
         }
+
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            //throw new NotImplementedException();
+            Traducir();
+            ListarIdiomas();
+        }
+
+        public void Traducir()
+        {
+            Idioma Idioma = null;
+
+            if (SessionManager.TraerUsuario())
+                Idioma = SessionManager.GetInstance.idioma;
+            if (Idioma.Nombre == "ingles")
+            {
+               
+                VolverAIdiomaoriginal();
+            }
+            else
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                var traducciones = Traductor.obtenertraducciones(Idioma);
+                List<string> Lista = new List<string>();
+                Lista = Traductor.obtenerIdiomaOriginal();
+                if (traducciones.Values.Count != Lista.Count)
+                {
+                    MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
+                }
+                else
+                {
+                    if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
+                    {
+                        this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
+                        //  this.metroButton1.Text = traduccion;
+                    }
+                    if (metroButton2.Tag != null && traducciones.ContainsKey(metroButton2.Tag.ToString()))
+                    {
+                        this.metroButton2.Text = traducciones[metroButton2.Tag.ToString()].texto;
+                    }
+                    if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
+                    {
+                        this.metroLabel1.Text = traducciones[metroLabel1.Tag.ToString()].texto;
+                    }
+                    if (metroLabel2.Tag != null && traducciones.ContainsKey(metroLabel2.Tag.ToString()))
+                    {
+                        this.metroLabel2.Text = traducciones[metroLabel2.Tag.ToString()].texto;
+                    }
+                    if (metroLabel3.Tag != null && traducciones.ContainsKey(metroLabel3.Tag.ToString()))
+                    {
+                        this.metroLabel3.Text = traducciones[metroLabel3.Tag.ToString()].texto;
+                    }
+                    if (metroLabel4.Tag != null && traducciones.ContainsKey(metroLabel4.Tag.ToString()))
+                    {
+                        this.metroLabel4.Text = traducciones[metroLabel4.Tag.ToString()].texto;
+                    }
+                    if (radioButton1.Tag != null && traducciones.ContainsKey(radioButton1.Tag.ToString()))
+                    {
+                        this.radioButton1.Text = traducciones[radioButton1.Tag.ToString()].texto;
+                    }
+                    if (radioButton2.Tag != null && traducciones.ContainsKey(radioButton2.Tag.ToString()))
+                    {
+                        this.radioButton2.Text = traducciones[radioButton2.Tag.ToString()].texto;
+                    }
+                }
+            }
+        }
+            public void VolverAIdiomaoriginal()
+            {
+            BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+            List<string> palabras = Traductor.obtenerIdiomaOriginal();
+
+
+
+            if (metroButton1.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
+            {
+                string traduccion = palabras.Find(p => p.Equals(metroButton1.Tag.ToString()));
+                this.metroButton1.Text = traduccion;
+            }
+            if (metroButton2.Tag != null && palabras.Contains(metroButton2.Tag.ToString()))
+            {
+                string traduccion = palabras.Find(p => p.Equals(metroButton2.Tag.ToString()));
+                this.metroButton2.Text = traduccion;
+            }
+            if (metroLabel1.Tag != null && palabras.Contains(metroLabel1.Tag.ToString()))
+            {
+                string traduccion = palabras.Find(p => p.Equals(metroLabel1.Tag.ToString()));
+                this.metroLabel1.Text = traduccion;
+            }
+            if (metroLabel2.Tag != null && palabras.Contains(metroLabel2.Tag.ToString()))
+            {
+                string traduccion = palabras.Find(p => p.Equals(metroLabel2.Tag.ToString()));
+                this.metroLabel2.Text = traduccion;
+            }
+            if (metroLabel3.Tag != null && palabras.Contains(metroLabel3.Tag.ToString()))
+            {
+                string traduccion = palabras.Find(p => p.Equals(metroLabel3.Tag.ToString()));
+                this.metroLabel3.Text = traduccion;
+            }
+            if (metroLabel4.Tag != null && palabras.Contains(metroLabel4.Tag.ToString()))
+            {
+                string traduccion = palabras.Find(p => p.Equals(metroLabel4.Tag.ToString()));
+                this.metroLabel4.Text = traduccion;
+            }
+            if (radioButton1.Tag != null && palabras.Contains(radioButton1.Tag.ToString()))
+            {
+                string traduccion = palabras.Find(p => p.Equals(radioButton1.Tag.ToString()));
+                this.radioButton1.Text = traduccion;
+            }
+            if (radioButton2.Tag != null && palabras.Contains(radioButton2.Tag.ToString()))
+            {
+                string traduccion = palabras.Find(p => p.Equals(radioButton2.Tag.ToString()));
+                this.radioButton2.Text = traduccion;
+            }
+
+        }
+
+        }
     }
-}
+

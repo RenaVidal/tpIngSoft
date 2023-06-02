@@ -74,7 +74,7 @@ namespace UI
             this.metroButton1.Size = new System.Drawing.Size(150, 51);
             this.metroButton1.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton1.TabIndex = 4;
-            this.metroButton1.Tag = "create admin";
+            this.metroButton1.Tag = "add lenguaje";
             this.metroButton1.Text = "Add new lenguaje";
             this.metroButton1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -93,7 +93,7 @@ namespace UI
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(42, 19);
             this.metroLabel1.TabIndex = 8;
-            this.metroLabel1.Tag = "id";
+            this.metroLabel1.Tag = "word";
             this.metroLabel1.Text = "Word";
             // 
             // metroLabel2
@@ -104,7 +104,7 @@ namespace UI
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(61, 19);
             this.metroLabel2.TabIndex = 9;
-            this.metroLabel2.Tag = "id";
+            this.metroLabel2.Tag = "lenguaje";
             this.metroLabel2.Text = "Lenguaje";
             // 
             // metroButton2
@@ -112,13 +112,13 @@ namespace UI
             this.metroButton2.BackColor = System.Drawing.Color.SandyBrown;
             this.metroButton2.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton2.ForeColor = System.Drawing.SystemColors.Info;
-            this.metroButton2.Location = new System.Drawing.Point(72, 168);
+            this.metroButton2.Location = new System.Drawing.Point(68, 168);
             this.metroButton2.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(150, 51);
             this.metroButton2.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton2.TabIndex = 10;
-            this.metroButton2.Tag = "create admin";
+            this.metroButton2.Tag = "add traduccion";
             this.metroButton2.Text = "Add Traduccion";
             this.metroButton2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -151,7 +151,7 @@ namespace UI
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(71, 19);
             this.metroLabel3.TabIndex = 13;
-            this.metroLabel3.Tag = "id";
+            this.metroLabel3.Tag = "traduccion";
             this.metroLabel3.Text = "Traduccion";
             // 
             // errorProvider1
@@ -166,7 +166,7 @@ namespace UI
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(91, 19);
             this.metroLabel4.TabIndex = 14;
-            this.metroLabel4.Tag = "id";
+            this.metroLabel4.Tag = "new lenguaje";
             this.metroLabel4.Text = "New Lenguaje";
             // 
             // radioButton1
@@ -177,6 +177,7 @@ namespace UI
             this.radioButton1.Size = new System.Drawing.Size(94, 17);
             this.radioButton1.TabIndex = 15;
             this.radioButton1.TabStop = true;
+            this.radioButton1.Tag = "new lenguaje";
             this.radioButton1.Text = "New Lenguaje";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
@@ -189,6 +190,7 @@ namespace UI
             this.radioButton2.Size = new System.Drawing.Size(100, 17);
             this.radioButton2.TabIndex = 16;
             this.radioButton2.TabStop = true;
+            this.radioButton2.Tag = "new traduccion";
             this.radioButton2.Text = "New traduccion";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);

@@ -84,31 +84,6 @@ namespace UI
         }
         private void VolverAidiomaOriginal()
         {
-           // Iidioma Idioma = null;
-
-          //  if (SessionManager.TraerUsuario())
-            //    Idioma = SessionManager.GetInstance.Usuario.Idioma;
-
-            //BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-
-            /*   if (metroButton4.Tag != null && Palabras.Contains(metroButton4.Tag.ToString()))
-               {
-                   this.metroButton4.Text = Palabras[metroButton4.Tag.ToString()].texto;
-               }*/
-            /*  BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-              var Palabras = Traductor.obtenerIdiomaOriginal();
-              string idiomaOriginal = Traductor.obtenerIdiomaOriginal();
-
-              // Asegúrate de que el método obtenerIdiomaOriginal() devuelva un diccionario o una estructura que contenga las palabras en el idioma original
-
-              if (metroButton4.Tag != null)
-              {
-                  string clave = metroButton4.Tag.ToString();
-                  if (Palabras.ContainsKey(clave))
-                  {
-                      this.metroButton4.Text = Palabras[clave].texto;
-                  }
-              }*/
             BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
             List<string> palabras = Traductor.obtenerIdiomaOriginal();
 
