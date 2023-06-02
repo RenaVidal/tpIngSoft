@@ -39,7 +39,7 @@ namespace UI
         }
         private void AdminHome_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
