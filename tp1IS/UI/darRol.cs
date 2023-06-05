@@ -37,48 +37,103 @@ namespace UI
         }
         public void iniciarTreeView()
         {
-            treeView2.Nodes.Clear();
-            IList<Componente> lista = oComp.GetFamilias();
-            IList<Componente> cada_Flia;
-            TreeNode padre = new TreeNode("Main");
-            TreeNode familia;
-            foreach (Componente comp in lista)
+            try
             {
-                cada_Flia = oComp.GetAll(comp.Id);
-                familia = new TreeNode(comp.Nombre);
+                treeView2.Nodes.Clear();
+                IList<Componente> lista = oComp.GetFamilias();
+                IList<Componente> cada_Flia;
+                TreeNode padre = new TreeNode("Main");
+                TreeNode familia;
+                foreach (Componente comp in lista)
+                {
+                    cada_Flia = oComp.GetAll(comp.Id);
+                    familia = new TreeNode(comp.Nombre);
 
-                cargarTreeView(cada_Flia, familia);
-                padre.Nodes.Add(familia);
+                    cargarTreeView(cada_Flia, familia);
+                    padre.Nodes.Add(familia);
+                }
+                treeView2.Nodes.Add(padre);
             }
-            treeView2.Nodes.Add(padre);
+            
+            catch (Exception ex) {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
 
+
+        }
+        public void cargar_roles(int id)
+        {
+            try
+            {
+                treeView1.Nodes.Clear();
+                IList<Componente> lista2 = oComp.GetPermisosdeUser(id);
+                IList<Componente> cada_Flia2;
+                TreeNode padre2 = new TreeNode("Main");
+                TreeNode familia2;
+                foreach (Componente comp in lista2)
+                {
+                    cada_Flia2 = oComp.GetAll(comp.Id);
+                    familia2 = new TreeNode(comp.Nombre);
+
+                    cargarTreeView(cada_Flia2, familia2);
+                    padre2.Nodes.Add(familia2);
+                }
+                treeView1.Nodes.Add(padre2);
+            }
+             catch (Exception ex) {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void cargarTreeView(IList<Componente> list, TreeNode parentNode)
         {
-            foreach (var item in list)
+            try
             {
-                TreeNode newNode = new TreeNode(item.Nombre);
-                parentNode.Nodes.Add(newNode);
-                if (item.Hijos != null && item.Hijos.Count != 0) cargarTreeView(item.Hijos, newNode);
+                foreach (var item in list)
+                {
+                    TreeNode newNode = new TreeNode(item.Nombre);
+                    parentNode.Nodes.Add(newNode);
+                    if (item.Hijos != null && item.Hijos.Count != 0) cargarTreeView(item.Hijos, newNode);
+                }
             }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
         }
         public void llenarComboBox()
         {
-            IList<Componente> lista = oComp.GetFamilias();
-            List<string> familias = new List<string>();
-            foreach (Componente componente in lista)
+            try
             {
-                familias.Add(componente.Nombre);
+                IList<Componente> lista = oComp.GetFamilias();
+                List<string> familias = new List<string>();
+                foreach (Componente componente in lista)
+                {
+                    familias.Add(componente.Nombre);
+                }
+                comboBox2.DataSource = familias;
+                IList<Componente> lista2 = oComp.GetPermisos();
+                List<string> permisos = new List<string>();
+                foreach (Componente componente in lista2)
+                {
+                    permisos.Add(componente.Nombre);
+                }
+                comboBox1.DataSource = permisos;
             }
-            comboBox2.DataSource = familias;
-            IList<Componente> lista2 = oComp.GetPermisos();
-            List<string> permisos = new List<string>();
-            foreach (Componente componente in lista2)
+            catch (Exception ex)
             {
-                permisos.Add(componente.Nombre);
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
-            comboBox1.DataSource = permisos;
+
         }
         private void darRol_Load(object sender, EventArgs e)
         {
@@ -88,19 +143,29 @@ namespace UI
         BLLUsuario oLog = new BLLUsuario();
         public Componente findInList(IList<Componente> list, string nombre)
         {
-            Componente encontrado = null;
-            foreach (Componente item in list)
+            try
             {
-                if (item != null)
+                Componente encontrado = null;
+                foreach (Componente item in list)
                 {
-                    if (item.Nombre == nombre) return item;
-                    if (item.Hijos != null) encontrado = findInList(item.Hijos, nombre);
-                    if (encontrado != null)
+                    if (item != null)
                     {
-                        return encontrado;
+                        if (item.Nombre == nombre) return item;
+                        if (item.Hijos != null) encontrado = findInList(item.Hijos, nombre);
+                        if (encontrado != null)
+                        {
+                            return encontrado;
+                        }
                     }
-                }
 
+                }
+                return null;
+            }
+            
+            catch (Exception ex) {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             return null;
         }
@@ -123,6 +188,7 @@ namespace UI
                 IList<Componente> listPer = oComp.GetPermisos();
                 Componente itemPatente = null;
                 Componente itemFamilia = null;
+                if (!oLog.usuario_existente(Convert.ToInt32(textBox1.Text))) errorProvider1.SetError(treeView2, "User does not exist");
                 if (treeView2.SelectedNode != null)
                 {
                     itemPatente = findInList(listPer, treeView2.SelectedNode.Text);
@@ -140,37 +206,43 @@ namespace UI
                         if(itemPatente != null)
                         {
                             var accion = "dio al usuario " + textBox1.Text + " el permiso " + itemPatente.Id.ToString();
-                            oBit.guardar_accion(accion);
+                            oBit.guardar_accion(accion, 2);
                             if (!oLog.tiene_rol(Convert.ToInt32(textBox1.Text), itemPatente.Id))
                             {
                                 if (oLog.agregar_rol(Convert.ToInt32(textBox1.Text), itemPatente.Id)) MetroMessageBox.Show(this, "rol asignado");
                             }
                         else MetroMessageBox.Show(this, "Selected user already has that rol");
 
-
                     }
-                        else if(itemFamilia != null)
-                        {
+
+
+
+                    else if(itemFamilia != null)
+                    {
                             var accion = "dio al usuario " + textBox1.Text + " el rol " + itemFamilia.Id.ToString();
-                            oBit.guardar_accion(accion);
+                            oBit.guardar_accion(accion, 2);
                             if (!oLog.tiene_rol(Convert.ToInt32(textBox1.Text), itemFamilia.Id))
                             {
                                 if (oLog.agregar_rol(Convert.ToInt32(textBox1.Text), itemFamilia.Id)) MetroMessageBox.Show(this, "rol asignado");
                             }
                         else MetroMessageBox.Show(this, "Selected user already has that rol");
+                    
                     }
-                        
-                        else MetroMessageBox.Show(this, "Error, try again");
-
-
-                    }
-                    else
+                }
+                else
                     {
                         errorProvider1.SetError(treeView2, "Select a father role different from main");
                     }
+
                 resetControls();
+                cargar_roles(Convert.ToInt32(textBox1.Text));
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
         SessionManager u = SessionManager.GetInstance;
         private void metroButton1_Click(object sender, EventArgs e)
@@ -179,47 +251,40 @@ namespace UI
             {
                 
                 errorProvider1.Clear();
-                errorProvider1.SetError(treeView2, "");
+                errorProvider1.SetError(treeView1, "");
                 errorProvider1.SetError(textBox1, "");
-                if (treeView2.SelectedNode == null && comboBox1.SelectedIndex == -1 && comboBox2.SelectedIndex == -1)
+                if (treeView1.SelectedNode == null)
                 {
-                    errorProvider1.SetError(treeView2, "Select a role to delete");
+                    errorProvider1.SetError(treeView1, "Select a role to delete");
                 }
                 if (textBox1.Text == string.Empty || !validar.id(textBox1.Text))
                 {
                     errorProvider1.SetError(textBox1, "You should enter an id with 1 to 9 numbers");
                 }
-                if (u.Usuario.id == Convert.ToInt32(textBox1.Text)) errorProvider1.SetError(treeView2, "You can not delete roles from yourself");
+                if (u.Usuario.id == Convert.ToInt32(textBox1.Text)) errorProvider1.SetError(treeView1, "You can not delete roles from yourself");
+                if(!oLog.usuario_existente(Convert.ToInt32(textBox1.Text))) errorProvider1.SetError(treeView1, "User does not exist");
                 IList<Componente> listFam = oComp.GetFamilias();
                 IList<Componente> listPer = oComp.GetPermisos();
                 Componente itemPatente = null;
                 Componente itemFamilia = null;
-                if (treeView2.SelectedNode != null)
+                if (treeView1.SelectedNode != null)
                 {
-                    itemPatente = findInList(listPer, treeView2.SelectedNode.Text);
-                    itemFamilia = findInList(listFam, treeView2.SelectedNode.Text);
-                }
-                else if (comboBox1.SelectedIndex != -1)
-                {
-                    itemPatente = findInList(listPer, comboBox1.SelectedItem.ToString());
-                }
-                else if (comboBox2.SelectedIndex != -1)
-                {
-                    itemFamilia = findInList(listFam, comboBox2.SelectedItem.ToString());
+                    itemPatente = findInList(listPer, treeView1.SelectedNode.Text);
+                    itemFamilia = findInList(listFam, treeView1.SelectedNode.Text);
                 }
                     if (oLog.usuario_existente(Convert.ToInt32(textBox1.Text)) && (itemFamilia != null || itemPatente != null))
                     {
                         if (itemPatente != null)
                         {
                             var accion = "desasigno al usuario " + textBox1.Text + " el permiso " + itemPatente.Id.ToString();
-                            //oBit.guardar_accion(accion);
+                            oBit.guardar_accion(accion, 2);
                             if (oLog.borrar_rol(Convert.ToInt32(textBox1.Text), itemPatente.Id)) MetroMessageBox.Show(this, "Role unasigned");
                             else MetroMessageBox.Show(this, "Role not found asigned to user");
                         }
                         else if (itemFamilia != null)
                         {
                             var accion = "desasigno al usuario " + textBox1.Text + " el rol " + itemFamilia.Id.ToString();
-                            //oBit.guardar_accion(accion);
+                            oBit.guardar_accion(accion, 2);
                             if (oLog.borrar_rol(Convert.ToInt32(textBox1.Text), itemFamilia.Id)) MetroMessageBox.Show(this, "Role unasigned");
                             else MetroMessageBox.Show(this, "Role not found asigned to user");
 
@@ -229,9 +294,39 @@ namespace UI
 
 
                     }
+                else{
+                    MetroMessageBox.Show(this, "Error, try again");
+                }
                 resetControls();
+                cargar_roles(Convert.ToInt32(textBox1.Text));
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(textBox1, "");
+                if (textBox1.Text == string.Empty || !validar.id(textBox1.Text))
+                {
+                    errorProvider1.SetError(textBox1, "You should enter an id with 1 to 9 numbers");
+                }
+                cargar_roles(Convert.ToInt32(textBox1.Text));
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

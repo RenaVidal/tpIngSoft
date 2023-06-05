@@ -11,16 +11,21 @@ namespace Negocio
     public class BLLBitacora
     {
         MPP.MPPBitacora oBit = new MPP.MPPBitacora();
-        public void guardar_accion(string accion)
+        public void guardar_accion(string accion, int id_tipo)
         {
             try
             {
             SessionManager u = SessionManager.GetInstance;
             BEUsuario user = u.Usuario;
             DateTime fecha = DateTime.Now;
-            oBit.cargar_bitacora(user, fecha, accion);
+            oBit.cargar_bitacora(user, fecha, accion, id_tipo);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                throw ex;
+            }
         }
         public void guardar_logIn()
         {
@@ -29,8 +34,9 @@ namespace Negocio
             SessionManager u = SessionManager.GetInstance;
             BEUsuario user = u.Usuario;
             DateTime fecha = u.FechaInicio;
+            int id_tipo = 2;
             string accion = "logged in";
-            oBit.cargar_bitacora(user,fecha,accion);
+            oBit.cargar_bitacora(user,fecha,accion, id_tipo);
             }
             catch (Exception ex) { throw ex; }
             }
@@ -42,8 +48,9 @@ namespace Negocio
             BEUsuario user = u.Usuario;
              DateTime fecha = DateTime.Now;
              string accion = "logged out";
-             oBit.cargar_bitacora(user, fecha, accion);
-             }catch (Exception ex) { throw ex; }
+             int id_tipo = 2;
+             oBit.cargar_bitacora(user, fecha, accion, id_tipo);
+          }catch (Exception ex) { throw ex; }
         }
     }
 }

@@ -201,10 +201,10 @@
             this.metroButton7.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton7.Location = new System.Drawing.Point(580, 63);
             this.metroButton7.Name = "metroButton7";
-            this.metroButton7.Size = new System.Drawing.Size(138, 181);
+            this.metroButton7.Size = new System.Drawing.Size(191, 181);
             this.metroButton7.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton7.TabIndex = 10;
-            this.metroButton7.Text = "Modify Role";
+            this.metroButton7.Text = "Asign or Delete Role";
             this.metroButton7.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.metroButton7.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroButton7.UseCustomBackColor = true;

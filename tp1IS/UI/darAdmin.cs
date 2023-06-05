@@ -51,7 +51,7 @@ namespace UI
                        if( oLog.dar_admin(Convert.ToInt32(textBox2.Text)))
                         {
                             var accion = "dio privilegios de admin a el usuario" + textBox2.Text;
-                            oBit.guardar_accion(accion);
+                            oBit.guardar_accion(accion, 2);
                             MetroMessageBox.Show(this, "Success");
                             this.Hide();
                         }
@@ -65,6 +65,8 @@ namespace UI
             }
             catch (Exception ex)
             {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
         }

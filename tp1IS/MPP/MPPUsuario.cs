@@ -40,8 +40,9 @@ namespace MPP
                 Hdatos = new Hashtable();
                 string Consulta = "s_Usuario_sacar_rol";
                 Hdatos.Add("@id", id);
+                Hdatos.Add("@rol", rol);
                 oDatos = new Acceso();
-                return oDatos.Escribir(Consulta, Hdatos);
+                return oDatos.Escribir_con_respuesta(Consulta, Hdatos);
             }
             catch (Exception ex)
             {

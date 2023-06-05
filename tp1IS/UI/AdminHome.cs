@@ -29,13 +29,22 @@ namespace UI
         private Form formularioAbierto = null;
         private void AbrirFormulario(Form formulario)
         {
-            if (formularioAbierto != null)
+            try
             {
-                formularioAbierto.Close();
-            }
+                if (formularioAbierto != null)
+                {
+                    formularioAbierto.Close();
+                }
 
-            formularioAbierto = formulario;
-            formularioAbierto.Show();
+                formularioAbierto = formulario;
+                formularioAbierto.Show();
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
         private void AdminHome_Load(object sender, EventArgs e)
         {
@@ -44,17 +53,26 @@ namespace UI
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-           if( MetroMessageBox.Show(this, "Yes/No",  "¿Do you wish to give admin privileges to a user that already exist?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
+                if (MetroMessageBox.Show(this, "Yes/No", "¿Do you wish to give admin privileges to a user that already exist?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
 
-                darAdmin formadmin = new darAdmin();
-                AbrirFormulario(formadmin);
+                    darAdmin formadmin = new darAdmin();
+                    AbrirFormulario(formadmin);
+                }
+                else
+                {
+                    crearAdmin formcrearAdmin = new crearAdmin();
+                    AbrirFormulario(formcrearAdmin);
+
+                }
             }
-            else
+            catch (Exception ex)
             {
-                crearAdmin formcrearAdmin = new crearAdmin();
-                AbrirFormulario(formcrearAdmin);
-
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -80,7 +98,7 @@ namespace UI
                         if (oLog.eliminar_usuario(Convert.ToInt32(textBox1.Text)))
                         {
                             var accion = " elimino el usuario " + textBox1.Text;
-                            oBit.guardar_accion(accion);
+                            oBit.guardar_accion(accion,2);
                             MetroMessageBox.Show(this, "User deleted");
                             if(Convert.ToInt32( textBox1.Text) == session.Usuario.id)
                             {
@@ -99,6 +117,8 @@ namespace UI
             }
             catch (Exception ex)
             {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
         }
@@ -115,6 +135,8 @@ namespace UI
             }
             catch (Exception ex)
             {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
 

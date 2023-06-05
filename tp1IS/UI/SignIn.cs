@@ -88,6 +88,8 @@ namespace UI
             }
             catch (Exception ex)
             {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
         }
@@ -127,6 +129,8 @@ namespace UI
             }
             catch (Exception ex)
             {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
         }
@@ -192,6 +196,8 @@ namespace UI
             }
             catch (Exception ex)
             {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
         }

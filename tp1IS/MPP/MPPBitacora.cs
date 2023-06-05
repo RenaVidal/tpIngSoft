@@ -13,7 +13,7 @@ namespace MPP
     {
         Acceso oDatos;
         Hashtable Hdatos;
-        public bool cargar_bitacora(BEUsuario usuario, DateTime date, string accion)
+        public bool cargar_bitacora(BEUsuario usuario, DateTime date, string accion, int id_tipo)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace MPP
                 Hdatos.Add("@user", usuario.user);
                 Hdatos.Add("@time", date);
                 Hdatos.Add("@action", accion);
-
+                Hdatos.Add("@tipo", id_tipo);
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }

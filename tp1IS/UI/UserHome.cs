@@ -26,13 +26,23 @@ namespace UI
         private Form formularioAbierto = null;
         private void AbrirFormulario(Form formulario)
         {
-            if (formularioAbierto != null)
+            try
             {
-                formularioAbierto.Close();
+                if (formularioAbierto != null)
+                {
+                    formularioAbierto.Close();
+                }
+
+                formularioAbierto = formulario;
+                formularioAbierto.Show();
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
 
-            formularioAbierto = formulario;
-            formularioAbierto.Show();
         }
 
         BLLBitacora oBit = new BLLBitacora();
@@ -49,6 +59,8 @@ namespace UI
             }
             catch (Exception ex)
             {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
         }

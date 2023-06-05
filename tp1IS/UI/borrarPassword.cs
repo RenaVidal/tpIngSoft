@@ -57,7 +57,7 @@ namespace UI
                         if (oLog.cambiar_contrasena(Convert.ToInt32( textBox1.Text), textBox2.Text))
                         {
                             var accion = "cambio la contraseña del usuario de id" + textBox1.Text;
-                            oBit.guardar_accion(accion);
+                            oBit.guardar_accion(accion, 2);
                             MetroMessageBox.Show(this, "Password changed");
                             this.Hide();
                         }
@@ -72,6 +72,8 @@ namespace UI
             }
             catch (Exception ex)
             {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
         }

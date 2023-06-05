@@ -40,46 +40,73 @@ namespace UI
         }
         public void llenarComboBox()
         {
-            IList<Componente> lista = oComp.GetFamilias();
-            List<string> familias = new List<string>();
-            foreach (Componente componente in lista)
+            try
             {
-                familias.Add(componente.Nombre);
+                IList<Componente> lista = oComp.GetFamilias();
+                List<string> familias = new List<string>();
+                foreach (Componente componente in lista)
+                {
+                    familias.Add(componente.Nombre);
+                }
+                comboBox2.DataSource = familias;
+                IList<Componente> lista2 = oComp.GetPermisos();
+                List<string> permisos = new List<string>();
+                foreach (Componente componente in lista2)
+                {
+                    permisos.Add(componente.Nombre);
+                }
+                comboBox1.DataSource = permisos;
             }
-            comboBox2.DataSource = familias;
-            IList<Componente> lista2 = oComp.GetPermisos();
-            List<string> permisos = new List<string>();
-            foreach (Componente componente in lista2)
+            catch (Exception ex)
             {
-                permisos.Add(componente.Nombre);
+                MessageBox.Show(ex.Message);
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
             }
-            comboBox1.DataSource = permisos;
+
         }
         public void iniciarTreeView() {
-            treeView2.Nodes.Clear();
-            IList<Componente> lista = oComp.GetFamilias();
-            IList<Componente> cada_Flia;
-            TreeNode padre = new TreeNode("Main");
-            TreeNode familia;
-            foreach (Componente comp in lista)
+            try
             {
-                cada_Flia = oComp.GetAll(comp.Id);
-                familia = new TreeNode(comp.Nombre);
-                
-                cargarTreeView(cada_Flia, familia);
-                padre.Nodes.Add(familia);
+                treeView2.Nodes.Clear();
+                IList<Componente> lista = oComp.GetFamilias();
+                IList<Componente> cada_Flia;
+                TreeNode padre = new TreeNode("Main");
+                TreeNode familia;
+                foreach (Componente comp in lista)
+                {
+                    cada_Flia = oComp.GetAll(comp.Id);
+                    familia = new TreeNode(comp.Nombre);
+
+                    cargarTreeView(cada_Flia, familia);
+                    padre.Nodes.Add(familia);
+                }
+                treeView2.Nodes.Add(padre);
             }
-            treeView2.Nodes.Add(padre);
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+            }
+
         }
         
         public void cargarTreeView(IList<Componente> list, TreeNode parentNode)
         {
-            foreach (var item in list)
+            try{
+                foreach (var item in list)
+                {
+                    TreeNode newNode = new TreeNode(item.Nombre);
+                    parentNode.Nodes.Add(newNode);
+                    if (item.Hijos != null && item.Hijos.Count != 0) cargarTreeView(item.Hijos, newNode);
+                }
+            }
+            catch (Exception ex)
             {
-                TreeNode newNode = new TreeNode(item.Nombre);
-                parentNode.Nodes.Add(newNode);
-                if (item.Hijos != null && item.Hijos.Count != 0) cargarTreeView(item.Hijos, newNode);
+                MessageBox.Show(ex.Message);
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
             }
         }
 
@@ -90,29 +117,49 @@ namespace UI
        
         public Componente findInList(IList<Componente> list, string nombre)
         {
-            Componente encontrado = null;
-            foreach (Componente item in list)
+            try
             {
-                if (item != null)
+                Componente encontrado = null;
+                foreach (Componente item in list)
                 {
-                    if (item.Nombre == nombre) return item;
-                    //if (item.Hijos != null) encontrado = findInList(item.Hijos, nombre);
-                    if (encontrado != null)
+                    if (item != null)
                     {
-                        return encontrado;
+                        if (item.Nombre == nombre) return item;
+                        //if (item.Hijos != null) encontrado = findInList(item.Hijos, nombre);
+                        if (encontrado != null)
+                        {
+                            return encontrado;
+                        }
                     }
+
                 }
-               
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
             }
             return null;
         }
         public bool noRepite(Componente item)
         {
-            foreach(TreeNode node in treeView1.Nodes)
+            try
             {
-                if(node.Text == item.Nombre) return false;
+                foreach (TreeNode node in treeView1.Nodes)
+                {
+                    if (node.Text == item.Nombre) return false;
+                }
+                return true;
             }
-            return true;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+            }
+            return false;
         }
        
         private void metroButton1_Click(object sender, EventArgs e)
@@ -174,7 +221,12 @@ namespace UI
                 }
                 resetControls();
             }
-            catch(Exception ex) { MessageBox.Show(ex.Message); }    
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+            }    
         }
      
         public bool cargar_familia()
@@ -229,7 +281,11 @@ namespace UI
                 else { MetroMessageBox.Show(this, "There has been an error, try again"); return false; }
 
             }
-            catch(Exception ex) { MessageBox.Show(ex.Message); }
+            catch(Exception ex) {
+                MessageBox.Show(ex.Message);
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+            }
             return true;
 
         }
@@ -261,7 +317,7 @@ namespace UI
                 else
                 {
                         var accion = "creo el rol " + textBox1.Text;
-                        oBit.guardar_accion(accion); 
+                        oBit.guardar_accion(accion, 2); 
                         if (cargar_familia())
                         {
                             iniciarTreeView();
@@ -274,7 +330,11 @@ namespace UI
                         }
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { 
+                MessageBox.Show(ex.Message);
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -319,7 +379,11 @@ namespace UI
                 }
                 resetControls();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message); 
+            }
         }
 
         private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)

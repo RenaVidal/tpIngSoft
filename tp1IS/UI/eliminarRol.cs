@@ -29,19 +29,28 @@ namespace UI
         }
         public Componente findInList(IList<Componente> list, string nombre)
         {
-            Componente encontrado = null;
-            foreach (Componente item in list)
+            try
             {
-                if (item != null)
+                Componente encontrado = null;
+                foreach (Componente item in list)
                 {
-                    if (item.Nombre == nombre) return item;
-                    if (item.Hijos != null) encontrado = findInList(item.Hijos, nombre);
-                    if (encontrado != null)
+                    if (item != null)
                     {
-                        return encontrado;
+                        if (item.Nombre == nombre) return item;
+                        if (item.Hijos != null) encontrado = findInList(item.Hijos, nombre);
+                        if (encontrado != null)
+                        {
+                            return encontrado;
+                        }
                     }
-                }
 
+                }
+                return null;
+            }
+             catch (Exception ex) {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             return null;
         }
@@ -69,7 +78,7 @@ namespace UI
                         if (!oComp.buscar_rol_usado(rolID)) 
                         {
                             var accion = "elimino el rol " + item.Nombre;
-                            oBit.guardar_accion(accion);
+                            oBit.guardar_accion(accion, 2);
                             oComp.borrar(rolID);
                         }
                         else
@@ -83,8 +92,13 @@ namespace UI
                     }
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-          
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

@@ -69,7 +69,7 @@ namespace UI
                         if (oLog.crear_admin(oUsuraio))
                         {
                             var accion = "creo el usuario admin" + textBox1.Text;
-                            oBit.guardar_accion(accion);
+                            oBit.guardar_accion(accion, 2);
                             MetroMessageBox.Show(this, "Admin user created");
                             this.Hide();
                         }
@@ -84,6 +84,8 @@ namespace UI
             }
             catch (Exception ex)
             {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
         }

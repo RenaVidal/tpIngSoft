@@ -163,6 +163,50 @@ namespace DAL
 
         }
 
+        public bool Escribir_con_respuesta(string consulta, Hashtable Hdatos)
+        {
+
+            if (oCnn.State == ConnectionState.Closed)
+            {
+                oCnn.Open();
+            }
+
+            try
+            {
+                Tranx = oCnn.BeginTransaction();
+                Cmd = new SqlCommand(consulta, oCnn, Tranx);
+                Cmd.CommandType = CommandType.StoredProcedure;
+
+                if ((Hdatos != null))
+                {
+                    foreach (string dato in Hdatos.Keys)
+                    {
+                        Cmd.Parameters.AddWithValue(dato, Hdatos[dato]);
+                    }
+                }
+
+                int respuesta = Convert.ToInt32(Cmd.ExecuteScalar());
+                Tranx.Commit();
+                if (respuesta != 0) return true;
+                return false;
+
+            }
+
+            catch (SqlException ex)
+            {
+                Tranx.Rollback();
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Tranx.Rollback();
+                return false;
+            }
+            finally
+            { oCnn.Close(); }
+
+        }
+
         public IList<Componente> GetAll(int familia)
         {
           
