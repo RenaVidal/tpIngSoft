@@ -22,8 +22,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
                 throw ex;
             }
         }
