@@ -16,6 +16,7 @@ namespace Negocio
             oUsuario = new MPPUsuario();
         }
         MPPUsuario oUsuario;
+        
         public bool cambiar_contrasena(int id, string contra)
         {
             try

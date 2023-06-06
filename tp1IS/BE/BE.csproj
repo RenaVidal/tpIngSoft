@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="BEComposite.cs" />
     <Compile Include="BEEntidad.cs" />
+    <Compile Include="BEIdioma.cs" />
+    <Compile Include="BETraduccion.cs" />
     <Compile Include="BEUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,6 +53,9 @@
       <Project>{fade44a9-3949-4853-932f-9d604a4a0707}</Project>
       <Name>abstraccion</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

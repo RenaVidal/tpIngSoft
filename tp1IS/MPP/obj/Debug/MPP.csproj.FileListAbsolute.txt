@@ -13,3 +13,18 @@ C:\Users\renag\Documents\tpIngSoft\tp1IS\MPP\obj\Debug\MPP.csproj.CoreCompileInp
 C:\Users\renag\Documents\tpIngSoft\tp1IS\MPP\obj\Debug\MPP.csproj.CopyComplete
 C:\Users\renag\Documents\tpIngSoft\tp1IS\MPP\obj\Debug\MPP.dll
 C:\Users\renag\Documents\tpIngSoft\tp1IS\MPP\obj\Debug\MPP.pdb
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\bin\Debug\MPP.dll
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\bin\Debug\MPP.pdb
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\bin\Debug\BE.dll
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\bin\Debug\DAL.dll
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\bin\Debug\servicios.dll
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\bin\Debug\abstraccion.dll
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\bin\Debug\BE.pdb
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\bin\Debug\DAL.pdb
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\bin\Debug\servicios.pdb
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\bin\Debug\abstraccion.pdb
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\obj\Debug\MPP.csproj.AssemblyReference.cache
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\obj\Debug\MPP.csproj.CoreCompileInputs.cache
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\obj\Debug\MPP.csproj.CopyComplete
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\obj\Debug\MPP.dll
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\MPP\obj\Debug\MPP.pdb

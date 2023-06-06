@@ -43,10 +43,15 @@
   <ItemGroup>
     <Compile Include="BLLBitacora.cs" />
     <Compile Include="BLLComposite.cs" />
+    <Compile Include="BLLTraductor.cs" />
     <Compile Include="BLLUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\abstraccion\abstraccion.csproj">
+      <Project>{fade44a9-3949-4853-932f-9d604a4a0707}</Project>
+      <Name>abstraccion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{f39929bf-2dce-4346-9c4a-c94e1eed36b6}</Project>
       <Name>BE</Name>

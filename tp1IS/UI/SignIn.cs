@@ -9,12 +9,15 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MetroFramework;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Patrones.Singleton.Core;
+using System.Drawing;
+using System.ComponentModel;
+using servicios.ClasesMultiLenguaje;
 using BLL;
 using System.Collections.Generic;
 
 namespace UI
 {
-    public partial class SignIn : MetroFramework.Forms.MetroForm
+    public partial class SignIn : MetroFramework.Forms.MetroForm,IdiomaObserver
     {
         public SignIn()
         {
@@ -23,6 +26,7 @@ namespace UI
         }
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
+        public bool ojoOpen;
         public void limpiar()
         {
             textBox1.Text = null;
@@ -32,6 +36,12 @@ namespace UI
         validaciones validar = new validaciones();
         public void SignIn_Load(object sender, EventArgs e)
         {
+            ojoOpen = false;
+            Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoCerrado.png");
+            botonOjo.Image = imagen;
+            textBox2.UseSystemPasswordChar = true;
+            SessionManager.agregarObservador(this);
+
         }
         private void metroButton1_Click(object sender, EventArgs e)
         {
@@ -201,8 +211,37 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
+       
+      
+        public void CambiarIdioma(Idioma Idioma)
+        {
 
-        private void metroLabel1_Click(object sender, EventArgs e)
+        }
+        private void botonOjo_Click(object sender, EventArgs e)
+        {
+            
+           
+
+            if (ojoOpen == true)
+            {
+                textBox2.UseSystemPasswordChar = true;
+                Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoCerrado.png");
+                botonOjo.Image = imagen;
+                ojoOpen = false;
+
+            }
+            else
+            {
+                textBox2.UseSystemPasswordChar = false;
+                Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoabierto.png");
+                botonOjo.Image = imagen;
+                ojoOpen = true;
+            }
+           
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
