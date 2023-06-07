@@ -172,6 +172,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\ojoAbierto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ojoCerrado.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\abstraccion\abstraccion.csproj">
       <Project>{fade44a9-3949-4853-932f-9d604a4a0707}</Project>
       <Name>abstraccion</Name>
@@ -188,12 +194,6 @@
       <Project>{7b6b2eed-1774-4747-b947-f13422f733c6}</Project>
       <Name>servicios</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ojoAbierto.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ojoCerrado.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

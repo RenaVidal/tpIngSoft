@@ -272,7 +272,7 @@ namespace UI
                     if (id_abuelo != 0 && id_padre != 0) oComp.escribir_relacion(id_padre, id_abuelo);
                     for (int i = 0; i < tree.Count ; i++)
                     {
-                        componente.Nombre = tree[0].Text;
+                        componente.Nombre = tree[i].Text;
                         id_hijo = oComp.buscar_id(componente.Nombre);
                         if (id_hijo != 0 && id_padre != 0) oComp.escribir_relacion(id_hijo, id_padre);
                         else { MetroMessageBox.Show(this, "There has been an error, try again"); return false; }

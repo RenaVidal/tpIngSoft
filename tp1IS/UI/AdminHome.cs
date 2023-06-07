@@ -237,7 +237,6 @@ namespace UI
                     if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
                     {
                         this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
-                        //  this.metroButton1.Text = traduccion;
                     }
                     if (metroButton2.Tag != null && traducciones.ContainsKey(metroButton2.Tag.ToString()))
                     {
@@ -335,7 +334,6 @@ namespace UI
                 Idioma Oidioma = new Idioma();
                 Oidioma = traductor.TraerIdioma(idiomaSelec);
 
-            //SessionManager.cambiarIdioma(Oidioma);
             servicios.Observer.cambiarIdioma(Oidioma);
                
             

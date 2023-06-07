@@ -49,6 +49,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="stored procedures\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{f39929bf-2dce-4346-9c4a-c94e1eed36b6}</Project>
       <Name>BE</Name>
@@ -57,12 +63,6 @@
       <Project>{7b6b2eed-1774-4747-b947-f13422f733c6}</Project>
       <Name>servicios</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="stored procedures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
