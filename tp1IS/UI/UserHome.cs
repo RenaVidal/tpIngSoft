@@ -21,11 +21,22 @@ namespace UI
         BLL.BLLTraductor Otraductor = new BLL.BLLTraductor();
         private void UserHome_Load(object sender, EventArgs e)
         {
-            servicios.Observer.agregarObservador(this);
-           //SessionManager.agregarObservador(this);
-            ListarIdiomas();
-            SessionManager.GetInstance.idioma = Otraductor.ObtenerIdiomaBase();
-            traducir();
+            try
+            {
+                servicios.Observer.agregarObservador(this);
+                ListarIdiomas();
+                SessionManager.GetInstance.idioma = Otraductor.ObtenerIdiomaBase();
+                traducir();
+
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+          
 
         }
         private Form formularioAbierto = null;
@@ -52,8 +63,19 @@ namespace UI
 
         private void UserHome_FormClosing(object sender, FormClosingEventArgs e)
         {
-            servicios.Observer.eliminarObservador(this);
-           // SessionManager.eliminarObservador(this);
+            try
+            {
+
+                servicios.Observer.eliminarObservador(this);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
+       
         }
 
         BLLBitacora oBit = new BLLBitacora();
@@ -78,99 +100,116 @@ namespace UI
 
         public void CambiarIdioma(Idioma Idioma)
         {
-            //throw new NotImplementedException();
-            //marcarIdioma();
-         //   if (Idioma.Nombre == "Ingles")
-         //   {
-         //       VolverAidiomaOriginal();
-          //  }
-           // else
-           // {
+      
                 ListarIdiomas();
                 traducir();
-           // }
+
             
         }
 
         private void ListarIdiomas()
         {
-            comboBox1.Items.Clear();
-            BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-            var ListaIdiomas = Traductor.ObtenerIdiomas();
-            
-            foreach(Idioma idioma in ListaIdiomas)
+            try
             {
-                comboBox1.Items.Add(idioma.Nombre);
-        //gas        comboBox1.Items[(comboBox1.Items.Count - 1)].tag = idioma;
+                comboBox1.Items.Clear();
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                var ListaIdiomas = Traductor.ObtenerIdiomas();
+
+                foreach (Idioma idioma in ListaIdiomas)
+                {
+                    comboBox1.Items.Add(idioma.Nombre);
+
+                }
             }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+          
 
         }
         private void VolverAidiomaOriginal()
         {
-            BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-            List<string> palabras = Traductor.obtenerIdiomaOriginal();
-
-            if (metroButton4.Tag != null && palabras.Contains(metroButton4.Tag.ToString()))
+            try
             {
-                string traduccion = palabras.Find(p => p.Equals(metroButton4.Tag.ToString()));
-                this.metroButton4.Text = traduccion;
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                List<string> palabras = Traductor.obtenerIdiomaOriginal();
+
+                if (metroButton4.Tag != null && palabras.Contains(metroButton4.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton4.Tag.ToString()));
+                    this.metroButton4.Text = traduccion;
+                }
             }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+           
         }
         private void traducir()
         {
-            Idioma Idioma = null;
+            try
+            {
+                Idioma Idioma = null;
 
-            if (SessionManager.TraerUsuario())
-                Idioma = SessionManager.GetInstance.idioma;
-            if (Idioma.Nombre == "ingles")
-            {
-                VolverAidiomaOriginal();
-            }
-            else
-            {
-                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-                var traducciones = Traductor.obtenertraducciones(Idioma);
-                List<string> Lista = new List<string>();
-                Lista = Traductor.obtenerIdiomaOriginal();
-                if (traducciones.Values.Count != Lista.Count)
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "ingles")
                 {
-                    MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
+                    VolverAidiomaOriginal();
                 }
                 else
                 {
-                    if (metroButton4.Tag != null && traducciones.ContainsKey(metroButton4.Tag.ToString()))
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                    var traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
                     {
-                        this.metroButton4.Text = traducciones[metroButton4.Tag.ToString()].texto;
+                        MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
                     }
+                    else
+                    {
+                        if (metroButton4.Tag != null && traducciones.ContainsKey(metroButton4.Tag.ToString()))
+                        {
+                            this.metroButton4.Text = traducciones[metroButton4.Tag.ToString()].texto;
+                        }
+                    }
+
                 }
-              
             }
-            
-
-           /* if (UserHome.ActiveForm.Tag != null && traducciones.ContainsKey(UserHome.ActiveForm.Tag.ToString()))
+            catch (Exception ex)
             {
-                UserHome.ActiveForm.Tag = traducciones[UserHome.ActiveForm.Tag.ToString()].texto;
-            }*/
-              
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
 
-            
-           // var traducciones=BLL.BLLTraductor.obte
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string idiomaSelec = comboBox1.SelectedItem.ToString();
-            BLL.BLLTraductor traductor = new BLL.BLLTraductor();
-            Idioma Oidioma = new Idioma();
-            Oidioma = traductor.TraerIdioma(idiomaSelec);
-
-            //   SessionManager.cambiarIdioma(Oidioma);
-            servicios.Observer.cambiarIdioma(Oidioma);
-            //Iidioma idioma = new Idioma();
-            // idioma.Nombre = comboBox1.SelectedItem.ToString();
-            // SessionManager.cambiarIdioma(idioma);
-           // SessionManager.cambiarIdioma(((Iidioma)((ComboBox)sender).Tag));
-           // SessionManager.cambiarIdioma(((Iidioma)((comboBox1.SelectedItem.)sender).tag));
+            try
+            {
+                string idiomaSelec = comboBox1.SelectedItem.ToString();
+                BLL.BLLTraductor traductor = new BLL.BLLTraductor();
+                Idioma Oidioma = new Idioma();
+                Oidioma = traductor.TraerIdioma(idiomaSelec);
+                servicios.Observer.cambiarIdioma(Oidioma);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+     
+    
         }
 
         

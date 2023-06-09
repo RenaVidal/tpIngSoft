@@ -103,101 +103,144 @@ namespace UI
 
         public void traducir()
         {
-            Idioma Idioma = null;
+            try
+            {
+                Idioma Idioma = null;
 
-            if (SessionManager.TraerUsuario())
-                Idioma = SessionManager.GetInstance.idioma;
-            if (Idioma.Nombre == "ingles")
-            {
-                VolverAidiomaOriginal();
-            }
-            else
-            {
-                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-                var traducciones = Traductor.obtenertraducciones(Idioma);
-                List<string> Lista = new List<string>();
-                Lista = Traductor.obtenerIdiomaOriginal();
-                if (traducciones.Values.Count != Lista.Count)
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "ingles")
                 {
-                    MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
+                    VolverAidiomaOriginal();
                 }
                 else
                 {
-                    if (metroButton4.Tag != null && traducciones.ContainsKey(metroButton4.Tag.ToString()))
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                    var traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
                     {
-                        this.metroButton4.Text = traducciones[metroButton4.Tag.ToString()].texto;
+                        MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
                     }
-                    if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
+                    else
                     {
-                        this.metroLabel1.Text = traducciones[metroLabel1.Tag.ToString()].texto;
+                        if (metroButton4.Tag != null && traducciones.ContainsKey(metroButton4.Tag.ToString()))
+                        {
+                            this.metroButton4.Text = traducciones[metroButton4.Tag.ToString()].texto;
+                        }
+                        if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
+                        {
+                            this.metroLabel1.Text = traducciones[metroLabel1.Tag.ToString()].texto;
+                        }
+                        if (metroLabel2.Tag != null && traducciones.ContainsKey(metroLabel2.Tag.ToString()))
+                        {
+                            this.metroLabel2.Text = traducciones[metroLabel2.Tag.ToString()].texto;
+                        }
+                        if (metroLabel3.Tag != null && traducciones.ContainsKey(metroLabel3.Tag.ToString()))
+                        {
+                            this.metroLabel3.Text = traducciones[metroLabel3.Tag.ToString()].texto;
+                        }
+                        if (metroLabel6.Tag != null && traducciones.ContainsKey(metroLabel6.Tag.ToString()))
+                        {
+                            this.metroLabel6.Text = traducciones[metroLabel6.Tag.ToString()].texto;
+                        }
                     }
-                    if (metroLabel2.Tag != null && traducciones.ContainsKey(metroLabel2.Tag.ToString()))
-                    {
-                        this.metroLabel2.Text = traducciones[metroLabel2.Tag.ToString()].texto;
-                    }
-                    if (metroLabel3.Tag != null && traducciones.ContainsKey(metroLabel3.Tag.ToString()))
-                    {
-                        this.metroLabel3.Text = traducciones[metroLabel3.Tag.ToString()].texto;
-                    }
-                    if (metroLabel6.Tag != null && traducciones.ContainsKey(metroLabel6.Tag.ToString()))
-                    {
-                        this.metroLabel6.Text = traducciones[metroLabel6.Tag.ToString()].texto;
-                    }
+
+
                 }
-              
 
             }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            
 
         }
         public void ListarIdiomas()
         {
-            comboBox1.Items.Clear();
-            BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-            var ListaIdiomas = Traductor.ObtenerIdiomas();
-
-            foreach (Idioma idioma in ListaIdiomas)
+            try
             {
-                comboBox1.Items.Add(idioma.Nombre);
-              
+                comboBox1.Items.Clear();
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                var ListaIdiomas = Traductor.ObtenerIdiomas();
+
+                foreach (Idioma idioma in ListaIdiomas)
+                {
+                    comboBox1.Items.Add(idioma.Nombre);
+
+                }
+
             }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            
         }
         public void VolverAidiomaOriginal()
         {
-            BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-            List<string> palabras = Traductor.obtenerIdiomaOriginal();
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                List<string> palabras = Traductor.obtenerIdiomaOriginal();
 
-            if (metroButton4.Tag != null && palabras.Contains(metroButton4.Tag.ToString()))
-            {
-                string traduccion = palabras.Find(p => p.Equals(metroButton4.Tag.ToString()));
-                this.metroButton4.Text = traduccion;
+                if (metroButton4.Tag != null && palabras.Contains(metroButton4.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton4.Tag.ToString()));
+                    this.metroButton4.Text = traduccion;
+                }
+                if (metroLabel1.Tag != null && palabras.Contains(metroLabel1.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel1.Tag.ToString()));
+                    this.metroLabel1.Text = traduccion;
+                }
+                if (metroLabel2.Tag != null && palabras.Contains(metroLabel2.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel2.Tag.ToString()));
+                    this.metroLabel2.Text = traduccion;
+                }
+                if (metroLabel3.Tag != null && palabras.Contains(metroLabel3.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel3.Tag.ToString()));
+                    this.metroLabel3.Text = traduccion;
+                }
+                if (metroLabel6.Tag != null && palabras.Contains(metroLabel6.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel6.Tag.ToString()));
+                    this.metroLabel6.Text = traduccion;
+                }
+
             }
-            if (metroLabel1.Tag != null && palabras.Contains(metroLabel1.Tag.ToString()))
+            catch (Exception ex)
             {
-                string traduccion = palabras.Find(p => p.Equals(metroLabel1.Tag.ToString()));
-                this.metroLabel1.Text = traduccion;
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
-            if (metroLabel2.Tag != null && palabras.Contains(metroLabel2.Tag.ToString()))
-            {
-                string traduccion = palabras.Find(p => p.Equals(metroLabel2.Tag.ToString()));
-                this.metroLabel2.Text = traduccion;
-            }
-            if (metroLabel3.Tag != null && palabras.Contains(metroLabel3.Tag.ToString()))
-            {
-                string traduccion = palabras.Find(p => p.Equals(metroLabel3.Tag.ToString()));
-                this.metroLabel3.Text = traduccion;
-            }
-            if (metroLabel6.Tag != null && palabras.Contains(metroLabel6.Tag.ToString()))
-            {
-                string traduccion = palabras.Find(p => p.Equals(metroLabel6.Tag.ToString()));
-                this.metroLabel6.Text = traduccion;
-            }
+           
         }
         private void crearAdmin_Load(object sender, EventArgs e)
         {
-            // SessionManager.agregarObservador(this);
-            servicios.Observer.agregarObservador(this);
-            ListarIdiomas();
-            traducir();
+            try
+            {
+
+                servicios.Observer.agregarObservador(this);
+                ListarIdiomas();
+                traducir();
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+          
         }
 
         private void crearAdmin_FormClosing(object sender, FormClosingEventArgs e)
@@ -208,13 +251,22 @@ namespace UI
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
                 string idiomaSelec = comboBox1.SelectedItem.ToString();
                 BLL.BLLTraductor traductor = new BLL.BLLTraductor();
                 Idioma Oidioma = new Idioma();
                 Oidioma = traductor.TraerIdioma(idiomaSelec);
+                servicios.Observer.cambiarIdioma(Oidioma);
 
-            // SessionManager.cambiarIdioma(Oidioma);
-            servicios.Observer.cambiarIdioma(Oidioma);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+   
      
             
         }
