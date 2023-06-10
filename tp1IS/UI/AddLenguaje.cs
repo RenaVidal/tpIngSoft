@@ -14,7 +14,7 @@ using Negocio;
 
 namespace UI
 {
-    public partial class AddLenguaje : Form, IdiomaObserver
+    public partial class AddLenguaje : MetroFramework.Forms.MetroForm, IdiomaObserver
     {
         BLLBitacora oBit = new BLLBitacora();
         public AddLenguaje()
@@ -48,8 +48,8 @@ namespace UI
         {
             try
             {
-
                 comboBox2.Items.Clear();
+                comboBox3.Items.Clear();
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
                 var ListaIdiomas = Traductor.ObtenerIdiomas();
 
@@ -328,7 +328,7 @@ namespace UI
                     Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count != Lista.Count)
                     {
-                        MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
+                        
                     }
                     else
                     {

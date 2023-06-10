@@ -28,3 +28,18 @@ C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de So
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.dll
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\bin\Debug\DAL.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\bin\Debug\DAL.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\bin\Debug\BE.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\bin\Debug\servicios.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\bin\Debug\abstraccion.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\bin\Debug\BE.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\bin\Debug\servicios.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\bin\Debug\abstraccion.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\DAL\obj\Debug\DAL.pdb

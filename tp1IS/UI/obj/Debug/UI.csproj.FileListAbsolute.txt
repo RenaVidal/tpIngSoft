@@ -69,3 +69,38 @@ C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de So
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.csproj.CopyComplete
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.exe
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\UI.exe.config
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\UI.exe
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\UI.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\abstraccion.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\BE.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\BLL.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\MetroFramework.Design.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\MetroFramework.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\servicios.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\MPP.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\DAL.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\abstraccion.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\BE.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\BLL.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\servicios.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\MPP.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\DAL.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.csproj.AssemblyReference.cache
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.AddLenguaje.resources
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.AdminHome.resources
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.borrarPassword.resources
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.crearAdmin.resources
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.crearRol.resources
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.darAdmin.resources
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.darRol.resources
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.eliminarRol.resources
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.Properties.Resources.resources
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.SignIn.resources
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.UserHome.resources
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.csproj.GenerateResource.cache
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.csproj.CopyComplete
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.exe
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.pdb

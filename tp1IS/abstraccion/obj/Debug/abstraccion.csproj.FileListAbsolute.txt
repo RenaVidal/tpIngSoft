@@ -10,3 +10,9 @@ C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de So
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.csproj.CoreCompileInputs.cache
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.dll
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\abstraccion\bin\Debug\abstraccion.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\abstraccion\bin\Debug\abstraccion.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.csproj.AssemblyReference.cache
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.csproj.CoreCompileInputs.cache
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\abstraccion\obj\Debug\abstraccion.pdb

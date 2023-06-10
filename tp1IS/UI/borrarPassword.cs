@@ -27,7 +27,7 @@ namespace UI
 
         private void borrarPassword_Load(object sender, EventArgs e)
         {
-            //SessionManager.agregarObservador(this);
+          
 
             try
             {
@@ -47,9 +47,9 @@ namespace UI
         
         private void borrarPassword_FormClosing(object sender, EventArgs e)
         {
-            //SessionManager.agregarObservador(this);
+            
             servicios.Observer.eliminarObservador(this);
-          //  ListarIidomas();
+         
         }
 
         BLLUsuario oLog = new BLLUsuario();
@@ -153,7 +153,7 @@ namespace UI
                     Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count != Lista.Count)
                     {
-                        MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
+                       
                     }
                     else
                     {

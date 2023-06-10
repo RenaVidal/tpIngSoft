@@ -47,7 +47,7 @@ namespace UI
 
         private void darAdmin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // SessionManager.eliminarObservador(this);
+            
             servicios.Observer.eliminarObservador(this);
         }
         private void metroLabel3_Click(object sender, EventArgs e)
@@ -116,7 +116,7 @@ namespace UI
                     Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count != Lista.Count)
                     {
-                        MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
+                    
                     }
                     else
                     {

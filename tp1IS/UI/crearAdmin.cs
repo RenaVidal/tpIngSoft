@@ -121,7 +121,7 @@ namespace UI
                     Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count != Lista.Count)
                     {
-                        MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
+                       
                     }
                     else
                     {
@@ -246,7 +246,7 @@ namespace UI
         private void crearAdmin_FormClosing(object sender, FormClosingEventArgs e)
         {
             servicios.Observer.eliminarObservador(this);
-           // SessionManager.eliminarObservador(this);
+          
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

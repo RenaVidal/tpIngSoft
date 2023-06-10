@@ -32,3 +32,20 @@ C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de So
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.dll
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\BLL.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\BLL.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\abstraccion.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\BE.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\MPP.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\servicios.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\DAL.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\abstraccion.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\BE.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\MPP.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\servicios.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\bin\Debug\DAL.pdb
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.dll
+C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\BLL\obj\Debug\BLL.pdb

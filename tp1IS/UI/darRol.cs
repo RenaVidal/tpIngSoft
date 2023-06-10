@@ -349,7 +349,7 @@ namespace UI
 
         public void CambiarIdioma(Idioma Idioma)
         {
-            //throw new NotImplementedException();
+            
             Traducir();
             ListarIdiomas();
         }
@@ -400,7 +400,7 @@ namespace UI
                     Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count != Lista.Count)
                     {
-                        MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
+                       // MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
                     }
                     else
                     {

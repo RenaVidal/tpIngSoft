@@ -147,7 +147,7 @@ namespace UI
                     if (item != null)
                     {
                         if (item.Nombre == nombre) return item;
-                        //if (item.Hijos != null) encontrado = findInList(item.Hijos, nombre);
+                        
                         if (encontrado != null)
                         {
                             return encontrado;
@@ -264,7 +264,7 @@ namespace UI
                 Componente abuelo = findInList(listFam, nodoPadre.Text);
                 Componente hijoPer = null;
                 Componente hijoFam = null;
-                foreach (TreeNode comp in tree) //if padre does not have hijos and hijos does not have padres its all good
+                foreach (TreeNode comp in tree) 
                 {
                     hijoFam = findInList(listFam, comp.Text);
                     hijoPer =findInList(listPer, comp.Text);
@@ -441,7 +441,7 @@ namespace UI
 
         public void CambiarIdioma(Idioma Idioma)
         {
-            //  throw new NotImplementedException();
+           
             traducir();
             listarIdiomas();
         }
@@ -470,7 +470,7 @@ namespace UI
                     Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count != Lista.Count)
                     {
-                        MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
+                  
                     }
                     else
                     {

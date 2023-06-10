@@ -55,7 +55,7 @@ namespace UI
             try
             {
                 ListarIdiomas();
-                //  SessionManager.agregarObservador(this);
+               
                 servicios.Observer.agregarObservador(this);
                 SessionManager.GetInstance.idioma = Otraductor.ObtenerIdiomaBase();
                 traducir();
@@ -74,8 +74,7 @@ namespace UI
      
          private void AdminHome_FormClosing(object sender, EventArgs e)
         {
-            // ListarIdiomas();
-            //SessionManager.agregarObservador(this);
+            
             try
             {
                 servicios.Observer.eliminarObservador(this);
@@ -88,7 +87,7 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
           
-            // traducir();
+            
 
         }
         private void metroButton1_Click(object sender, EventArgs e)
@@ -265,7 +264,7 @@ namespace UI
                     Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count != Lista.Count)
                     {
-                        MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
+                        
                     }
                     else
                     {
@@ -414,7 +413,7 @@ namespace UI
         private void metroButton8_Click(object sender, EventArgs e)
         {
             AddLenguaje from = new AddLenguaje();
-            from.Show();
+            AbrirFormulario(from);
         }
     }
 }

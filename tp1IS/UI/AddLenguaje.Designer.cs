@@ -50,25 +50,25 @@ namespace UI
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(180, 79);
+            this.comboBox1.Location = new System.Drawing.Point(181, 117);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
+            this.comboBox1.TabIndex = 7;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(22, 79);
+            this.comboBox2.Location = new System.Drawing.Point(23, 117);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 3;
+            this.comboBox2.TabIndex = 5;
             // 
             // metroButton1
             // 
             this.metroButton1.BackColor = System.Drawing.Color.SandyBrown;
             this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton1.ForeColor = System.Drawing.SystemColors.Info;
-            this.metroButton1.Location = new System.Drawing.Point(68, 168);
+            this.metroButton1.Location = new System.Drawing.Point(69, 206);
             this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(150, 51);
@@ -88,22 +88,22 @@ namespace UI
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(180, 57);
+            this.metroLabel1.Location = new System.Drawing.Point(181, 95);
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(42, 19);
-            this.metroLabel1.TabIndex = 8;
+            this.metroLabel1.TabIndex = 4;
             this.metroLabel1.Tag = "word";
             this.metroLabel1.Text = "Word";
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(22, 57);
+            this.metroLabel2.Location = new System.Drawing.Point(23, 95);
             this.metroLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(61, 19);
-            this.metroLabel2.TabIndex = 9;
+            this.metroLabel2.TabIndex = 3;
             this.metroLabel2.Tag = "lenguaje";
             this.metroLabel2.Text = "Lenguaje";
             // 
@@ -112,12 +112,12 @@ namespace UI
             this.metroButton2.BackColor = System.Drawing.Color.SandyBrown;
             this.metroButton2.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton2.ForeColor = System.Drawing.SystemColors.Info;
-            this.metroButton2.Location = new System.Drawing.Point(68, 168);
+            this.metroButton2.Location = new System.Drawing.Point(69, 206);
             this.metroButton2.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(150, 51);
             this.metroButton2.Style = MetroFramework.MetroColorStyle.Magenta;
-            this.metroButton2.TabIndex = 10;
+            this.metroButton2.TabIndex = 11;
             this.metroButton2.Tag = "add traduccion";
             this.metroButton2.Text = "Add Traduccion";
             this.metroButton2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -131,26 +131,26 @@ namespace UI
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 101);
+            this.textBox1.Location = new System.Drawing.Point(104, 139);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 11;
+            this.textBox1.TabIndex = 8;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(94, 146);
+            this.textBox2.Location = new System.Drawing.Point(95, 184);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 12;
+            this.textBox2.TabIndex = 10;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(113, 124);
+            this.metroLabel3.Location = new System.Drawing.Point(114, 162);
             this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(71, 19);
-            this.metroLabel3.TabIndex = 13;
+            this.metroLabel3.TabIndex = 9;
             this.metroLabel3.Tag = "traduccion";
             this.metroLabel3.Text = "Traduccion";
             // 
@@ -161,21 +161,21 @@ namespace UI
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(103, 79);
+            this.metroLabel4.Location = new System.Drawing.Point(104, 117);
             this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(91, 19);
-            this.metroLabel4.TabIndex = 14;
+            this.metroLabel4.TabIndex = 6;
             this.metroLabel4.Tag = "new lenguaje";
             this.metroLabel4.Text = "New Lenguaje";
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(53, 37);
+            this.radioButton1.Location = new System.Drawing.Point(50, 63);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(94, 17);
-            this.radioButton1.TabIndex = 15;
+            this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Tag = "new lenguaje";
             this.radioButton1.Text = "New Lenguaje";
@@ -185,10 +185,10 @@ namespace UI
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(171, 37);
+            this.radioButton2.Location = new System.Drawing.Point(171, 63);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(100, 17);
-            this.radioButton2.TabIndex = 16;
+            this.radioButton2.TabIndex = 2;
             this.radioButton2.TabStop = true;
             this.radioButton2.Tag = "new traduccion";
             this.radioButton2.Text = "New traduccion";
@@ -198,17 +198,17 @@ namespace UI
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(199, 246);
+            this.comboBox3.Location = new System.Drawing.Point(268, 284);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 17;
+            this.comboBox3.TabIndex = 12;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // AddLenguaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 267);
+            this.ClientSize = new System.Drawing.Size(400, 313);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -223,7 +223,7 @@ namespace UI
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Name = "AddLenguaje";
-            this.Text = "AddLenguaje";
+            this.Text = "Add language";
             this.Load += new System.EventHandler(this.AddLenguaje_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

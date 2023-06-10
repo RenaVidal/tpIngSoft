@@ -47,6 +47,7 @@
     <Compile Include="ClasesMultiLenguaje\Traduccion.cs" />
     <Compile Include="encriptar.cs" />
     <Compile Include="EntidadServicio.cs" />
+    <Compile Include="GenerarVD.cs" />
     <Compile Include="Observer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sessionManager.cs" />
