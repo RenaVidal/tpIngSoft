@@ -26,6 +26,29 @@ namespace Negocio
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public BEUsuario buscar_usuarioxid(int id)
+        {
+            try
+            {
+                return oUsuario.buscar_usuarioporID(id);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool ActualizarDVxU(int ID,string DV)
+        {
+            try
+            {
+                return oUsuario.actualizarDVxUsuario(ID, DV);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool borrar_rol(int id, int rol)
         {
             try

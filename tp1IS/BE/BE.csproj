@@ -46,6 +46,7 @@
     <Compile Include="BEIdioma.cs" />
     <Compile Include="BETraduccion.cs" />
     <Compile Include="BEUsuario.cs" />
+    <Compile Include="DigitoV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

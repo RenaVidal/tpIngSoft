@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MPP;
 using servicios.ClasesMultiLenguaje;
+using System.Collections;
+using System.Data;
 namespace BLL
 {
    public class BLLTraductor
@@ -20,7 +22,10 @@ namespace BLL
         {
             return OMPPtraductor.ObtenerIdiomaBase();
         }
-       
+        public DataTable traerTablaxIdioma(int id)
+        {
+            return OMPPtraductor.traerTablaxIdioma(id);
+        }
         public List<Idioma> ObtenerIdiomas()
         {
             return OMPPtraductor.ObtenerIdiomas();

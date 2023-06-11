@@ -28,6 +28,7 @@ namespace UI
         }
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
+        BLL.BLLDv ODV = new BLLDv();
 
         private Form formularioAbierto = null;
         private void AbrirFormulario(Form formulario)
@@ -166,6 +167,7 @@ namespace UI
         {
             try
             {
+                ODV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ODV.BuscarDVUsuarios()));
                 oBit.guardar_logOut();
                 SessionManager.Logout();
                 this.Hide();

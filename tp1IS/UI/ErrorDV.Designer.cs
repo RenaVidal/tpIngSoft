@@ -1,0 +1,74 @@
+﻿
+namespace UI
+{
+    partial class ErrorDV
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.SuspendLayout();
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton1.ForeColor = System.Drawing.SystemColors.Info;
+            this.metroButton1.Location = new System.Drawing.Point(263, 222);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(175, 57);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Magenta;
+            this.metroButton1.TabIndex = 4;
+            this.metroButton1.Tag = "create admin";
+            this.metroButton1.Text = "update check digit";
+            this.metroButton1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton1.UseCustomBackColor = true;
+            this.metroButton1.UseCustomForeColor = true;
+            this.metroButton1.UseMnemonic = false;
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.UseStyleColors = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // ErrorDV
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.metroButton1);
+            this.Name = "ErrorDV";
+            this.Text = "ErrorDV";
+            this.Load += new System.EventHandler(this.ErrorDV_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private MetroFramework.Controls.MetroButton metroButton1;
+    }
+}

@@ -31,3 +31,14 @@ C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\obj\Debug\se
 C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\obj\Debug\servicios.csproj.CopyComplete
 C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\obj\Debug\servicios.dll
 C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\obj\Debug\servicios.pdb
+C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\bin\Debug\servicios.dll
+C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\bin\Debug\servicios.pdb
+C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\bin\Debug\abstraccion.dll
+C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\bin\Debug\BE.dll
+C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\bin\Debug\abstraccion.pdb
+C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\bin\Debug\BE.pdb
+C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\obj\Debug\servicios.csproj.AssemblyReference.cache
+C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\obj\Debug\servicios.csproj.CoreCompileInputs.cache
+C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\obj\Debug\servicios.csproj.CopyComplete
+C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\obj\Debug\servicios.dll
+C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\servicios\obj\Debug\servicios.pdb

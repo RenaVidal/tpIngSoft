@@ -44,23 +44,26 @@ namespace UI
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(181, 117);
+            this.comboBox1.Location = new System.Drawing.Point(246, 139);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(148, 21);
             this.comboBox1.TabIndex = 7;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(23, 117);
+            this.comboBox2.Location = new System.Drawing.Point(1, 138);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.Size = new System.Drawing.Size(98, 21);
             this.comboBox2.TabIndex = 5;
             // 
             // metroButton1
@@ -68,7 +71,7 @@ namespace UI
             this.metroButton1.BackColor = System.Drawing.Color.SandyBrown;
             this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton1.ForeColor = System.Drawing.SystemColors.Info;
-            this.metroButton1.Location = new System.Drawing.Point(69, 206);
+            this.metroButton1.Location = new System.Drawing.Point(106, 227);
             this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(150, 51);
@@ -88,7 +91,7 @@ namespace UI
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(181, 95);
+            this.metroLabel1.Location = new System.Drawing.Point(246, 117);
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(42, 19);
@@ -99,7 +102,7 @@ namespace UI
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(23, 95);
+            this.metroLabel2.Location = new System.Drawing.Point(1, 116);
             this.metroLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(61, 19);
@@ -112,7 +115,7 @@ namespace UI
             this.metroButton2.BackColor = System.Drawing.Color.SandyBrown;
             this.metroButton2.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton2.ForeColor = System.Drawing.SystemColors.Info;
-            this.metroButton2.Location = new System.Drawing.Point(69, 206);
+            this.metroButton2.Location = new System.Drawing.Point(106, 282);
             this.metroButton2.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(150, 51);
@@ -131,22 +134,22 @@ namespace UI
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(104, 139);
+            this.textBox1.Location = new System.Drawing.Point(106, 140);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(87, 20);
             this.textBox1.TabIndex = 8;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(95, 184);
+            this.textBox2.Location = new System.Drawing.Point(106, 202);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(150, 20);
             this.textBox2.TabIndex = 10;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(114, 162);
+            this.metroLabel3.Location = new System.Drawing.Point(141, 180);
             this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(71, 19);
@@ -161,7 +164,7 @@ namespace UI
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(104, 117);
+            this.metroLabel4.Location = new System.Drawing.Point(106, 118);
             this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(91, 19);
@@ -172,7 +175,7 @@ namespace UI
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(50, 63);
+            this.radioButton1.Location = new System.Drawing.Point(38, 63);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(94, 17);
             this.radioButton1.TabIndex = 1;
@@ -185,7 +188,7 @@ namespace UI
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(171, 63);
+            this.radioButton2.Location = new System.Drawing.Point(217, 63);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(100, 17);
             this.radioButton2.TabIndex = 2;
@@ -198,17 +201,49 @@ namespace UI
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(268, 284);
+            this.comboBox3.Location = new System.Drawing.Point(614, 516);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 12;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(414, 63);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(321, 374);
+            this.dataGridView1.TabIndex = 13;
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.BackColor = System.Drawing.Color.SandyBrown;
+            this.metroButton3.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton3.ForeColor = System.Drawing.SystemColors.Info;
+            this.metroButton3.Location = new System.Drawing.Point(414, 20);
+            this.metroButton3.Margin = new System.Windows.Forms.Padding(2);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(120, 38);
+            this.metroButton3.Style = MetroFramework.MetroColorStyle.Magenta;
+            this.metroButton3.TabIndex = 14;
+            this.metroButton3.Tag = "add traduccion";
+            this.metroButton3.Text = "Refresh";
+            this.metroButton3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton3.UseCustomBackColor = true;
+            this.metroButton3.UseCustomForeColor = true;
+            this.metroButton3.UseMnemonic = false;
+            this.metroButton3.UseSelectable = true;
+            this.metroButton3.UseStyleColors = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
+            // 
             // AddLenguaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 313);
+            this.ClientSize = new System.Drawing.Size(748, 542);
+            this.Controls.Add(this.metroButton3);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -226,6 +261,7 @@ namespace UI
             this.Text = "Add language";
             this.Load += new System.EventHandler(this.AddLenguaje_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +283,7 @@ namespace UI
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ComboBox comboBox3;
+        private MetroFramework.Controls.MetroButton metroButton3;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

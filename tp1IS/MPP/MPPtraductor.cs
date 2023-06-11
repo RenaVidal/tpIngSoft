@@ -125,6 +125,34 @@ namespace MPP
 
         }
 
+        public DataTable traerTablaxIdioma(int id)
+        {
+            try
+            {
+                string consulta = "S_Traer_Traducciones";
+                Hashtable Hdatos = new Hashtable();
+                Hdatos.Add("@ID", id);
+                DataTable DT = new DataTable();
+                DT = Datos.Leer(consulta, Hdatos);
+                foreach (DataRow fila in DT.Rows)
+                {
+                    var Palabra = fila["Palabra"].ToString();
+                    Traduccion OTraduccion = new Traduccion();
+                    OTraduccion.texto = fila["traduccion"].ToString();
+
+                    Palabra OPalabra = new Palabra();
+                    OPalabra.ID = Convert.ToInt32(fila["ID"].ToString());
+                    OPalabra.Nombre = Palabra;
+                   // Traducciones.Add(Palabra, OTraduccion);
+                }
+
+                return DT; //Traducciones;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public Idioma TrarIdioma(string Oidioma)
         {
             Idioma IdiomaSelec = new Idioma();

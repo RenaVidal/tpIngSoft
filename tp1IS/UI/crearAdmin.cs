@@ -70,6 +70,7 @@ namespace UI
                     else
                     {
                         oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), metroDateTime2.Value.ToString());
+                        oUsuraio.DV = GenerarVD.generarDigitoVU(oUsuraio);
                         if (oLog.crear_admin(oUsuraio))
                         {
                             var accion = "creo el usuario admin" + textBox1.Text;

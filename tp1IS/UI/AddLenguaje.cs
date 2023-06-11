@@ -11,6 +11,7 @@ using servicios.ClasesMultiLenguaje;
 using System.Text.RegularExpressions;
 using Patrones.Singleton.Core;
 using Negocio;
+using BLL;
 
 namespace UI
 {
@@ -21,7 +22,7 @@ namespace UI
         {
             InitializeComponent();
         }
-
+        BLLTraductor Otraductor = new BLLTraductor();
         private void AddLenguaje_Load(object sender, EventArgs e)
         {
             try
@@ -55,7 +56,15 @@ namespace UI
 
                 foreach (Idioma idioma in ListaIdiomas)
                 {
-                    comboBox2.Items.Add(idioma.Nombre);
+                    if (idioma.Nombre == "ingles")
+                    {
+
+                    }
+                    else
+                    {
+                        comboBox2.Items.Add(idioma.Nombre);
+                    }
+                    
                     comboBox3.Items.Add(idioma.Nombre);
 
                 }
@@ -195,7 +204,7 @@ namespace UI
                         OBLLtraductor.CrearTraduccion(Oidioma.ID, Otraduccion);
                         string accion = "creo la traduccion: " + Otraduccion.texto + " ";
                         Obitacora.guardar_accion(accion,2);
-                        MessageBox.Show("you create new traduccion in lenguaje" +Oidioma);
+                        MessageBox.Show("you create new traduccion in lenguaje" +Oidioma.Nombre);
                     }
 
                 }
@@ -376,13 +385,41 @@ namespace UI
             }
            
         }
-            public void VolverAIdiomaoriginal()
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+
+
+            try
             {
+                dataGridView1.DataSource = null;
+
+                servicios.ClasesMultiLenguaje.Idioma Oidioma = Otraductor.TraerIdioma(comboBox2.SelectedItem.ToString());
+
+
+                dataGridView1.DataSource = Otraductor.traerTablaxIdioma(Oidioma.ID);
+                dataGridView1.AutoResizeColumns();
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.Columns["IDidioma"].Visible = false;
+                dataGridView1.Columns["ID"].Visible = false;
+
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+           
+
+        }
+        public void VolverAIdiomaoriginal()
+           {
             try
             {
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
                 List<string> palabras = Traductor.obtenerIdiomaOriginal();
-
+                
 
 
                 if (metroButton1.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
@@ -434,8 +471,9 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
            
-        }
+           }
 
-        }
+       
     }
+ }
 

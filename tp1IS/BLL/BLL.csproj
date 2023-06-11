@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BLLBitacora.cs" />
     <Compile Include="BLLComposite.cs" />
+    <Compile Include="BLLDv.cs" />
     <Compile Include="BLLTraductor.cs" />
     <Compile Include="BLLUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

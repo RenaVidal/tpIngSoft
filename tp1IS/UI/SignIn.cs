@@ -25,6 +25,7 @@ namespace UI
             groupBox1.Hide();
         }
         BLLUsuario oLog = new BLLUsuario();
+        BLL.BLLDv OBLLDV = new BLLDv();
         BEUsuario oUsuraio;
         public bool ojoOpen;
         public void limpiar()
@@ -77,19 +78,44 @@ namespace UI
                     SessionManager u = SessionManager.GetInstance;
                     SessionManager.Login(user);
                     oBit.guardar_logIn();
-
-                    if (SessionManager.tiene_permiso(5))
+                    ////
+                    ///
+                    BE.DigitoV DV = new BE.DigitoV();
+                    DV.DigitovBaseDeDatos = OBLLDV.BuscarDVS();
+                    List<string> ListaDV = OBLLDV.BuscarDVUsuarios();
+                    DV.DigitovActual = GenerarVD.generarDigitoVS(ListaDV);
+                    if (DV.DigitovBaseDeDatos == DV.DigitovActual)
                     {
-                        this.Hide();
-                        AdminHome home = new AdminHome();
-                        home.Show();
+
+                        if (SessionManager.tiene_permiso(5))
+                        {
+                            this.Hide();
+                            AdminHome home = new AdminHome();
+                            home.Show();
+                        }
+                        else
+                        {
+                            this.Hide();
+                            UserHome home = new UserHome();
+                            home.Show();
+                        }
+
                     }
                     else
                     {
-                        this.Hide();
-                        UserHome home = new UserHome();
-                        home.Show();
+                        MessageBox.Show("Error de Digito Verificador");
+                        if (SessionManager.tiene_permiso(5))
+                        {
+                            this.Hide();
+                            ErrorDV form = new ErrorDV();
+                            form.Show();
+                        }
+                        else
+                        {
+
+                        }
                     }
+
                 }
                 else
                 {
@@ -127,7 +153,10 @@ namespace UI
                     oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text);
                     if (oLog.validar(oUsuraio))
                     {
-                        logIn(textBox1.Text);
+                       
+                            logIn(textBox1.Text);
+                      
+                        
 
                     }
                     else
@@ -188,6 +217,7 @@ namespace UI
                     else
                     {
                         oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox4.Text), metroDateTime1.Value.ToString());
+                        oUsuraio.DV = GenerarVD.generarDigitoVU(oUsuraio);
                         if (oLog.cargar_usuario(oUsuraio))
                         {
                             MetroMessageBox.Show(this, "User created");
@@ -244,6 +274,13 @@ namespace UI
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<string> ListaDV = OBLLDV.BuscarDVUsuarios();
+            BE.DigitoV Odigito = new BE.DigitoV();
+            OBLLDV.actualizarDV((servicios.GenerarVD.generarDigitoVS(ListaDV)));
         }
     }
 }

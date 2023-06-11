@@ -19,6 +19,7 @@ namespace UI
             InitializeComponent();
         }
         BLL.BLLTraductor Otraductor = new BLL.BLLTraductor();
+        BLL.BLLDv ODV = new BLL.BLLDv();
         private void UserHome_Load(object sender, EventArgs e)
         {
             try
@@ -84,6 +85,7 @@ namespace UI
 
             try
             {
+                ODV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ODV.BuscarDVUsuarios()));
                 oBit.guardar_logOut();
                 SessionManager.Logout();
                 this.Hide();

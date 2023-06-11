@@ -43,6 +43,7 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.botonOjo = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -50,9 +51,10 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(29, 80);
+            this.metroLabel2.Location = new System.Drawing.Point(22, 65);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(73, 20);
+            this.metroLabel2.Size = new System.Drawing.Size(68, 19);
             this.metroLabel2.TabIndex = 1;
             this.metroLabel2.Tag = "username";
             this.metroLabel2.Text = "Username";
@@ -60,35 +62,36 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(29, 117);
+            this.metroLabel3.Location = new System.Drawing.Point(22, 95);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(66, 20);
+            this.metroLabel3.Size = new System.Drawing.Size(63, 19);
             this.metroLabel3.TabIndex = 2;
             this.metroLabel3.Tag = "password";
             this.metroLabel3.Text = "Password";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(132, 78);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Location = new System.Drawing.Point(99, 63);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 22);
+            this.textBox1.Size = new System.Drawing.Size(144, 20);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(132, 117);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox2.Location = new System.Drawing.Point(99, 95);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 22);
+            this.textBox2.Size = new System.Drawing.Size(144, 20);
             this.textBox2.TabIndex = 1;
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(61, 153);
-            this.metroButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.metroButton1.Location = new System.Drawing.Point(46, 124);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(123, 31);
+            this.metroButton1.Size = new System.Drawing.Size(92, 25);
             this.metroButton1.TabIndex = 5;
             this.metroButton1.Tag = "sign up";
             this.metroButton1.Text = "Sign Up";
@@ -97,10 +100,10 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(201, 153);
-            this.metroButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.metroButton2.Location = new System.Drawing.Point(151, 124);
+            this.metroButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(123, 31);
+            this.metroButton2.Size = new System.Drawing.Size(92, 25);
             this.metroButton2.TabIndex = 6;
             this.metroButton2.Tag = "sign in";
             this.metroButton2.Text = "Sign In";
@@ -114,11 +117,11 @@
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.metroLabel5);
             this.groupBox1.Controls.Add(this.metroLabel4);
-            this.groupBox1.Location = new System.Drawing.Point(29, 201);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(22, 163);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(372, 153);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(279, 124);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Tag = "sign up";
@@ -126,19 +129,19 @@
             // 
             // metroDateTime1
             // 
-            this.metroDateTime1.Location = new System.Drawing.Point(93, 71);
-            this.metroDateTime1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 30);
+            this.metroDateTime1.Location = new System.Drawing.Point(70, 58);
+            this.metroDateTime1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(200, 30);
+            this.metroDateTime1.Size = new System.Drawing.Size(151, 30);
             this.metroDateTime1.TabIndex = 3;
             // 
             // metroButton3
             // 
-            this.metroButton3.Location = new System.Drawing.Point(165, 114);
-            this.metroButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.metroButton3.Location = new System.Drawing.Point(124, 93);
+            this.metroButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(123, 31);
+            this.metroButton3.Size = new System.Drawing.Size(92, 25);
             this.metroButton3.TabIndex = 8;
             this.metroButton3.Tag = "confirm";
             this.metroButton3.Text = "Confirm";
@@ -147,18 +150,19 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(93, 44);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox4.Location = new System.Drawing.Point(70, 36);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 22);
+            this.textBox4.Size = new System.Drawing.Size(151, 20);
             this.textBox4.TabIndex = 2;
             // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(15, 44);
+            this.metroLabel5.Location = new System.Drawing.Point(11, 36);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(22, 20);
+            this.metroLabel5.Size = new System.Drawing.Size(21, 19);
             this.metroLabel5.TabIndex = 8;
             this.metroLabel5.Tag = "id";
             this.metroLabel5.Text = "ID";
@@ -166,9 +170,10 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(5, 78);
+            this.metroLabel4.Location = new System.Drawing.Point(4, 63);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(69, 20);
+            this.metroLabel4.Size = new System.Drawing.Size(67, 19);
             this.metroLabel4.TabIndex = 9;
             this.metroLabel4.Tag = "birth date";
             this.metroLabel4.Text = "Birth date";
@@ -179,19 +184,29 @@
             // 
             // botonOjo
             // 
-            this.botonOjo.Location = new System.Drawing.Point(343, 111);
-            this.botonOjo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonOjo.Location = new System.Drawing.Point(257, 90);
             this.botonOjo.Name = "botonOjo";
-            this.botonOjo.Size = new System.Drawing.Size(52, 34);
+            this.botonOjo.Size = new System.Drawing.Size(39, 28);
             this.botonOjo.TabIndex = 8;
             this.botonOjo.UseVisualStyleBackColor = true;
             this.botonOjo.Click += new System.EventHandler(this.botonOjo_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(327, 147);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "CrearDV";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SignIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1161, 389);
+            this.ClientSize = new System.Drawing.Size(871, 316);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.botonOjo);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.metroButton2);
@@ -200,9 +215,9 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SignIn";
-            this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 20);
+            this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Tag = "welcome!";
             this.Text = "Welcome!";
             this.Load += new System.EventHandler(this.SignIn_Load);
@@ -229,6 +244,7 @@
         private MetroFramework.Controls.MetroDateTime metroDateTime1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button botonOjo;
+        private System.Windows.Forms.Button button1;
     }
 }
 

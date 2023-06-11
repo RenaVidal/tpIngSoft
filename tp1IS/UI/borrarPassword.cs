@@ -79,8 +79,12 @@ namespace UI
                     if (oLog.usuario_existente(Convert.ToInt32( textBox1.Text)))
                     {
 
-                        if (oLog.cambiar_contrasena(Convert.ToInt32( textBox1.Text), textBox2.Text))
+                        if (oLog.cambiar_contrasena(Convert.ToInt32( textBox1.Text), textBox2.Text))/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         {
+                            BEUsuario Ousuario = new BEUsuario();
+                            Ousuario=oLog.buscar_usuarioxid(Convert.ToInt32(textBox1.Text));
+                            Ousuario.DV = GenerarVD.generarDigitoVU(Ousuario);
+                            oLog.ActualizarDVxU(Ousuario.id, Ousuario.DV);
                             var accion = "cambio la contraseña del usuario de id" + textBox1.Text;
                             oBit.guardar_accion(accion, 2);
                             MetroMessageBox.Show(this, "Password changed");

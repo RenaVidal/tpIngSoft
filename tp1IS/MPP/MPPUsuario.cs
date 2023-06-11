@@ -150,7 +150,7 @@ namespace MPP
                 Hdatos.Add("@password", usuario.password);
                 Hdatos.Add("@active", true);
                 Hdatos.Add("@birthdate", usuario.birthDate);
-
+                Hdatos.Add("@dv", usuario.DV);
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
@@ -267,6 +267,52 @@ namespace MPP
                     if (Convert.ToInt32(fila["id_rol"]) == rol && Convert.ToInt32(fila["id_usuario"]) == id) return true;
                 }
                 return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public BEUsuario buscar_usuarioporID(int id)
+        {
+            try
+            {
+                BEUsuario user = new BEUsuario();
+                DataTable Ds2 = new DataTable();
+                Acceso oDatos = new Acceso();
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_buscarxid";
+                Hdatos.Add("@id", id);
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    user.user = fila["username"].ToString();
+                    user.password = fila["password"].ToString();
+                    user.id = Convert.ToInt32(fila["id"]);
+                    user.birthDate = fila["birthdate"].ToString();
+                }
+                return user;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool actualizarDVxUsuario(int ID,string DV)
+        {
+
+            try
+            {
+
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_ActualizarDV";
+                Hdatos.Add("@id", ID);
+                Hdatos.Add("@dv", DV);
+
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
             }
             catch (Exception ex)
             {
