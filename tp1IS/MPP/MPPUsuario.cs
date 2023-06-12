@@ -338,6 +338,7 @@ namespace MPP
                     user.password = fila["password"].ToString();
                     user.id = Convert.ToInt32(fila["id"]);
                     user.birthDate = fila["birthdate"].ToString();
+                    string dvV = fila["DV"].ToString();
                     string DV = servicios.GenerarVD.generarDigitoVU(user);
                     DVNUsers.Add(DV);
                     // MPP.MPPDv OMPPdv;

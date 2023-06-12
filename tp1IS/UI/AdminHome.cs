@@ -19,7 +19,7 @@ using BLL;
 
 namespace UI
 {
-    public partial class AdminHome : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class AdminHome : MetroFramework.Forms.MetroForm, IdiomaObserver
     {
         public AdminHome()
         {
@@ -56,7 +56,7 @@ namespace UI
             try
             {
                 ListarIdiomas();
-               
+
                 servicios.Observer.agregarObservador(this);
                 SessionManager.GetInstance.idioma = Otraductor.ObtenerIdiomaBase();
                 traducir();
@@ -68,14 +68,14 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-           
-            
+
+
         }
 
-     
-         private void AdminHome_FormClosing(object sender, EventArgs e)
+
+        private void AdminHome_FormClosing(object sender, EventArgs e)
         {
-            
+
             try
             {
                 servicios.Observer.eliminarObservador(this);
@@ -87,8 +87,8 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-          
-            
+
+
 
         }
         private void metroButton1_Click(object sender, EventArgs e)
@@ -138,9 +138,9 @@ namespace UI
                         if (oLog.eliminar_usuario(Convert.ToInt32(textBox1.Text)))
                         {
                             var accion = " elimino el usuario " + textBox1.Text;
-                            oBit.guardar_accion(accion,2);
+                            oBit.guardar_accion(accion, 2);
                             MetroMessageBox.Show(this, "User deleted");
-                            if(Convert.ToInt32( textBox1.Text) == session.Usuario.id)
+                            if (Convert.ToInt32(textBox1.Text) == session.Usuario.id)
                             {
                                 MetroMessageBox.Show(this, "Your user is disabled, you are going to be redirected to log in page");
                                 this.Hide();
@@ -151,7 +151,7 @@ namespace UI
                             MetroMessageBox.Show(this, "There has been an error deleting the user");
                         }
                     }
-                       
+
                     else { MetroMessageBox.Show(this, "There are no users registered with this is"); }
                 }
             }
@@ -225,20 +225,20 @@ namespace UI
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
 
             }
-           
+
 
         }
 
-   
-        
-       public void CambiarIdioma(Idioma Idioma)
+
+
+        public void CambiarIdioma(Idioma Idioma)
         {
             ListarIdiomas();
             traducir();
@@ -266,7 +266,7 @@ namespace UI
                     Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count != Lista.Count)
                     {
-                        
+
                     }
                     else
                     {
@@ -326,7 +326,7 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
         private void VolverAidiomaOriginal()
@@ -387,7 +387,7 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -407,15 +407,34 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-          
-               
-            
+
+
+
         }
 
         private void metroButton8_Click(object sender, EventArgs e)
         {
-            AddLenguaje from = new AddLenguaje();
-            AbrirFormulario(from);
+            try
+            {
+                if (SessionManager.tiene_permiso(21) || SessionManager.tiene_permiso(22))
+                {
+                    this.Hide();
+                    AddLenguaje from = new AddLenguaje();
+                    AbrirFormulario(from);
+                }
+                else
+                {
+                    MessageBox.Show("you do not have the necessary permissions");
+                }
+
+            }
+            catch(Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+           
         }
     }
 }

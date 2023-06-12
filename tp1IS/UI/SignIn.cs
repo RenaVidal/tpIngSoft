@@ -67,10 +67,11 @@ namespace UI
         BLLBitacora oBit = new BLLBitacora();
         BLLComposite oComp = new BLLComposite();
         
-        public void logIn(string username)
+        public void logIn(string username,int d)
         {
             try
             {
+
                 if (oLog.es_activo(username))
                 {
                     BEUsuario user=  oLog.buscar_usuario(username);
@@ -154,7 +155,7 @@ namespace UI
                     if (oLog.validar(oUsuraio))
                     {
                        
-                            logIn(textBox1.Text);
+                            logIn(textBox1.Text,0);
                       
                         
 
@@ -217,12 +218,16 @@ namespace UI
                     else
                     {
                         oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox4.Text), metroDateTime1.Value.ToString());
-                        oUsuraio.DV = GenerarVD.generarDigitoVU(oUsuraio);
+                        oUsuraio.DV = GenerarVD.generarDigitoVU(oUsuraio);//////////////////////////////////////////////////////////////////////////
                         if (oLog.cargar_usuario(oUsuraio))
                         {
+                            /* List<string> ListaDVU = OBLLDV.BuscarDVUsuarios();
+
+                             OBLLDV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ListaDVU));*/
+                            actualizarDVSxnewUser(oUsuraio);
                             MetroMessageBox.Show(this, "User created");
                             limpiar();
-                            logIn(oUsuraio.user);
+                            logIn(oUsuraio.user,1);
                         }
                         else
                         {
@@ -241,7 +246,14 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
-       
+       public void actualizarDVSxnewUser(BEUsuario Ousuario)
+        {
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            List<string> ListaDVU = oLog.BuscarUsuariosYgenerarDV();//OBLLDV.BuscarDVUsuarios();
+
+            OBLLDV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ListaDVU));
+          
+        }
       
         public void CambiarIdioma(Idioma Idioma)
         {
