@@ -82,7 +82,7 @@ namespace UI
                     ///
                     BE.DigitoV DV = new BE.DigitoV();
                     DV.DigitovBaseDeDatos = OBLLDV.BuscarDVS();
-                    List<string> ListaDV = OBLLDV.BuscarDVUsuarios();
+                    List<string> ListaDV = oLog.BuscarUsuariosYgenerarDV();
                     DV.DigitovActual = GenerarVD.generarDigitoVS(ListaDV);
                     if (DV.DigitovBaseDeDatos == DV.DigitovActual)
                     {
@@ -278,9 +278,12 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string> ListaDV = OBLLDV.BuscarDVUsuarios();
-            BE.DigitoV Odigito = new BE.DigitoV();
-            OBLLDV.actualizarDV((servicios.GenerarVD.generarDigitoVS(ListaDV)));
+            //  List<string> ListaDV = OBLLDV.BuscarDVUsuarios();
+            //  BE.DigitoV Odigito = new BE.DigitoV();
+            //  OBLLDV.actualizarDV((servicios.GenerarVD.generarDigitoVS(ListaDV)));
+
+          ///  List<BEUsuario> Usuarios = new List<BEUsuario>();
+            // = oLog.BuscarUsuariosYgenerarDV();
         }
     }
 }

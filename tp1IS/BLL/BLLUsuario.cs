@@ -49,6 +49,17 @@ namespace Negocio
                 throw ex;
             }
         }
+        public List<string> BuscarUsuariosYgenerarDV()
+        {
+            try
+            {
+                return oUsuario.BuscarUsuariosYgenerarDV();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool borrar_rol(int id, int rol)
         {
             try

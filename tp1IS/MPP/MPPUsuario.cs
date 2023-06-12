@@ -319,5 +319,38 @@ namespace MPP
                 throw ex;
             }
         }
+         
+        public List<string> BuscarUsuariosYgenerarDV()
+        {
+            try
+            {
+                List<string> DVNUsers = new List<string>();
+                BEUsuario user = new BEUsuario();
+                DataTable Ds2 = new DataTable();
+                Acceso oDatos = new Acceso();
+                Hdatos = new Hashtable();
+                string Consulta = "S_Traer_Usuarios";
+                //Hdatos.Add("@username",null);
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    user.user = fila["username"].ToString();
+                    user.password = fila["password"].ToString();
+                    user.id = Convert.ToInt32(fila["id"]);
+                    user.birthDate = fila["birthdate"].ToString();
+                    string DV = servicios.GenerarVD.generarDigitoVU(user);
+                    DVNUsers.Add(DV);
+                    // MPP.MPPDv OMPPdv;
+                    actualizarDVxUsuario(user.id, DV);
+                }
+                return DVNUsers;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
+
+
 }
