@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MPP;
+using Negocio;
 using servicios.ClasesMultiLenguaje;
 namespace BLL
 {
@@ -11,58 +12,147 @@ namespace BLL
     {
 
         MPP.MPPtraductor omppT = new MPP.MPPtraductor();
+        BLLBitacora oBit = new BLLBitacora();
         public BLLTraductor()
         {
-            OMPPtraductor = new MPPtraductor();
+            try
+            {
+                OMPPtraductor = new MPPtraductor();
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         MPPtraductor OMPPtraductor;
        public  Idioma ObtenerIdiomaBase()
         {
-            return OMPPtraductor.ObtenerIdiomaBase();
+            try
+            {
+                return OMPPtraductor.ObtenerIdiomaBase();
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
        
         public List<Idioma> ObtenerIdiomas()
         {
-            return OMPPtraductor.ObtenerIdiomas();
+            try
+            {
+                return OMPPtraductor.ObtenerIdiomas();
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public Dictionary<string,Traduccion> obtenertraducciones(Idioma Idioma)
         {
-            return OMPPtraductor.obtenertraducciones(Idioma);
+            try
+            {
+                return OMPPtraductor.obtenertraducciones(Idioma);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
 
         public List<string> obtenerIdiomaOriginal()
         {
-            return OMPPtraductor.obtenerIdiomaOriginal();
+            try
+            {
+                return OMPPtraductor.obtenerIdiomaOriginal();
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
 
         public Idioma TraerIdioma(string idioma)
         {
-            return OMPPtraductor.TrarIdioma(idioma);
+            try
+            {
+                return OMPPtraductor.TrarIdioma(idioma);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
 
         public bool CrearIdioma(Idioma Oidioma)
         {
-            return OMPPtraductor.CrearIdioma(Oidioma);
+            try
+            {
+                return OMPPtraductor.CrearIdioma(Oidioma);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
 
         public bool IdiomaExistente(string idioma)
         {
-            return OMPPtraductor.idiomaExistente(idioma);
+            try
+            {
+                return OMPPtraductor.idiomaExistente(idioma);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
 
         public bool TraduccionExistente(int id_idioma,int id_palabra)
         {
-            return OMPPtraductor.TraduccionExistente(id_idioma,id_palabra);
+            try
+            {
+                return OMPPtraductor.TraduccionExistente(id_idioma, id_palabra);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
 
         public Palabra TraerPalbra(string palabra)
         {
-            return OMPPtraductor.TraerPalbra(palabra);
+            try
+            {
+                return OMPPtraductor.TraerPalbra(palabra);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
 
         public bool CrearTraduccion(int ID_idioma,Traduccion Otraduccion)
         {
-            return OMPPtraductor.CrearTraduccion(ID_idioma, Otraduccion);
+            try
+            {
+                return OMPPtraductor.CrearTraduccion(ID_idioma, Otraduccion);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
     }
 }

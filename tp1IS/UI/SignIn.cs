@@ -80,15 +80,17 @@ namespace UI
 
                     if (SessionManager.tiene_permiso(5))
                     {
-                        this.Hide();
+
                         AdminHome home = new AdminHome();
                         home.Show();
+                        this.Hide();
                     }
                     else
                     {
-                        this.Hide();
+                       
                         UserHome home = new UserHome();
                         home.Show();
+                        this.Hide();
                     }
                 }
                 else
@@ -139,8 +141,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
+                
                 MessageBox.Show(ex.Message);
             }
         }

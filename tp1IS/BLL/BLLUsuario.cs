@@ -11,6 +11,7 @@ namespace Negocio
 {
     public class BLLUsuario
     {
+        BLLBitacora oBit = new BLLBitacora();
         public BLLUsuario()
         {
             oUsuario = new MPPUsuario();
@@ -24,7 +25,11 @@ namespace Negocio
                 string contrasena = encriptar.Encriptar(contra);
                 return oUsuario.cambiar_contrasena(id, contrasena);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool borrar_rol(int id, int rol)
         {
@@ -32,7 +37,11 @@ namespace Negocio
             {
                 return oUsuario.borrar_rol(id, rol);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool validar(BEUsuario usuario)
         {
@@ -41,7 +50,11 @@ namespace Negocio
                 usuario.password = encriptar.Encriptar(usuario.password);
                 return oUsuario.validar(usuario);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public BEUsuario buscar_usuario(string username)
         {
@@ -49,7 +62,11 @@ namespace Negocio
             {
                 return oUsuario.buscar_usuario(username);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool usuario_existente(int id)
         {
@@ -57,7 +74,23 @@ namespace Negocio
             {
                 return oUsuario.usuario_existente(id);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
+        }
+        public bool username_existente(string username)
+        {
+            try
+            {
+                return oUsuario.username_existente(username);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool eliminar_usuario(int id)
         {
@@ -65,7 +98,11 @@ namespace Negocio
             {
                 return oUsuario.eliminar_usuario(id);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool cargar_usuario(BEUsuario usuario)
         {
@@ -74,7 +111,11 @@ namespace Negocio
                 usuario.password = encriptar.Encriptar(usuario.password);
                 return oUsuario.cargar_usuario(usuario);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool es_admin(string username)
         {
@@ -82,7 +123,11 @@ namespace Negocio
             {
                 return oUsuario.es_admin(username);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool dar_admin(int id)
         {
@@ -90,7 +135,11 @@ namespace Negocio
             {
                 return oUsuario.dar_admin(id);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool crear_admin(BEUsuario usuario)
         {
@@ -99,7 +148,11 @@ namespace Negocio
                 usuario.password = encriptar.Encriptar(usuario.password);
                 return oUsuario.crear_admin(usuario);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool es_activo(string username)
         {
@@ -107,7 +160,11 @@ namespace Negocio
             {
                 return oUsuario.es_activo(username);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool agregar_rol(int id, int rol)
         {
@@ -115,7 +172,11 @@ namespace Negocio
             {
                 return oUsuario.agregar_rol(id, rol);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool tiene_rol(int id, int rol)
         {
@@ -123,7 +184,11 @@ namespace Negocio
             {
                 return oUsuario.tiene_rol(id, rol);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
     }
     

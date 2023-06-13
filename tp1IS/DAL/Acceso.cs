@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Collections; //para el arraylist
 using BE;
-
+using abstraccion;
 namespace DAL
 {
     public class Acceso
@@ -209,7 +209,7 @@ namespace DAL
 
         public IList<Componente> GetAll(int familia)
         {
-          
+
 
             try
             {
@@ -220,7 +220,7 @@ namespace DAL
                 var sql = "s_composite_obtener";
                 Cmd = new SqlCommand(sql, oCnn);
                 Cmd.CommandType = CommandType.StoredProcedure;
-                int  where = 0;
+                int where = 0;
                 if (familia != 0)
                 {
                     where = familia;
@@ -321,7 +321,44 @@ namespace DAL
 
 
         }
+        public IList<IBitacora> GetAll(IBitacoraFilters filters)
+        {
+            try
+            {
+                var sql = "s_bitacora_obtener";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("Username", filters.Username == null ? (object)DBNull.Value : filters.Username);
+                Cmd.Parameters.AddWithValue("From", filters.From.ToString() == "" ? (object)DBNull.Value : filters.From);
+                Cmd.Parameters.AddWithValue("To", filters.To.ToString() == "" ? (object)DBNull.Value : filters.To);
+                Cmd.Parameters.AddWithValue("IdBitacoraType", filters.Type.ToString() == null ? (object)DBNull.Value : filters.Type);
+                Cmd.Parameters.AddWithValue("Like", filters.Like == null ? (object)DBNull.Value : filters.Like);
 
+                var reader = Cmd.ExecuteReader();
+                IList<IBitacora> listBitacora = new List<IBitacora>();
+
+                while (reader.Read())
+                {
+                    IBitacora bitacora = new BEBitacora();
+                    bitacora.IdBitacora = Convert.ToInt32(reader["idBitacora"].ToString());
+                    bitacora.Username = reader["username"].ToString();
+                    bitacora.Date = Convert.ToDateTime(reader["date"].ToString());
+                    bitacora.Type =  Convert.ToInt32(reader["idBitacoraType"]);
+                    bitacora.Message = reader["message"].ToString();
+                    listBitacora.Add(bitacora);
+                }
+                reader.Close();
+
+                return listBitacora;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+        }
     }
 }
 

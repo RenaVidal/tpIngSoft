@@ -69,3 +69,4 @@ C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de So
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.csproj.CopyComplete
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.exe
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.pdb
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.Bitacora.resources

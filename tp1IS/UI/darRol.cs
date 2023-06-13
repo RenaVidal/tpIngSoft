@@ -274,13 +274,23 @@ namespace UI
                 if (treeView1.SelectedNode == null)
                 {
                     errorProvider1.SetError(treeView1, "Select a role to delete");
+                    return;
                 }
                 if (textBox1.Text == string.Empty || !validar.id(textBox1.Text))
                 {
                     errorProvider1.SetError(textBox1, "You should enter an id with 1 to 9 numbers");
+                    return;
                 }
-                if (u.Usuario.id == Convert.ToInt32(textBox1.Text)) errorProvider1.SetError(treeView1, "You can not delete roles from yourself");
-                if(!oLog.usuario_existente(Convert.ToInt32(textBox1.Text))) errorProvider1.SetError(treeView1, "User does not exist");
+                if (u.Usuario.id == Convert.ToInt32(textBox1.Text))
+                {
+                    errorProvider1.SetError(treeView1, "You can not delete roles from yourself");
+                    return;
+                }
+                if (!oLog.usuario_existente(Convert.ToInt32(textBox1.Text)))
+                {
+                    errorProvider1.SetError(treeView1, "User does not exist");
+                    return;
+                }
                 IList<Componente> listFam = oComp.GetFamilias();
                 IList<Componente> listPer = oComp.GetPermisos();
                 Componente itemPatente = null;
@@ -290,7 +300,7 @@ namespace UI
                     itemPatente = findInList(listPer, treeView1.SelectedNode.Text);
                     itemFamilia = findInList(listFam, treeView1.SelectedNode.Text);
                 }
-                    if (oLog.usuario_existente(Convert.ToInt32(textBox1.Text)) && (itemFamilia != null || itemPatente != null))
+                else if (oLog.usuario_existente(Convert.ToInt32(textBox1.Text)) && (itemFamilia != null || itemPatente != null))
                     {
                         if (itemPatente != null)
                         {
@@ -349,7 +359,6 @@ namespace UI
 
         public void CambiarIdioma(Idioma Idioma)
         {
-            //throw new NotImplementedException();
             Traducir();
             ListarIdiomas();
         }
@@ -385,9 +394,6 @@ namespace UI
                     Idioma = SessionManager.GetInstance.idioma;
                 if (Idioma.Nombre == "ingles")
                 {
-
-
-                    //TraerIdiomaOriginal();
                     VolverAlIdiomaOriginal();
                 }
                 else

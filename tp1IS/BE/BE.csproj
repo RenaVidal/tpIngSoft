@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BEBitacora.cs" />
+    <Compile Include="BEBitacoraFilters.cs" />
     <Compile Include="BEComposite.cs" />
     <Compile Include="BEEntidad.cs" />
     <Compile Include="BEIdioma.cs" />

@@ -139,6 +139,27 @@ namespace MPP
                 throw ex;
             }
         }
+        public bool username_existente(string username)
+        {
+            try
+            {
+                DataTable Ds2 = new DataTable();
+                Acceso oDatos = new Acceso();
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_pori_nombre";
+                Hdatos.Add("@user", username);
+                Ds2 = oDatos.Leer(Consulta, Hdatos);
+                foreach (DataRow fila in Ds2.Rows)
+                {
+                    if (username == fila["username"].ToString()) return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool cargar_usuario(BEUsuario usuario)
         {
             try
