@@ -44,6 +44,8 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -63,14 +65,14 @@
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.Location = new System.Drawing.Point(23, 88);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(53, 20);
+            this.metroLabel1.Size = new System.Drawing.Size(96, 25);
             this.metroLabel1.TabIndex = 1;
-            this.metroLabel1.Text = "User id";
+            this.metroLabel1.Text = "User name";
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(302, 88);
+            this.metroLabel2.Location = new System.Drawing.Point(330, 93);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(39, 20);
             this.metroLabel2.TabIndex = 2;
@@ -89,7 +91,7 @@
             // 
             this.metroComboBox1.FormattingEnabled = true;
             this.metroComboBox1.ItemHeight = 24;
-            this.metroComboBox1.Location = new System.Drawing.Point(347, 88);
+            this.metroComboBox1.Location = new System.Drawing.Point(375, 88);
             this.metroComboBox1.Name = "metroComboBox1";
             this.metroComboBox1.Size = new System.Drawing.Size(172, 30);
             this.metroComboBox1.TabIndex = 5;
@@ -105,21 +107,23 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(255, 84);
+            this.metroButton1.Location = new System.Drawing.Point(285, 84);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(28, 26);
             this.metroButton1.TabIndex = 7;
             this.metroButton1.Text = "x";
             this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(525, 88);
+            this.metroButton2.Location = new System.Drawing.Point(553, 88);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(28, 26);
             this.metroButton2.TabIndex = 8;
             this.metroButton2.Text = "x";
             this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // Apply
             // 
@@ -137,7 +141,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(82, 88);
+            this.textBox1.Location = new System.Drawing.Point(101, 88);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(163, 22);
             this.textBox1.TabIndex = 11;
@@ -178,11 +182,35 @@
             this.metroButton3.UseSelectable = true;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(991, 553);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(42, 38);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "<";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(1039, 553);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(42, 38);
+            this.button2.TabIndex = 17;
+            this.button2.Text = ">";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Bitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 611);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.metroButton3);
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroLabel4);
@@ -224,5 +252,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroDateTime metroDateTime2;
         private MetroFramework.Controls.MetroButton metroButton3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

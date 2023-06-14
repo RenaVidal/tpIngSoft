@@ -9,9 +9,9 @@ namespace abstraccion
     public interface IBitacoraFilters
     {
         string Username { get; set; }
-        DateTime From { get; set; }
-        DateTime To { get; set; }
-        int Type { get; set; }
+        Nullable<DateTime> From { get; set; }
+        Nullable<DateTime> To { get; set; }
+        Nullable<int> Type { get; set; }
         string Like { get; set; }
     }
 }

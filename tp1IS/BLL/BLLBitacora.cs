@@ -52,11 +52,11 @@ namespace Negocio
              oBit.cargar_bitacora(user, fecha, accion, id_tipo);
           }catch (Exception ex) { throw ex; }
         }
-        public IList<IBitacora> GetAll(IBitacoraFilters filters)
+        public IList<IBitacora> GetAll(IBitacoraFilters filters, int pag)
         {
             try
             {
-                    return oBit.GetAll(filters);
+                    return oBit.GetAll(filters, pag);
             }
             catch (Exception ex) { throw ex; }
         }

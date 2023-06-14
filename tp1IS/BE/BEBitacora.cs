@@ -13,6 +13,6 @@ namespace BE
         public string Username { get; set; }
         public DateTime Date { get; set; }
         public string Message { get; set; }
-        public int Type { get; set; }
+        public Nullable<int> Type { get; set; }
     }
 }

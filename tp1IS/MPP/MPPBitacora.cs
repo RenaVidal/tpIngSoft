@@ -29,12 +29,12 @@ namespace MPP
             }
             catch (Exception ex) {  throw ex; }
         }
-        public IList<IBitacora> GetAll(IBitacoraFilters filters)
+        public IList<IBitacora> GetAll(IBitacoraFilters filters, int pag)
         {
             try
             {
                 oDatos = new Acceso();
-                return oDatos.GetAll(filters);
+                return oDatos.GetAll(filters, pag);
 
             }
             catch (Exception ex) { throw ex; }

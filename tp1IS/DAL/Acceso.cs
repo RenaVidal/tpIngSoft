@@ -321,18 +321,23 @@ namespace DAL
 
 
         }
-        public IList<IBitacora> GetAll(IBitacoraFilters filters)
+        public IList<IBitacora> GetAll(IBitacoraFilters filters, int pag)
         {
             try
             {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
                 var sql = "s_bitacora_obtener";
                 Cmd = new SqlCommand(sql, oCnn);
                 Cmd.CommandType = CommandType.StoredProcedure;
                 Cmd.Parameters.AddWithValue("Username", filters.Username == null ? (object)DBNull.Value : filters.Username);
                 Cmd.Parameters.AddWithValue("From", filters.From.ToString() == "" ? (object)DBNull.Value : filters.From);
                 Cmd.Parameters.AddWithValue("To", filters.To.ToString() == "" ? (object)DBNull.Value : filters.To);
-                Cmd.Parameters.AddWithValue("IdBitacoraType", filters.Type.ToString() == null ? (object)DBNull.Value : filters.Type);
+                Cmd.Parameters.AddWithValue("idBitacoraType", filters.Type == null ? (object)DBNull.Value : filters.Type);
                 Cmd.Parameters.AddWithValue("Like", filters.Like == null ? (object)DBNull.Value : filters.Like);
+                Cmd.Parameters.AddWithValue("PageNumber", pag);
 
                 var reader = Cmd.ExecuteReader();
                 IList<IBitacora> listBitacora = new List<IBitacora>();
@@ -340,11 +345,11 @@ namespace DAL
                 while (reader.Read())
                 {
                     IBitacora bitacora = new BEBitacora();
-                    bitacora.IdBitacora = Convert.ToInt32(reader["idBitacora"].ToString());
+                    bitacora.IdBitacora = Convert.ToInt32(reader["id"].ToString());
                     bitacora.Username = reader["username"].ToString();
-                    bitacora.Date = Convert.ToDateTime(reader["date"].ToString());
-                    bitacora.Type =  Convert.ToInt32(reader["idBitacoraType"]);
-                    bitacora.Message = reader["message"].ToString();
+                    bitacora.Date = Convert.ToDateTime(reader["time"].ToString());
+                    bitacora.Type =  Convert.ToInt32(reader["tipo"]);
+                    bitacora.Message = reader["action"].ToString();
                     listBitacora.Add(bitacora);
                 }
                 reader.Close();

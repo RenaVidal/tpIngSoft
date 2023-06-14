@@ -12,6 +12,6 @@ namespace abstraccion
             string Username { get; set; }
             DateTime Date { get; set; }
             string Message { get; set; }
-            int Type { get; set; }
+        Nullable<int> Type { get; set; }
     }
 }
