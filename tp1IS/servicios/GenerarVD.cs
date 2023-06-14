@@ -20,13 +20,7 @@ namespace servicios
              string dvU = string.Empty;
              var props = C.GetProperties();
 
-            //var attrs = C.GetCustomAttributes(false);
-            //preguntar a santi
-            /*var verificable = (VerificableAttribute) attrs.Where(i => i.GetType().Equals(typeof(VerificableAttribute))).FirstOrDefault();
-
-            if (verificable != null)
-                dvh += $"{verificable.Prefix}_";
-            */
+           
              foreach(var item in props)
             {
                 if (item.PropertyType.FullName.Equals(typeof(DateTime).FullName))
@@ -64,18 +58,11 @@ namespace servicios
         {
             string DigitoV = string.Empty;
 
-           // Usuario.password = contraseña;
             Type C = Usuario.GetType();
             string dvU = string.Empty;
             var props = C.GetProperties();
 
-            //var attrs = C.GetCustomAttributes(false);
-            //preguntar a santi
-            /*var verificable = (VerificableAttribute) attrs.Where(i => i.GetType().Equals(typeof(VerificableAttribute))).FirstOrDefault();
-
-            if (verificable != null)
-                dvh += $"{verificable.Prefix}_";
-            */
+            
             foreach (var item in props)
             {
                 if (item.PropertyType.FullName.Equals(typeof(DateTime).FullName))

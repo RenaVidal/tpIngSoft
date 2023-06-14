@@ -39,10 +39,9 @@ namespace MPP
         {
             try
             {
-                //"S_buscar_DV"
-             //   BEUsuario user = new BEUsuario();
+          
                 DataTable Ds2 = new DataTable();
-                // Acceso oDatos = new Acceso();
+               
                 string DigitovBaseDeDatos = string.Empty;
                 Hdatos = new Hashtable();
                 string Consulta = "S_buscar_DV";
@@ -69,13 +68,13 @@ namespace MPP
         {
             try
             {
-                //"S_Buscar_DVxUsuarios"
+                
                 
                 DataTable Ds2 = new DataTable();
                 List<string> ListaDVUsers = new List<string>();
                 Hdatos = new Hashtable();
                 string Consulta = "S_Buscar_DVxUsuarios";
-                //Hdatos.Add("@username", null);
+             
                 Ds2 = datos.Leer(Consulta,null);
                 foreach (DataRow fila in Ds2.Rows)
                 {

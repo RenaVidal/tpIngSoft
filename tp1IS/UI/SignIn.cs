@@ -79,8 +79,7 @@ namespace UI
                     SessionManager u = SessionManager.GetInstance;
                     SessionManager.Login(user);
                     oBit.guardar_logIn();
-                    ////
-                    ///
+                  
                     BE.DigitoV DV = new BE.DigitoV();
                     DV.DigitovBaseDeDatos = OBLLDV.BuscarDVS();
                     List<string> ListaDV = oLog.BuscarUsuariosYgenerarDV();
@@ -218,12 +217,10 @@ namespace UI
                     else
                     {
                         oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox4.Text), metroDateTime1.Value.ToString());
-                        oUsuraio.DV = GenerarVD.generarDigitoVU(oUsuraio);//////////////////////////////////////////////////////////////////////////
+                        oUsuraio.DV = GenerarVD.generarDigitoVU(oUsuraio);
                         if (oLog.cargar_usuario(oUsuraio))
                         {
-                            /* List<string> ListaDVU = OBLLDV.BuscarDVUsuarios();
-
-                             OBLLDV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ListaDVU));*/
+                            
                             actualizarDVSxnewUser(oUsuraio);
                             MetroMessageBox.Show(this, "User created");
                             limpiar();
@@ -248,8 +245,8 @@ namespace UI
         }
        public void actualizarDVSxnewUser(BEUsuario Ousuario)
         {
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            List<string> ListaDVU = oLog.BuscarUsuariosYgenerarDV();//OBLLDV.BuscarDVUsuarios();
+          
+            List<string> ListaDVU = oLog.BuscarUsuariosYgenerarDV();
 
             OBLLDV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ListaDVU));
           
@@ -290,12 +287,6 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //  List<string> ListaDV = OBLLDV.BuscarDVUsuarios();
-            //  BE.DigitoV Odigito = new BE.DigitoV();
-            //  OBLLDV.actualizarDV((servicios.GenerarVD.generarDigitoVS(ListaDV)));
-
-          ///  List<BEUsuario> Usuarios = new List<BEUsuario>();
-            // = oLog.BuscarUsuariosYgenerarDV();
         }
     }
 }

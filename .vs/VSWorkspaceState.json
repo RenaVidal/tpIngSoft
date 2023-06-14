@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\tp1IS",
+    "\\tp1IS\\servicios"
   ],
-  "SelectedNode": "\\tp1IS.sln",
+  "SelectedNode": "\\tp1IS\\servicios\\sessionManager.cs",
   "PreviewInSolutionExplorer": false
 }
