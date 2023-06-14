@@ -49,7 +49,7 @@ namespace Patrones.Singleton.Core
         }
         public static bool recursiva(int id, IList<Componente> roles)
         {
-            foreach (Componente rol in _session.Usuario.permisos)
+            foreach (Componente rol in roles)
             {
                 if (rol.Id == id) return true;
                 if (rol.Hijos != null) return recursiva(id, rol.Hijos);
