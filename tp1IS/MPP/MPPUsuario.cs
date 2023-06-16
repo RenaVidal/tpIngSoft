@@ -8,6 +8,7 @@ using DAL;
 using BE;
 using servicios;
 using System.Collections;
+using abstraccion;
 
 namespace MPP
 {
@@ -236,11 +237,10 @@ namespace MPP
             try
             {
                 Hdatos = new Hashtable();
-                string Consulta = "s_Usuario_crear";
+                string Consulta = "s_Usuario_crear_admin";
                 Hdatos.Add("@id", usuario.id);
                 Hdatos.Add("@user", usuario.user);
                 Hdatos.Add("@password", usuario.password);
-                Hdatos.Add("@admin", true);
                 Hdatos.Add("@active", true);
                 Hdatos.Add("@birthdate", usuario.birthDate);
 
@@ -271,7 +271,29 @@ namespace MPP
 
             }
         }
-       
+        public bool restaurar_usuario(BEUsuario user)
+        {
+            try
+            {
+
+                Hdatos = new Hashtable();
+                string Consulta = "s_Usuario_restaurar";
+                Hdatos.Add("@id", user.id);
+                Hdatos.Add("@username", user.user);
+                Hdatos.Add("@password", user.password);
+                Hdatos.Add("@active", user.active);
+                Hdatos.Add("@birthdate", user.birthDate);
+
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+        }
+
         public bool tiene_rol(int id, int rol)
         {
             try
@@ -293,6 +315,16 @@ namespace MPP
             {
                 throw ex;
             }
+        }
+        public IList<BEUsuario> GetAllHistorico(string nombre, int pag)
+        {
+            try
+            {
+                oDatos = new Acceso();
+                return oDatos.GetAllHistorico(nombre, pag);
+
+            }
+            catch (Exception ex) { throw ex; }
         }
     }
 }

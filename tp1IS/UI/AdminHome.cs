@@ -423,5 +423,11 @@ namespace UI
             Bitacora bitacora = new Bitacora();
             AbrirFormulario(bitacora);
         }
+
+        private void metroButton10_Click(object sender, EventArgs e)
+        {
+            Changes cambios = new Changes();
+            AbrirFormulario(cambios);
+        }
     }
 }

@@ -44,6 +44,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.metroButton8 = new MetroFramework.Controls.MetroButton();
             this.metroButton9 = new MetroFramework.Controls.MetroButton();
+            this.metroButton10 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +57,7 @@
             this.metroButton1.Location = new System.Drawing.Point(7, 63);
             this.metroButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(176, 181);
+            this.metroButton1.Size = new System.Drawing.Size(134, 181);
             this.metroButton1.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton1.TabIndex = 3;
             this.metroButton1.Tag = "create admin";
@@ -75,10 +76,10 @@
             this.metroButton2.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.metroButton2.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton2.Location = new System.Drawing.Point(188, 63);
+            this.metroButton2.Location = new System.Drawing.Point(152, 63);
             this.metroButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(175, 181);
+            this.metroButton2.Size = new System.Drawing.Size(124, 181);
             this.metroButton2.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton2.TabIndex = 4;
             this.metroButton2.Tag = "delete user";
@@ -179,10 +180,10 @@
             this.metroButton5.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.metroButton5.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton5.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton5.Location = new System.Drawing.Point(369, 63);
+            this.metroButton5.Location = new System.Drawing.Point(282, 62);
             this.metroButton5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(187, 181);
+            this.metroButton5.Size = new System.Drawing.Size(143, 181);
             this.metroButton5.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton5.TabIndex = 8;
             this.metroButton5.Tag = "reset password";
@@ -200,10 +201,10 @@
             this.metroButton6.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.metroButton6.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton6.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton6.Location = new System.Drawing.Point(563, 63);
+            this.metroButton6.Location = new System.Drawing.Point(431, 62);
             this.metroButton6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButton6.Name = "metroButton6";
-            this.metroButton6.Size = new System.Drawing.Size(184, 181);
+            this.metroButton6.Size = new System.Drawing.Size(100, 181);
             this.metroButton6.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton6.TabIndex = 9;
             this.metroButton6.Tag = "create rol";
@@ -221,10 +222,10 @@
             this.metroButton7.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.metroButton7.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton7.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton7.Location = new System.Drawing.Point(753, 63);
-            this.metroButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroButton7.Location = new System.Drawing.Point(538, 62);
+            this.metroButton7.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton7.Name = "metroButton7";
-            this.metroButton7.Size = new System.Drawing.Size(255, 181);
+            this.metroButton7.Size = new System.Drawing.Size(187, 181);
             this.metroButton7.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton7.TabIndex = 10;
             this.metroButton7.Tag = "asign or delete role";
@@ -241,7 +242,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(1241, 33);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 9;
@@ -252,8 +253,8 @@
             this.metroButton8.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.metroButton8.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton8.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton8.Location = new System.Drawing.Point(1170, 63);
-            this.metroButton8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroButton8.Location = new System.Drawing.Point(848, 62);
+            this.metroButton8.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton8.Name = "metroButton8";
             this.metroButton8.Size = new System.Drawing.Size(111, 180);
             this.metroButton8.Style = MetroFramework.MetroColorStyle.Blue;
@@ -273,10 +274,10 @@
             this.metroButton9.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.metroButton9.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton9.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton9.Location = new System.Drawing.Point(1016, 64);
+            this.metroButton9.Location = new System.Drawing.Point(733, 62);
             this.metroButton9.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton9.Name = "metroButton9";
-            this.metroButton9.Size = new System.Drawing.Size(146, 180);
+            this.metroButton9.Size = new System.Drawing.Size(107, 180);
             this.metroButton9.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton9.TabIndex = 12;
             this.metroButton9.Tag = "add lenguaje";
@@ -289,11 +290,33 @@
             this.metroButton9.UseStyleColors = true;
             this.metroButton9.Click += new System.EventHandler(this.metroButton9_Click);
             // 
+            // metroButton10
+            // 
+            this.metroButton10.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.metroButton10.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton10.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.metroButton10.Location = new System.Drawing.Point(967, 62);
+            this.metroButton10.Margin = new System.Windows.Forms.Padding(4);
+            this.metroButton10.Name = "metroButton10";
+            this.metroButton10.Size = new System.Drawing.Size(111, 180);
+            this.metroButton10.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton10.TabIndex = 13;
+            this.metroButton10.Tag = "add lenguaje";
+            this.metroButton10.Text = "user history";
+            this.metroButton10.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroButton10.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton10.UseCustomBackColor = true;
+            this.metroButton10.UseCustomForeColor = true;
+            this.metroButton10.UseSelectable = true;
+            this.metroButton10.UseStyleColors = true;
+            this.metroButton10.Click += new System.EventHandler(this.metroButton10_Click);
+            // 
             // AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1559, 554);
+            this.Controls.Add(this.metroButton10);
             this.Controls.Add(this.metroButton9);
             this.Controls.Add(this.metroButton8);
             this.Controls.Add(this.comboBox1);
@@ -334,5 +357,6 @@
         private MetroFramework.Controls.MetroButton metroButton7;
         private MetroFramework.Controls.MetroButton metroButton8;
         private MetroFramework.Controls.MetroButton metroButton9;
+        private MetroFramework.Controls.MetroButton metroButton10;
     }
 }

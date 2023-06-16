@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MPP;
 using BE;
 using servicios;
+using abstraccion;
 
 namespace Negocio
 {
@@ -183,6 +184,31 @@ namespace Negocio
             try
             {
                 return oUsuario.tiene_rol(id, rol);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
+        }
+        public bool restaurar_usuario(BEUsuario user)
+        {
+            try
+            {
+
+                return oUsuario.restaurar_usuario(user);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
+        }
+        public IList<BEUsuario> GetAllHistorico(string nombre, int pag)
+        {
+            try
+            {
+                return oUsuario.GetAllHistorico(nombre, pag);
             }
             catch (Exception ex)
             {

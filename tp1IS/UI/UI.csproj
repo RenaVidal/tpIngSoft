@@ -79,6 +79,12 @@
     <Compile Include="borrarPassword.Designer.cs">
       <DependentUpon>borrarPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="controlCambios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlCambios.Designer.cs">
+      <DependentUpon>controlCambios.cs</DependentUpon>
+    </Compile>
     <Compile Include="crearAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="borrarPassword.resx">
       <DependentUpon>borrarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlCambios.resx">
+      <DependentUpon>controlCambios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="crearAdmin.resx">
       <DependentUpon>crearAdmin.cs</DependentUpon>
