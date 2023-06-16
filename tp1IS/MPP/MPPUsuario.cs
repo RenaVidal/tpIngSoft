@@ -283,7 +283,8 @@ namespace MPP
                 Hdatos.Add("@password", user.password);
                 Hdatos.Add("@active", user.active);
                 Hdatos.Add("@birthdate", user.birthDate);
-
+                string DV = servicios.GenerarVD.generarDigitoVU(user);
+                Hdatos.Add("@dv", DV);
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
@@ -383,7 +384,6 @@ namespace MPP
                 Acceso oDatos = new Acceso();
                 Hdatos = new Hashtable();
                 string Consulta = "S_Traer_Usuarios";
-                //Hdatos.Add("@username",null);
                 Ds2 = oDatos.Leer(Consulta, Hdatos);
                 foreach (DataRow fila in Ds2.Rows)
                 {
@@ -394,7 +394,6 @@ namespace MPP
                     string dvV = fila["DV"].ToString();
                     string DV = servicios.GenerarVD.generarDigitoVU(user);
                     DVNUsers.Add(DV);
-                    // MPP.MPPDv OMPPdv;
                     actualizarDVxUsuario(user.id, DV);
                 }
                 return DVNUsers;

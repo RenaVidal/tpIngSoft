@@ -1,5 +1,6 @@
 ﻿using abstraccion;
 using BE;
+using BLL;
 using MetroFramework;
 using MetroFramework.Controls;
 using Negocio;
@@ -154,7 +155,21 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
+        BLLDv OBLLdv = new BLLDv();
 
+        public void actualizar_verificador()
+        {
+            try
+            {
+                string dv = servicios.GenerarVD.generarDigitoVS(OBLLdv.BuscarDVUsuarios());
+                OBLLdv.actualizarDV(dv);
+            }
+            catch (Exception ex){
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void metroButton2_Click(object sender, EventArgs e)
         {
             try
@@ -163,7 +178,10 @@ namespace UI
                 BEUsuario user = (BEUsuario)dataGridView1.CurrentRow.DataBoundItem;
                 if(user != null)
                 {
-                    if (oLog.restaurar_usuario(user)) MetroMessageBox.Show(this, "user restored");
+                    if (oLog.restaurar_usuario(user)){
+                        actualizar_verificador();
+                        MetroMessageBox.Show(this, "user restored");
+                    }
                     else MetroMessageBox.Show(this, "Error, try again");
                     buscar(null, 1);
                     pag = 1;

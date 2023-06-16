@@ -150,7 +150,7 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Changes";
-            this.Text = "controlCambios";
+            this.Text = "User History";
             this.Load += new System.EventHandler(this.controlCambios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
