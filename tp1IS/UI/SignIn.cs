@@ -216,21 +216,34 @@ namespace UI
                     if (oLog.usuario_existente(Convert.ToInt32(textBox4.Text))) MessageBox.Show("There is an user with that id already", "ERROR");
                     else
                     {
-                        oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox4.Text), metroDateTime1.Value.ToString());
-                        oUsuraio.DV = GenerarVD.generarDigitoVU(oUsuraio);
-                        if (oLog.cargar_usuario(oUsuraio))
+                        
+                        BE.DigitoV DV = new BE.DigitoV();
+                        DV.DigitovBaseDeDatos = OBLLDV.BuscarDVS();
+                        List<string> ListaDV = oLog.BuscarUsuariosYgenerarDV();
+                        DV.DigitovActual = GenerarVD.generarDigitoVS(ListaDV);
+                        if (DV.DigitovBaseDeDatos == DV.DigitovActual)
                         {
-                            
-                            actualizarDVSxnewUser(oUsuraio);
-                            MetroMessageBox.Show(this, "User created");
-                            limpiar();
-                            logIn(oUsuraio.user,1);
+                            oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox4.Text), metroDateTime1.Value.ToString());
+                            oUsuraio.DV = GenerarVD.generarDigitoVU(oUsuraio);
+                            if (oLog.cargar_usuario(oUsuraio))
+                            {
+
+                                actualizarDVSxnewUser(oUsuraio);
+                                MetroMessageBox.Show(this, "User created");
+                                limpiar();
+                                logIn(oUsuraio.user, 1);
+                            }
+                            else
+                            {
+                                limpiar();
+                                MetroMessageBox.Show(this, "There has been an error, try changing the username");
+                            }
                         }
                         else
                         {
-                            limpiar();
-                            MetroMessageBox.Show(this, "There has been an error, try changing the username");
+                            MessageBox.Show("Verifier digit error, user cannot be created");
                         }
+                       
                     }
 
                 }

@@ -26,6 +26,14 @@ namespace servicios
             }
             catch (Exception ex) { throw ex; }
         }
+        public bool traduccion(string Otraduccion)
+        {
+            try
+            {
+                return Regex.IsMatch(Otraduccion, "^[a-zA-Z\\s]{1,200}$");
+            }
+            catch (Exception ex) { throw ex; }
+        }
         public bool id (string id)
         {
 

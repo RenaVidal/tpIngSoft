@@ -190,14 +190,36 @@ namespace UI
 
         private void metroButton5_Click(object sender, EventArgs e)
         {
-            borrarPassword passForm = new borrarPassword();
-            AbrirFormulario(passForm);
+            try
+            {
+                borrarPassword passForm = new borrarPassword();
+                AbrirFormulario(passForm);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+
+            }
+            
         }
 
         private void metroButton6_Click(object sender, EventArgs e)
         {
-            crearRol rol = new crearRol();
-            AbrirFormulario(rol);
+            try
+            {
+                crearRol rol = new crearRol();
+                AbrirFormulario(rol);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+
+            }
+          
         }
 
         private void metroButton7_Click(object sender, EventArgs e)
@@ -240,8 +262,19 @@ namespace UI
 
         public void CambiarIdioma(Idioma Idioma)
         {
-            ListarIdiomas();
-            traducir();
+            try
+            {
+                ListarIdiomas();
+                traducir();
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+
+            }
+           
         }
 
         private void traducir()

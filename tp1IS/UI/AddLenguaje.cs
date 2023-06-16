@@ -23,6 +23,7 @@ namespace UI
             InitializeComponent();
         }
         BLLTraductor Otraductor = new BLLTraductor();
+        servicios.validaciones validar = new servicios.validaciones();
         private void AddLenguaje_Load(object sender, EventArgs e)
         {
             try
@@ -133,7 +134,7 @@ namespace UI
                 Idioma NewIdioma = new Idioma();
                 int error = 0;
                 BLL.BLLTraductor Otraductor = new BLL.BLLTraductor();
-                if (textBox1.Text == string.Empty || !Regex.IsMatch(textBox1.Text, "^([a-zA-Z]{1,25}$)"))
+                if (textBox1.Text == string.Empty || !(validar.usuario(textBox1.Text)))
                 {
                     errorProvider1.SetError(textBox1, "Debe ingresar un idioma sin caracteres especiales");
                     error++;
@@ -181,7 +182,7 @@ namespace UI
             {
                 int error = 0;
                 BLL.BLLTraductor OBLLtraductor = new BLL.BLLTraductor();
-                if (textBox2.Text == string.Empty || !Regex.IsMatch(textBox2.Text, "^[a-zA-Z\\s]{1,200}$"))
+                if (textBox2.Text == string.Empty || !validar.traduccion(textBox2.Text))
                 {
                     errorProvider1.SetError(textBox2, "The translation should not have special characters");
                     error++;

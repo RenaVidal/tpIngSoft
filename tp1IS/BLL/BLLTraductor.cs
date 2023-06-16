@@ -20,54 +20,164 @@ namespace BLL
         MPPtraductor OMPPtraductor;
        public  Idioma ObtenerIdiomaBase()
         {
-            return OMPPtraductor.ObtenerIdiomaBase();
+            try
+            {
+                return OMPPtraductor.ObtenerIdiomaBase();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+
+            }
+           
         }
         public DataTable traerTablaxIdioma(int id)
         {
-            return OMPPtraductor.traerTablaxIdioma(id);
+
+            try
+            {
+                return OMPPtraductor.traerTablaxIdioma(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            
         }
         public List<Idioma> ObtenerIdiomas()
         {
-            return OMPPtraductor.ObtenerIdiomas();
+
+            try
+            {
+                return OMPPtraductor.ObtenerIdiomas();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            
         }
         public Dictionary<string,Traduccion> obtenertraducciones(Idioma Idioma)
         {
-            return OMPPtraductor.obtenertraducciones(Idioma);
+
+            try
+            {
+                return OMPPtraductor.obtenertraducciones(Idioma);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+         
         }
 
         public List<string> obtenerIdiomaOriginal()
         {
-            return OMPPtraductor.obtenerIdiomaOriginal();
+
+            try
+            {
+                return OMPPtraductor.obtenerIdiomaOriginal();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            
         }
 
         public Idioma TraerIdioma(string idioma)
         {
-            return OMPPtraductor.TrarIdioma(idioma);
+
+            try
+            {
+                return OMPPtraductor.TrarIdioma(idioma);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+           
         }
 
         public bool CrearIdioma(Idioma Oidioma)
         {
-            return OMPPtraductor.CrearIdioma(Oidioma);
+
+            try
+            {
+                return OMPPtraductor.CrearIdioma(Oidioma);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+           
         }
 
         public bool IdiomaExistente(string idioma)
         {
-            return OMPPtraductor.idiomaExistente(idioma);
+
+            try
+            {
+                return OMPPtraductor.idiomaExistente(idioma);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+          
         }
 
         public bool TraduccionExistente(int id_idioma,int id_palabra)
         {
-            return OMPPtraductor.TraduccionExistente(id_idioma,id_palabra);
+
+            try
+            {
+                return OMPPtraductor.TraduccionExistente(id_idioma, id_palabra);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+          
         }
 
         public Palabra TraerPalbra(string palabra)
         {
-            return OMPPtraductor.TraerPalbra(palabra);
+
+            try
+            {
+                return OMPPtraductor.TraerPalbra(palabra);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+          
         }
 
         public bool CrearTraduccion(int ID_idioma,Traduccion Otraduccion)
         {
-            return OMPPtraductor.CrearTraduccion(ID_idioma, Otraduccion);
+
+            try
+            {
+                return OMPPtraductor.CrearTraduccion(ID_idioma, Otraduccion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
         }
     }
 }
