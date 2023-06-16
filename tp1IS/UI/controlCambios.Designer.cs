@@ -49,7 +49,7 @@
             this.button2.Location = new System.Drawing.Point(1052, 559);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(42, 38);
-            this.button2.TabIndex = 33;
+            this.button2.TabIndex = 8;
             this.button2.Text = ">";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -60,7 +60,7 @@
             this.button1.Location = new System.Drawing.Point(1004, 559);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(42, 38);
-            this.button1.TabIndex = 32;
+            this.button1.TabIndex = 7;
             this.button1.Text = "<";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -70,7 +70,7 @@
             this.metroButton3.Location = new System.Drawing.Point(468, 94);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(79, 30);
-            this.metroButton3.TabIndex = 31;
+            this.metroButton3.TabIndex = 4;
             this.metroButton3.Text = "delete ";
             this.metroButton3.UseSelectable = true;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
@@ -80,14 +80,14 @@
             this.textBox1.Location = new System.Drawing.Point(180, 94);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(163, 22);
-            this.textBox1.TabIndex = 27;
+            this.textBox1.TabIndex = 1;
             // 
             // Apply
             // 
             this.Apply.Location = new System.Drawing.Point(383, 94);
             this.Apply.Name = "Apply";
             this.Apply.Size = new System.Drawing.Size(79, 30);
-            this.Apply.TabIndex = 26;
+            this.Apply.TabIndex = 3;
             this.Apply.Text = "Apply";
             this.Apply.UseSelectable = true;
             this.Apply.Click += new System.EventHandler(this.Apply_Click);
@@ -97,7 +97,7 @@
             this.metroButton1.Location = new System.Drawing.Point(349, 94);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(28, 30);
-            this.metroButton1.TabIndex = 24;
+            this.metroButton1.TabIndex = 2;
             this.metroButton1.Text = "x";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
@@ -108,7 +108,7 @@
             this.metroLabel1.Location = new System.Drawing.Point(53, 94);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(77, 20);
-            this.metroLabel1.TabIndex = 19;
+            this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Text = "User name";
             // 
             // dataGridView1
@@ -119,14 +119,14 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1058, 397);
-            this.dataGridView1.TabIndex = 18;
+            this.dataGridView1.TabIndex = 6;
             // 
             // metroButton2
             // 
             this.metroButton2.Location = new System.Drawing.Point(930, 94);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(153, 30);
-            this.metroButton2.TabIndex = 34;
+            this.metroButton2.TabIndex = 5;
             this.metroButton2.Text = "restore user state";
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);

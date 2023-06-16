@@ -59,7 +59,7 @@
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(134, 181);
             this.metroButton1.Style = MetroFramework.MetroColorStyle.Magenta;
-            this.metroButton1.TabIndex = 3;
+            this.metroButton1.TabIndex = 0;
             this.metroButton1.Tag = "create admin";
             this.metroButton1.Text = "Create Admin";
             this.metroButton1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -81,7 +81,7 @@
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(124, 181);
             this.metroButton2.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton2.TabIndex = 4;
+            this.metroButton2.TabIndex = 1;
             this.metroButton2.Tag = "delete user";
             this.metroButton2.Text = "Delete User";
             this.metroButton2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -98,7 +98,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(188, 22);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -111,7 +111,7 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Size = new System.Drawing.Size(340, 162);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Tag = "delete user";
             this.groupBox1.Text = "Delete user";
@@ -123,7 +123,7 @@
             this.metroLabel2.Location = new System.Drawing.Point(19, 18);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(315, 20);
-            this.metroLabel2.TabIndex = 8;
+            this.metroLabel2.TabIndex = 0;
             this.metroLabel2.Tag = "please insert the id of the user you wish to delete";
             this.metroLabel2.Text = "Please insert the id of the user you wish to delete";
             this.metroLabel2.Click += new System.EventHandler(this.metroLabel2_Click);
@@ -134,7 +134,7 @@
             this.metroButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(117, 34);
-            this.metroButton3.TabIndex = 7;
+            this.metroButton3.TabIndex = 3;
             this.metroButton3.Tag = "delete user";
             this.metroButton3.Text = "delete user";
             this.metroButton3.UseSelectable = true;
@@ -146,7 +146,7 @@
             this.metroLabel1.Location = new System.Drawing.Point(92, 57);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(20, 20);
-            this.metroLabel1.TabIndex = 7;
+            this.metroLabel1.TabIndex = 1;
             this.metroLabel1.Tag = "id";
             this.metroLabel1.Text = "id";
             // 
@@ -160,7 +160,7 @@
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(101, 181);
             this.metroButton4.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton4.TabIndex = 7;
+            this.metroButton4.TabIndex = 10;
             this.metroButton4.Tag = "sign out";
             this.metroButton4.Text = "Sign out";
             this.metroButton4.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -185,7 +185,7 @@
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(143, 181);
             this.metroButton5.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton5.TabIndex = 8;
+            this.metroButton5.TabIndex = 2;
             this.metroButton5.Tag = "reset password";
             this.metroButton5.Text = "Reset Password";
             this.metroButton5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -206,7 +206,7 @@
             this.metroButton6.Name = "metroButton6";
             this.metroButton6.Size = new System.Drawing.Size(100, 181);
             this.metroButton6.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton6.TabIndex = 9;
+            this.metroButton6.TabIndex = 3;
             this.metroButton6.Tag = "create rol";
             this.metroButton6.Text = "Create Rol";
             this.metroButton6.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -227,7 +227,7 @@
             this.metroButton7.Name = "metroButton7";
             this.metroButton7.Size = new System.Drawing.Size(187, 181);
             this.metroButton7.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton7.TabIndex = 10;
+            this.metroButton7.TabIndex = 4;
             this.metroButton7.Tag = "asign or delete role";
             this.metroButton7.Text = "Asign or Delete Role";
             this.metroButton7.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -245,7 +245,7 @@
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
-            this.comboBox1.TabIndex = 9;
+            this.comboBox1.TabIndex = 8;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // metroButton8
@@ -258,7 +258,7 @@
             this.metroButton8.Name = "metroButton8";
             this.metroButton8.Size = new System.Drawing.Size(111, 180);
             this.metroButton8.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton8.TabIndex = 11;
+            this.metroButton8.TabIndex = 6;
             this.metroButton8.Tag = "add lenguaje";
             this.metroButton8.Text = "add lenguaje";
             this.metroButton8.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -279,7 +279,7 @@
             this.metroButton9.Name = "metroButton9";
             this.metroButton9.Size = new System.Drawing.Size(107, 180);
             this.metroButton9.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton9.TabIndex = 12;
+            this.metroButton9.TabIndex = 5;
             this.metroButton9.Tag = "add lenguaje";
             this.metroButton9.Text = "Binnacle";
             this.metroButton9.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -300,7 +300,7 @@
             this.metroButton10.Name = "metroButton10";
             this.metroButton10.Size = new System.Drawing.Size(111, 180);
             this.metroButton10.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton10.TabIndex = 13;
+            this.metroButton10.TabIndex = 7;
             this.metroButton10.Tag = "add lenguaje";
             this.metroButton10.Text = "user history";
             this.metroButton10.TextAlign = System.Drawing.ContentAlignment.BottomRight;

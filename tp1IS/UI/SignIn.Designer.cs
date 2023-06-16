@@ -53,7 +53,7 @@
             this.metroLabel2.Location = new System.Drawing.Point(29, 80);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(73, 20);
-            this.metroLabel2.TabIndex = 1;
+            this.metroLabel2.TabIndex = 0;
             this.metroLabel2.Tag = "username";
             this.metroLabel2.Text = "Username";
             // 
@@ -73,7 +73,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(191, 22);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -81,7 +81,7 @@
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(191, 22);
-            this.textBox2.TabIndex = 1;
+            this.textBox2.TabIndex = 3;
             // 
             // metroButton1
             // 
@@ -139,7 +139,7 @@
             this.metroButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(123, 31);
-            this.metroButton3.TabIndex = 8;
+            this.metroButton3.TabIndex = 4;
             this.metroButton3.Tag = "confirm";
             this.metroButton3.Text = "Confirm";
             this.metroButton3.UseSelectable = true;
@@ -151,7 +151,7 @@
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(200, 22);
-            this.textBox4.TabIndex = 2;
+            this.textBox4.TabIndex = 1;
             // 
             // metroLabel5
             // 
@@ -159,7 +159,7 @@
             this.metroLabel5.Location = new System.Drawing.Point(15, 44);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(22, 20);
-            this.metroLabel5.TabIndex = 8;
+            this.metroLabel5.TabIndex = 0;
             this.metroLabel5.Tag = "id";
             this.metroLabel5.Text = "ID";
             // 
@@ -169,7 +169,7 @@
             this.metroLabel4.Location = new System.Drawing.Point(5, 78);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(69, 20);
-            this.metroLabel4.TabIndex = 9;
+            this.metroLabel4.TabIndex = 2;
             this.metroLabel4.Tag = "birth date";
             this.metroLabel4.Text = "Birth date";
             // 
@@ -180,10 +180,10 @@
             // botonOjo
             // 
             this.botonOjo.Location = new System.Drawing.Point(343, 111);
-            this.botonOjo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonOjo.Margin = new System.Windows.Forms.Padding(4);
             this.botonOjo.Name = "botonOjo";
             this.botonOjo.Size = new System.Drawing.Size(52, 34);
-            this.botonOjo.TabIndex = 8;
+            this.botonOjo.TabIndex = 4;
             this.botonOjo.UseVisualStyleBackColor = true;
             this.botonOjo.Click += new System.EventHandler(this.botonOjo_Click);
             // 

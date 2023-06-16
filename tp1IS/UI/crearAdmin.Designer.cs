@@ -50,7 +50,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(200, 22);
-            this.textBox2.TabIndex = 1;
+            this.textBox2.TabIndex = 3;
             // 
             // textBox1
             // 
@@ -58,7 +58,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 22);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.TabIndex = 1;
             // 
             // metroLabel3
             // 
@@ -66,7 +66,7 @@
             this.metroLabel3.Location = new System.Drawing.Point(25, 100);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(66, 20);
-            this.metroLabel3.TabIndex = 9;
+            this.metroLabel3.TabIndex = 2;
             this.metroLabel3.Tag = "password";
             this.metroLabel3.Text = "Password";
             // 
@@ -76,7 +76,7 @@
             this.metroLabel2.Location = new System.Drawing.Point(25, 63);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(73, 20);
-            this.metroLabel2.TabIndex = 8;
+            this.metroLabel2.TabIndex = 0;
             this.metroLabel2.Tag = "username";
             this.metroLabel2.Text = "Username";
             // 
@@ -87,7 +87,7 @@
             this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTime2.Name = "metroDateTime2";
             this.metroDateTime2.Size = new System.Drawing.Size(200, 30);
-            this.metroDateTime2.TabIndex = 3;
+            this.metroDateTime2.TabIndex = 7;
             // 
             // metroButton4
             // 
@@ -95,7 +95,7 @@
             this.metroButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(123, 31);
-            this.metroButton4.TabIndex = 4;
+            this.metroButton4.TabIndex = 8;
             this.metroButton4.Tag = "confirm";
             this.metroButton4.Text = "Confirm";
             this.metroButton4.UseSelectable = true;
@@ -107,7 +107,7 @@
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(200, 22);
-            this.textBox3.TabIndex = 2;
+            this.textBox3.TabIndex = 5;
             // 
             // metroLabel1
             // 
@@ -115,7 +115,7 @@
             this.metroLabel1.Location = new System.Drawing.Point(27, 133);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(22, 20);
-            this.metroLabel1.TabIndex = 13;
+            this.metroLabel1.TabIndex = 4;
             this.metroLabel1.Tag = "id";
             this.metroLabel1.Text = "ID";
             // 
@@ -125,7 +125,7 @@
             this.metroLabel6.Location = new System.Drawing.Point(25, 171);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(69, 20);
-            this.metroLabel6.TabIndex = 14;
+            this.metroLabel6.TabIndex = 6;
             this.metroLabel6.Tag = "birth date";
             this.metroLabel6.Text = "Birth date";
             // 
@@ -140,10 +140,10 @@
             "Español",
             "ingles"});
             this.comboBox1.Location = new System.Drawing.Point(319, 297);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
-            this.comboBox1.TabIndex = 15;
+            this.comboBox1.TabIndex = 9;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // crearAdmin

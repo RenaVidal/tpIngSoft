@@ -55,7 +55,7 @@
             this.metroLabel2.Location = new System.Drawing.Point(35, 113);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(67, 20);
-            this.metroLabel2.TabIndex = 1;
+            this.metroLabel2.TabIndex = 2;
             this.metroLabel2.Tag = "password";
             this.metroLabel2.Text = "password";
             // 
@@ -65,7 +65,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(159, 22);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -74,7 +74,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(159, 22);
-            this.textBox2.TabIndex = 1;
+            this.textBox2.TabIndex = 3;
             // 
             // metroButton1
             // 
@@ -99,7 +99,7 @@
             "Español",
             "ingles"});
             this.comboBox1.Location = new System.Drawing.Point(249, 250);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 5;

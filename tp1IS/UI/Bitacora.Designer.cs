@@ -58,15 +58,15 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1058, 397);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 14;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.Location = new System.Drawing.Point(23, 88);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(96, 25);
-            this.metroLabel1.TabIndex = 1;
+            this.metroLabel1.Size = new System.Drawing.Size(77, 20);
+            this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Text = "User name";
             // 
             // metroLabel2
@@ -75,7 +75,7 @@
             this.metroLabel2.Location = new System.Drawing.Point(330, 93);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(39, 20);
-            this.metroLabel2.TabIndex = 2;
+            this.metroLabel2.TabIndex = 4;
             this.metroLabel2.Text = "Type";
             // 
             // metroLabel3
@@ -84,7 +84,7 @@
             this.metroLabel3.Location = new System.Drawing.Point(601, 88);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(38, 20);
-            this.metroLabel3.TabIndex = 3;
+            this.metroLabel3.TabIndex = 7;
             this.metroLabel3.Text = "Date";
             // 
             // metroComboBox1
@@ -103,14 +103,14 @@
             this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTime1.Name = "metroDateTime1";
             this.metroDateTime1.Size = new System.Drawing.Size(200, 30);
-            this.metroDateTime1.TabIndex = 6;
+            this.metroDateTime1.TabIndex = 9;
             // 
             // metroButton1
             // 
             this.metroButton1.Location = new System.Drawing.Point(285, 84);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(28, 26);
-            this.metroButton1.TabIndex = 7;
+            this.metroButton1.TabIndex = 3;
             this.metroButton1.Text = "x";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
@@ -120,7 +120,7 @@
             this.metroButton2.Location = new System.Drawing.Point(553, 88);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(28, 26);
-            this.metroButton2.TabIndex = 8;
+            this.metroButton2.TabIndex = 6;
             this.metroButton2.Text = "x";
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
@@ -130,7 +130,7 @@
             this.Apply.Location = new System.Drawing.Point(910, 63);
             this.Apply.Name = "Apply";
             this.Apply.Size = new System.Drawing.Size(134, 33);
-            this.Apply.TabIndex = 10;
+            this.Apply.TabIndex = 12;
             this.Apply.Text = "Apply";
             this.Apply.UseSelectable = true;
             this.Apply.Click += new System.EventHandler(this.Apply_Click);
@@ -144,7 +144,7 @@
             this.textBox1.Location = new System.Drawing.Point(101, 88);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(163, 22);
-            this.textBox1.TabIndex = 11;
+            this.textBox1.TabIndex = 2;
             // 
             // metroDateTime2
             // 
@@ -152,7 +152,7 @@
             this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTime2.Name = "metroDateTime2";
             this.metroDateTime2.Size = new System.Drawing.Size(200, 30);
-            this.metroDateTime2.TabIndex = 12;
+            this.metroDateTime2.TabIndex = 11;
             // 
             // metroLabel4
             // 
@@ -160,7 +160,7 @@
             this.metroLabel4.Location = new System.Drawing.Point(645, 102);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(23, 20);
-            this.metroLabel4.TabIndex = 13;
+            this.metroLabel4.TabIndex = 10;
             this.metroLabel4.Text = "To";
             // 
             // metroLabel5
@@ -169,7 +169,7 @@
             this.metroLabel5.Location = new System.Drawing.Point(643, 63);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(41, 20);
-            this.metroLabel5.TabIndex = 14;
+            this.metroLabel5.TabIndex = 8;
             this.metroLabel5.Text = "From";
             // 
             // metroButton3
@@ -177,7 +177,7 @@
             this.metroButton3.Location = new System.Drawing.Point(910, 102);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(134, 30);
-            this.metroButton3.TabIndex = 15;
+            this.metroButton3.TabIndex = 13;
             this.metroButton3.Text = "delete ";
             this.metroButton3.UseSelectable = true;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
@@ -188,7 +188,7 @@
             this.button1.Location = new System.Drawing.Point(991, 553);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(42, 38);
-            this.button1.TabIndex = 16;
+            this.button1.TabIndex = 15;
             this.button1.Text = "<";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -199,7 +199,7 @@
             this.button2.Location = new System.Drawing.Point(1039, 553);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(42, 38);
-            this.button2.TabIndex = 17;
+            this.button2.TabIndex = 0;
             this.button2.Text = ">";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
