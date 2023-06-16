@@ -16,6 +16,7 @@ using servicios.ClasesMultiLenguaje;
 using servicios;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using BLL;
+using abstraccion;
 
 namespace UI
 {
@@ -25,6 +26,12 @@ namespace UI
         {
             InitializeComponent();
             groupBox1.Hide();
+            es_traductor();
+        }
+        SessionManager session = SessionManager.GetInstance;
+        public void es_traductor()
+        {
+            if (SessionManager.tiene_permiso(22)) metroButton8.Hide();
         }
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
@@ -68,14 +75,13 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-
-
+           
+            
         }
 
 
         private void AdminHome_FormClosing(object sender, EventArgs e)
         {
-
             try
             {
                 servicios.Observer.eliminarObservador(this);
@@ -120,7 +126,7 @@ namespace UI
         {
             groupBox1.Show();
         }
-        SessionManager session = SessionManager.GetInstance;
+   
         private void metroButton3_Click(object sender, EventArgs e)
         {
             try
@@ -200,9 +206,7 @@ namespace UI
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
-
             }
-            
         }
 
         private void metroButton6_Click(object sender, EventArgs e)
@@ -254,7 +258,7 @@ namespace UI
                 MessageBox.Show(ex.Message);
 
             }
-
+           
 
         }
 
@@ -420,7 +424,7 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-
+            
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -447,6 +451,20 @@ namespace UI
 
         private void metroButton8_Click(object sender, EventArgs e)
         {
+            AddLenguaje from = new AddLenguaje();
+            AbrirFormulario(from);
+        }
+
+        private void metroButton9_Click(object sender, EventArgs e)
+        {
+            Bitacora bitacora = new Bitacora();
+            AbrirFormulario(bitacora);
+        }
+
+        private void metroButton10_Click(object sender, EventArgs e)
+        {
+            Changes cambios = new Changes();
+            AbrirFormulario(cambios);
             try
             {
                 if (SessionManager.tiene_permiso(21) || SessionManager.tiene_permiso(22))

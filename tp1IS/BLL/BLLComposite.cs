@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using BE;
 using MPP;
+using Negocio;
 
 namespace BLL
 {
     public class BLLComposite
     {
         MPPComposite mPPComposite = new MPPComposite();
+        BLLBitacora oBit = new BLLBitacora();
         public bool escribir_relacion(int hijo, int padre)
         {
             try
@@ -18,7 +20,10 @@ namespace BLL
                 return mPPComposite.escribir_relacion(hijo, padre);
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex) {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex; 
+            }
         }
         public bool escribir(Componente componente)
         {
@@ -27,7 +32,11 @@ namespace BLL
                 return mPPComposite.escribir(componente);
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public IList<Componente> GetAll(int familia)
         {
@@ -36,7 +45,11 @@ namespace BLL
                 return mPPComposite.GetAll(familia);
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool hacer_patente(Componente componente, bool patente)
         {
@@ -45,7 +58,11 @@ namespace BLL
                 return mPPComposite.hacer_patente(componente, patente);
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public IList<Componente> GetFamilias()
         {
@@ -54,7 +71,11 @@ namespace BLL
                 return mPPComposite.GetFamilias();
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public IList<Componente> GetPermisos()
         {
@@ -63,7 +84,11 @@ namespace BLL
                 return mPPComposite.GetPermisos();
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public IList<Componente> GetPermisosdeUser(int id)
         {
@@ -85,7 +110,11 @@ namespace BLL
                 return permisos;
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public List<int> get_permisos(int rol)
         {
@@ -94,7 +123,11 @@ namespace BLL
                 return mPPComposite.get_permisos(rol);
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public int buscar_id(string nombre)
         {
@@ -103,7 +136,11 @@ namespace BLL
                 return mPPComposite.buscar_id(nombre);
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public int escribir_retorno_id(string nombre)
         {
@@ -112,7 +149,11 @@ namespace BLL
                 return mPPComposite.escribir_retorno_id(nombre);
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool es_patente(string nombre)
         {
@@ -121,7 +162,11 @@ namespace BLL
                 return mPPComposite.es_patente(nombre);
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool borrar(int id)
         {
@@ -130,7 +175,11 @@ namespace BLL
                 return mPPComposite.borrar(id);
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool buscar_rol_usado(int rol)
         {
@@ -139,7 +188,11 @@ namespace BLL
                 return mPPComposite.buscar_rol_usado(rol);
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
 
         public bool contiene(Componente padre, Componente Hijo)
@@ -154,7 +207,11 @@ namespace BLL
                 return false;
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public Componente llenar_padre(Componente padre)
         {
@@ -171,7 +228,11 @@ namespace BLL
                 return padre;
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
         }
         public bool evitar_loop(Componente padre, Componente hijo)
         {
@@ -183,7 +244,11 @@ namespace BLL
                 else return (padre.Hijos.Contains(hijo) || contiene(hijo, padre));
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
 
         }
     }

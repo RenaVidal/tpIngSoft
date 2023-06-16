@@ -12,6 +12,7 @@ namespace BE
         public string password { get; set; }
         public string birthDate {get; set;}
         public int rol { get; set;}
+        public int active { get; set;}
 
         public string DV { get; set; }
         public IList <Componente> permisos { get; set;}

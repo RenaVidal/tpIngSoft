@@ -1,4 +1,5 @@
-﻿using BE;
+﻿using abstraccion;
+using BE;
 using DAL;
 using System;
 using System.Collections;
@@ -27,6 +28,16 @@ namespace MPP
                 return oDatos.Escribir(Consulta, Hdatos);
             }
             catch (Exception ex) {  throw ex; }
+        }
+        public IList<IBitacora> GetAll(IBitacoraFilters filters, int pag)
+        {
+            try
+            {
+                oDatos = new Acceso();
+                return oDatos.GetAll(filters, pag);
+
+            }
+            catch (Exception ex) { throw ex; }
         }
     }
 }

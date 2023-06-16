@@ -7,6 +7,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Collections; //para el arraylist
 using BE;
+using abstraccion;
+
 
 namespace DAL
 {
@@ -209,7 +211,7 @@ namespace DAL
 
         public IList<Componente> GetAll(int familia)
         {
-          
+
 
             try
             {
@@ -220,7 +222,7 @@ namespace DAL
                 var sql = "s_composite_obtener";
                 Cmd = new SqlCommand(sql, oCnn);
                 Cmd.CommandType = CommandType.StoredProcedure;
-                int  where = 0;
+                int where = 0;
                 if (familia != 0)
                 {
                     where = familia;
@@ -321,7 +323,86 @@ namespace DAL
 
 
         }
+        public IList<IBitacora> GetAll(IBitacoraFilters filters, int pag)
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "s_bitacora_obtener";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("Username", filters.Username == null ? (object)DBNull.Value : filters.Username);
+                Cmd.Parameters.AddWithValue("From", filters.From.ToString() == "" ? (object)DBNull.Value : filters.From);
+                Cmd.Parameters.AddWithValue("To", filters.To.ToString() == "" ? (object)DBNull.Value : filters.To);
+                Cmd.Parameters.AddWithValue("idBitacoraType", filters.Type == null ? (object)DBNull.Value : filters.Type);
+                Cmd.Parameters.AddWithValue("Like", filters.Like == null ? (object)DBNull.Value : filters.Like);
+                Cmd.Parameters.AddWithValue("PageNumber", pag);
 
+                var reader = Cmd.ExecuteReader();
+                IList<IBitacora> listBitacora = new List<IBitacora>();
+                    while (reader.Read())
+                    {
+                        IBitacora bitacora = new BEBitacora();
+                        bitacora.IdBitacora = Convert.ToInt32(reader["id"].ToString());
+                        bitacora.Username = reader["username"].ToString();
+                        bitacora.Date = Convert.ToDateTime(reader["time"].ToString());
+                        bitacora.Type = Convert.ToInt32(reader["tipo"]);
+                        bitacora.Message = reader["action"].ToString();
+                        listBitacora.Add(bitacora);
+                    }
+                reader.Close();
+
+                return listBitacora;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+        }
+        public IList<BEUsuario> GetAllHistorico(string nombre, int pag)
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "s_historico_obtener";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("username", nombre == null ? (object)DBNull.Value : nombre);
+                Cmd.Parameters.AddWithValue("PageNumber", pag);
+
+                var reader = Cmd.ExecuteReader();
+                IList<BEUsuario> usuarios = new List<BEUsuario>();
+                    while (reader.Read())
+                    {
+                        BEUsuario user = new BEUsuario();
+                        user.user = reader["username"].ToString();
+                        user.password = reader["password"].ToString();
+                        user.id = Convert.ToInt32(reader["id"]);
+                        user.birthDate = reader["birthdate"].ToString();
+                        user.active = Convert.ToInt32(reader["active"]);
+                        usuarios.Add(user);
+                    }
+                reader.Close();
+
+                return usuarios;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+        }
     }
 }
 

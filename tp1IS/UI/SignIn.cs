@@ -67,7 +67,7 @@ namespace UI
         BLLBitacora oBit = new BLLBitacora();
         BLLComposite oComp = new BLLComposite();
         
-        public void logIn(string username,int d)
+        public void logIn(string username)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace UI
             catch (Exception ex)
             {
                 var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
+                //oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
         }
@@ -153,10 +153,7 @@ namespace UI
                     oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text);
                     if (oLog.validar(oUsuraio))
                     {
-                       
-                            logIn(textBox1.Text,0);
-                      
-                        
+                        logIn(textBox1.Text);
 
                     }
                     else
@@ -231,7 +228,7 @@ namespace UI
                                 actualizarDVSxnewUser(oUsuraio);
                                 MetroMessageBox.Show(this, "User created");
                                 limpiar();
-                                logIn(oUsuraio.user, 1);
+                                logIn(oUsuraio.user);
                             }
                             else
                             {

@@ -69,6 +69,7 @@ C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de So
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.csproj.CopyComplete
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.exe
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.pdb
+<<<<<<< HEAD
 C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\UI.exe.config
 C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\UI.exe
 C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\bin\Debug\UI.pdb
@@ -141,3 +142,9 @@ C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.exe
 C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.pdb
 C:\Users\rouss\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.ErrorDV.resources
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.ErrorDV.resources
+=======
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.Bitacora.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.Changes.resources
+>>>>>>> 72ac469dd8e35aa8c986ffad43d17dff86c4e18b
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.Bitacora.resources
+C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.Changes.resources

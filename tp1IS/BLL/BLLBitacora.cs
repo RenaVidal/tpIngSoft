@@ -1,4 +1,5 @@
-﻿using BE;
+﻿using abstraccion;
+using BE;
 using Patrones.Singleton.Core;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Negocio
     public class BLLBitacora
     {
         MPP.MPPBitacora oBit = new MPP.MPPBitacora();
+
         public void guardar_accion(string accion, int id_tipo)
         {
             try
@@ -49,6 +51,14 @@ namespace Negocio
              int id_tipo = 2;
              oBit.cargar_bitacora(user, fecha, accion, id_tipo);
           }catch (Exception ex) { throw ex; }
+        }
+        public IList<IBitacora> GetAll(IBitacoraFilters filters, int pag)
+        {
+            try
+            {
+                    return oBit.GetAll(filters, pag);
+            }
+            catch (Exception ex) { throw ex; }
         }
     }
 }

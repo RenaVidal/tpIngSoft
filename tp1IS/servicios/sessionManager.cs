@@ -116,7 +116,6 @@ namespace Patrones.Singleton.Core
         {
             if (_session != null)
             {
-                // _session.Usuario.Idioma = Idioma;
                 _session.idioma = Idioma;
                 notificarObeservadores(Idioma);
             }
