@@ -18,7 +18,11 @@ namespace Negocio
             try
             {
             SessionManager u = SessionManager.GetInstance;
-            BEUsuario user = u.Usuario;
+                if (u.Usuario == null)
+                {
+                    throw new Exception("Error loading user to binnacle");
+                }
+                BEUsuario user = u.Usuario;
             DateTime fecha = DateTime.Now;
             oBit.cargar_bitacora(user, fecha, accion, id_tipo);
             }
@@ -32,7 +36,11 @@ namespace Negocio
            try
            {
             SessionManager u = SessionManager.GetInstance;
-            BEUsuario user = u.Usuario;
+                if (u.Usuario == null)
+                {
+                    throw new Exception("Error loading user to binnacle");
+                }
+                BEUsuario user = u.Usuario;
             DateTime fecha = u.FechaInicio;
             int id_tipo = 2;
             string accion = "logged in";
@@ -45,7 +53,11 @@ namespace Negocio
          try
           {
             SessionManager u = SessionManager.GetInstance;
-            BEUsuario user = u.Usuario;
+                if (u.Usuario == null)
+                {
+                    throw new Exception("Error loading user to binnacle");
+                }
+                BEUsuario user = u.Usuario;
              DateTime fecha = DateTime.Now;
              string accion = "logged out";
              int id_tipo = 2;

@@ -197,10 +197,17 @@ namespace UI
                 if (treeView2.SelectedNode == null && comboBox1.SelectedIndex == -1 && comboBox2.SelectedIndex == -1) 
                 {
                     errorProvider1.SetError(treeView2, "Select a role");
+                    return;
                 }
                 if (textBox1.Text == string.Empty || !validar.id(textBox1.Text))
                 {
                     errorProvider1.SetError(textBox1, "You should enter an id with 1 to 9 numbers");
+                    return;
+                }
+                if (u.Usuario.id == Convert.ToInt32(textBox1.Text))
+                {
+                    errorProvider1.SetError(treeView1, "You can not add roles to yourself");
+                    return;
                 }
                 IList<Componente> listFam = oComp.GetFamilias();
                 IList<Componente> listPer = oComp.GetPermisos();
@@ -300,7 +307,7 @@ namespace UI
                     itemPatente = findInList(listPer, treeView1.SelectedNode.Text);
                     itemFamilia = findInList(listFam, treeView1.SelectedNode.Text);
                 }
-                else if (oLog.usuario_existente(Convert.ToInt32(textBox1.Text)) && (itemFamilia != null || itemPatente != null))
+                if (oLog.usuario_existente(Convert.ToInt32(textBox1.Text)) && (itemFamilia != null || itemPatente != null))
                     {
                         if (itemPatente != null)
                         {

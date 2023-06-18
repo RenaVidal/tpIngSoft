@@ -30,7 +30,7 @@ namespace servicios
                 }
                 else
                 {
-                    if (item.Name != "DV"&& item.Name!="permisos" && item.Name != "password" && item.Name!="active")
+                    if (item.Name != "DV"&& item.Name!="permisos" && item.Name!="active")
                     {
                         dvU += item.GetValue(Usuario).ToString();
                     }

@@ -243,6 +243,7 @@ namespace MPP
                 Hdatos.Add("@password", usuario.password);
                 Hdatos.Add("@active", true);
                 Hdatos.Add("@birthdate", usuario.birthDate);
+                Hdatos.Add("@dv", usuario.DV);
 
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);

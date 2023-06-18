@@ -320,21 +320,25 @@ namespace UI
                 errorProvider1.SetError(textBox1, "");
                 errorProvider1.SetError(treeView1, "");
                 errorProvider1.SetError(treeView3, "");
-                if (treeView1.Nodes == null)
+                if (treeView1.Nodes.Count <= 0)
                 {
-                    errorProvider1.SetError(treeView1, "You should select a node");
+                    errorProvider1.SetError(treeView1, "You should select at least one node");
+                    return;
                 }
-                else if (textBox1.Text == string.Empty || !validar.usuario(textBox1.Text))
+                if (textBox1.Text == string.Empty || !validar.usuario(textBox1.Text))
                 {
                     errorProvider1.SetError(textBox1, "The name should not have special characters");
+                    return;
                 }
-                else if (treeView3.Nodes == null)
+                if (treeView3.Nodes.Count <= 0)
                 {
                     errorProvider1.SetError(treeView2, "You should select a father role");
+                    return;
                 }
-                else if (findInList(oComp.GetFamilias(), textBox1.Text) != null || findInList(oComp.GetPermisos(), textBox1.Text) != null)
+                if (findInList(oComp.GetFamilias(), textBox1.Text) != null || findInList(oComp.GetPermisos(), textBox1.Text) != null)
                 {
                     errorProvider1.SetError(textBox1, "Select a name that is not already used");
+                    return;
                 }
                 else
                 {
@@ -369,12 +373,13 @@ namespace UI
             try
             {
                 errorProvider1.Clear();
-                errorProvider1.SetError(treeView2, "");
+                errorProvider1.SetError(metroButton3, "");
                 Componente itemFamilia = null;
 
                 if (treeView2.SelectedNode == null && comboBox2.SelectedIndex == -1)
                 {
-                    errorProvider1.SetError(treeView2, "Select a role");
+                    errorProvider1.SetError(metroButton3, "Select a role");
+                    return;
                 }
                 else
                 {

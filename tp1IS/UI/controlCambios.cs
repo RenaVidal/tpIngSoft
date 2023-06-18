@@ -24,6 +24,7 @@ namespace UI
         {
             InitializeComponent();
             buscar(null, 1);
+            
         }
         validaciones validar = new validaciones();
         BLLUsuario oLog = new BLLUsuario();
@@ -43,10 +44,12 @@ namespace UI
             {
                 usuarios = oLog.GetAllHistorico(nombre, pag);
                 if (usuarios.Count == 0) { button2.Enabled = false; }
+                else { button2.Enabled = true; }
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = usuarios;
                 dataGridView1.Columns["permisos"].Visible = false;
                 dataGridView1.Columns["rol"].Visible = false;
+                dataGridView1.Columns["DV"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -99,6 +102,7 @@ namespace UI
         {
             try
             {
+                nombre = null;
                 textBox1.Text = string.Empty;
                 buscar(null, 1);
                 pag = 1;
@@ -132,8 +136,9 @@ namespace UI
             try
             {
                 pag -= 1;
+                button1.Enabled = true;
                 if (pag <= 1) button1.Enabled = false;
-                buscar(nombre, pag);
+                if (pag > 0) buscar(nombre, pag);
             }
             catch (Exception ex)
             {
@@ -175,21 +180,30 @@ namespace UI
             try
             {
                 errorProvider1.Clear();
-                BEUsuario user = (BEUsuario)dataGridView1.CurrentRow.DataBoundItem;
-                if(user != null)
+                if(dataGridView1.SelectedCells.Count == 1 )
                 {
-                    if (oLog.restaurar_usuario(user)){
-                        actualizar_verificador();
-                        MetroMessageBox.Show(this, "user restored");
+                    BEUsuario user = (BEUsuario)dataGridView1.CurrentRow.DataBoundItem;
+                    if (user != null)
+                    {
+                        if (oLog.restaurar_usuario(user))
+                        {
+                            actualizar_verificador();
+                            MetroMessageBox.Show(this, "user restored");
+                        }
+                        else MetroMessageBox.Show(this, "Error, try again");
+                        buscar(null, 1);
+                        pag = 1;
                     }
-                    else MetroMessageBox.Show(this, "Error, try again");
-                    buscar(null, 1);
-                    pag = 1;
+                    else
+                    {
+                        errorProvider1.SetError(dataGridView1, "select a user to restore");
+                    }
                 }
                 else
                 {
                     errorProvider1.SetError(dataGridView1, "select a user to restore");
                 }
+
             }
             catch (Exception ex)
             {

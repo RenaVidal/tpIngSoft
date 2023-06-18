@@ -31,7 +31,7 @@ namespace UI
         SessionManager session = SessionManager.GetInstance;
         public void es_traductor()
         {
-            if (SessionManager.tiene_permiso(22)) metroButton8.Hide();
+            if (!SessionManager.tiene_permiso(22) && !SessionManager.tiene_permiso(21)) metroButton11.Hide();
         }
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
@@ -158,7 +158,7 @@ namespace UI
                         }
                     }
 
-                    else { MetroMessageBox.Show(this, "There are no users registered with this is"); }
+                    else { MetroMessageBox.Show(this, "There are no users registered with this id"); }
                 }
             }
             catch (Exception ex)
@@ -347,9 +347,9 @@ namespace UI
                         {
                             this.metroButton7.Text = traducciones[metroButton7.Tag.ToString()].texto;
                         }
-                        if (metroButton8.Tag != null && traducciones.ContainsKey(metroButton8.Tag.ToString()))
+                        if (metroButton11.Tag != null && traducciones.ContainsKey(metroButton11.Tag.ToString()))
                         {
-                            this.metroButton8.Text = traducciones[metroButton8.Tag.ToString()].texto;
+                            this.metroButton11.Text = traducciones[metroButton11.Tag.ToString()].texto;
                         }
 
                     }
@@ -465,11 +465,16 @@ namespace UI
         {
             Changes cambios = new Changes();
             AbrirFormulario(cambios);
+            
+           
+        }
+
+        private void metroButton11_Click(object sender, EventArgs e)
+        {
             try
             {
                 if (SessionManager.tiene_permiso(21) || SessionManager.tiene_permiso(22))
                 {
-                    this.Hide();
                     AddLenguaje from = new AddLenguaje();
                     AbrirFormulario(from);
                 }
@@ -479,13 +484,12 @@ namespace UI
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-           
         }
     }
 }

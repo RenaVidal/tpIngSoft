@@ -42,9 +42,9 @@
             this.metroButton6 = new MetroFramework.Controls.MetroButton();
             this.metroButton7 = new MetroFramework.Controls.MetroButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.metroButton8 = new MetroFramework.Controls.MetroButton();
             this.metroButton9 = new MetroFramework.Controls.MetroButton();
             this.metroButton10 = new MetroFramework.Controls.MetroButton();
+            this.metroButton11 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -248,27 +248,6 @@
             this.comboBox1.TabIndex = 8;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // metroButton8
-            // 
-            this.metroButton8.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.metroButton8.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.metroButton8.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton8.Location = new System.Drawing.Point(848, 62);
-            this.metroButton8.Margin = new System.Windows.Forms.Padding(4);
-            this.metroButton8.Name = "metroButton8";
-            this.metroButton8.Size = new System.Drawing.Size(111, 180);
-            this.metroButton8.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton8.TabIndex = 6;
-            this.metroButton8.Tag = "add lenguaje";
-            this.metroButton8.Text = "add lenguaje";
-            this.metroButton8.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.metroButton8.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroButton8.UseCustomBackColor = true;
-            this.metroButton8.UseCustomForeColor = true;
-            this.metroButton8.UseSelectable = true;
-            this.metroButton8.UseStyleColors = true;
-            this.metroButton8.Click += new System.EventHandler(this.metroButton8_Click);
-            // 
             // metroButton9
             // 
             this.metroButton9.BackColor = System.Drawing.SystemColors.MenuHighlight;
@@ -311,14 +290,35 @@
             this.metroButton10.UseStyleColors = true;
             this.metroButton10.Click += new System.EventHandler(this.metroButton10_Click);
             // 
+            // metroButton11
+            // 
+            this.metroButton11.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.metroButton11.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton11.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.metroButton11.Location = new System.Drawing.Point(848, 62);
+            this.metroButton11.Margin = new System.Windows.Forms.Padding(4);
+            this.metroButton11.Name = "metroButton11";
+            this.metroButton11.Size = new System.Drawing.Size(111, 180);
+            this.metroButton11.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton11.TabIndex = 11;
+            this.metroButton11.Tag = "add lenguaje";
+            this.metroButton11.Text = "Add Traduction";
+            this.metroButton11.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroButton11.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton11.UseCustomBackColor = true;
+            this.metroButton11.UseCustomForeColor = true;
+            this.metroButton11.UseSelectable = true;
+            this.metroButton11.UseStyleColors = true;
+            this.metroButton11.Click += new System.EventHandler(this.metroButton11_Click);
+            // 
             // AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1559, 554);
+            this.Controls.Add(this.metroButton11);
             this.Controls.Add(this.metroButton10);
             this.Controls.Add(this.metroButton9);
-            this.Controls.Add(this.metroButton8);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.metroButton7);
             this.Controls.Add(this.metroButton6);
@@ -355,8 +355,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private MetroFramework.Controls.MetroButton metroButton6;
         private MetroFramework.Controls.MetroButton metroButton7;
-        private MetroFramework.Controls.MetroButton metroButton8;
         private MetroFramework.Controls.MetroButton metroButton9;
         private MetroFramework.Controls.MetroButton metroButton10;
+        private MetroFramework.Controls.MetroButton metroButton11;
     }
 }

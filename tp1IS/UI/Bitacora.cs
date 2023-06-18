@@ -49,6 +49,7 @@ namespace UI
         {
             listBitacora = oBit.GetAll(filters, pag);
             if (listBitacora.Count == 0) { button2.Enabled = false; }
+            else { button2.Enabled = true; }
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listBitacora;
         }
@@ -134,8 +135,9 @@ namespace UI
         private void button1_Click(object sender, EventArgs e)
         {
             pag -= 1;
-            if(pag <= 1) button1.Enabled = false;
-            buscar(pag);
+            button1.Enabled = true;
+            if (pag <= 1) button1.Enabled = false;
+            if(pag > 0) buscar(pag);
         }
 
         private void metroButton1_Click(object sender, EventArgs e)

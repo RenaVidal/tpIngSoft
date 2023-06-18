@@ -66,7 +66,7 @@ namespace UI
 
                 if (error == 0)
                 {
-                    if (oLog.usuario_existente(Convert.ToInt32(textBox3.Text))) MessageBox.Show("There is an user with that id already", "ERROR");
+                    if (oLog.usuario_existente(Convert.ToInt32(textBox3.Text))) MessageBox.Show("There is a user with that id already", "ERROR");
                     else
                     {
                         oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), metroDateTime2.Value.ToString());
