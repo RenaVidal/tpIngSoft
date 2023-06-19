@@ -351,6 +351,14 @@ namespace UI
                         {
                             this.metroButton11.Text = traducciones[metroButton11.Tag.ToString()].texto;
                         }
+                        if (metroButton9.Tag != null && traducciones.ContainsKey(metroButton9.Tag.ToString()))
+                        {
+                            this.metroButton9.Text = traducciones[metroButton9.Tag.ToString()].texto;
+                        }
+                        if (metroButton10.Tag != null && traducciones.ContainsKey(metroButton10.Tag.ToString()))
+                        {
+                            this.metroButton10.Text = traducciones[metroButton10.Tag.ToString()].texto;
+                        }
 
                     }
 
@@ -415,6 +423,31 @@ namespace UI
                 {
                     string traduccion = palabras.Find(p => p.Equals(groupBox1.Tag.ToString()));
                     this.groupBox1.Text = traduccion;
+                }
+                if (metroButton10.Tag != null && palabras.Contains(metroButton10.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton10.Tag.ToString()));
+                    this.metroButton10.Text = traduccion;
+                }
+                if (metroButton11.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton11.Tag.ToString()));
+                    this.metroButton11.Text = traduccion;
+                }
+                if (metroButton9.Tag != null && palabras.Contains(metroButton9.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton9.Tag.ToString()));
+                    this.metroButton9.Text = traduccion;
+                }
+                if (metroButton7.Tag != null && palabras.Contains(metroButton7.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton7.Tag.ToString()));
+                    this.metroButton7.Text = traduccion;
+                }
+                if (metroButton6.Tag != null && palabras.Contains(metroButton6.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton6.Tag.ToString()));
+                    this.metroButton6.Text = traduccion;
                 }
 
             }

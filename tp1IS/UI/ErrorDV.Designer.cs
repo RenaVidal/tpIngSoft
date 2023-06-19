@@ -30,6 +30,7 @@ namespace UI
         private void InitializeComponent()
         {
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // metroButton1
@@ -43,7 +44,7 @@ namespace UI
             this.metroButton1.Size = new System.Drawing.Size(175, 57);
             this.metroButton1.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton1.TabIndex = 4;
-            this.metroButton1.Tag = "create admin";
+            this.metroButton1.Tag = "update check digit";
             this.metroButton1.Text = "update check digit";
             this.metroButton1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -54,11 +55,21 @@ namespace UI
             this.metroButton1.UseStyleColors = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(656, 418);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 5;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // ErrorDV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.metroButton1);
             this.Name = "ErrorDV";
             this.Text = "ErrorDV";
@@ -70,5 +81,6 @@ namespace UI
         #endregion
 
         private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

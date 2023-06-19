@@ -55,7 +55,7 @@ namespace UI
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(246, 139);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(148, 21);
+            this.comboBox1.Size = new System.Drawing.Size(195, 21);
             this.comboBox1.TabIndex = 7;
             // 
             // comboBox2
@@ -134,7 +134,7 @@ namespace UI
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(106, 140);
+            this.textBox1.Location = new System.Drawing.Point(125, 140);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(87, 20);
             this.textBox1.TabIndex = 8;
@@ -149,7 +149,7 @@ namespace UI
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(141, 180);
+            this.metroLabel3.Location = new System.Drawing.Point(106, 180);
             this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(71, 19);
@@ -164,7 +164,7 @@ namespace UI
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(106, 118);
+            this.metroLabel4.Location = new System.Drawing.Point(125, 118);
             this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(91, 19);
@@ -210,23 +210,25 @@ namespace UI
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(414, 63);
+            this.dataGridView1.Location = new System.Drawing.Point(447, 63);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(321, 374);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(299, 374);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // metroButton3
             // 
             this.metroButton3.BackColor = System.Drawing.Color.SandyBrown;
             this.metroButton3.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton3.ForeColor = System.Drawing.SystemColors.Info;
-            this.metroButton3.Location = new System.Drawing.Point(414, 20);
+            this.metroButton3.Location = new System.Drawing.Point(447, 20);
             this.metroButton3.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(120, 38);
             this.metroButton3.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton3.TabIndex = 14;
-            this.metroButton3.Tag = "add traduccion";
+            this.metroButton3.Tag = "refresh";
             this.metroButton3.Text = "Refresh";
             this.metroButton3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Light;

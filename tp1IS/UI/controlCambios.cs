@@ -15,10 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using servicios.ClasesMultiLenguaje;
+using Patrones.Singleton.Core;
 
 namespace UI
 {
-    public partial class Changes : MetroFramework.Forms.MetroForm
+    public partial class Changes : MetroFramework.Forms.MetroForm,IdiomaObserver
     {
         public Changes()
         {
@@ -36,8 +38,28 @@ namespace UI
         {
             pag = 1;
             button1.Enabled = false;
+            ListarIdiomas();
+            Traducir();
+            servicios.Observer.agregarObservador(this);
         }
-       
+
+        private void controlCambios_FormClosing(object sender, EventArgs e)
+        {
+            try
+            {
+                servicios.Observer.eliminarObservador(this);
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+        }
         public void buscar(string nombre, int pag)
         {
             try
@@ -211,6 +233,163 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            Traducir();
+            ListarIdiomas();
+        }
+        public void Traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "ingles")
+                {
+                    VolverAlIdiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    var traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
+                        {
+                            this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
+                        }
+                        if (metroButton2.Tag != null && traducciones.ContainsKey(metroButton2.Tag.ToString()))
+                        {
+                            this.metroButton2.Text = traducciones[metroButton2.Tag.ToString()].texto;
+                        }
+                        if (metroButton3.Tag != null && traducciones.ContainsKey(metroButton3.Tag.ToString()))
+                        {
+                            this.metroButton3.Text = traducciones[metroButton3.Tag.ToString()].texto;
+                        }
+                        if (Apply.Tag != null && traducciones.ContainsKey(Apply.Tag.ToString()))
+                        {
+                            this.Apply.Text = traducciones[Apply.Tag.ToString()].texto;
+                        }
+
+                        if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
+                        {
+                            this.metroLabel1.Text = traducciones[metroLabel1.Tag.ToString()].texto;
+                        }
+                       
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void ListarIdiomas()
+        {
+            try
+            {
+                comboBox1.Items.Clear();
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                var ListaIdiomas = Traductor.ObtenerIdiomas();
+
+                foreach (Idioma idioma in ListaIdiomas)
+                {
+                    comboBox1.Items.Add(idioma.Nombre);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+        public void VolverAlIdiomaOriginal()
+        {
+            try
+            {
+
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                List<string> palabras = Traductor.obtenerIdiomaOriginal();
+
+
+
+                if (metroButton1.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton1.Tag.ToString()));
+                    this.metroButton1.Text = traduccion;
+                }
+                if (metroButton2.Tag != null && palabras.Contains(metroButton2.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton2.Tag.ToString()));
+                    this.metroButton2.Text = traduccion;
+                }
+                if (metroButton3.Tag != null && palabras.Contains(metroButton3.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton3.Tag.ToString()));
+                    this.metroButton3.Text = traduccion;
+                }
+                if (Apply.Tag != null && palabras.Contains(Apply.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(Apply.Tag.ToString()));
+                    this.Apply.Text = traduccion;
+                }
+
+                if (metroLabel1.Tag != null && palabras.Contains(metroLabel1.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel1.Tag.ToString()));
+                    this.metroLabel1.Text = traduccion;
+                }
+               
+
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string idiomaSelec = comboBox1.SelectedItem.ToString();
+                BLL.BLLTraductor traductor = new BLL.BLLTraductor();
+                Idioma Oidioma = new Idioma();
+                Oidioma = traductor.TraerIdioma(idiomaSelec);
+
+                servicios.Observer.cambiarIdioma(Oidioma);
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

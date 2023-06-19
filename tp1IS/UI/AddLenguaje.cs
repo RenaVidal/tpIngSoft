@@ -24,6 +24,7 @@ namespace UI
         }
         BLLTraductor Otraductor = new BLLTraductor();
         servicios.validaciones validar = new servicios.validaciones();
+        
         private void AddLenguaje_Load(object sender, EventArgs e)
         {
             try
@@ -136,7 +137,7 @@ namespace UI
                 BLL.BLLTraductor Otraductor = new BLL.BLLTraductor();
                 if (textBox1.Text == string.Empty || !(validar.usuario(textBox1.Text)))
                 {
-                    errorProvider1.SetError(textBox1, "Debe ingresar un idioma sin caracteres especiales");
+                    errorProvider1.SetError(textBox1, "You must enter a language without special characters");
                     error++;
                 }
 
@@ -152,14 +153,15 @@ namespace UI
 
                         MessageBox.Show("Languaje create");
                         textBox1.Text = "";
-                        string accion = "creo el idioma: " + NewIdioma.Nombre + " ";
+                        string accion = "created the language: " + NewIdioma.Nombre + " ";
                         Obitacora.guardar_accion(accion,2);
+                        textBox1.Text = "";
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo crear el idioma");
+                    MessageBox.Show("Could not create language");
                 }
 
                 ListarIdiomas();
@@ -196,16 +198,17 @@ namespace UI
                     Idioma Oidioma = new Idioma();
                     Oidioma = OBLLtraductor.TraerIdioma(Idioma);
 
-                    if (OBLLtraductor.TraduccionExistente(Oidioma.ID, Opalbra.ID)) MessageBox.Show("La traduccion de esa palabra en el idioma elegido ya existe");
+                    if (OBLLtraductor.TraduccionExistente(Oidioma.ID, Opalbra.ID)) MessageBox.Show("The translation of that word in the chosen language already exists");
                     else
                     {
                         Traduccion Otraduccion = new Traduccion();
                         Otraduccion.texto = textBox2.Text;
                         Otraduccion.Palabra = Opalbra;
                         OBLLtraductor.CrearTraduccion(Oidioma.ID, Otraduccion);
-                        string accion = "creo la traduccion: " + Otraduccion.texto + " ";
+                        string accion = "created the translation: " + Otraduccion.texto + " ";
                         Obitacora.guardar_accion(accion,2);
-                        MessageBox.Show("you create new traduccion in lenguaje" +Oidioma.Nombre);
+                        MessageBox.Show("you create new traduccion in lenguaje " +Oidioma.Nombre);
+                        textBox2.Text = "";
                     }
 
                 }
@@ -238,6 +241,10 @@ namespace UI
                     metroLabel3.Visible = false;
                     comboBox1.Visible = false;
                     comboBox2.Visible = false;
+                    dataGridView1.Visible = false;
+                    metroButton3.Visible = false;
+                    textBox2.Text = "";
+                    textBox1.Text = "";
 
                 }
             }
@@ -267,6 +274,10 @@ namespace UI
                     metroLabel3.Visible = true;
                     comboBox1.Visible = true;
                     comboBox2.Visible = true;
+                    dataGridView1.Visible = true;
+                    metroButton3.Visible = true;
+                    textBox2.Text = "";
+                    textBox1.Text = "";
                 }
             }
             catch (Exception ex)
@@ -350,6 +361,10 @@ namespace UI
                         {
                             this.metroButton2.Text = traducciones[metroButton2.Tag.ToString()].texto;
                         }
+                        if (metroButton3.Tag != null && traducciones.ContainsKey(metroButton3.Tag.ToString()))
+                        {
+                            this.metroButton3.Text = traducciones[metroButton3.Tag.ToString()].texto;
+                        }
                         if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
                         {
                             this.metroLabel1.Text = traducciones[metroLabel1.Tag.ToString()].texto;
@@ -394,14 +409,23 @@ namespace UI
             {
                 dataGridView1.DataSource = null;
 
-                servicios.ClasesMultiLenguaje.Idioma Oidioma = Otraductor.TraerIdioma(comboBox2.SelectedItem.ToString());
+                if (comboBox2.SelectedItem == null)
+                {
+                    MessageBox.Show("you must select a language");
+                }
+                else
+                {
+                    servicios.ClasesMultiLenguaje.Idioma Oidioma = Otraductor.TraerIdioma(comboBox2.SelectedItem.ToString());
 
 
-                dataGridView1.DataSource = Otraductor.traerTablaxIdioma(Oidioma.ID);
-                dataGridView1.AutoResizeColumns();
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dataGridView1.Columns["IDidioma"].Visible = false;
-                dataGridView1.Columns["ID"].Visible = false;
+                    dataGridView1.DataSource = Otraductor.traerTablaxIdioma(Oidioma.ID);
+                    dataGridView1.AutoResizeColumns();
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView1.Columns["IDidioma"].Visible = false;
+                    dataGridView1.Columns["ID"].Visible = false;
+
+                }
+
 
 
             }
@@ -432,6 +456,11 @@ namespace UI
                 {
                     string traduccion = palabras.Find(p => p.Equals(metroButton2.Tag.ToString()));
                     this.metroButton2.Text = traduccion;
+                }
+                if (metroButton3.Tag != null && palabras.Contains(metroButton3.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton3.Tag.ToString()));
+                    this.metroButton3.Text = traduccion;
                 }
                 if (metroLabel1.Tag != null && palabras.Contains(metroLabel1.Tag.ToString()))
                 {
@@ -474,7 +503,10 @@ namespace UI
            
            }
 
-       
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView1.ReadOnly = true;
+        }
     }
  }
 
