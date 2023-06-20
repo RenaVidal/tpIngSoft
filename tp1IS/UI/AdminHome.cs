@@ -173,7 +173,10 @@ namespace UI
         {
             try
             {
-                ODV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ODV.BuscarDVUsuarios()));
+             
+                List<string> ListaDU = oLog.BuscarUsuariosYgenerarDV();
+                string DVS = servicios.GenerarVD.generarDigitoVS(ListaDU);
+                ODV.actualizarDV(DVS);
                 oBit.guardar_logOut();
                 SessionManager.Logout();
                 this.Hide();

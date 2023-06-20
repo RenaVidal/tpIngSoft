@@ -144,6 +144,7 @@ namespace Negocio
             try
             {
                 usuario.password = encriptar.Encriptar(usuario.password);
+                usuario.DV = GenerarVD.generarDigitoVU(usuario);
                 return oUsuario.cargar_usuario(usuario);
             }
             catch (Exception ex)
@@ -181,6 +182,7 @@ namespace Negocio
             try
             {
                 usuario.password = encriptar.Encriptar(usuario.password);
+                usuario.DV = GenerarVD.generarDigitoVU(usuario);
                 return oUsuario.crear_admin(usuario);
             }
             catch (Exception ex)

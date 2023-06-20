@@ -31,6 +31,7 @@ namespace UI
         BEUsuario oUsuraio;
         BLLBitacora oBit = new BLLBitacora();
         validaciones validar = new validaciones();
+        BLL.BLLDv OVd = new BLL.BLLDv();
         private void metroButton4_Click(object sender, EventArgs e)
         {
             try
@@ -70,13 +71,16 @@ namespace UI
                     else
                     {
                         oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), metroDateTime2.Value.ToString());
-                        oUsuraio.DV = GenerarVD.generarDigitoVU(oUsuraio);
+               
                         if (oLog.crear_admin(oUsuraio))
                         {
                             var accion = "creo el usuario admin" + textBox1.Text;
                             oBit.guardar_accion(accion, 2);
                             MetroMessageBox.Show(this, "Admin user created");
                             this.Hide();
+                            List<string> ListaDVU = OVd.BuscarDVUsuarios();
+                            string DVS = servicios.GenerarVD.generarDigitoVS(ListaDVU);
+                            OVd.actualizarDV(DVS);
                         }
                         else
                         {

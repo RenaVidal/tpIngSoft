@@ -70,32 +70,40 @@ namespace UI
 
                 if (SessionManager.TraerUsuario())
                     Idioma = SessionManager.GetInstance.idioma;
-                if (Idioma.Nombre == "ingles")
+
+                if (Idioma == null)
                 {
-                    VolverAlIdiomaOriginal();
+
                 }
                 else
                 {
-                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-
-
-                    var traducciones = Traductor.obtenertraducciones(Idioma);
-                    List<string> Lista = new List<string>();
-                    Lista = Traductor.obtenerIdiomaOriginal();
-                    if (traducciones.Values.Count != Lista.Count)
+                    if (Idioma.Nombre == "ingles")
                     {
-
+                        VolverAlIdiomaOriginal();
                     }
                     else
                     {
-                        if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
+                        BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                        var traducciones = Traductor.obtenertraducciones(Idioma);
+                        List<string> Lista = new List<string>();
+                        Lista = Traductor.obtenerIdiomaOriginal();
+                        if (traducciones.Values.Count != Lista.Count)
                         {
-                            this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
+
                         }
+                        else
+                        {
+                            if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
+                            {
+                                this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
+                            }
+                        }
+
                     }
 
                 }
-
             }
             catch (Exception ex)
             {
@@ -104,6 +112,8 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
+               
+        
         public void ListarIdiomas()
         {
             try
