@@ -143,10 +143,10 @@ namespace MPP
                     Palabra OPalabra = new Palabra();
                     OPalabra.ID = Convert.ToInt32(fila["ID"].ToString());
                     OPalabra.Nombre = Palabra;
-                   // Traducciones.Add(Palabra, OTraduccion);
+               
                 }
 
-                return DT; //Traducciones;
+                return DT; 
             }
             catch (Exception ex)
             {

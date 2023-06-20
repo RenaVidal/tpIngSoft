@@ -131,6 +131,10 @@ namespace UI
         {
             try
             {
+                errorProvider1.Clear();
+              
+                errorProvider1.SetError(textBox1, "");
+               
                 BLLBitacora Obitacora = new BLLBitacora();
                 Idioma NewIdioma = new Idioma();
                 int error = 0;
@@ -182,6 +186,9 @@ namespace UI
             BLLBitacora Obitacora = new BLLBitacora();
             try
             {
+                errorProvider1.Clear();
+             
+                errorProvider1.SetError(textBox2, "");
                 int error = 0;
                 BLL.BLLTraductor OBLLtraductor = new BLL.BLLTraductor();
                 if (textBox2.Text == string.Empty || !validar.traduccion(textBox2.Text))
@@ -422,7 +429,7 @@ namespace UI
                     dataGridView1.AutoResizeColumns();
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     dataGridView1.Columns["IDidioma"].Visible = false;
-                    dataGridView1.Columns["ID"].Visible = false;
+                    //dataGridView1.Columns["ID"].Visible = false;
 
                 }
 
