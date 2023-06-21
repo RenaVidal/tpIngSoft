@@ -188,7 +188,7 @@ namespace UI
         {
             try
             {
-                string dv = servicios.GenerarVD.generarDigitoVS(OBLLdv.BuscarDVUsuarios());
+                string dv = servicios.GenerarVD.generarDigitoVS(oLog.BuscarUsuariosYgenerarDV());
                 OBLLdv.actualizarDV(dv);
             }
             catch (Exception ex){

@@ -41,8 +41,14 @@ namespace UI
             Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoCerrado.png");
             botonOjo.Image = imagen;
             textBox2.UseSystemPasswordChar = true;
-            SessionManager.agregarObservador(this);
+            //SessionManager.agregarObservador(this);
+            Observer.agregarObservador(this);
+            ListarIdiomas();
 
+        }
+        public void SignIn_FormClosing(object sender, EventArgs e)
+        {
+            Observer.eliminarObservador(this);
         }
         private void metroButton1_Click(object sender, EventArgs e)
         {
@@ -263,7 +269,8 @@ namespace UI
       
         public void CambiarIdioma(Idioma Idioma)
         {
-
+            traducir();
+            ListarIdiomas();
         }
         private void botonOjo_Click(object sender, EventArgs e)
         {
@@ -296,6 +303,189 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string idiomaSelec = comboBox1.SelectedItem.ToString();
+                BLL.BLLTraductor traductor = new BLL.BLLTraductor();
+                Idioma Oidioma = new Idioma();
+                Oidioma = traductor.TraerIdioma(idiomaSelec);
+
+                servicios.Observer.cambiarIdioma(Oidioma);
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+        private void traducir()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                Idioma Idioma = null;
+
+               
+                Idioma=Traductor.TraerIdioma(comboBox1.SelectedItem.ToString());
+                if (Idioma.Nombre == "ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    
+
+
+                    var traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
+                        {
+                            this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
+                        }
+                        if (metroButton2.Tag != null && traducciones.ContainsKey(metroButton2.Tag.ToString()))
+                        {
+                            this.metroButton2.Text = traducciones[metroButton2.Tag.ToString()].texto;
+                        }
+                        if (metroButton3.Tag != null && traducciones.ContainsKey(metroButton3.Tag.ToString()))
+                        {
+                            this.metroButton3.Text = traducciones[metroButton3.Tag.ToString()].texto;
+                        }
+                        if (metroLabel2.Tag != null && traducciones.ContainsKey(metroLabel2.Tag.ToString()))
+                        {
+                            this.metroLabel2.Text = traducciones[metroLabel2.Tag.ToString()].texto;
+                        }
+                        if (groupBox1.Tag != null && traducciones.ContainsKey(groupBox1.Tag.ToString()))
+                        {
+                            this.groupBox1.Text = traducciones[groupBox1.Tag.ToString()].texto;
+                        }
+                        if (metroLabel4.Tag != null && traducciones.ContainsKey(metroLabel4.Tag.ToString()))
+                        {
+                            this.metroLabel4.Text = traducciones[metroLabel4.Tag.ToString()].texto;
+                        }
+                        if (metroLabel5.Tag != null && traducciones.ContainsKey(metroLabel5.Tag.ToString()))
+                        {
+                            this.metroLabel5.Text = traducciones[metroLabel5.Tag.ToString()].texto;
+                        }
+                        if (metroLabel3.Tag != null && traducciones.ContainsKey(metroLabel3.Tag.ToString()))
+                        {
+                            this.metroLabel3.Text = traducciones[metroLabel3.Tag.ToString()].texto;
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void VolverAidiomaOriginal()
+        {
+            try
+            {
+
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                List<string> palabras = Traductor.obtenerIdiomaOriginal();
+
+
+
+                if (metroButton1.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton1.Tag.ToString()));
+                    this.metroButton1.Text = traduccion;
+                }
+                if (metroButton2.Tag != null && palabras.Contains(metroButton2.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton2.Tag.ToString()));
+                    this.metroButton2.Text = traduccion;
+                }
+                if (metroButton3.Tag != null && palabras.Contains(metroButton3.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton3.Tag.ToString()));
+                    this.metroButton3.Text = traduccion;
+                }
+               
+                if (metroLabel3.Tag != null && palabras.Contains(metroLabel3.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel3.Tag.ToString()));
+                    this.metroLabel3.Text = traduccion;
+                }
+                if (metroLabel2.Tag != null && palabras.Contains(metroLabel2.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel2.Tag.ToString()));
+                    this.metroLabel2.Text = traduccion;
+                }
+                if (groupBox1.Tag != null && palabras.Contains(groupBox1.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(groupBox1.Tag.ToString()));
+                    this.groupBox1.Text = traduccion;
+                }
+
+                if (metroLabel4.Tag != null && palabras.Contains(metroLabel4.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel4.Tag.ToString()));
+                    this.metroLabel4.Text = traduccion;
+                }
+                if (metroLabel5.Tag != null && palabras.Contains(metroLabel5.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel5.Tag.ToString()));
+                    this.metroLabel5.Text = traduccion;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void ListarIdiomas()
+        {
+            try
+            {
+                comboBox1.Items.Clear();
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                var ListaIdiomas = Traductor.ObtenerIdiomas();
+
+                foreach (Idioma idioma in ListaIdiomas)
+                {
+                    comboBox1.Items.Add(idioma.Nombre);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+
+            }
+
+
         }
     }
 }

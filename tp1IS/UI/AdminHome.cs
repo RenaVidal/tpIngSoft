@@ -174,9 +174,9 @@ namespace UI
             try
             {
              
-                List<string> ListaDU = oLog.BuscarUsuariosYgenerarDV();
+                /*List<string> ListaDU = oLog.BuscarUsuariosYgenerarDV();
                 string DVS = servicios.GenerarVD.generarDigitoVS(ListaDU);
-                ODV.actualizarDV(DVS);
+                ODV.actualizarDV(DVS);*/
                 oBit.guardar_logOut();
                 SessionManager.Logout();
                 this.Hide();

@@ -191,9 +191,23 @@ namespace UI
                 errorProvider1.SetError(textBox2, "");
                 int error = 0;
                 BLL.BLLTraductor OBLLtraductor = new BLL.BLLTraductor();
-                if (textBox2.Text == string.Empty || !validar.traduccion(textBox2.Text))
+                if(textBox2.Text == string.Empty)
+                {
+                    errorProvider1.SetError(textBox2, "you must enter a translation");
+                }
+                if (!validar.traduccion(textBox2.Text))
                 {
                     errorProvider1.SetError(textBox2, "The translation should not have special characters");
+                    error++;
+                }
+                if (comboBox1.SelectedItem == null)
+                {
+                    errorProvider1.SetError(comboBox1, "you must select a language");
+                    error++;
+                }
+                if (comboBox2.SelectedItem == null)
+                {
+                    errorProvider1.SetError(comboBox2, "you must select a word");
                     error++;
                 }
                 if (error == 0)
