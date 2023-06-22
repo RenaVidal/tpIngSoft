@@ -105,15 +105,20 @@ namespace UI
 
                         if (SessionManager.tiene_permiso(5))
                         {
-                            this.Hide();
+                           
                             AdminHome home = new AdminHome();
                             home.Show();
+                            this.Hide();
+                            servicios.Observer.eliminarObservador(this);
+
                         }
                         else
                         {
-                            this.Hide();
+                           
                             UserHome home = new UserHome();
                             home.Show();
+                            this.Hide();
+                            servicios.Observer.eliminarObservador(this);
                         }
 
                     }
@@ -122,9 +127,12 @@ namespace UI
                         MessageBox.Show("Error de Digito Verificador");
                         if (SessionManager.tiene_permiso(5))
                         {
-                            this.Hide();
+
                             ErrorDV form = new ErrorDV();
                             form.Show();
+                            this.Hide();
+                            servicios.Observer.eliminarObservador(this);
+
                         }
                         else
                         {
@@ -491,7 +499,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                var accion = ex.Message;
+                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
 

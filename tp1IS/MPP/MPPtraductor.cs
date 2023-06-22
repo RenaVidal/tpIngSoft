@@ -272,5 +272,32 @@ namespace MPP
             
          
         }
+
+        public List<Palabra> obtenerPalabras()
+        {
+            try
+            {
+                List<Palabra> Palabras = new List<Palabra>();
+                string consulta = "S_Traer_Palabras";
+                
+                DataTable DT = new DataTable();
+              
+                DT = Datos.Leer(consulta, null);
+                foreach (DataRow fila in DT.Rows)
+                {
+                    Palabra Opalabra = new Palabra();
+                    Opalabra.Nombre = fila["palabra"].ToString();
+                    Opalabra.ID = Convert.ToInt32(fila["id"].ToString());
+                    Palabras.Add(Opalabra);
+                   
+                }
+                return Palabras;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+           
+        }
     }
 }

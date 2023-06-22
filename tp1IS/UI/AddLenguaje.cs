@@ -112,11 +112,15 @@ namespace UI
             {
 
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-                List<string> ListaPalabras = Traductor.obtenerIdiomaOriginal();
-                foreach (string Opalabra in ListaPalabras)
+                //List<string> ListaPalabras = Traductor.obtenerIdiomaOriginal();
+                comboBox1.DataSource = Traductor.obtenerPalabras();
+         
+                comboBox1.DisplayMember = "nombre";
+                comboBox1.ValueMember = "ID"; 
+                /*foreach (string Opalabra in ListaPalabras)
                 {
                     comboBox1.Items.Add(Opalabra);
-                }
+                }*/
             }
             catch (Exception ex)
             {
@@ -212,19 +216,21 @@ namespace UI
                 }
                 if (error == 0)
                 {
-                    string Palabra = comboBox1.SelectedItem.ToString();
+                 //   string Palabra = comboBox1.SelectedItem.ToString();
                     Palabra Opalbra = new Palabra();
-                    Opalbra = OBLLtraductor.TraerPalbra(Palabra);
+                    //   Opalbra = OBLLtraductor.TraerPalbra(Palabra);
+                    // Opalbra = comboBox1.;
+                    Palabra PalabraSele = (Palabra)comboBox1.SelectedItem;
                     string Idioma = comboBox2.SelectedItem.ToString();
                     Idioma Oidioma = new Idioma();
                     Oidioma = OBLLtraductor.TraerIdioma(Idioma);
 
-                    if (OBLLtraductor.TraduccionExistente(Oidioma.ID, Opalbra.ID)) MessageBox.Show("The translation of that word in the chosen language already exists");
+                    if (OBLLtraductor.TraduccionExistente(Oidioma.ID, PalabraSele.ID)) MessageBox.Show("The translation of that word in the chosen language already exists");
                     else
                     {
                         Traduccion Otraduccion = new Traduccion();
                         Otraduccion.texto = textBox2.Text;
-                        Otraduccion.Palabra = Opalbra;
+                        Otraduccion.Palabra = PalabraSele;
                         OBLLtraductor.CrearTraduccion(Oidioma.ID, Otraduccion);
                         string accion = "created the translation: " + Otraduccion.texto + " ";
                         Obitacora.guardar_accion(accion,2);
@@ -527,6 +533,11 @@ namespace UI
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.ReadOnly = true;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
  }

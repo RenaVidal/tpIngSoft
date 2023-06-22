@@ -96,6 +96,18 @@ namespace BLL
             }
         }
 
+        public List<Palabra> obtenerPalabras()
+        {
+            try
+            {
+                return OMPPtraductor.obtenerPalabras();
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
+        }
         public Idioma TraerIdioma(string idioma)
         {
             try
