@@ -179,9 +179,11 @@ namespace UI
                 ODV.actualizarDV(DVS);*/
                 oBit.guardar_logOut();
                 SessionManager.Logout();
-                this.Hide();
-                SignIn form = new SignIn();
-                form.Show();
+                this.Close();
+                //SignIn form = new SignIn();
+                //form.Show();
+                Application.Restart();
+                //probar el coso de restart
             }
             catch (Exception ex)
             {

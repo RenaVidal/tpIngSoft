@@ -46,9 +46,19 @@ namespace UI
             ListarIdiomas();
 
         }
-        public void SignIn_FormClosing(object sender, EventArgs e)
+        private void SigIn_FormClosing(object sender, EventArgs e)
         {
-            Observer.eliminarObservador(this);
+            try
+            {
+                servicios.Observer.eliminarObservador(this);
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
         private void metroButton1_Click(object sender, EventArgs e)
         {
@@ -470,7 +480,9 @@ namespace UI
                 comboBox1.Items.Clear();
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
                 var ListaIdiomas = Traductor.ObtenerIdiomas();
-
+               /* comboBox1.DataSource = Traductor.ObtenerIdiomas();
+                comboBox1.DisplayMember = "nombre";
+                comboBox1.ValueMember = "id";*/
                 foreach (Idioma idioma in ListaIdiomas)
                 {
                     comboBox1.Items.Add(idioma.Nombre);

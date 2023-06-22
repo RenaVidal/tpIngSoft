@@ -88,9 +88,10 @@ namespace UI
                 ODV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ODV.BuscarDVUsuarios()));
                 oBit.guardar_logOut();
                 SessionManager.Logout();
-                this.Hide();
-                SignIn form = new SignIn();
-                form.Show();
+                this.Close();
+                Application.Restart();
+                //SignIn form = new SignIn();
+                //form.Show();
             }
             catch (Exception ex)
             {
