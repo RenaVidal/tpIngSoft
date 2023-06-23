@@ -202,7 +202,12 @@ namespace BLL
                 foreach (Componente comp in padre.Hijos)
                 {
                     if (comp.Nombre == Hijo.Nombre) return true;
-                    else if (comp.Hijos != null) return contiene(comp, Hijo);
+                    else if (comp.Hijos != null) {
+
+                        if (contiene(comp, Hijo)) return true; 
+                    
+                    }
+                    
                 }
                 return false;
 

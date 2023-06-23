@@ -66,8 +66,21 @@ namespace UI
                     {
                         comboBox2.Items.Add(idioma.Nombre);
                     }
-                    
-                    comboBox3.Items.Add(idioma.Nombre);
+                    var traducciones = Traductor.obtenertraducciones(idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count == Lista.Count)
+                    {
+                        comboBox3.Items.Add(idioma.Nombre);
+                    }
+                    else
+                    {
+                        if (idioma.Default == true)
+                        {
+                            comboBox3.Items.Add(idioma.Nombre);
+                        }
+                    }
+                   
 
                 }
             }
@@ -146,6 +159,7 @@ namespace UI
                 if (textBox1.Text == string.Empty || !(validar.usuario(textBox1.Text)))
                 {
                     errorProvider1.SetError(textBox1, "You must enter a language without special characters");
+                    return;
                     error++;
                 }
 
@@ -198,21 +212,26 @@ namespace UI
                 if(textBox2.Text == string.Empty)
                 {
                     errorProvider1.SetError(textBox2, "you must enter a translation");
+                    error++;
+                    return;
                 }
                 if (!validar.traduccion(textBox2.Text))
                 {
                     errorProvider1.SetError(textBox2, "The translation should not have special characters");
                     error++;
+                    return;
                 }
                 if (comboBox1.SelectedItem == null)
                 {
                     errorProvider1.SetError(comboBox1, "you must select a language");
                     error++;
+                    return;
                 }
                 if (comboBox2.SelectedItem == null)
                 {
                     errorProvider1.SetError(comboBox2, "you must select a word");
                     error++;
+                    return;
                 }
                 if (error == 0)
                 {

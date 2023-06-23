@@ -180,9 +180,9 @@ namespace UI
                 oBit.guardar_logOut();
                 SessionManager.Logout();
                 this.Close();
-                //SignIn form = new SignIn();
-                //form.Show();
-                Application.Restart();
+                SignIn form = new SignIn();
+                form.Show();
+               // Application.Restart();
                 //probar el coso de restart
             }
             catch (Exception ex)
@@ -252,7 +252,21 @@ namespace UI
 
                 foreach (Idioma idioma in ListaIdiomas)
                 {
-                    comboBox1.Items.Add(idioma.Nombre);
+                    var traducciones = Traductor.obtenertraducciones(idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count == Lista.Count)
+                    {
+                        comboBox1.Items.Add(idioma.Nombre);
+                    }
+                    else
+                    {
+                        if (idioma.Default == true)
+                        {
+                            comboBox1.Items.Add(idioma.Nombre);
+                        }
+                    }
+                   
 
                 }
             }
@@ -335,6 +349,10 @@ namespace UI
                         if (metroButton6.Tag != null && traducciones.ContainsKey(metroButton6.Tag.ToString()))
                         {
                             this.metroButton6.Text = traducciones[metroButton6.Tag.ToString()].texto;
+                        }
+                        if (metroButton8.Tag != null && traducciones.ContainsKey(metroButton8.Tag.ToString()))
+                        {
+                            this.metroButton8.Text = traducciones[metroButton8.Tag.ToString()].texto;
                         }
                         if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
                         {
@@ -528,6 +546,12 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void metroButton8_Click_1(object sender, EventArgs e)
+        {
+            eliminarRol from = new eliminarRol();
+            AbrirFormulario(from);
         }
     }
 }

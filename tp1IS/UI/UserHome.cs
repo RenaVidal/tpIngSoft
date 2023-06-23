@@ -89,7 +89,7 @@ namespace UI
                 oBit.guardar_logOut();
                 SessionManager.Logout();
                 this.Close();
-                Application.Restart();
+                //Application.Restart();
                 //SignIn form = new SignIn();
                 //form.Show();
             }
@@ -120,7 +120,20 @@ namespace UI
 
                 foreach (Idioma idioma in ListaIdiomas)
                 {
-                    comboBox1.Items.Add(idioma.Nombre);
+                    var traducciones = Traductor.obtenertraducciones(idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count == Lista.Count)
+                    {
+                        comboBox1.Items.Add(idioma.Nombre);
+                    }
+                    else
+                    {
+                        if (idioma.Default == true)
+                        {
+                            comboBox1.Items.Add(idioma.Nombre);
+                        }
+                    }
 
                 }
             }

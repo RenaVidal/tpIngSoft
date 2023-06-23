@@ -45,6 +45,7 @@
             this.metroButton9 = new MetroFramework.Controls.MetroButton();
             this.metroButton10 = new MetroFramework.Controls.MetroButton();
             this.metroButton11 = new MetroFramework.Controls.MetroButton();
+            this.metroButton8 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -157,7 +158,7 @@
             this.metroButton4.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.metroButton4.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton4.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton4.Location = new System.Drawing.Point(1086, 51);
+            this.metroButton4.Location = new System.Drawing.Point(1186, 48);
             this.metroButton4.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(76, 147);
@@ -242,7 +243,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1042, 27);
+            this.comboBox1.Location = new System.Drawing.Point(1141, 22);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 8;
@@ -308,11 +309,32 @@
             this.metroButton11.UseStyleColors = true;
             this.metroButton11.Click += new System.EventHandler(this.metroButton11_Click);
             // 
+            // metroButton8
+            // 
+            this.metroButton8.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.metroButton8.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton8.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.metroButton8.Location = new System.Drawing.Point(993, 49);
+            this.metroButton8.Name = "metroButton8";
+            this.metroButton8.Size = new System.Drawing.Size(99, 146);
+            this.metroButton8.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton8.TabIndex = 12;
+            this.metroButton8.Tag = "delete rol";
+            this.metroButton8.Text = "Delete role";
+            this.metroButton8.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroButton8.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton8.UseCustomBackColor = true;
+            this.metroButton8.UseCustomForeColor = true;
+            this.metroButton8.UseSelectable = true;
+            this.metroButton8.UseStyleColors = true;
+            this.metroButton8.Click += new System.EventHandler(this.metroButton8_Click_1);
+            // 
             // AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1169, 450);
+            this.ClientSize = new System.Drawing.Size(1267, 540);
+            this.Controls.Add(this.metroButton8);
             this.Controls.Add(this.metroButton11);
             this.Controls.Add(this.metroButton10);
             this.Controls.Add(this.metroButton9);
@@ -355,5 +377,6 @@
         private MetroFramework.Controls.MetroButton metroButton9;
         private MetroFramework.Controls.MetroButton metroButton10;
         private MetroFramework.Controls.MetroButton metroButton11;
+        private MetroFramework.Controls.MetroButton metroButton8;
     }
 }

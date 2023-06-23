@@ -24,6 +24,7 @@ namespace Negocio
             try
             {
                 string contrasena = encriptar.Encriptar(contra);
+              
                 return oUsuario.cambiar_contrasena(id, contrasena);
             }
             catch (Exception ex)

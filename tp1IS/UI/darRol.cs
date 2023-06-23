@@ -352,6 +352,7 @@ namespace UI
                 if (textBox1.Text == string.Empty || !validar.id(textBox1.Text))
                 {
                     errorProvider1.SetError(textBox1, "You should enter an id with 1 to 9 numbers");
+                    return;
                 }
                 cargar_roles(Convert.ToInt32(textBox1.Text));
             }
@@ -380,7 +381,20 @@ namespace UI
 
                 foreach (Idioma idioma in ListaIdiomas)
                 {
-                    comboBox3.Items.Add(idioma.Nombre);
+                    var traducciones = Traductor.obtenertraducciones(idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count == Lista.Count)
+                    {
+                        comboBox3.Items.Add(idioma.Nombre);
+                    }
+                    else
+                    {
+                        if (idioma.Default == true)
+                        {
+                            comboBox3.Items.Add(idioma.Nombre);
+                        }
+                    }
                 }
 
             }

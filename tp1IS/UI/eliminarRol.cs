@@ -22,6 +22,7 @@ namespace UI
         public eliminarRol()
         {
             InitializeComponent();
+            iniciarTreeView();
         }
         BLLComposite oComp = new BLLComposite();
         private void eliminarRol_Load(object sender, EventArgs e)
@@ -92,7 +93,55 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
+        public void iniciarTreeView()
+        {
+            try
+            {
+                treeView2.Nodes.Clear();
+                IList<Componente> lista = oComp.GetFamilias();
+                IList<Componente> cada_Flia;
+                TreeNode padre = new TreeNode("Main");
+                TreeNode familia;
+                foreach (Componente comp in lista)
+                {
+                    cada_Flia = oComp.GetAll(comp.Id);
+                    familia = new TreeNode(comp.Nombre);
 
+                    cargarTreeView(cada_Flia, familia);
+                    padre.Nodes.Add(familia);
+                }
+                treeView2.Nodes.Add(padre);
+            }
+
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+        public void cargarTreeView(IList<Componente> list, TreeNode parentNode)
+        {
+            try
+            {
+                foreach (var item in list)
+                {
+                    TreeNode newNode = new TreeNode(item.Nombre);
+                    parentNode.Nodes.Add(newNode);
+                    if (item.Hijos != null && item.Hijos.Count != 0) cargarTreeView(item.Hijos, newNode);
+                }
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
+        }
         public void VolverAlIdiomaOriginal()
         {
 
@@ -132,7 +181,20 @@ namespace UI
 
                 foreach (Idioma idioma in ListaIdiomas)
                 {
-                    comboBox1.Items.Add(idioma.Nombre);
+                    var traducciones = Traductor.obtenertraducciones(idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count == Lista.Count)
+                    {
+                        comboBox1.Items.Add(idioma.Nombre);
+                    }
+                    else
+                    {
+                        if (idioma.Default == true)
+                        {
+                            comboBox1.Items.Add(idioma.Nombre);
+                        }
+                    }
                 }
 
             }
@@ -184,6 +246,7 @@ namespace UI
                 if (treeView2.SelectedNode == null)
                 {
                     errorProvider1.SetError(treeView2, "Select a role");
+                    return;
                 }
                 else
                 {
@@ -197,6 +260,7 @@ namespace UI
                             var accion = "elimino el rol " + item.Nombre;
                             oBit.guardar_accion(accion, 2);
                             oComp.borrar(rolID);
+                            iniciarTreeView();
                         }
                         else
                         {

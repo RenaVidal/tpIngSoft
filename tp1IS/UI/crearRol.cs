@@ -342,10 +342,11 @@ namespace UI
                 }
                 else
                 {
-                        var accion = "creo el rol " + textBox1.Text;
-                        oBit.guardar_accion(accion, 2); 
                         if (cargar_familia())
                         {
+
+                            var accion = "creo el rol " + textBox1.Text;
+                            oBit.guardar_accion(accion, 2);
                             iniciarTreeView();
                             treeView1.Nodes.Clear();
                             MetroMessageBox.Show(this, "Role saved");
@@ -536,7 +537,20 @@ namespace UI
 
                 foreach (Idioma idioma in ListaIdiomas)
                 {
-                    comboBox3.Items.Add(idioma.Nombre);
+                    var traducciones = Traductor.obtenertraducciones(idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count == Lista.Count)
+                    {
+                        comboBox3.Items.Add(idioma.Nombre);
+                    }
+                    else
+                    {
+                        if (idioma.Default == true)
+                        {
+                            comboBox3.Items.Add(idioma.Nombre);
+                        }
+                    }
                 }
 
             }

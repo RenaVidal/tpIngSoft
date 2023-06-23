@@ -24,7 +24,7 @@ namespace UI
         {
             InitializeComponent();
         }
-
+        BLL.BLLDv ObllDV = new BLL.BLLDv();
         private void borrarPassword_Load(object sender, EventArgs e)
         {
           
@@ -81,10 +81,13 @@ namespace UI
 
                         if (oLog.cambiar_contrasena(Convert.ToInt32( textBox1.Text), textBox2.Text))/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         {
+                            //actualizasxDV(Convert.ToInt32(textBox1.Text));
                             BEUsuario Ousuario = new BEUsuario();
                             Ousuario=oLog.buscar_usuarioxid(Convert.ToInt32(textBox1.Text));
                             Ousuario.DV = GenerarVD.generarDigitoVU(Ousuario);
                             oLog.ActualizarDVxU(Ousuario.id, Ousuario.DV);
+                            List<string> ListaDV = ObllDV.BuscarDVUsuarios();
+                            ObllDV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ListaDV));
                             var accion = "cambio la contraseña del usuario de id" + textBox1.Text;
                             oBit.guardar_accion(accion, 2);
                             MetroMessageBox.Show(this, "Password changed");
@@ -106,7 +109,9 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
-       public void CambiarIdioma(Idioma Idioma)
+
+      
+        public void CambiarIdioma(Idioma Idioma)
         {
             ListarIidomas();
             Traducir();
@@ -122,8 +127,20 @@ namespace UI
 
                 foreach (Idioma idioma in ListaIdiomas)
                 {
-                    comboBox1.Items.Add(idioma.Nombre);
-
+                    var traducciones = Traductor.obtenertraducciones(idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count == Lista.Count)
+                    {
+                        comboBox1.Items.Add(idioma.Nombre);
+                    }
+                    else
+                    {
+                        if (idioma.Default == true)
+                        {
+                            comboBox1.Items.Add(idioma.Nombre);
+                        }
+                    }
                 }
 
             }
