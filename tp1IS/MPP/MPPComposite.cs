@@ -262,7 +262,7 @@ namespace MPP
                 foreach (DataRow fila in Ds2.Rows)
                 {
 
-                    if (rol == Convert.ToInt32(fila["rol"])) return true;
+                    if (rol == Convert.ToInt32(fila["id_rol"])) return true;
                 }
                 return false;
             }
