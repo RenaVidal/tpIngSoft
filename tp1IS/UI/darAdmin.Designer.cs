@@ -42,7 +42,8 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel3.Location = new System.Drawing.Point(19, 57);
+            this.metroLabel3.Location = new System.Drawing.Point(14, 46);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(441, 25);
             this.metroLabel3.TabIndex = 0;
@@ -52,10 +53,10 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(312, 127);
-            this.metroButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.metroButton1.Location = new System.Drawing.Point(234, 103);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(117, 34);
+            this.metroButton1.Size = new System.Drawing.Size(88, 28);
             this.metroButton1.TabIndex = 3;
             this.metroButton1.Tag = "give admin";
             this.metroButton1.Text = "give admin";
@@ -65,19 +66,20 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(204, 101);
+            this.metroLabel4.Location = new System.Drawing.Point(153, 82);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(20, 20);
+            this.metroLabel4.Size = new System.Drawing.Size(20, 19);
             this.metroLabel4.TabIndex = 1;
             this.metroLabel4.Tag = "id";
             this.metroLabel4.Text = "id";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(241, 98);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox2.Location = new System.Drawing.Point(181, 80);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 22);
+            this.textBox2.Size = new System.Drawing.Size(142, 20);
             this.textBox2.TabIndex = 2;
             // 
             // errorProvider1
@@ -86,30 +88,30 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Español",
             "ingles"});
-            this.comboBox1.Location = new System.Drawing.Point(312, 186);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Location = new System.Drawing.Point(234, 151);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // darAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 213);
+            this.ClientSize = new System.Drawing.Size(362, 173);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.metroLabel4);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "darAdmin";
-            this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 20);
+            this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Tag = "give admin";
             this.Text = "Give admin";
             this.Load += new System.EventHandler(this.darAdmin_Load);

@@ -34,6 +34,15 @@ namespace servicios
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public bool idioma(string oidioma)
+        {
+            try
+            {
+                return Regex.IsMatch(oidioma, @"^[A-Z][a-z]{1,25}$");
+            }
+            catch(Exception ex) { throw ex; }
+        }
         public bool id (string id)
         {
 

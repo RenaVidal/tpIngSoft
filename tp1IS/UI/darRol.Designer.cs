@@ -52,7 +52,7 @@
             // metroButton2
             // 
             this.metroButton2.Location = new System.Drawing.Point(107, 570);
-            this.metroButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton2.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(128, 22);
             this.metroButton2.TabIndex = 15;
@@ -76,7 +76,7 @@
             // treeView2
             // 
             this.treeView2.Location = new System.Drawing.Point(15, 156);
-            this.treeView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView2.Margin = new System.Windows.Forms.Padding(2);
             this.treeView2.Name = "treeView2";
             this.treeView2.Size = new System.Drawing.Size(279, 316);
             this.treeView2.TabIndex = 5;
@@ -96,7 +96,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(108, 59);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(128, 20);
             this.textBox1.TabIndex = 1;
@@ -131,9 +131,10 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(108, 529);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(128, 21);
             this.comboBox2.TabIndex = 12;
@@ -152,9 +153,10 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(108, 505);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(128, 21);
             this.comboBox1.TabIndex = 10;
@@ -162,7 +164,7 @@
             // metroButton1
             // 
             this.metroButton1.Location = new System.Drawing.Point(344, 484);
-            this.metroButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(128, 22);
             this.metroButton1.TabIndex = 13;
@@ -174,7 +176,7 @@
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(344, 156);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(279, 316);
             this.treeView1.TabIndex = 7;
@@ -206,7 +208,7 @@
             // metroButton3
             // 
             this.metroButton3.Location = new System.Drawing.Point(250, 59);
-            this.metroButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton3.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(64, 22);
             this.metroButton3.TabIndex = 2;
@@ -217,6 +219,7 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(553, 584);
             this.comboBox3.Name = "comboBox3";
@@ -245,7 +248,7 @@
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.treeView2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "darRol";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Text = "Assing role";

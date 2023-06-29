@@ -156,7 +156,7 @@ namespace UI
                 Idioma NewIdioma = new Idioma();
                 int error = 0;
                 BLL.BLLTraductor Otraductor = new BLL.BLLTraductor();
-                if (textBox1.Text == string.Empty || !(validar.usuario(textBox1.Text)))
+                if (textBox1.Text == string.Empty || !(validar.idioma(textBox1.Text)))
                 {
                     errorProvider1.SetError(textBox1, "You must enter a language without special characters");
                     return;
@@ -265,7 +265,7 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-
+            refrescar();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -447,10 +447,9 @@ namespace UI
             }
            
         }
-        private void metroButton3_Click(object sender, EventArgs e)
+
+        public void refrescar()
         {
-
-
             try
             {
                 dataGridView1.DataSource = null;
@@ -481,7 +480,13 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-           
+
+        }
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+
+
+         
 
         }
         public void VolverAIdiomaoriginal()
@@ -557,6 +562,11 @@ namespace UI
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refrescar();
         }
     }
  }

@@ -55,7 +55,7 @@
             this.metroButton1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton1.ForeColor = System.Drawing.SystemColors.Info;
-            this.metroButton1.Location = new System.Drawing.Point(5, 51);
+            this.metroButton1.Location = new System.Drawing.Point(5, 48);
             this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(121, 147);
@@ -242,6 +242,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(1141, 22);
             this.comboBox1.Name = "comboBox1";
@@ -314,7 +315,7 @@
             this.metroButton8.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.metroButton8.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton8.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton8.Location = new System.Drawing.Point(993, 49);
+            this.metroButton8.Location = new System.Drawing.Point(993, 48);
             this.metroButton8.Name = "metroButton8";
             this.metroButton8.Size = new System.Drawing.Size(99, 146);
             this.metroButton8.Style = MetroFramework.MetroColorStyle.Blue;

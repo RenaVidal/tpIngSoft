@@ -48,7 +48,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(789, 454);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 31);
             this.button2.TabIndex = 8;
@@ -60,7 +60,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(753, 454);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 31);
             this.button1.TabIndex = 7;
@@ -71,7 +71,7 @@
             // metroButton3
             // 
             this.metroButton3.Location = new System.Drawing.Point(351, 76);
-            this.metroButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton3.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(59, 24);
             this.metroButton3.TabIndex = 4;
@@ -83,7 +83,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(135, 76);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(123, 20);
             this.textBox1.TabIndex = 1;
@@ -91,7 +91,7 @@
             // Apply
             // 
             this.Apply.Location = new System.Drawing.Point(287, 76);
-            this.Apply.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Apply.Margin = new System.Windows.Forms.Padding(2);
             this.Apply.Name = "Apply";
             this.Apply.Size = new System.Drawing.Size(59, 24);
             this.Apply.TabIndex = 3;
@@ -103,7 +103,7 @@
             // metroButton1
             // 
             this.metroButton1.Location = new System.Drawing.Point(262, 76);
-            this.metroButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(21, 24);
             this.metroButton1.TabIndex = 2;
@@ -126,7 +126,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(27, 127);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -137,7 +137,7 @@
             // metroButton2
             // 
             this.metroButton2.Location = new System.Drawing.Point(698, 76);
-            this.metroButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton2.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(115, 24);
             this.metroButton2.TabIndex = 5;
@@ -152,6 +152,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(809, 509);
             this.comboBox1.Name = "comboBox1";
@@ -174,9 +175,9 @@
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Changes";
-            this.Padding = new System.Windows.Forms.Padding(15, 49, 15, 16);
+            this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Text = "User History";
             this.Load += new System.EventHandler(this.controlCambios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

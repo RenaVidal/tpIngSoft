@@ -46,7 +46,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(95, 81);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(151, 20);
@@ -55,7 +55,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(95, 51);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(151, 20);
             this.textBox1.TabIndex = 1;
@@ -85,16 +85,16 @@
             // metroDateTime2
             // 
             this.metroDateTime2.Location = new System.Drawing.Point(95, 131);
-            this.metroDateTime2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroDateTime2.Margin = new System.Windows.Forms.Padding(2);
             this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTime2.Name = "metroDateTime2";
-            this.metroDateTime2.Size = new System.Drawing.Size(151, 30);
+            this.metroDateTime2.Size = new System.Drawing.Size(151, 29);
             this.metroDateTime2.TabIndex = 7;
             // 
             // metroButton4
             // 
             this.metroButton4.Location = new System.Drawing.Point(149, 166);
-            this.metroButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton4.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(92, 25);
             this.metroButton4.TabIndex = 8;
@@ -106,7 +106,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(95, 108);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(151, 20);
             this.textBox3.TabIndex = 5;
@@ -139,6 +139,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Español",
@@ -164,7 +165,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "crearAdmin";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Tag = "create admin";
