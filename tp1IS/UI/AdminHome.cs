@@ -174,16 +174,27 @@ namespace UI
             try
             {
              
-                /*List<string> ListaDU = oLog.BuscarUsuariosYgenerarDV();
-                string DVS = servicios.GenerarVD.generarDigitoVS(ListaDU);
-                ODV.actualizarDV(DVS);*/
+       
                 oBit.guardar_logOut();
                 SessionManager.Logout();
                 this.Close();
+               
+                servicios.Observer.eliminarObservador(this);
+               
+                var formularios = Application.OpenForms;
+            
+                var copiaFormularios = new List<Form>(formularios.OfType<Form>());
+
+                foreach (Form formulario in copiaFormularios)
+                {
+                    if (formulario.Text != "Welcome!")
+                    {
+                        formulario.Close();
+                    }
+                }
+
                 SignIn form = new SignIn();
                 form.Show();
-               // Application.Restart();
-                //probar el coso de restart
             }
             catch (Exception ex)
             {
@@ -308,7 +319,7 @@ namespace UI
 
                 if (SessionManager.TraerUsuario())
                     Idioma = SessionManager.GetInstance.idioma;
-                if (Idioma.Nombre == "ingles")
+                if (Idioma.Nombre == "Ingles")
                 {
                     VolverAidiomaOriginal();
                 }
@@ -381,6 +392,10 @@ namespace UI
                         if (metroButton10.Tag != null && traducciones.ContainsKey(metroButton10.Tag.ToString()))
                         {
                             this.metroButton10.Text = traducciones[metroButton10.Tag.ToString()].texto;
+                        }
+                        if (metroButton12.Tag != null && traducciones.ContainsKey(metroButton12.Tag.ToString()))
+                        {
+                            this.metroButton12.Text = traducciones[metroButton12.Tag.ToString()].texto;
                         }
 
                     }
@@ -472,6 +487,16 @@ namespace UI
                     string traduccion = palabras.Find(p => p.Equals(metroButton6.Tag.ToString()));
                     this.metroButton6.Text = traduccion;
                 }
+                if (metroButton8.Tag != null && palabras.Contains(metroButton8.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton8.Tag.ToString()));
+                    this.metroButton8.Text = traduccion;
+                }
+                if (metroButton12.Tag != null && palabras.Contains(metroButton12.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton12.Tag.ToString()));
+                    this.metroButton12.Text = traduccion;
+                }
 
             }
             catch (Exception ex)
@@ -551,6 +576,12 @@ namespace UI
         private void metroButton8_Click_1(object sender, EventArgs e)
         {
             eliminarRol from = new eliminarRol();
+            AbrirFormulario(from);
+        }
+
+        private void metroButton12_Click(object sender, EventArgs e)
+        {
+            Desencriptar from = new Desencriptar();
             AbrirFormulario(from);
         }
     }

@@ -88,10 +88,23 @@ namespace UI
                 ODV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ODV.BuscarDVUsuarios()));
                 oBit.guardar_logOut();
                 SessionManager.Logout();
-                this.Close();
-                //Application.Restart();
-                //SignIn form = new SignIn();
-                //form.Show();
+                
+                var formularios = Application.OpenForms;
+
+                var copiaFormularios = new List<Form>(formularios.OfType<Form>());
+
+                foreach (Form formulario in copiaFormularios)
+                {
+                    if (formulario.Text != "Welcome!")
+                    {
+                        formulario.Close();
+                    }
+                }
+
+                SignIn form = new SignIn();
+                form.Show();
+              
+                servicios.Observer.eliminarObservador(this);
             }
             catch (Exception ex)
             {
@@ -175,7 +188,7 @@ namespace UI
 
                 if (SessionManager.TraerUsuario())
                     Idioma = SessionManager.GetInstance.idioma;
-                if (Idioma.Nombre == "ingles")
+                if (Idioma.Nombre == "Ingles")
                 {
                     VolverAidiomaOriginal();
                 }

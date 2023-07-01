@@ -109,6 +109,12 @@
     <Compile Include="darRol.Designer.cs">
       <DependentUpon>darRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Desencriptar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desencriptar.Designer.cs">
+      <DependentUpon>Desencriptar.cs</DependentUpon>
+    </Compile>
     <Compile Include="eliminarRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="darRol.resx">
       <DependentUpon>darRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desencriptar.resx">
+      <DependentUpon>Desencriptar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="eliminarRol.resx">
       <DependentUpon>eliminarRol.cs</DependentUpon>

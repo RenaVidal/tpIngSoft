@@ -49,5 +49,37 @@ namespace servicios
             }
             return texto;
         }
+
+        public static string Desencriptar(string textoEncriptado)
+        {
+            try
+            {
+                string key = "qualityinfosolutions";
+                byte[] keyArray;
+                byte[] Array_a_Descifrar = Convert.FromBase64String(textoEncriptado);
+
+                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                hashmd5.Clear();
+
+                TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+                tdes.Key = keyArray;
+                tdes.Mode = CipherMode.ECB;
+                tdes.Padding = PaddingMode.PKCS7;
+
+                ICryptoTransform cTransform = tdes.CreateDecryptor();
+                byte[] ArrayResultado = cTransform.TransformFinalBlock(Array_a_Descifrar, 0, Array_a_Descifrar.Length);
+                tdes.Clear();
+
+                string textoDesencriptado = UTF8Encoding.UTF8.GetString(ArrayResultado);
+                return textoDesencriptado;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }  
 }

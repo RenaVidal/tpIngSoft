@@ -46,6 +46,7 @@
             this.metroButton10 = new MetroFramework.Controls.MetroButton();
             this.metroButton11 = new MetroFramework.Controls.MetroButton();
             this.metroButton8 = new MetroFramework.Controls.MetroButton();
+            this.metroButton12 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -158,7 +159,7 @@
             this.metroButton4.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.metroButton4.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton4.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton4.Location = new System.Drawing.Point(1186, 48);
+            this.metroButton4.Location = new System.Drawing.Point(1296, 48);
             this.metroButton4.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(76, 147);
@@ -244,7 +245,7 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1141, 22);
+            this.comboBox1.Location = new System.Drawing.Point(1251, 22);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 8;
@@ -330,11 +331,32 @@
             this.metroButton8.UseStyleColors = true;
             this.metroButton8.Click += new System.EventHandler(this.metroButton8_Click_1);
             // 
+            // metroButton12
+            // 
+            this.metroButton12.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.metroButton12.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton12.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.metroButton12.Location = new System.Drawing.Point(1098, 49);
+            this.metroButton12.Name = "metroButton12";
+            this.metroButton12.Size = new System.Drawing.Size(136, 146);
+            this.metroButton12.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton12.TabIndex = 13;
+            this.metroButton12.Tag = "search password";
+            this.metroButton12.Text = "search password";
+            this.metroButton12.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroButton12.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton12.UseCustomBackColor = true;
+            this.metroButton12.UseCustomForeColor = true;
+            this.metroButton12.UseSelectable = true;
+            this.metroButton12.UseStyleColors = true;
+            this.metroButton12.Click += new System.EventHandler(this.metroButton12_Click);
+            // 
             // AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1267, 540);
+            this.ClientSize = new System.Drawing.Size(1373, 540);
+            this.Controls.Add(this.metroButton12);
             this.Controls.Add(this.metroButton8);
             this.Controls.Add(this.metroButton11);
             this.Controls.Add(this.metroButton10);
@@ -379,5 +401,6 @@
         private MetroFramework.Controls.MetroButton metroButton10;
         private MetroFramework.Controls.MetroButton metroButton11;
         private MetroFramework.Controls.MetroButton metroButton8;
+        private MetroFramework.Controls.MetroButton metroButton12;
     }
 }

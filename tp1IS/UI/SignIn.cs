@@ -354,7 +354,7 @@ namespace UI
 
                
                 Idioma=Traductor.TraerIdioma(comboBox1.SelectedItem.ToString());
-                if (Idioma.Nombre == "ingles")
+                if (Idioma.Nombre == "Ingles")
                 {
                     VolverAidiomaOriginal();
                 }
@@ -426,8 +426,6 @@ namespace UI
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
                 List<string> palabras = Traductor.obtenerIdiomaOriginal();
 
-
-
                 if (metroButton1.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
                 {
                     string traduccion = palabras.Find(p => p.Equals(metroButton1.Tag.ToString()));
@@ -488,9 +486,7 @@ namespace UI
                 comboBox1.Items.Clear();
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
                 var ListaIdiomas = Traductor.ObtenerIdiomas();
-               /* comboBox1.DataSource = Traductor.ObtenerIdiomas();
-                comboBox1.DisplayMember = "nombre";
-                comboBox1.ValueMember = "id";*/
+
                 foreach (Idioma idioma in ListaIdiomas)
                 {
                     var traducciones = Traductor.obtenertraducciones(idioma);
@@ -512,10 +508,10 @@ namespace UI
             }
             catch (Exception ex)
             {
-                 var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
-                MessageBox.Show(ex.Message);
-
+                //   var accion = ex.Message;
+                //  oBit.guardar_accion(accion, 1);
+                //  MessageBox.Show(ex.Message);
+                throw ex;
             }
 
 

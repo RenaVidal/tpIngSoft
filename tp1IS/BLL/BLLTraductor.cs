@@ -78,7 +78,7 @@ namespace BLL
             }
             catch (Exception ex)
             {
-                oBit.guardar_accion(ex.Message, 1);
+              //  oBit.guardar_accion(ex.Message, 1);
                 throw ex;
             }
         }

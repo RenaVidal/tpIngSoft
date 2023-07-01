@@ -192,7 +192,7 @@ namespace UI
 
                 if (SessionManager.TraerUsuario())
                     Idioma = SessionManager.GetInstance.idioma;
-                if (Idioma.Nombre == "ingles")
+                if (Idioma.Nombre=="Ingles")
                 {
                     VolverAlIdiomaOriginal();
                 }

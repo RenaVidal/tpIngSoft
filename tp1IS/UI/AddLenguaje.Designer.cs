@@ -45,7 +45,6 @@ namespace UI
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.metroButton3 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -222,34 +221,11 @@ namespace UI
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // metroButton3
-            // 
-            this.metroButton3.BackColor = System.Drawing.Color.SandyBrown;
-            this.metroButton3.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.metroButton3.ForeColor = System.Drawing.SystemColors.Info;
-            this.metroButton3.Location = new System.Drawing.Point(447, 20);
-            this.metroButton3.Margin = new System.Windows.Forms.Padding(2);
-            this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(120, 38);
-            this.metroButton3.Style = MetroFramework.MetroColorStyle.Magenta;
-            this.metroButton3.TabIndex = 14;
-            this.metroButton3.Tag = "refresh";
-            this.metroButton3.Text = "Refresh";
-            this.metroButton3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroButton3.UseCustomBackColor = true;
-            this.metroButton3.UseCustomForeColor = true;
-            this.metroButton3.UseMnemonic = false;
-            this.metroButton3.UseSelectable = true;
-            this.metroButton3.UseStyleColors = true;
-            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
-            // 
             // AddLenguaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 542);
-            this.Controls.Add(this.metroButton3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.radioButton2);
@@ -290,7 +266,6 @@ namespace UI
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ComboBox comboBox3;
-        private MetroFramework.Controls.MetroButton metroButton3;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

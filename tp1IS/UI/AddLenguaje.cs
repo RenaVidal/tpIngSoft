@@ -58,7 +58,7 @@ namespace UI
 
                 foreach (Idioma idioma in ListaIdiomas)
                 {
-                    if (idioma.Nombre == "ingles")
+                    if (idioma.Nombre == "Ingles")
                     {
 
                     }
@@ -156,7 +156,13 @@ namespace UI
                 Idioma NewIdioma = new Idioma();
                 int error = 0;
                 BLL.BLLTraductor Otraductor = new BLL.BLLTraductor();
-                if (textBox1.Text == string.Empty || !(validar.idioma(textBox1.Text)))
+                if (textBox1.Text == string.Empty)
+                {
+                    errorProvider1.SetError(textBox1, "You must enter a language");
+                    return;
+                    error++;
+                }
+                if (!(validar.idioma(textBox1.Text)))
                 {
                     errorProvider1.SetError(textBox1, "You must enter a language without special characters");
                     return;
@@ -223,13 +229,13 @@ namespace UI
                 }
                 if (comboBox1.SelectedItem == null)
                 {
-                    errorProvider1.SetError(comboBox1, "you must select a language");
+                    errorProvider1.SetError(comboBox2, "you must select a language");
                     error++;
                     return;
                 }
                 if (comboBox2.SelectedItem == null)
                 {
-                    errorProvider1.SetError(comboBox2, "you must select a word");
+                    errorProvider1.SetError(comboBox1, "you must select a word");
                     error++;
                     return;
                 }
@@ -288,7 +294,7 @@ namespace UI
                     comboBox1.Visible = false;
                     comboBox2.Visible = false;
                     dataGridView1.Visible = false;
-                    metroButton3.Visible = false;
+                 
                     textBox2.Text = "";
                     textBox1.Text = "";
 
@@ -321,7 +327,7 @@ namespace UI
                     comboBox1.Visible = true;
                     comboBox2.Visible = true;
                     dataGridView1.Visible = true;
-                    metroButton3.Visible = true;
+                
                     textBox2.Text = "";
                     textBox1.Text = "";
                 }
@@ -407,10 +413,7 @@ namespace UI
                         {
                             this.metroButton2.Text = traducciones[metroButton2.Tag.ToString()].texto;
                         }
-                        if (metroButton3.Tag != null && traducciones.ContainsKey(metroButton3.Tag.ToString()))
-                        {
-                            this.metroButton3.Text = traducciones[metroButton3.Tag.ToString()].texto;
-                        }
+                       
                         if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
                         {
                             this.metroLabel1.Text = traducciones[metroLabel1.Tag.ToString()].texto;
@@ -507,11 +510,6 @@ namespace UI
                 {
                     string traduccion = palabras.Find(p => p.Equals(metroButton2.Tag.ToString()));
                     this.metroButton2.Text = traduccion;
-                }
-                if (metroButton3.Tag != null && palabras.Contains(metroButton3.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton3.Tag.ToString()));
-                    this.metroButton3.Text = traduccion;
                 }
                 if (metroLabel1.Tag != null && palabras.Contains(metroLabel1.Tag.ToString()))
                 {

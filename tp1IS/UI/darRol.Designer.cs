@@ -56,8 +56,8 @@
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(128, 22);
             this.metroButton2.TabIndex = 15;
-            this.metroButton2.Tag = "confirm";
-            this.metroButton2.Text = "confirm";
+            this.metroButton2.Tag = "add";
+            this.metroButton2.Text = "add";
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 

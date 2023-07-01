@@ -55,6 +55,7 @@ namespace UI
             AdminHome form = new AdminHome();
             form.Show();
             this.Hide();
+            servicios.Observer.eliminarObservador(this);
         }
         public void CambiarIdioma(Idioma Idioma)
         {
@@ -77,7 +78,7 @@ namespace UI
                 }
                 else
                 {
-                    if (Idioma.Nombre == "ingles")
+                    if (Idioma.Nombre == "Ingles")
                     {
                         VolverAlIdiomaOriginal();
                     }

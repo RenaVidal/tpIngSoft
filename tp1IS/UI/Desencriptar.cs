@@ -1,39 +1,34 @@
-﻿using BE;
-using MetroFramework;
-using Negocio;
-using servicios;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Patrones.Singleton.Core;
 using servicios.ClasesMultiLenguaje;
+using BLL;
+using BE;
+using servicios;
+using Negocio;
+using Patrones.Singleton.Core;
+
 namespace UI
 {
-    public partial class darAdmin : MetroFramework.Forms.MetroForm, IdiomaObserver
+    public partial class Desencriptar : MetroFramework.Forms.MetroForm, IdiomaObserver
     {
-        public darAdmin()
+        public Desencriptar()
         {
             InitializeComponent();
         }
-        BLLUsuario oLog = new BLLUsuario();
-        BEUsuario oUsuraio;
-        validaciones validar = new validaciones();
-        private void darAdmin_Load(object sender, EventArgs e)
+        BLLBitacora oBit = new BLLBitacora();
+        public void CambiarIdioma(Idioma Idioma)
         {
             try
             {
-                servicios.Observer.agregarObservador(this);
+                Traducir();
                 ListarIdiomas();
-                traducir();
 
             }
             catch (Exception ex)
@@ -42,47 +37,45 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-          
         }
 
-        private void darAdmin_FormClosing(object sender, FormClosingEventArgs e)
+
+        private void Desencriptar_Load(object sender, EventArgs e)
         {
-            
-            servicios.Observer.eliminarObservador(this);
+            servicios.Observer.agregarObservador(this);
+            ListarIdiomas();
         }
-        private void metroLabel3_Click(object sender, EventArgs e)
-        {
-        }
-        BLLBitacora oBit = new BLLBitacora();
+        validaciones validar = new validaciones();
+        BLLUsuario oLog = new BLLUsuario();
         private void metroButton1_Click(object sender, EventArgs e)
         {
             try
             {
+                var error = 0;
                 errorProvider1.Clear();
-                errorProvider1.SetError(textBox2, "");
-                if (textBox2.Text == string.Empty || !validar.id(textBox2.Text))
+                errorProvider1.SetError(textBox1, "");
+                if (textBox1.Text == string.Empty || !validar.id(textBox1.Text))
                 {
-                    errorProvider1.SetError(textBox2, "You should enter an id with 1 to 9 numbers");
+                    errorProvider1.SetError(textBox1, "You should enter an id with 1 to 9 numbers");
+                    error++;
                 }
-                else
+                if (error==0)
                 {
-                    if (oLog.usuario_existente(Convert.ToInt32(textBox2.Text))) {
-                        if (oLog.dar_admin(Convert.ToInt32(textBox2.Text)))
-                        {
-                            var accion = "dio privilegios de admin a el usuario" + textBox2.Text;
-                            oBit.guardar_accion(accion, 2);
-                            MetroMessageBox.Show(this, "Success");
-                            this.Hide();
-                        }
-                        else
-                        {
-                            MetroMessageBox.Show(this, "Error");
-                        }
+                    if (oLog.usuario_existente(Convert.ToInt32(textBox1.Text)))
+                    {
+                        BEUsuario Ousuario = new BEUsuario();
+                        Ousuario = oLog.buscar_usuarioxid(Convert.ToInt32(textBox1.Text));
+                        string contraseña = servicios.encriptar.Desencriptar(Ousuario.password);
+                        textBox2.Text = contraseña;
                     }
-                    else { MetroMessageBox.Show(this, "There are no users with provided id"); }
+                    else
+                    {
+                        errorProvider1.SetError(textBox1, "there is no user with that id");
+                    }
                 }
+               
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
@@ -90,13 +83,7 @@ namespace UI
             }
         }
 
-        public void CambiarIdioma(Idioma Idioma)
-        {
-            ListarIdiomas();
-            traducir();
-        }
-
-        public void traducir()
+       public void Traducir()
         {
             try
             {
@@ -116,24 +103,22 @@ namespace UI
                     Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count != Lista.Count)
                     {
-                    
+
                     }
                     else
                     {
-
                         if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
                         {
                             this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
                         }
-                        if (metroLabel3.Tag != null && traducciones.ContainsKey(metroLabel3.Tag.ToString()))
+                        if (label2.Tag != null && traducciones.ContainsKey(label2.Tag.ToString()))
                         {
-                            this.metroLabel3.Text = traducciones[metroLabel3.Tag.ToString()].texto;
+                            this.label2.Text = traducciones[label2.Tag.ToString()].texto;
                         }
-                        if (metroLabel4.Tag != null && traducciones.ContainsKey(metroLabel4.Tag.ToString()))
+                        if (label3.Tag != null && traducciones.ContainsKey(label3.Tag.ToString()))
                         {
-                            this.metroLabel4.Text = traducciones[metroLabel4.Tag.ToString()].texto;
+                            this.label3.Text = traducciones[label3.Tag.ToString()].texto;
                         }
-
                     }
 
                 }
@@ -145,10 +130,10 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
-        public void VolverAidiomaOriginal()
+       public void VolverAidiomaOriginal()
         {
             try
             {
@@ -160,18 +145,17 @@ namespace UI
                     string traduccion = palabras.Find(p => p.Equals(metroButton1.Tag.ToString()));
                     this.metroButton1.Text = traduccion;
                 }
-
-                if (metroLabel3.Tag != null && palabras.Contains(metroLabel3.Tag.ToString()))
+                if (label2.Tag != null && palabras.Contains(label2.Tag.ToString()))
                 {
-                    string traduccion = palabras.Find(p => p.Equals(metroLabel3.Tag.ToString()));
-                    this.metroLabel3.Text = traduccion;
+                    string traduccion = palabras.Find(p => p.Equals(label2.Tag.ToString()));
+                    this.label2.Text = traduccion;
+                }
+                if (label3.Tag != null && palabras.Contains(label3.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(label3.Tag.ToString()));
+                    this.label3.Text = traduccion;
                 }
 
-                if (metroLabel4.Tag != null && palabras.Contains(metroLabel4.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroLabel4.Tag.ToString()));
-                    this.metroLabel4.Text = traduccion;
-                }
 
             }
             catch (Exception ex)
@@ -180,9 +164,9 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-          
+
         }
-        public void ListarIdiomas()
+        private void ListarIdiomas()
         {
             try
             {
@@ -206,16 +190,16 @@ namespace UI
                             comboBox1.Items.Add(idioma.Nombre);
                         }
                     }
-                }
 
+                }
             }
             catch (Exception ex)
             {
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
+
             }
-           
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -226,6 +210,7 @@ namespace UI
                 BLL.BLLTraductor traductor = new BLL.BLLTraductor();
                 Idioma Oidioma = new Idioma();
                 Oidioma = traductor.TraerIdioma(idiomaSelec);
+
                 servicios.Observer.cambiarIdioma(Oidioma);
 
             }
@@ -235,7 +220,6 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-         
         }
     }
 }

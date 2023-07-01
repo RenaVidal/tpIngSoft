@@ -23,6 +23,7 @@ namespace servicios
             Observadores.Remove(Observer);
         }
         
+       
 
         public static void notificarObeservadores(Idioma Idioma)   //se notifica a los observadores
         {
