@@ -100,7 +100,6 @@ namespace UI
                         formulario.Close();
                     }
                 }
-
                 SignIn form = new SignIn();
                 form.Show();
               
