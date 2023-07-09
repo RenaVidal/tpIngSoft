@@ -59,6 +59,16 @@ namespace UI
                     errorProvider1.SetError(textBox3, "You should enter an id with 1 to 9 numbers");
                     error++;
                 }
+                if (textBox4.Text == string.Empty || !validar.usuario(textBox4.Text))
+                {
+                    errorProvider1.SetError(textBox4, "You should enter a street name wirhout special characters");
+                    error++;
+                }
+                if (textBox5.Text == string.Empty || !validar.id(textBox5.Text))
+                {
+                    errorProvider1.SetError(textBox5, "You should enter an street number  with 1 to 9 numbers");
+                    error++;
+                }
                 if (metroDateTime2.Value == null)
                 {
                     errorProvider1.SetError(metroDateTime2, "You should enter a date");
@@ -70,7 +80,8 @@ namespace UI
                     if (oLog.usuario_existente(Convert.ToInt32(textBox3.Text))) MessageBox.Show("There is a user with that id already", "ERROR");
                     else
                     {
-                        oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), metroDateTime2.Value.ToString());
+                        string adress = textBox4.Text + " " + textBox5.Text;
+                        oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), metroDateTime2.Value.ToString(),adress);
                
                         if (oLog.crear_admin(oUsuraio))
                         {

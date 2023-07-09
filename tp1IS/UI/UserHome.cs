@@ -88,7 +88,6 @@ namespace UI
                 ODV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ODV.BuscarDVUsuarios()));
                 oBit.guardar_logOut();
                 SessionManager.Logout();
-                
                 var formularios = Application.OpenForms;
 
                 var copiaFormularios = new List<Form>(formularios.OfType<Form>());

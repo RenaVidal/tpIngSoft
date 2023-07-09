@@ -148,8 +148,9 @@ namespace UI
             }
             catch (Exception ex)
             {
-                var accion = ex.Message;
-                MessageBox.Show(ex.Message);
+                //    var accion = ex.Message;
+                //  MessageBox.Show(ex.Message);
+                throw ex;
             }
         }
         private void metroButton2_Click_1(object sender, EventArgs e)
@@ -188,9 +189,10 @@ namespace UI
             }
             catch (Exception ex)
             {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
-                MessageBox.Show(ex.Message);
+                //  var accion = ex.Message;
+                //  oBit.guardar_accion(accion, 1);
+                //  MessageBox.Show(ex.Message);
+                throw ex;
             }
         }
 
@@ -208,6 +210,8 @@ namespace UI
                 errorProvider1.SetError(textBox1, "");
                 errorProvider1.SetError(textBox2, "");
                 errorProvider1.SetError(textBox4, "");
+                errorProvider1.SetError(textBox3, "");
+                errorProvider1.SetError(textBox5, "");
                 if (textBox1.Text == string.Empty || !validar.usuario(textBox1.Text))
                 {
                     errorProvider1.SetError(textBox1, "The username should not have special character");
@@ -225,6 +229,17 @@ namespace UI
                     errorProvider1.SetError(textBox4, "You should enter an id with 1 to 9 numbers");
                     error++;
                 }
+                if (textBox3.Text == string.Empty || !validar.usuario(textBox3.Text))
+                {
+                    errorProvider1.SetError(textBox3, "The street name should not have special character");
+                    error++;
+                }
+                if (textBox5.Text == string.Empty || !validar.id(textBox5.Text))
+                {
+                    errorProvider1.SetError(textBox5, "You should enter an street number with 1 to 9 numbers");
+                    error++;
+                }
+
                 if (metroDateTime1.Value == null)
                 {
                     errorProvider1.SetError(metroDateTime1, "You should enter a date");
@@ -243,7 +258,8 @@ namespace UI
                         DV.DigitovActual = GenerarVD.generarDigitoVS(ListaDV);
                         if (DV.DigitovBaseDeDatos == DV.DigitovActual)
                         {
-                            oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox4.Text), metroDateTime1.Value.ToString());
+                            string adreess = textBox3.Text + " " + textBox5.Text;
+                            oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox4.Text), metroDateTime1.Value.ToString(),adreess);
                             oUsuraio.DV = GenerarVD.generarDigitoVU(oUsuraio);
                             if (oLog.cargar_usuario(oUsuraio))
                             {
@@ -271,9 +287,10 @@ namespace UI
             }
             catch (Exception ex)
             {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
-                MessageBox.Show(ex.Message);
+                //var accion = ex.Message;
+                //oBit.guardar_accion(accion, 1);
+                //MessageBox.Show(ex.Message);
+                throw ex;
             }
         }
        public void actualizarDVSxnewUser(BEUsuario Ousuario)

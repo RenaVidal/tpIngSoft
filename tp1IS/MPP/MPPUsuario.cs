@@ -89,6 +89,11 @@ namespace MPP
                     user.password = fila["password"].ToString();
                     user.id = Convert.ToInt32(fila["id"]);
                     user.birthDate = fila["birthdate"].ToString();
+                    //user.birthDate = encriptar.Desencriptar(encriptado);///////////////////////////////////////////////////////////////////////////
+                    //   string DNIEncript = servicios.encriptar.Encriptar(Convert.ToString(user.DNI));
+                    //  Hdatos.Add("DNI", DNIEncript);
+                    string Dencrip = fila["Direccion"].ToString();
+                    user.Direccion = encriptar.Desencriptar(Dencrip);
                 }
                 return user;
             }
@@ -173,6 +178,9 @@ namespace MPP
                 Hdatos.Add("@active", true);
                 Hdatos.Add("@birthdate", usuario.birthDate);
                 Hdatos.Add("@dv", usuario.DV);
+
+                string DEncript = servicios.encriptar.Encriptar(Convert.ToString(usuario.Direccion));
+                Hdatos.Add("Direccion", DEncript);
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
@@ -244,7 +252,8 @@ namespace MPP
                 Hdatos.Add("@active", true);
                 Hdatos.Add("@birthdate", usuario.birthDate);
                 Hdatos.Add("@dv", usuario.DV);
-
+                string DEncript = servicios.encriptar.Encriptar(Convert.ToString(usuario.Direccion));
+                Hdatos.Add("Direccion", DEncript);
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
@@ -284,8 +293,12 @@ namespace MPP
                 Hdatos.Add("@password", user.password);
                 Hdatos.Add("@active", user.active);
                 Hdatos.Add("@birthdate", user.birthDate);
+                string DEncript = servicios.encriptar.Encriptar(Convert.ToString(user.Direccion));
+                Hdatos.Add("Direccion", DEncript);
                 string DV = servicios.GenerarVD.generarDigitoVU(user);
                 Hdatos.Add("@dv", DV);
+
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
@@ -345,7 +358,13 @@ namespace MPP
                     user.user = fila["username"].ToString();
                     user.password = fila["password"].ToString();
                     user.id = Convert.ToInt32(fila["id"]);
-                    user.birthDate = fila["birthdate"].ToString();
+                     user.birthDate = fila["birthdate"].ToString();
+                    //string encriptado = fila["birthdate"].ToString();
+                    // user.birthDate = encriptar.Desencriptar(encriptado);
+                    //  string DNIEncript = servicios.encriptar.Encriptar(Convert.ToString(usuario.DNI));
+                    // Hdatos.Add("DNI", DNIEncript);
+                    string Dencrip = fila["Direccion"].ToString();
+                    user.Direccion = Convert.ToString(encriptar.Desencriptar(Dencrip));
                 }
                 return user;
             }
@@ -375,7 +394,7 @@ namespace MPP
             }
         }
          
-        public List<string> BuscarUsuariosYgenerarDV()
+        public List<string> BuscarUsuariosYgenerarDV()//////////////////////////////////////////////////////////////
         {
             try
             {
@@ -391,7 +410,12 @@ namespace MPP
                     user.user = fila["username"].ToString();
                     user.password = fila["password"].ToString();
                     user.id = Convert.ToInt32(fila["id"]);
-                    user.birthDate = fila["birthdate"].ToString();
+                    string encriptado = fila["birthdate"].ToString();
+                   // user.birthDate = encriptar.Desencriptar(encriptado);
+                     user.birthDate = fila["birthdate"].ToString();
+                     string DNIencrip =(fila["Direccion"].ToString());
+                    user.Direccion = encriptar.Desencriptar((DNIencrip));
+             
                     string dvV = fila["DV"].ToString();
                     string DV = servicios.GenerarVD.generarDigitoVU(user);
                     DVNUsers.Add(DV);

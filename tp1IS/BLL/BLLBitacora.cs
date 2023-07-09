@@ -18,13 +18,16 @@ namespace Negocio
             try
             {
             SessionManager u = SessionManager.GetInstance;
-                if (u.Usuario == null)
+                if (u.Usuario != null)
                 {
-                    throw new Exception("Error loading user to binnacle");
+                    BEUsuario user = u.Usuario;
+                    DateTime fecha = DateTime.Now;
+
+                    oBit.cargar_bitacora(user, fecha, accion, id_tipo);
                 }
-                BEUsuario user = u.Usuario;
-            DateTime fecha = DateTime.Now;
-            oBit.cargar_bitacora(user, fecha, accion, id_tipo);
+
+                
+          
             }
             catch (Exception ex)
             {
@@ -36,15 +39,16 @@ namespace Negocio
            try
            {
             SessionManager u = SessionManager.GetInstance;
-                if (u.Usuario == null)
+                if (u.Usuario != null)
                 {
-                    throw new Exception("Error loading user to binnacle");
+                   
+                    BEUsuario user = u.Usuario;
+                    DateTime fecha = u.FechaInicio;
+                    int id_tipo = 2;
+                    string accion = "logged in";
+                    oBit.cargar_bitacora(user, fecha, accion, id_tipo);
                 }
-                BEUsuario user = u.Usuario;
-            DateTime fecha = u.FechaInicio;
-            int id_tipo = 2;
-            string accion = "logged in";
-            oBit.cargar_bitacora(user,fecha,accion, id_tipo);
+            
             }
             catch (Exception ex) { throw ex; }
             }
@@ -53,15 +57,15 @@ namespace Negocio
          try
           {
             SessionManager u = SessionManager.GetInstance;
-                if (u.Usuario == null)
+                if (u.Usuario != null)
                 {
-                    throw new Exception("Error loading user to binnacle");
+                    BEUsuario user = u.Usuario;
+                    DateTime fecha = DateTime.Now;
+                    string accion = "logged out";
+                    int id_tipo = 2;
+                    oBit.cargar_bitacora(user, fecha, accion, id_tipo);
                 }
-                BEUsuario user = u.Usuario;
-             DateTime fecha = DateTime.Now;
-             string accion = "logged out";
-             int id_tipo = 2;
-             oBit.cargar_bitacora(user, fecha, accion, id_tipo);
+               
           }catch (Exception ex) { throw ex; }
         }
         public IList<IBitacora> GetAll(IBitacoraFilters filters, int pag)

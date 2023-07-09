@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Collections; //para el arraylist
 using BE;
 using abstraccion;
-
+using servicios;
 
 namespace DAL
 {
@@ -389,7 +389,10 @@ namespace DAL
                         user.id = Convert.ToInt32(reader["id"]);
                         user.birthDate = reader["birthdate"].ToString();
                         user.active = Convert.ToInt32(reader["active"]);
-                        usuarios.Add(user);
+                        string Dencrip = reader["Direccion"].ToString();
+                        user.Direccion = Convert.ToString(encriptar.Desencriptar(Dencrip));
+                    /////////////////////////////////////////////////////////////////////////////////////////////////
+                    usuarios.Add(user);
                     }
                 reader.Close();
 
