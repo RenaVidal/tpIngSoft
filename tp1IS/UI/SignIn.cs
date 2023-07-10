@@ -148,9 +148,9 @@ namespace UI
             }
             catch (Exception ex)
             {
-                //    var accion = ex.Message;
-                //  MessageBox.Show(ex.Message);
-                throw ex;
+                  var accion = ex.Message;
+                  MessageBox.Show(ex.Message);
+               
             }
         }
         private void metroButton2_Click_1(object sender, EventArgs e)
@@ -189,10 +189,10 @@ namespace UI
             }
             catch (Exception ex)
             {
-                //  var accion = ex.Message;
-                //  oBit.guardar_accion(accion, 1);
-                //  MessageBox.Show(ex.Message);
-                throw ex;
+                 var accion = ex.Message;
+                 oBit.guardar_accion(accion, 1);
+                 MessageBox.Show(ex.Message);
+                
             }
         }
 
@@ -229,7 +229,7 @@ namespace UI
                     errorProvider1.SetError(textBox4, "You should enter an id with 1 to 9 numbers");
                     error++;
                 }
-                if (textBox3.Text == string.Empty || !validar.usuario(textBox3.Text))
+                if (textBox3.Text == string.Empty || !validar.calle(textBox3.Text))
                 {
                     errorProvider1.SetError(textBox3, "The street name should not have special character");
                     error++;
@@ -287,10 +287,10 @@ namespace UI
             }
             catch (Exception ex)
             {
-                //var accion = ex.Message;
-                //oBit.guardar_accion(accion, 1);
-                //MessageBox.Show(ex.Message);
-                throw ex;
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+               
             }
         }
        public void actualizarDVSxnewUser(BEUsuario Ousuario)
@@ -421,6 +421,18 @@ namespace UI
                         {
                             this.metroLabel3.Text = traducciones[metroLabel3.Tag.ToString()].texto;
                         }
+                        if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
+                        {
+                            this.metroLabel1.Text = traducciones[metroLabel1.Tag.ToString()].texto;
+                        }
+                        if (metroLabel6.Tag != null && traducciones.ContainsKey(metroLabel6.Tag.ToString()))
+                        {
+                            this.metroLabel6.Text = traducciones[metroLabel6.Tag.ToString()].texto;
+                        }
+                        if (metroLabel7.Tag != null && traducciones.ContainsKey(metroLabel7.Tag.ToString()))
+                        {
+                            this.metroLabel7.Text = traducciones[metroLabel7.Tag.ToString()].texto;
+                        }
                     }
 
                 }
@@ -485,6 +497,21 @@ namespace UI
                     string traduccion = palabras.Find(p => p.Equals(metroLabel5.Tag.ToString()));
                     this.metroLabel5.Text = traduccion;
                 }
+                if (metroLabel1.Tag != null && palabras.Contains(metroLabel1.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel1.Tag.ToString()));
+                    this.metroLabel1.Text = traduccion;
+                }
+                if (metroLabel6.Tag != null && palabras.Contains(metroLabel6.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel6.Tag.ToString()));
+                    this.metroLabel6.Text = traduccion;
+                }
+                if (metroLabel7.Tag != null && palabras.Contains(metroLabel7.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel7.Tag.ToString()));
+                    this.metroLabel7.Text = traduccion;
+                }
 
             }
             catch (Exception ex)
@@ -525,10 +552,10 @@ namespace UI
             }
             catch (Exception ex)
             {
-                //   var accion = ex.Message;
-                //  oBit.guardar_accion(accion, 1);
-                //  MessageBox.Show(ex.Message);
-                throw ex;
+                  var accion = ex.Message;
+                  oBit.guardar_accion(accion, 1);
+                  MessageBox.Show(ex.Message);
+               
             }
 
 

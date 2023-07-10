@@ -125,15 +125,12 @@ namespace UI
             {
 
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-                //List<string> ListaPalabras = Traductor.obtenerIdiomaOriginal();
+              
                 comboBox1.DataSource = Traductor.obtenerPalabras();
          
                 comboBox1.DisplayMember = "nombre";
                 comboBox1.ValueMember = "ID"; 
-                /*foreach (string Opalabra in ListaPalabras)
-                {
-                    comboBox1.Items.Add(Opalabra);
-                }*/
+          
             }
             catch (Exception ex)
             {
@@ -470,7 +467,7 @@ namespace UI
                     dataGridView1.AutoResizeColumns();
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     dataGridView1.Columns["IDidioma"].Visible = false;
-                    //dataGridView1.Columns["ID"].Visible = false;
+                    dataGridView1.Columns["ID"].Visible = false;
 
                 }
 

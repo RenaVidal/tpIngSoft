@@ -36,6 +36,9 @@
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
@@ -46,9 +49,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.botonOjo = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -137,6 +137,36 @@
             this.groupBox1.Tag = "sign up";
             this.groupBox1.Text = "Sign Up";
             // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(101, 138);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(200, 20);
+            this.textBox5.TabIndex = 9;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(2, 138);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(95, 19);
+            this.metroLabel7.TabIndex = 8;
+            this.metroLabel7.Tag = "street number";
+            this.metroLabel7.Text = "street number:";
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(11, 102);
+            this.metroLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(83, 19);
+            this.metroLabel6.TabIndex = 7;
+            this.metroLabel6.Tag = "street name";
+            this.metroLabel6.Text = "Street name:";
+            // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
@@ -145,7 +175,7 @@
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(51, 19);
             this.metroLabel1.TabIndex = 6;
-            this.metroLabel1.Tag = "DNI";
+            this.metroLabel1.Tag = "adress";
             this.metroLabel1.Text = "Adress:";
             // 
             // textBox3
@@ -230,36 +260,6 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 8;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(11, 102);
-            this.metroLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel6.TabIndex = 7;
-            this.metroLabel6.Tag = "Street name:";
-            this.metroLabel6.Text = "Street name:";
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(2, 138);
-            this.metroLabel7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(95, 19);
-            this.metroLabel7.TabIndex = 8;
-            this.metroLabel7.Tag = "DNI";
-            this.metroLabel7.Text = "street number:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(101, 138);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 20);
-            this.textBox5.TabIndex = 9;
             // 
             // SignIn
             // 

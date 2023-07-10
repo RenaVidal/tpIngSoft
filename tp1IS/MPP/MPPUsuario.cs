@@ -89,9 +89,7 @@ namespace MPP
                     user.password = fila["password"].ToString();
                     user.id = Convert.ToInt32(fila["id"]);
                     user.birthDate = fila["birthdate"].ToString();
-                    //user.birthDate = encriptar.Desencriptar(encriptado);///////////////////////////////////////////////////////////////////////////
-                    //   string DNIEncript = servicios.encriptar.Encriptar(Convert.ToString(user.DNI));
-                    //  Hdatos.Add("DNI", DNIEncript);
+                  
                     string Dencrip = fila["Direccion"].ToString();
                     user.Direccion = encriptar.Desencriptar(Dencrip);
                 }
@@ -297,8 +295,6 @@ namespace MPP
                 Hdatos.Add("Direccion", DEncript);
                 string DV = servicios.GenerarVD.generarDigitoVU(user);
                 Hdatos.Add("@dv", DV);
-
-                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
@@ -359,10 +355,6 @@ namespace MPP
                     user.password = fila["password"].ToString();
                     user.id = Convert.ToInt32(fila["id"]);
                      user.birthDate = fila["birthdate"].ToString();
-                    //string encriptado = fila["birthdate"].ToString();
-                    // user.birthDate = encriptar.Desencriptar(encriptado);
-                    //  string DNIEncript = servicios.encriptar.Encriptar(Convert.ToString(usuario.DNI));
-                    // Hdatos.Add("DNI", DNIEncript);
                     string Dencrip = fila["Direccion"].ToString();
                     user.Direccion = Convert.ToString(encriptar.Desencriptar(Dencrip));
                 }
@@ -394,7 +386,7 @@ namespace MPP
             }
         }
          
-        public List<string> BuscarUsuariosYgenerarDV()//////////////////////////////////////////////////////////////
+        public List<string> BuscarUsuariosYgenerarDV()
         {
             try
             {
@@ -411,7 +403,6 @@ namespace MPP
                     user.password = fila["password"].ToString();
                     user.id = Convert.ToInt32(fila["id"]);
                     string encriptado = fila["birthdate"].ToString();
-                   // user.birthDate = encriptar.Desencriptar(encriptado);
                      user.birthDate = fila["birthdate"].ToString();
                      string DNIencrip =(fila["Direccion"].ToString());
                     user.Direccion = encriptar.Desencriptar((DNIencrip));

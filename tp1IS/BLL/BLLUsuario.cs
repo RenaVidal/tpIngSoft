@@ -23,7 +23,7 @@ namespace Negocio
         {
             try
             {
-                //string contrasena = encriptar.Encriptar(contra);
+               
                 string contraseña = encriptar.EncriptarConHash(contra);
               
                 return oUsuario.cambiar_contrasena(id, contraseña);
@@ -84,7 +84,7 @@ namespace Negocio
         {
             try
             {
-                // usuario.password = encriptar.Encriptar(usuario.password);
+               
                 usuario.password = encriptar.EncriptarConHash(usuario.password);
                 return oUsuario.validar(usuario);
             }
@@ -147,7 +147,7 @@ namespace Negocio
             try
             {
                 usuario.password = encriptar.EncriptarConHash(usuario.password);
-               // usuario.birthDate = encriptar.Encriptar(usuario.birthDate);
+         
                 usuario.DV = GenerarVD.generarDigitoVU(usuario);
                 return oUsuario.cargar_usuario(usuario);
             }
@@ -185,7 +185,7 @@ namespace Negocio
         {
             try
             {
-               // usuario.birthDate = encriptar.Encriptar(usuario.birthDate);
+    
                 usuario.password = encriptar.EncriptarConHash(usuario.password);
                 usuario.DV = GenerarVD.generarDigitoVU(usuario);
                 return oUsuario.crear_admin(usuario);

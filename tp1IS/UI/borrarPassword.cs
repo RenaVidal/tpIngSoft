@@ -79,9 +79,9 @@ namespace UI
                     if (oLog.usuario_existente(Convert.ToInt32( textBox1.Text)))
                     {
 
-                        if (oLog.cambiar_contrasena(Convert.ToInt32( textBox1.Text), textBox2.Text))/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        if (oLog.cambiar_contrasena(Convert.ToInt32( textBox1.Text), textBox2.Text))
                         {
-                            //actualizasxDV(Convert.ToInt32(textBox1.Text));
+                           
                             BEUsuario Ousuario = new BEUsuario();
                             Ousuario=oLog.buscar_usuarioxid(Convert.ToInt32(textBox1.Text));
                             Ousuario.DV = GenerarVD.generarDigitoVU(Ousuario);

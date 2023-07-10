@@ -18,7 +18,7 @@ using servicios.ClasesMultiLenguaje;
 using Patrones.Singleton.Core;
 
 
-//using Negocio;
+
 namespace UI
 {
     public partial class crearAdmin : MetroFramework.Forms.MetroForm,IdiomaObserver
@@ -42,6 +42,8 @@ namespace UI
                 errorProvider1.SetError(textBox1, "");
                 errorProvider1.SetError(textBox2, "");
                 errorProvider1.SetError(textBox3, "");
+                errorProvider1.SetError(textBox4, "");
+                errorProvider1.SetError(textBox5, "");
                 if (textBox1.Text == string.Empty || !validar.usuario(textBox1.Text))
                 {
                     errorProvider1.SetError(textBox1, "You should enter a name without special characters");
@@ -59,7 +61,7 @@ namespace UI
                     errorProvider1.SetError(textBox3, "You should enter an id with 1 to 9 numbers");
                     error++;
                 }
-                if (textBox4.Text == string.Empty || !validar.usuario(textBox4.Text))
+                if (textBox4.Text == string.Empty || !validar.calle(textBox4.Text))
                 {
                     errorProvider1.SetError(textBox4, "You should enter a street name wirhout special characters");
                     error++;
@@ -109,7 +111,7 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
-       // void CambiarIdioma(Iidioma Idioma);
+ 
         public void CambiarIdioma(Idioma Idioma)
         {
            

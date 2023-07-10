@@ -43,6 +43,16 @@ namespace servicios
             }
             catch(Exception ex) { throw ex; }
         }
+
+        public bool calle(string calle)
+        {
+            try
+            {
+                return Regex.IsMatch(calle, "^(?!^\\s+$)[A-Za-z\\s]{2,40}$");
+
+            }
+            catch (Exception ex) { throw ex; }
+        }
         public bool id (string id)
         {
 
