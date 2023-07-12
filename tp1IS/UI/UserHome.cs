@@ -40,6 +40,13 @@ namespace UI
           
 
         }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            servicios.Observer.eliminarObservador(this);
+        }
         private Form formularioAbierto = null;
         private void AbrirFormulario(Form formulario)
         {

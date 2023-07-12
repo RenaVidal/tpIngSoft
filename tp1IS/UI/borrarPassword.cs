@@ -44,7 +44,13 @@ namespace UI
             }
            
         }
-        
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            Observer.eliminarObservador(this);
+        }
+
         private void borrarPassword_FormClosing(object sender, EventArgs e)
         {
             

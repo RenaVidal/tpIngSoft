@@ -32,7 +32,7 @@ namespace UI
                 servicios.Observer.agregarObservador(this);
                 Escondercontroles();
                 ListarIdiomas();
-                ListarPalabras();
+              //  ListarPalabras();
                 Traducir();
             }
             catch(Exception ex)
@@ -42,6 +42,12 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
            
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            servicios.Observer.eliminarObservador(this);
         }
         private void AddLenguaje_FormClosing(object sender, EventArgs e)
         {
@@ -58,7 +64,11 @@ namespace UI
 
                 foreach (Idioma idioma in ListaIdiomas)
                 {
-                    if (idioma.Nombre == "Ingles")
+                    
+                    var traducciones = Traductor.obtenertraducciones(idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (idioma.Nombre == "Ingles")//|| traducciones.Values.Count == Lista.Count)
                     {
 
                     }
@@ -66,9 +76,6 @@ namespace UI
                     {
                         comboBox2.Items.Add(idioma.Nombre);
                     }
-                    var traducciones = Traductor.obtenertraducciones(idioma);
-                    List<string> Lista = new List<string>();
-                    Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count == Lista.Count)
                     {
                         comboBox3.Items.Add(idioma.Nombre);
@@ -123,10 +130,13 @@ namespace UI
 
             try
             {
-
+                string SIdioma = comboBox2.SelectedItem.ToString();//////////////////////////////////////////////////////////////////
+                Idioma OIdioma = Otraductor.TraerIdioma(SIdioma);
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                comboBox1.DataSource = Traductor.obtenerPalabrasSinTraducir(OIdioma.ID);
+              // BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
               
-                comboBox1.DataSource = Traductor.obtenerPalabras();
+              //  comboBox1.DataSource = Traductor.obtenerPalabras();
          
                 comboBox1.DisplayMember = "nombre";
                 comboBox1.ValueMember = "ID"; 
@@ -258,6 +268,7 @@ namespace UI
                         Obitacora.guardar_accion(accion,2);
                         MessageBox.Show("you create new traduccion in lenguaje " +Oidioma.Nombre);
                         textBox2.Text = "";
+                        ListarPalabras();
                     }
 
                 }
@@ -383,7 +394,7 @@ namespace UI
 
                 if (SessionManager.TraerUsuario())
                     Idioma = SessionManager.GetInstance.idioma;
-                if (Idioma.Nombre == "ingles")
+                if (Idioma.Default==true || Idioma.Nombre == "Ingles")
                 {
 
                     VolverAIdiomaoriginal();
@@ -562,6 +573,7 @@ namespace UI
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             refrescar();
+            ListarPalabras();
         }
     }
  }

@@ -163,6 +163,18 @@ namespace UI
                         {
                             this.metroLabel6.Text = traducciones[metroLabel6.Tag.ToString()].texto;
                         }
+                        if (metroLabel4.Tag != null && traducciones.ContainsKey(metroLabel4.Tag.ToString()))
+                        {
+                            this.metroLabel4.Text = traducciones[metroLabel4.Tag.ToString()].texto;
+                        }
+                        if (metroLabel5.Tag != null && traducciones.ContainsKey(metroLabel5.Tag.ToString()))
+                        {
+                            this.metroLabel5.Text = traducciones[metroLabel5.Tag.ToString()].texto;
+                        }
+                        if (metroLabel7.Tag != null && traducciones.ContainsKey(metroLabel7.Tag.ToString()))
+                        {
+                            this.metroLabel7.Text = traducciones[metroLabel7.Tag.ToString()].texto;
+                        }
                     }
 
 
@@ -247,6 +259,21 @@ namespace UI
                     string traduccion = palabras.Find(p => p.Equals(metroLabel6.Tag.ToString()));
                     this.metroLabel6.Text = traduccion;
                 }
+                if (metroLabel5.Tag != null && palabras.Contains(metroLabel5.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel5.Tag.ToString()));
+                    this.metroLabel5.Text = traduccion;
+                }
+                if (metroLabel7.Tag != null && palabras.Contains(metroLabel7.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel7.Tag.ToString()));
+                    this.metroLabel7.Text = traduccion;
+                }
+                if (metroLabel4.Tag != null && palabras.Contains(metroLabel4.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroLabel4.Tag.ToString()));
+                    this.metroLabel4.Text = traduccion;
+                }
 
             }
             catch (Exception ex)
@@ -273,6 +300,13 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
           
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            Observer.eliminarObservador(this);
         }
 
         private void crearAdmin_FormClosing(object sender, FormClosingEventArgs e)

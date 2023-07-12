@@ -43,6 +43,12 @@ namespace UI
             servicios.Observer.agregarObservador(this);
         }
 
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            Observer.eliminarObservador(this);
+        }
         private void controlCambios_FormClosing(object sender, EventArgs e)
         {
             try

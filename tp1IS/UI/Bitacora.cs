@@ -63,9 +63,13 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
+        }
 
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
 
-
+            Observer.eliminarObservador(this);
         }
         BLLUsuario oLog = new BLLUsuario();
         public void buscar(int pag)

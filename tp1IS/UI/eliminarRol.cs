@@ -42,7 +42,12 @@ namespace UI
             }
         
         }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
 
+            servicios.Observer.eliminarObservador(this);
+        }
         private void eliminarRol_FormClosing(object sender, FormClosingEventArgs e)
         {
             servicios.Observer.eliminarObservador(this);

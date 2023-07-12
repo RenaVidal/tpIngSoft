@@ -38,12 +38,14 @@ namespace UI
         BLL.BLLDv ODV = new BLLDv();
 
         private Form formularioAbierto = null;
+       // private IdiomaObserver Observer = null;
         private void AbrirFormulario(Form formulario)
         {
             try
             {
                 if (formularioAbierto != null)
                 {
+                  
                     formularioAbierto.Close();
                 }
 
@@ -77,6 +79,12 @@ namespace UI
             }
            
             
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            Observer.eliminarObservador(this);
         }
 
 

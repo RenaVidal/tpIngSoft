@@ -47,6 +47,13 @@ namespace UI
 
         }
 
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            servicios.Observer.eliminarObservador(this);
+        }
+
         private void metroButton1_Click(object sender, EventArgs e)
         {
             List<string> ListaDVU = OBLLDV.BuscarDVUsuarios();

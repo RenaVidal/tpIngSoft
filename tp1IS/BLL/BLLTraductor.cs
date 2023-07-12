@@ -43,8 +43,22 @@ namespace BLL
             }
            
         }
-        public DataTable traerTablaxIdioma(int id)
+
+        public List<Palabra> obtenerPalabrasSinTraducir(int idioma)
         {
+            try
+            {
+                return OMPPtraductor.obtenerPalabrasSinTraducir(idioma);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
+
+        }
+            public DataTable traerTablaxIdioma(int id)
+            {
 
             try
             {

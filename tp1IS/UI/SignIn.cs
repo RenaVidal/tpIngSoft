@@ -46,6 +46,13 @@ namespace UI
             ListarIdiomas();
 
         }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            Observer.eliminarObservador(this);
+        }
         private void SigIn_FormClosing(object sender, EventArgs e)
         {
             try

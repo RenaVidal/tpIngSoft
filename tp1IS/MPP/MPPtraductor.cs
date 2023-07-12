@@ -273,6 +273,44 @@ namespace MPP
          
         }
 
+        public List<Palabra> obtenerPalabrasSinTraducir(int idioma)
+        {
+            try
+            {
+                List<Palabra> Palabras = new List<Palabra>();
+                string consulta = "ObtenerPalabrasSinTraduccion";
+
+                DataTable DT = new DataTable();
+                Hashtable Hdatos = new Hashtable();
+                Hdatos.Add("@idIdioma", idioma);
+                DT = Datos.Leer(consulta, Hdatos);
+
+                if (DT.Rows.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    foreach (DataRow fila in DT.Rows)
+                    {
+                        Palabra Opalabra = new Palabra();
+                        Opalabra.Nombre = fila["palabra"].ToString();
+                        Opalabra.ID = Convert.ToInt32(fila["id"].ToString());
+                        Palabras.Add(Opalabra);
+
+                    }
+                    return Palabras;
+                }
+               
+            }
+            catch (Exception ex)
+            {
+              
+                throw ex;
+            }
+
+        }
+
         public List<Palabra> obtenerPalabras()
         {
             try

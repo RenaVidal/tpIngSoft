@@ -44,7 +44,12 @@ namespace UI
             }
           
         }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
 
+            Observer.eliminarObservador(this);
+        }
         private void darAdmin_FormClosing(object sender, FormClosingEventArgs e)
         {
             
