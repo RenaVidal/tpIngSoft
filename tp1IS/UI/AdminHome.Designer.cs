@@ -211,8 +211,8 @@
             this.metroButton6.Size = new System.Drawing.Size(92, 147);
             this.metroButton6.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton6.TabIndex = 3;
-            this.metroButton6.Tag = "create rol";
-            this.metroButton6.Text = "Create Rol";
+            this.metroButton6.Tag = "create role";
+            this.metroButton6.Text = "Create Role";
             this.metroButton6.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.metroButton6.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroButton6.UseCustomBackColor = true;
@@ -231,8 +231,8 @@
             this.metroButton7.Size = new System.Drawing.Size(166, 147);
             this.metroButton7.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton7.TabIndex = 4;
-            this.metroButton7.Tag = "asign or delete role";
-            this.metroButton7.Text = "Asign or Delete Role";
+            this.metroButton7.Tag = "assign or delete role";
+            this.metroButton7.Text = "Assign or Delete Role";
             this.metroButton7.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.metroButton7.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroButton7.UseCustomBackColor = true;

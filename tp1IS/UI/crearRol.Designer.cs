@@ -52,7 +52,7 @@
             // treeView2
             // 
             this.treeView2.Location = new System.Drawing.Point(28, 102);
-            this.treeView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView2.Margin = new System.Windows.Forms.Padding(2);
             this.treeView2.Name = "treeView2";
             this.treeView2.Size = new System.Drawing.Size(302, 343);
             this.treeView2.TabIndex = 2;
@@ -72,7 +72,7 @@
             // metroButton1
             // 
             this.metroButton1.Location = new System.Drawing.Point(370, 271);
-            this.metroButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(122, 22);
             this.metroButton1.TabIndex = 9;
@@ -86,7 +86,7 @@
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(26, 64);
+            this.metroLabel1.Location = new System.Drawing.Point(-4, 64);
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(403, 25);
@@ -97,7 +97,7 @@
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(370, 297);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(212, 148);
             this.treeView1.TabIndex = 11;
@@ -107,7 +107,7 @@
             // 
             this.metroButton2.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton2.Location = new System.Drawing.Point(370, 466);
-            this.metroButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton2.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(212, 22);
             this.metroButton2.TabIndex = 14;
@@ -119,7 +119,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(128, 466);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(201, 20);
             this.textBox1.TabIndex = 13;
@@ -132,7 +132,7 @@
             // treeView3
             // 
             this.treeView3.Location = new System.Drawing.Point(370, 206);
-            this.treeView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView3.Margin = new System.Windows.Forms.Padding(2);
             this.treeView3.Name = "treeView3";
             this.treeView3.Size = new System.Drawing.Size(212, 50);
             this.treeView3.TabIndex = 8;
@@ -140,7 +140,7 @@
             // metroButton3
             // 
             this.metroButton3.Location = new System.Drawing.Point(370, 180);
-            this.metroButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton3.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(122, 22);
             this.metroButton3.TabIndex = 7;
@@ -154,7 +154,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(458, 109);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(128, 21);
             this.comboBox1.TabIndex = 4;
@@ -177,7 +177,7 @@
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel5.Location = new System.Drawing.Point(370, 64);
+            this.metroLabel5.Location = new System.Drawing.Point(403, 64);
             this.metroLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(164, 25);
@@ -202,7 +202,7 @@
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(458, 133);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(128, 21);
             this.comboBox2.TabIndex = 6;
@@ -210,7 +210,7 @@
             // metroButton4
             // 
             this.metroButton4.Location = new System.Drawing.Point(496, 271);
-            this.metroButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton4.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(22, 22);
             this.metroButton4.TabIndex = 10;
@@ -249,7 +249,7 @@
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.treeView2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "crearRol";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Text = "Create Rol";

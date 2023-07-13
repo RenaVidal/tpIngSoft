@@ -68,7 +68,7 @@ namespace UI
                     var traducciones = Traductor.obtenertraducciones(idioma);
                     List<string> Lista = new List<string>();
                     Lista = Traductor.obtenerIdiomaOriginal();
-                    if (idioma.Nombre == "Ingles")//|| traducciones.Values.Count == Lista.Count)
+                    if (idioma.Nombre == "Ingles"|| traducciones.Values.Count == Lista.Count)
                     {
 
                     }
@@ -171,14 +171,14 @@ namespace UI
                 }
                 if (!(validar.idioma(textBox1.Text)))
                 {
-                    errorProvider1.SetError(textBox1, "You must enter a language without special characters");
+                    errorProvider1.SetError(textBox1, "you dont enter the language correctly, respects capital letters and dont enter special characters");
                     return;
                     error++;
                 }
 
                 if (error == 0)
                 {
-                    if (Otraductor.IdiomaExistente(textBox1.Text)) MessageBox.Show("this language already exists or the id is busy");
+                    if (Otraductor.IdiomaExistente(textBox1.Text)) MessageBox.Show("this language already exist");
                     else
                     {
                         NewIdioma.Nombre = textBox1.Text;
@@ -269,6 +269,7 @@ namespace UI
                         MessageBox.Show("you create new traduccion in lenguaje " +Oidioma.Nombre);
                         textBox2.Text = "";
                         ListarPalabras();
+                        ListarIdiomas();
                     }
 
                 }
