@@ -213,7 +213,7 @@ namespace UI
                 }
                 if (u.Usuario.id == Convert.ToInt32(textBox1.Text))
                 {
-                    errorProvider1.SetError(treeView1, "You can not add roles to yourself");
+                    errorProvider1.SetError(treeView2, "You can not add roles to yourself");
                     return;
                 }
                 IList<Componente> listFam = oComp.GetFamilias();
@@ -361,7 +361,13 @@ namespace UI
                     errorProvider1.SetError(textBox1, "You should enter an id with 1 to 9 numbers");
                     return;
                 }
-                cargar_roles(Convert.ToInt32(textBox1.Text));
+                if (oLog.usuario_existente(Convert.ToInt32(textBox1.Text))){
+                    cargar_roles(Convert.ToInt32(textBox1.Text));
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "There is no user related with this id");
+                }
             }
             catch (Exception ex)
             {
@@ -374,9 +380,15 @@ namespace UI
 
         public void CambiarIdioma(Idioma Idioma)
         {
-            
-            Traducir();
-            ListarIdiomas();
+            try
+            {
+                Traducir();
+                ListarIdiomas();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public void ListarIdiomas()
         {

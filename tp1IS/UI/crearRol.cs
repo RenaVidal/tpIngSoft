@@ -446,8 +446,18 @@ namespace UI
 
         private void metroButton4_Click(object sender, EventArgs e)
         {
-            TreeNode ultimoNodo = treeView1.Nodes[treeView1.Nodes.Count - 1];
-            ultimoNodo.Remove();
+            try
+            {
+                if(treeView1.Nodes.Count >= 1)
+                {
+                    TreeNode ultimoNodo = treeView1.Nodes[treeView1.Nodes.Count - 1];
+                    ultimoNodo.Remove();
+                }
+            }
+          catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void CambiarIdioma(Idioma Idioma)

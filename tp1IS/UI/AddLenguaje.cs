@@ -24,7 +24,7 @@ namespace UI
         }
         BLLTraductor Otraductor = new BLLTraductor();
         servicios.validaciones validar = new servicios.validaciones();
-        
+        string idioma = string.Empty;
         private void AddLenguaje_Load(object sender, EventArgs e)
         {
             try
@@ -32,7 +32,6 @@ namespace UI
                 servicios.Observer.agregarObservador(this);
                 Escondercontroles();
                 ListarIdiomas();
-              //  ListarPalabras();
                 Traducir();
             }
             catch(Exception ex)
@@ -130,13 +129,10 @@ namespace UI
 
             try
             {
-                string SIdioma = comboBox2.SelectedItem.ToString();//////////////////////////////////////////////////////////////////
+                string SIdioma = comboBox2.SelectedItem.ToString();
                 Idioma OIdioma = Otraductor.TraerIdioma(SIdioma);
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
                 comboBox1.DataSource = Traductor.obtenerPalabrasSinTraducir(OIdioma.ID);
-              // BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-              
-              //  comboBox1.DataSource = Traductor.obtenerPalabras();
          
                 comboBox1.DisplayMember = "nombre";
                 comboBox1.ValueMember = "ID"; 
@@ -166,14 +162,16 @@ namespace UI
                 if (textBox1.Text == string.Empty)
                 {
                     errorProvider1.SetError(textBox1, "You must enter a language");
-                    return;
+                   
                     error++;
+                    return;
                 }
                 if (!(validar.idioma(textBox1.Text)))
                 {
                     errorProvider1.SetError(textBox1, "you dont enter the language correctly, respects capital letters and dont enter special characters");
-                    return;
                     error++;
+                    return;
+                   
                 }
 
                 if (error == 0)
@@ -248,10 +246,7 @@ namespace UI
                 }
                 if (error == 0)
                 {
-                 //   string Palabra = comboBox1.SelectedItem.ToString();
                     Palabra Opalbra = new Palabra();
-                    //   Opalbra = OBLLtraductor.TraerPalbra(Palabra);
-                    // Opalbra = comboBox1.;
                     Palabra PalabraSele = (Palabra)comboBox1.SelectedItem;
                     string Idioma = comboBox2.SelectedItem.ToString();
                     Idioma Oidioma = new Idioma();
@@ -459,20 +454,20 @@ namespace UI
             }
            
         }
-
+      
         public void refrescar()
         {
             try
             {
                 dataGridView1.DataSource = null;
 
-                if (comboBox2.SelectedItem == null)
+                if (idioma == null || idioma == string.Empty)
                 {
                     MessageBox.Show("you must select a language");
                 }
                 else
                 {
-                    servicios.ClasesMultiLenguaje.Idioma Oidioma = Otraductor.TraerIdioma(comboBox2.SelectedItem.ToString());
+                    servicios.ClasesMultiLenguaje.Idioma Oidioma = Otraductor.TraerIdioma(idioma);
 
 
                     dataGridView1.DataSource = Otraductor.traerTablaxIdioma(Oidioma.ID);
@@ -573,6 +568,10 @@ namespace UI
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(comboBox2.SelectedItem != null)
+            {
+                idioma = comboBox2.SelectedItem.ToString();
+            }
             refrescar();
             ListarPalabras();
         }

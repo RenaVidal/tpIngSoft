@@ -114,3 +114,4 @@ C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.csproj
 C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.exe
 C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.pdb
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.Desencriptar.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.Desencriptar.resources

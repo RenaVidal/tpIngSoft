@@ -41,7 +41,6 @@ namespace UI
             Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoCerrado.png");
             botonOjo.Image = imagen;
             textBox2.UseSystemPasswordChar = true;
-            //SessionManager.agregarObservador(this);
             Observer.agregarObservador(this);
             ListarIdiomas();
 
@@ -101,12 +100,11 @@ namespace UI
                     user.permisos = oComp.GetPermisosdeUser(user.id);
                     SessionManager u = SessionManager.GetInstance;
                     SessionManager.Login(user);
-                    oBit.guardar_logIn();
-                  
                     BE.DigitoV DV = new BE.DigitoV();
                     DV.DigitovBaseDeDatos = OBLLDV.BuscarDVS();
                     List<string> ListaDV = oLog.BuscarUsuariosYgenerarDV();
                     DV.DigitovActual = GenerarVD.generarDigitoVS(ListaDV);
+                    oBit.guardar_logIn();
                     if (DV.DigitovBaseDeDatos == DV.DigitovActual)
                     {
 
@@ -247,9 +245,9 @@ namespace UI
                     error++;
                 }
 
-                if (metroDateTime1.Value == null)
+                if (metroDateTime1.Value == null || metroDateTime1.Value > DateTime.Now)
                 {
-                    errorProvider1.SetError(metroDateTime1, "You should enter a date");
+                    errorProvider1.SetError(metroDateTime1, "You should enter a date that is not later than today");
                     error++;
                 }
 
@@ -263,7 +261,7 @@ namespace UI
                         DV.DigitovBaseDeDatos = OBLLDV.BuscarDVS();
                         List<string> ListaDV = oLog.BuscarUsuariosYgenerarDV();
                         DV.DigitovActual = GenerarVD.generarDigitoVS(ListaDV);
-                        if (DV.DigitovBaseDeDatos == DV.DigitovActual)
+                        if (DV.DigitovBaseDeDatos == DV.DigitovActual || DV.DigitovBaseDeDatos == string.Empty)
                         {
                             string adreess = textBox3.Text + " " + textBox5.Text;
                             oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox4.Text), metroDateTime1.Value.ToString(),adreess);
@@ -294,8 +292,6 @@ namespace UI
             }
             catch (Exception ex)
             {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
                
             }
@@ -316,8 +312,8 @@ namespace UI
         }
         private void botonOjo_Click(object sender, EventArgs e)
         {
-            
-           
+            try
+            {
 
             if (ojoOpen == true)
             {
@@ -334,7 +330,12 @@ namespace UI
                 botonOjo.Image = imagen;
                 ojoOpen = true;
             }
-           
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
 
         }
 
@@ -361,8 +362,6 @@ namespace UI
             }
             catch (Exception ex)
             {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
 
@@ -447,8 +446,6 @@ namespace UI
             }
             catch (Exception ex)
             {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
 
@@ -523,8 +520,6 @@ namespace UI
             }
             catch (Exception ex)
             {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
 
@@ -559,8 +554,6 @@ namespace UI
             }
             catch (Exception ex)
             {
-                  var accion = ex.Message;
-                  oBit.guardar_accion(accion, 1);
                   MessageBox.Show(ex.Message);
                
             }

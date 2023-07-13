@@ -14,9 +14,15 @@ namespace UI
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignIn());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new SignIn());
+            }
+            catch(Exception ex) { 
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

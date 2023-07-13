@@ -40,14 +40,22 @@ namespace UI
         IBitacoraFilters filters = new BEBitacoraFilters() { From = DateTime.Now, To = DateTime.Now };
         private void Bitacora_Load(object sender, EventArgs e)
         {
-            listBitacora = oBit.GetAll(filters, 1);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = listBitacora;
-            pag = 1;
-            button1.Enabled = false;
-            ListarIdiomas();
-            Traducir();
-            servicios.Observer.agregarObservador(this);
+            try
+            {
+                listBitacora = oBit.GetAll(filters, 1);
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = listBitacora;
+                pag = 1;
+                button1.Enabled = false;
+                ListarIdiomas();
+                Traducir();
+                servicios.Observer.agregarObservador(this);
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Bitacora_FormClosing(object sender, EventArgs e)
@@ -74,11 +82,19 @@ namespace UI
         BLLUsuario oLog = new BLLUsuario();
         public void buscar(int pag)
         {
-            listBitacora = oBit.GetAll(filters, pag);
-            if (listBitacora.Count == 0) { button2.Enabled = false; }
-            else { button2.Enabled = true; }
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = listBitacora;
+            try
+            {
+                listBitacora = oBit.GetAll(filters, pag);
+                if (listBitacora.Count == 0) { button2.Enabled = false; }
+                else { button2.Enabled = true; }
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = listBitacora;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void Apply_Click(object sender, EventArgs e)
         {
@@ -147,24 +163,54 @@ namespace UI
 
         private void metroButton3_Click(object sender, EventArgs e)
         {
+            try
+            {
             inicializar_filtros();
             buscar(1);
             pag = 1;
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            try
+            {
             button1.Enabled = true;
             pag += 1;
             buscar(pag);
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            pag -= 1;
-            button1.Enabled = true;
-            if (pag <= 1) button1.Enabled = false;
-            if(pag > 0) buscar(pag);
+            try
+            {
+                pag -= 1;
+                button1.Enabled = true;
+                if (pag <= 1) button1.Enabled = false;
+                if(pag > 0) buscar(pag);
+
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void metroButton1_Click(object sender, EventArgs e)

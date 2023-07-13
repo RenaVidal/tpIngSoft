@@ -401,10 +401,6 @@ namespace UI
                         {
                             this.metroButton10.Text = traducciones[metroButton10.Tag.ToString()].texto;
                         }
-                        if (metroButton12.Tag != null && traducciones.ContainsKey(metroButton12.Tag.ToString()))
-                        {
-                            this.metroButton12.Text = traducciones[metroButton12.Tag.ToString()].texto;
-                        }
 
                     }
 
@@ -500,11 +496,6 @@ namespace UI
                     string traduccion = palabras.Find(p => p.Equals(metroButton8.Tag.ToString()));
                     this.metroButton8.Text = traduccion;
                 }
-                if (metroButton12.Tag != null && palabras.Contains(metroButton12.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton12.Tag.ToString()));
-                    this.metroButton12.Text = traduccion;
-                }
 
             }
             catch (Exception ex)
@@ -589,8 +580,7 @@ namespace UI
 
         private void metroButton12_Click(object sender, EventArgs e)
         {
-            Desencriptar from = new Desencriptar();
-            AbrirFormulario(from);
+           
         }
     }
 }

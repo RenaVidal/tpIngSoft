@@ -90,7 +90,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                oBit.guardar_accion(ex.Message, 1);
                 throw ex;
             }
         }
@@ -102,7 +101,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                oBit.guardar_accion(ex.Message, 1);
                 throw ex;
             }
         }
@@ -114,7 +112,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                oBit.guardar_accion(ex.Message, 1);
                 throw ex;
             }
         }
@@ -126,7 +123,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                oBit.guardar_accion(ex.Message, 1);
                 throw ex;
             }
         }
@@ -153,7 +149,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                oBit.guardar_accion(ex.Message, 1);
                 throw ex;
             }
         }
@@ -165,7 +160,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                oBit.guardar_accion(ex.Message, 1);
                 throw ex;
             }
         }
@@ -192,7 +186,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                oBit.guardar_accion(ex.Message, 1);
                 throw ex;
             }
         }
@@ -204,7 +197,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                oBit.guardar_accion(ex.Message, 1);
                 throw ex;
             }
         }
@@ -228,7 +220,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                oBit.guardar_accion(ex.Message, 1);
                 throw ex;
             }
         }
@@ -241,7 +232,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                oBit.guardar_accion(ex.Message, 1);
                 throw ex;
             }
         }
