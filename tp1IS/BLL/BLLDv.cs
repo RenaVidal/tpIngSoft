@@ -22,6 +22,10 @@ namespace BLL
             {
                 return Odv.actualizarDV(DV);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -34,6 +38,10 @@ namespace BLL
             {
                 return Odv.BuscarDVS();
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -45,7 +53,12 @@ namespace BLL
             try
             {
                 return Odv.BuscarDVUsuarios();
-            }catch(Exception ex)
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

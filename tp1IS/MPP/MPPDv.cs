@@ -29,6 +29,10 @@ namespace MPP
                 Hdatos.Add("@dv", DV);
                 return datos.Escribir(Consulta, Hdatos);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -58,6 +62,10 @@ namespace MPP
                 }
                 return DigitovBaseDeDatos;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -83,6 +91,10 @@ namespace MPP
                     ListaDVUsers.Add(DVU);
                 }
                 return ListaDVUsers;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {

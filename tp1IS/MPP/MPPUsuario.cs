@@ -29,6 +29,10 @@ namespace MPP
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -44,6 +48,10 @@ namespace MPP
                 Hdatos.Add("@rol", rol);
                 oDatos = new Acceso();
                 return oDatos.Escribir_con_respuesta(Consulta, Hdatos);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -66,6 +74,10 @@ namespace MPP
                     if (usuario.user == fila["username"].ToString() && usuario.password == fila["password"].ToString()) return true;
                 }
                 return false;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -95,6 +107,10 @@ namespace MPP
                 }
                 return user;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -117,6 +133,10 @@ namespace MPP
                 }
                 return false;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -138,6 +158,10 @@ namespace MPP
                 }
                 return false;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -158,6 +182,10 @@ namespace MPP
                     if (username == fila["username"].ToString()) return true;
                 }
                 return false;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -182,6 +210,10 @@ namespace MPP
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -196,6 +228,10 @@ namespace MPP
                 Hdatos.Add("@id", id);
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -218,6 +254,10 @@ namespace MPP
                 }
                 return false;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -232,6 +272,10 @@ namespace MPP
                 Hdatos.Add("@id", id);
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -255,6 +299,10 @@ namespace MPP
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -272,6 +320,10 @@ namespace MPP
 
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -298,6 +350,10 @@ namespace MPP
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -321,6 +377,10 @@ namespace MPP
                     if (Convert.ToInt32(fila["id_rol"]) == rol && Convert.ToInt32(fila["id_usuario"]) == id) return true;
                 }
                 return false;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -360,6 +420,10 @@ namespace MPP
                 }
                 return user;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -379,6 +443,10 @@ namespace MPP
 
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -413,6 +481,10 @@ namespace MPP
                     actualizarDVxUsuario(user.id, DV);
                 }
                 return DVNUsers;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {

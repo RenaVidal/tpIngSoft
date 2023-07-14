@@ -21,6 +21,10 @@ namespace BLL
             {
                 OMPPtraductor = new MPPtraductor();
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -33,6 +37,10 @@ namespace BLL
             try
             {
                 return OMPPtraductor.ObtenerIdiomaBase();
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -50,6 +58,10 @@ namespace BLL
             {
                 return OMPPtraductor.obtenerPalabrasSinTraducir(idioma);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -63,6 +75,10 @@ namespace BLL
             try
             {
                 return OMPPtraductor.traerTablaxIdioma(id);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -78,6 +94,10 @@ namespace BLL
             {
                 return OMPPtraductor.ObtenerIdiomas();
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -89,6 +109,10 @@ namespace BLL
             try
             {
                 return OMPPtraductor.obtenertraducciones(Idioma);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -103,6 +127,10 @@ namespace BLL
             {
                 return OMPPtraductor.obtenerIdiomaOriginal();
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -116,6 +144,10 @@ namespace BLL
             {
                 return OMPPtraductor.obtenerPalabras();
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -127,6 +159,10 @@ namespace BLL
             try
             {
                 return OMPPtraductor.TrarIdioma(idioma);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -141,6 +177,10 @@ namespace BLL
             {
                 return OMPPtraductor.CrearIdioma(Oidioma);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -153,6 +193,10 @@ namespace BLL
             try
             {
                 return OMPPtraductor.idiomaExistente(idioma);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -167,6 +211,10 @@ namespace BLL
             {
                 return OMPPtraductor.TraduccionExistente(id_idioma, id_palabra);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -180,6 +228,10 @@ namespace BLL
             {
                 return OMPPtraductor.TraerPalbra(palabra);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -192,6 +244,10 @@ namespace BLL
             try
             {
                 return OMPPtraductor.CrearTraduccion(ID_idioma, Otraduccion);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {

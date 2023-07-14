@@ -29,6 +29,10 @@ namespace MPP
                 DataTable Ds2 = new DataTable();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -52,6 +56,10 @@ namespace MPP
                 }
                 return 0;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -67,6 +75,10 @@ namespace MPP
                 Hdatos.Add("@patente", patente);
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -84,6 +96,10 @@ namespace MPP
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -96,6 +112,10 @@ namespace MPP
             {
                 oDatos = new Acceso();
                 return oDatos.GetAll(familia);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -123,6 +143,10 @@ namespace MPP
                 }
                 return lista;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -148,6 +172,10 @@ namespace MPP
                     lista.Add(c);
                 }
                 return lista;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -178,6 +206,10 @@ namespace MPP
                 List<int> objetosFiltrados = componentes.Where(obj => lista.Contains(obj.Id)).Select(obj => obj.Id).ToList();
                 return objetosFiltrados;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -206,6 +238,10 @@ namespace MPP
                 
                 return lista;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -221,6 +257,10 @@ namespace MPP
                 Hdatos.Add("@id", id);
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -244,6 +284,10 @@ namespace MPP
                 }
                 return 0;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -265,6 +309,10 @@ namespace MPP
                     if (rol == Convert.ToInt32(fila["id_rol"])) return true;
                 }
                 return false;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -290,6 +338,10 @@ namespace MPP
                     }
                 }
                 return false;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {

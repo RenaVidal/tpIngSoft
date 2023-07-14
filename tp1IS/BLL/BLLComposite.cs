@@ -32,6 +32,10 @@ namespace BLL
                 return mPPComposite.escribir(componente);
 
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -44,6 +48,10 @@ namespace BLL
             {
                 return mPPComposite.GetAll(familia);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -58,6 +66,10 @@ namespace BLL
                 return mPPComposite.hacer_patente(componente, patente);
 
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -71,6 +83,10 @@ namespace BLL
                 return mPPComposite.GetFamilias();
 
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -83,6 +99,10 @@ namespace BLL
             {
                 return mPPComposite.GetPermisos();
 
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -110,6 +130,10 @@ namespace BLL
                 return permisos;
 
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -122,6 +146,10 @@ namespace BLL
             {
                 return mPPComposite.get_permisos(rol);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -136,6 +164,10 @@ namespace BLL
                 return mPPComposite.buscar_id(nombre);
 
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -148,6 +180,10 @@ namespace BLL
             {
                 return mPPComposite.escribir_retorno_id(nombre);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -162,6 +198,10 @@ namespace BLL
                 return mPPComposite.es_patente(nombre);
 
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -175,6 +215,10 @@ namespace BLL
                 return mPPComposite.borrar(id);
 
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -187,6 +231,10 @@ namespace BLL
             {
                 return mPPComposite.buscar_rol_usado(rol);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -212,6 +260,10 @@ namespace BLL
                 return false;
 
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -233,6 +285,10 @@ namespace BLL
                 return padre;
 
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -248,6 +304,10 @@ namespace BLL
                 if (padre.Nombre == hijo.Nombre) return true;
                 else return (padre.Hijos.Contains(hijo) || contiene(hijo, padre));
 
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {

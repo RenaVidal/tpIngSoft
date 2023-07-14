@@ -28,6 +28,10 @@ namespace Negocio
               
                 return oUsuario.cambiar_contrasena(id, contraseña);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -41,7 +45,11 @@ namespace Negocio
             {
                 return oUsuario.buscar_usuarioporID(id);
             }
-            catch(Exception ex)
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -52,7 +60,12 @@ namespace Negocio
             try
             {
                 return oUsuario.actualizarDVxUsuario(ID, DV);
-            }catch(Exception ex)
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -62,6 +75,10 @@ namespace Negocio
             try
             {
                 return oUsuario.BuscarUsuariosYgenerarDV();
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -73,6 +90,10 @@ namespace Negocio
             try
             {
                 return oUsuario.borrar_rol(id, rol);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -88,6 +109,10 @@ namespace Negocio
                 usuario.password = encriptar.EncriptarConHash(usuario.password);
                 return oUsuario.validar(usuario);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -98,6 +123,10 @@ namespace Negocio
             try
             {
                 return oUsuario.buscar_usuario(username);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -110,6 +139,10 @@ namespace Negocio
             {
                 return oUsuario.usuario_existente(id);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -121,6 +154,10 @@ namespace Negocio
             {
                 return oUsuario.username_existente(username);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -131,6 +168,10 @@ namespace Negocio
             try
             {
                 return oUsuario.eliminar_usuario(id);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -146,6 +187,10 @@ namespace Negocio
          
                 usuario.DV = GenerarVD.generarDigitoVU(usuario);
                 return oUsuario.cargar_usuario(usuario);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -169,6 +214,10 @@ namespace Negocio
             {
                 return oUsuario.dar_admin(id);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 oBit.guardar_accion(ex.Message, 1);
@@ -184,6 +233,10 @@ namespace Negocio
                 usuario.DV = GenerarVD.generarDigitoVU(usuario);
                 return oUsuario.crear_admin(usuario);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -195,6 +248,10 @@ namespace Negocio
             {
                 return oUsuario.es_activo(username);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -205,6 +262,10 @@ namespace Negocio
             try
             {
                 return oUsuario.agregar_rol(id, rol);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -218,6 +279,10 @@ namespace Negocio
             {
                 return oUsuario.tiene_rol(id, rol);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -230,6 +295,10 @@ namespace Negocio
 
                 return oUsuario.restaurar_usuario(user);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -240,6 +309,10 @@ namespace Negocio
             try
             {
                 return oUsuario.GetAllHistorico(nombre, pag);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {

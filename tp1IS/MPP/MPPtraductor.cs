@@ -173,7 +173,12 @@ namespace MPP
                 }
 
                 return IdiomaSelec;
-            }catch(Exception ex)
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -190,6 +195,10 @@ namespace MPP
                 hdatos.Add("predeterminado", Oidioma.Default);
                 Datos = new Acceso();
                 return Datos.Escribir(consulta, hdatos);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -210,13 +219,16 @@ namespace MPP
                 if (idioma == fila["idioma"].ToString()) return true;
                
             }
+
             return false;
+
         }
 
         public Palabra TraerPalbra(string palabra)
         {
-            string consulta = "S_Traer_UnaPalabra";
             Palabra Opalabra = new Palabra();
+            try {  
+            string consulta = "S_Traer_UnaPalabra";
             DataTable DT = new DataTable();
             Hashtable Hdatos = new Hashtable();
             Hdatos.Add("@palabra", palabra);
@@ -234,10 +246,20 @@ namespace MPP
                     return null;
                 }
             }
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             return Opalabra;
         }
         public bool TraduccionExistente(int id_Idioma,int id_Palabra)
         {
+            try { 
             string consulta = "S_Listar_TraduccionesxIdioma";
             Hashtable Hdatos = new Hashtable();
             Hdatos.Add("@id",id_Idioma);
@@ -247,8 +269,17 @@ namespace MPP
             {
                 if (id_Palabra == Convert.ToInt32(fila["IDpalabra"])) return true;
             }
-              
-            return false;
+        }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+return false;
         }
 
         public bool CrearTraduccion(int ID_idioma,Traduccion Otraduccion)
@@ -264,7 +295,11 @@ namespace MPP
                 Datos = new Acceso();
                 return Datos.Escribir(consulta, Hdatos);
             }
-            catch(Exception ex)
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -301,7 +336,11 @@ namespace MPP
                     }
                     return Palabras;
                 }
-               
+
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -331,7 +370,11 @@ namespace MPP
                 }
                 return Palabras;
             }
-            catch(Exception ex)
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
