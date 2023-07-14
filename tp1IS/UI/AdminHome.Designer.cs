@@ -224,7 +224,7 @@
             this.metroButton7.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton7.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton7.Location = new System.Drawing.Point(631, 59);
-            this.metroButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroButton7.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton7.Name = "metroButton7";
             this.metroButton7.Size = new System.Drawing.Size(221, 181);
             this.metroButton7.Style = MetroFramework.MetroColorStyle.Blue;
@@ -244,7 +244,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(1668, 27);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 8;
@@ -256,7 +256,7 @@
             this.metroButton9.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton9.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton9.Location = new System.Drawing.Point(860, 59);
-            this.metroButton9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroButton9.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton9.Name = "metroButton9";
             this.metroButton9.Size = new System.Drawing.Size(107, 180);
             this.metroButton9.Style = MetroFramework.MetroColorStyle.Blue;
@@ -277,7 +277,7 @@
             this.metroButton10.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton10.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton10.Location = new System.Drawing.Point(1167, 59);
-            this.metroButton10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroButton10.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton10.Name = "metroButton10";
             this.metroButton10.Size = new System.Drawing.Size(149, 180);
             this.metroButton10.Style = MetroFramework.MetroColorStyle.Blue;
@@ -298,13 +298,13 @@
             this.metroButton11.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton11.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton11.Location = new System.Drawing.Point(975, 59);
-            this.metroButton11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroButton11.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton11.Name = "metroButton11";
             this.metroButton11.Size = new System.Drawing.Size(184, 180);
             this.metroButton11.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton11.TabIndex = 11;
-            this.metroButton11.Tag = "add traduccion";
-            this.metroButton11.Text = "Add Traduction";
+            this.metroButton11.Tag = "add translation";
+            this.metroButton11.Text = "Add translation";
             this.metroButton11.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.metroButton11.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroButton11.UseCustomBackColor = true;
@@ -319,7 +319,7 @@
             this.metroButton8.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton8.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton8.Location = new System.Drawing.Point(1324, 59);
-            this.metroButton8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroButton8.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton8.Name = "metroButton8";
             this.metroButton8.Size = new System.Drawing.Size(132, 180);
             this.metroButton8.Style = MetroFramework.MetroColorStyle.Blue;
