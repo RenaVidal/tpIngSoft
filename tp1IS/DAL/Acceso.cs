@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using System.Collections; //para el arraylist
+using System.Collections; 
 using BE;
 using abstraccion;
 using servicios;
@@ -299,25 +299,29 @@ namespace DAL
 
         private Componente GetComponent(int id, IList<Componente> lista)
         {
-
-            Componente component = lista != null ? lista.Where(i => i.Id.Equals(id)).FirstOrDefault() : null;
-
-            if (component == null && lista != null)
+            Componente component = null;
+            try
             {
-                foreach (var c in lista)
+                 component = lista != null ? lista.Where(i => i.Id.Equals(id)).FirstOrDefault() : null;
+
+                if (component == null && lista != null)
                 {
+                    foreach (var c in lista)
+                    {
 
-                    var l = GetComponent(id, c.Hijos);
-                    if (l != null && l.Id == id) return l;
-                    else
-                    if (l != null)
-                        return GetComponent(id, l.Hijos);
+                        var l = GetComponent(id, c.Hijos);
+                        if (l != null && l.Id == id) return l;
+                        else
+                        if (l != null)
+                            return GetComponent(id, l.Hijos);
 
+                    }
                 }
+
+
             }
-
-
-
+            catch (Exception ex)
+            { throw ex; }
             return component;
 
 
@@ -391,7 +395,6 @@ namespace DAL
                         user.active = Convert.ToInt32(reader["active"]);
                         string Dencrip = reader["Direccion"].ToString();
                         user.Direccion = Convert.ToString(encriptar.Desencriptar(Dencrip));
-                    /////////////////////////////////////////////////////////////////////////////////////////////////
                     usuarios.Add(user);
                     }
                 reader.Close();

@@ -98,32 +98,7 @@ namespace Patrones.Singleton.Core
             }
             return false;
         }
-        public static void agregarObservador(IdiomaObserver Observer)    //se agregan observadores
-        {
-            Observadores.Add(Observer);
-        }
-
-        public static void eliminarObservador(IdiomaObserver Observer)  //se eliminan observadores
-        {
-            Observadores.Remove(Observer);
-        }
-
-        public static void notificarObeservadores(Idioma Idioma)   //se notifica a los observadores
-        {
-            foreach(var observer in Observadores)
-            {
-                observer.CambiarIdioma(Idioma);
-            }
-        }
-
-        public static void cambiarIdioma(Idioma Idioma)    //Cambio de idioma
-        {
-            if (_session != null)
-            {
-                _session.idioma = Idioma;
-                notificarObeservadores(Idioma);
-            }
-        }
+       
 
         
     }

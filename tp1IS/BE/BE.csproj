@@ -45,8 +45,6 @@
     <Compile Include="BEBitacoraFilters.cs" />
     <Compile Include="BEComposite.cs" />
     <Compile Include="BEEntidad.cs" />
-    <Compile Include="BEIdioma.cs" />
-    <Compile Include="BETraduccion.cs" />
     <Compile Include="BEUsuario.cs" />
     <Compile Include="DigitoV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

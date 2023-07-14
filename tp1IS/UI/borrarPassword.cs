@@ -36,6 +36,12 @@ namespace UI
                 ListarIidomas();
                 Traducir();
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -108,6 +114,12 @@ namespace UI
                 }
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -149,6 +161,12 @@ namespace UI
                     }
                 }
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -201,6 +219,12 @@ namespace UI
                 }
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -236,6 +260,12 @@ namespace UI
 
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -260,6 +290,12 @@ namespace UI
                 Oidioma = traductor.TraerIdioma(idiomaSelec);
                 servicios.Observer.cambiarIdioma(Oidioma);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

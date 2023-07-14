@@ -56,6 +56,12 @@ namespace UI
                 servicios.Observer.eliminarObservador(this);
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -78,6 +84,12 @@ namespace UI
                 dataGridView1.Columns["permisos"].Visible = false;
                 dataGridView1.Columns["rol"].Visible = false;
                 dataGridView1.Columns["DV"].Visible = false;
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -118,6 +130,12 @@ namespace UI
                 }
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -135,6 +153,12 @@ namespace UI
                 buscar(null, 1);
                 pag = 1;
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -150,6 +174,12 @@ namespace UI
                 button1.Enabled = true;
                 pag += 1;
                 buscar(nombre, pag);
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -168,6 +198,12 @@ namespace UI
                 if (pag <= 1) button1.Enabled = false;
                 if (pag > 0) buscar(nombre, pag);
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -181,7 +217,14 @@ namespace UI
             try
             {
                 textBox1.Text = string.Empty;
-            }catch (Exception ex)
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
             {
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
@@ -196,6 +239,12 @@ namespace UI
             {
                 string dv = servicios.GenerarVD.generarDigitoVS(oLog.BuscarUsuariosYgenerarDV());
                 OBLLdv.actualizarDV(dv);
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex){
                 var accion = ex.Message;
@@ -232,6 +281,12 @@ namespace UI
                     errorProvider1.SetError(dataGridView1, "select a user to restore");
                 }
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -300,6 +355,12 @@ namespace UI
                 }
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -332,6 +393,12 @@ namespace UI
                         }
                     }
                 }
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -377,9 +444,15 @@ namespace UI
                     string traduccion = palabras.Find(p => p.Equals(metroLabel1.Tag.ToString()));
                     this.metroLabel1.Text = traduccion;
                 }
-               
 
 
+
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -400,6 +473,12 @@ namespace UI
 
                 servicios.Observer.cambiarIdioma(Oidioma);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

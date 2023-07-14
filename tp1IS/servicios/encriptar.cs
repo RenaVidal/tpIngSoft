@@ -80,7 +80,7 @@ namespace servicios
             }
         }
         
-        public static string EncriptarConHash(string texto)////////////////Usar este para la contraseña
+        public static string EncriptarConHash(string texto)
         {
             using (SHA256 sha256Hash = SHA256.Create())
             {
@@ -89,7 +89,7 @@ namespace servicios
 
                 for (int i = 0; i < bytes.Length; i++)
                 {
-                    builder.Append(bytes[i].ToString("x2")); // Convertir a representación hexadecimal
+                    builder.Append(bytes[i].ToString("x2")); 
                 }
 
                 return builder.ToString();

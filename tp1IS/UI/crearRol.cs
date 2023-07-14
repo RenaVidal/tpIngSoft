@@ -59,6 +59,12 @@ namespace UI
                 }
                 comboBox1.DataSource = permisos;
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -85,6 +91,12 @@ namespace UI
                 }
                 treeView2.Nodes.Add(padre);
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -104,6 +116,12 @@ namespace UI
                     if (item.Hijos != null && item.Hijos.Count != 0) cargarTreeView(item.Hijos, newNode);
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -120,6 +138,12 @@ namespace UI
                 listarIdiomas();
                 traducir();
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -162,6 +186,12 @@ namespace UI
                 }
                 return null;
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -179,6 +209,12 @@ namespace UI
                     if (node.Text == item.Nombre) return false;
                 }
                 return true;
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -248,7 +284,13 @@ namespace UI
                 }
                 resetControls();
             }
-            catch(Exception ex)
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 var accion = ex.Message;
@@ -308,7 +350,13 @@ namespace UI
                 else { MetroMessageBox.Show(this, "There has been an error, try again"); return false; }
 
             }
-            catch(Exception ex) {
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
@@ -362,6 +410,12 @@ namespace UI
                         }
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex) { 
                 MessageBox.Show(ex.Message);
                 var accion = ex.Message;
@@ -412,6 +466,12 @@ namespace UI
                 }
                 resetControls();
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex) {
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
@@ -454,7 +514,11 @@ namespace UI
                     ultimoNodo.Remove();
                 }
             }
-          catch(Exception ex)
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -535,7 +599,13 @@ namespace UI
                     }
                 }
             }
-            catch(Exception ex)
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
             {
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
@@ -568,6 +638,12 @@ namespace UI
                     }
                 }
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -625,6 +701,12 @@ namespace UI
                     this.metroLabel4.Text = traduccion;
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -643,6 +725,12 @@ namespace UI
                 Oidioma = traductor.TraerIdioma(idiomaSelec);
                 servicios.Observer.cambiarIdioma(Oidioma);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

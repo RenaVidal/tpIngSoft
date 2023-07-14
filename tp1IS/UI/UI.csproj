@@ -109,12 +109,6 @@
     <Compile Include="darRol.Designer.cs">
       <DependentUpon>darRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Desencriptar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Desencriptar.Designer.cs">
-      <DependentUpon>Desencriptar.cs</DependentUpon>
-    </Compile>
     <Compile Include="eliminarRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,9 +137,11 @@
     </Compile>
     <EmbeddedResource Include="AddLenguaje.resx">
       <DependentUpon>AddLenguaje.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminHome.resx">
       <DependentUpon>AdminHome.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
@@ -167,9 +163,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="darRol.resx">
       <DependentUpon>darRol.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Desencriptar.resx">
-      <DependentUpon>Desencriptar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="eliminarRol.resx">
       <DependentUpon>eliminarRol.cs</DependentUpon>

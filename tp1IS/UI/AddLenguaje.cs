@@ -34,7 +34,13 @@ namespace UI
                 ListarIdiomas();
                 Traducir();
             }
-            catch(Exception ex)
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
             {
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
@@ -90,6 +96,12 @@ namespace UI
 
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -116,6 +128,12 @@ namespace UI
                 comboBox2.Visible = false;
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -137,6 +155,12 @@ namespace UI
                 comboBox1.DisplayMember = "nombre";
                 comboBox1.ValueMember = "ID"; 
           
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -199,6 +223,12 @@ namespace UI
 
                 ListarIdiomas();
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -269,6 +299,12 @@ namespace UI
 
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -304,6 +340,12 @@ namespace UI
 
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -336,6 +378,12 @@ namespace UI
                     textBox1.Text = "";
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -356,6 +404,12 @@ namespace UI
                 servicios.Observer.cambiarIdioma(Oidioma);
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -372,6 +426,12 @@ namespace UI
                 Traducir();
                 ListarIdiomas();
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -446,6 +506,12 @@ namespace UI
                 }
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -480,6 +546,12 @@ namespace UI
 
 
 
+            }
+            catch(NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -546,6 +618,12 @@ namespace UI
                     this.radioButton2.Text = traduccion;
                 }
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

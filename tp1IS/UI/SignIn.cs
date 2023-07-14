@@ -59,10 +59,12 @@ namespace UI
                 servicios.Observer.eliminarObservador(this);
 
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
         }
@@ -150,10 +152,14 @@ namespace UI
                 {
                     MetroMessageBox.Show(this, "The user is disabled");
                 }
+
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
-                  var accion = ex.Message;
                   MessageBox.Show(ex.Message);
                
             }
@@ -192,10 +198,12 @@ namespace UI
                 }
                
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
-                 var accion = ex.Message;
-                 oBit.guardar_accion(accion, 1);
                  MessageBox.Show(ex.Message);
                 
             }
@@ -290,6 +298,10 @@ namespace UI
                 }
 
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -331,6 +343,10 @@ namespace UI
                 ojoOpen = true;
             }
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -359,6 +375,10 @@ namespace UI
 
                 servicios.Observer.cambiarIdioma(Oidioma);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -444,6 +464,10 @@ namespace UI
                 }
 
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -518,6 +542,10 @@ namespace UI
                 }
 
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -551,6 +579,10 @@ namespace UI
                     }
 
                 }
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

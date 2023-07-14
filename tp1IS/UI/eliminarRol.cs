@@ -34,6 +34,12 @@ namespace UI
                 ListarIdiomas();
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -91,7 +97,14 @@ namespace UI
 
                     }
                 }
-            }catch(Exception ex)
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
             {
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
@@ -117,7 +130,12 @@ namespace UI
                 }
                 treeView2.Nodes.Add(padre);
             }
-
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -138,6 +156,12 @@ namespace UI
                     parentNode.Nodes.Add(newNode);
                     if (item.Hijos != null && item.Hijos.Count != 0) cargarTreeView(item.Hijos, newNode);
                 }
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -167,7 +191,13 @@ namespace UI
                     string traduccion = palabras.Find(p => p.Equals(metroLabel1.Tag.ToString()));
                     this.metroLabel1.Text = traduccion;
                 }
-               
+
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -203,6 +233,12 @@ namespace UI
                 }
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -231,7 +267,13 @@ namespace UI
                 }
                 return null;
             }
-             catch (Exception ex) {
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex) {
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
@@ -278,6 +320,12 @@ namespace UI
                     }
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -304,6 +352,12 @@ namespace UI
                 Oidioma = traductor.TraerIdioma(idiomaSelec);
                 servicios.Observer.cambiarIdioma(Oidioma);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

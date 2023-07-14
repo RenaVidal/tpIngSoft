@@ -20,7 +20,11 @@ namespace UI
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new SignIn());
             }
-            catch(Exception ex) { 
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex) { 
                 MessageBox.Show(ex.Message);
             }
         }

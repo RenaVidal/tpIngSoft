@@ -38,7 +38,6 @@ namespace UI
         BLL.BLLDv ODV = new BLLDv();
 
         private Form formularioAbierto = null;
-       // private IdiomaObserver Observer = null;
         private void AbrirFormulario(Form formulario)
         {
             try
@@ -51,6 +50,12 @@ namespace UI
 
                 formularioAbierto = formulario;
                 formularioAbierto.Show();
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -70,6 +75,12 @@ namespace UI
                 SessionManager.GetInstance.idioma = Otraductor.ObtenerIdiomaBase();
                 traducir();
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -94,6 +105,12 @@ namespace UI
             {
                 servicios.Observer.eliminarObservador(this);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -121,6 +138,12 @@ namespace UI
                     AbrirFormulario(formcrearAdmin);
 
                 }
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -169,6 +192,12 @@ namespace UI
                     else { MetroMessageBox.Show(this, "There are no users registered with this id"); }
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -204,13 +233,19 @@ namespace UI
                 SignIn form = new SignIn();
                 form.Show();
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-            SessionManager.eliminarObservador(this);
+            servicios.Observer.eliminarObservador(this);
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -224,6 +259,12 @@ namespace UI
             {
                 borrarPassword passForm = new borrarPassword();
                 AbrirFormulario(passForm);
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -239,6 +280,12 @@ namespace UI
             {
                 crearRol rol = new crearRol();
                 AbrirFormulario(rol);
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -289,6 +336,12 @@ namespace UI
 
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -308,6 +361,12 @@ namespace UI
             {
                 ListarIdiomas();
                 traducir();
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -407,6 +466,12 @@ namespace UI
                 }
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -498,6 +563,12 @@ namespace UI
                 }
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -517,6 +588,12 @@ namespace UI
 
                 servicios.Observer.cambiarIdioma(Oidioma);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -563,6 +640,12 @@ namespace UI
                     MessageBox.Show("you do not have the necessary permissions");
                 }
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
