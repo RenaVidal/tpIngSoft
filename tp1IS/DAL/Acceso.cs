@@ -20,16 +20,16 @@ namespace DAL
         public SqlCommand Cmd;
 
 
-        public string TestConnection()
+        public bool TestConnection()
         {
             oCnn.Open();
             if (oCnn.State == ConnectionState.Open)
             {
-                return "Conexion con la bdd establecida";
+                return true;
             }
             else
             {
-                return "No se pudo establecer la conexion con la base de datos";
+                return false;
             }
         }
 
@@ -52,6 +52,10 @@ namespace DAL
                 int Respuesta = Convert.ToInt32(Cmd.ExecuteScalar());
                 oCnn.Close();
                 return Respuesta;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (SqlException ex)
             { throw ex; }
@@ -81,6 +85,10 @@ namespace DAL
                 else
                 { return false; }
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (SqlException ex)
             { throw ex; }
             catch (Exception ex)
@@ -109,6 +117,10 @@ namespace DAL
                     }
                 }
 
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (SqlException ex)
             { throw ex; }
@@ -149,7 +161,10 @@ namespace DAL
                 return true;
 
             }
-
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (SqlException ex)
             {
                 Tranx.Rollback();
@@ -193,7 +208,11 @@ namespace DAL
                 return false;
 
             }
-
+            catch (NullReferenceException ex)
+            {
+                Tranx.Rollback();
+                throw ex;
+            }
             catch (SqlException ex)
             {
                 Tranx.Rollback();
@@ -279,6 +298,10 @@ namespace DAL
                 oCnn.Close();
                 return lista;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (SqlException ex)
             { throw ex; }
             catch (Exception ex)
@@ -319,6 +342,10 @@ namespace DAL
                 }
 
 
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             { throw ex; }
@@ -361,6 +388,10 @@ namespace DAL
 
                 return listBitacora;
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (SqlException ex)
             { throw ex; }
             catch (Exception ex)
@@ -400,6 +431,10 @@ namespace DAL
                 reader.Close();
 
                 return usuarios;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (SqlException ex)
             { throw ex; }

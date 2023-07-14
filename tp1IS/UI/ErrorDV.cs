@@ -36,6 +36,12 @@ namespace UI
                 servicios.Observer.eliminarObservador(this);
 
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -56,13 +62,29 @@ namespace UI
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            List<string> ListaDVU = OBLLDV.BuscarDVUsuarios();
+            try
+            {
+                List<string> ListaDVU = OBLLDV.BuscarDVUsuarios();
 
-            OBLLDV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ListaDVU));
-            AdminHome form = new AdminHome();
-            form.Show();
-            this.Hide();
-            servicios.Observer.eliminarObservador(this);
+                OBLLDV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ListaDVU));
+                AdminHome form = new AdminHome();
+                form.Show();
+                this.Hide();
+                servicios.Observer.eliminarObservador(this);
+
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
         public void CambiarIdioma(Idioma Idioma)
         {
@@ -113,6 +135,12 @@ namespace UI
 
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -149,6 +177,12 @@ namespace UI
 
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -172,8 +206,14 @@ namespace UI
                     string traduccion = palabras.Find(p => p.Equals(metroButton1.Tag.ToString()));
                     this.metroButton1.Text = traduccion;
                 }
-                
 
+
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -194,6 +234,12 @@ namespace UI
 
                 servicios.Observer.cambiarIdioma(Oidioma);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

@@ -304,6 +304,22 @@ namespace Negocio
                 throw ex;
             }
         }
+        public bool testConnection()
+        {
+            try
+            {
+
+                return oUsuario.testConnection();
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public IList<BEUsuario> GetAllHistorico(string nombre, int pag)
         {
             try

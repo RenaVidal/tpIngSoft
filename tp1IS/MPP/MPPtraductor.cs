@@ -36,9 +36,13 @@ namespace MPP
                      OIdioma.Default = bool.Parse(fila["predeterminado"].ToString());
                     ListaIdiomas.Add(OIdioma);
                 }
-               
+
             }
-            catch(Exception ex)
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -92,7 +96,12 @@ namespace MPP
                 }
 
                 return Traducciones;
-            }catch(Exception ex)
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -118,7 +127,12 @@ namespace MPP
                     Palabras.Add(Palabraa);
                 }
                 return Palabras;
-            }catch(Exception ex)
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -146,7 +160,11 @@ namespace MPP
                
                 }
 
-                return DT; 
+                return DT;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {

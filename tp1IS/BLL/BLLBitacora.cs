@@ -29,6 +29,10 @@ namespace Negocio
                 
           
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -50,6 +54,10 @@ namespace Negocio
                 }
             
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex) { throw ex; }
             }
         public void guardar_logOut()
@@ -66,13 +74,22 @@ namespace Negocio
                     oBit.cargar_bitacora(user, fecha, accion, id_tipo);
                 }
                
-          }catch (Exception ex) { throw ex; }
+          }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex) { throw ex; }
         }
         public IList<IBitacora> GetAll(IBitacoraFilters filters, int pag)
         {
             try
             {
                     return oBit.GetAll(filters, pag);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex) { throw ex; }
         }

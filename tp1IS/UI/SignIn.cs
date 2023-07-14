@@ -23,11 +23,34 @@ namespace UI
         {
             InitializeComponent();
             groupBox1.Hide();
+            if (!testConnection())
+            {
+                MetroMessageBox.Show(this, "Connection with database could not be stablished, please check with vendor");
+                return;
+            }
         }
         BLLUsuario oLog = new BLLUsuario();
         BLL.BLLDv OBLLDV = new BLLDv();
         BEUsuario oUsuraio;
         public bool ojoOpen;
+
+        public bool testConnection()
+        {
+            try
+            {
+                if (oLog.testConnection()) return true;
+                return false;
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return false;
+        }
         public void limpiar()
         {
             textBox1.Text = null;

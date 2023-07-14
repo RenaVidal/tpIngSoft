@@ -71,9 +71,9 @@ namespace UI
                     errorProvider1.SetError(textBox5, "You should enter an street number  with 1 to 9 numbers");
                     error++;
                 }
-                if (metroDateTime2.Value == null)
+                if (metroDateTime2.Value == null || metroDateTime2.Value > DateTime.Now)
                 {
-                    errorProvider1.SetError(metroDateTime2, "You should enter a date");
+                    errorProvider1.SetError(metroDateTime2, "You should enter a date that is not later than todaymatias");
                     error++;
                 }
 

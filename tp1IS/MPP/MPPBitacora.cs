@@ -27,6 +27,10 @@ namespace MPP
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
             }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex) {  throw ex; }
         }
         public IList<IBitacora> GetAll(IBitacoraFilters filters, int pag)
@@ -36,6 +40,10 @@ namespace MPP
                 oDatos = new Acceso();
                 return oDatos.GetAll(filters, pag);
 
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
             }
             catch (Exception ex) { throw ex; }
         }

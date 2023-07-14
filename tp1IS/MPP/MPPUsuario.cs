@@ -453,7 +453,25 @@ namespace MPP
                 throw ex;
             }
         }
-         
+        public bool testConnection()
+        {
+
+            try
+            {
+
+                oDatos = new Acceso();
+                return oDatos.TestConnection();
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<string> BuscarUsuariosYgenerarDV()
         {
             try
