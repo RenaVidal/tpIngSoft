@@ -368,6 +368,7 @@ return false;
 
         }
 
+
         public List<Palabra> obtenerPalabras()
         {
             try
@@ -398,5 +399,33 @@ return false;
             }
            
         }
+
+
+        public bool ActualizarTraduccion(int IDidioma, int IDpalabra, string Otraduccion)
+        {
+            try
+            {
+                string consulta = "S_actz_Traduccion";
+                Hdatos = new Hashtable();
+                Hdatos.Add("@IDidioma", IDidioma);
+                Hdatos.Add("@IDpalabra", IDpalabra);
+                Hdatos.Add("@traduccion", Otraduccion);
+                Datos = new Acceso();
+              
+                return Datos.Escribir(consulta, Hdatos);
+
+
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
     }
 }

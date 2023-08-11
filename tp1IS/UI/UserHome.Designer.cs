@@ -38,7 +38,7 @@
             this.metroButton4.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton4.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton4.Location = new System.Drawing.Point(447, 73);
-            this.metroButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton4.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(136, 125);
             this.metroButton4.Style = MetroFramework.MetroColorStyle.Blue;
@@ -70,10 +70,10 @@
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.metroButton4);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UserHome";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
-            this.Tag = "admin home";
+            this.Tag = "user home";
             this.Text = "User Home";
             this.Load += new System.EventHandler(this.UserHome_Load);
             this.ResumeLayout(false);

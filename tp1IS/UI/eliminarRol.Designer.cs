@@ -40,7 +40,7 @@
             // metroButton2
             // 
             this.metroButton2.Location = new System.Drawing.Point(17, 453);
-            this.metroButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton2.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(128, 22);
             this.metroButton2.TabIndex = 2;
@@ -63,7 +63,7 @@
             // treeView2
             // 
             this.treeView2.Location = new System.Drawing.Point(17, 110);
-            this.treeView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView2.Margin = new System.Windows.Forms.Padding(2);
             this.treeView2.Name = "treeView2";
             this.treeView2.Size = new System.Drawing.Size(279, 316);
             this.treeView2.TabIndex = 1;
@@ -91,9 +91,10 @@
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.treeView2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "eliminarRol";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
+            this.Tag = "delete rol";
             this.Text = "Delete Rol";
             this.Load += new System.EventHandler(this.eliminarRol_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

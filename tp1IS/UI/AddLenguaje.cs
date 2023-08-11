@@ -21,6 +21,7 @@ namespace UI
         public AddLenguaje()
         {
             InitializeComponent();
+           // dataGridView1.ReadOnly = true;
         }
         BLLTraductor Otraductor = new BLLTraductor();
         servicios.validaciones validar = new servicios.validaciones();
@@ -334,7 +335,8 @@ namespace UI
                     comboBox1.Visible = false;
                     comboBox2.Visible = false;
                     dataGridView1.Visible = false;
-                 
+                    dataGridView1.ReadOnly = true;
+                 //   metroButton3.Visible = false;
                     textBox2.Text = "";
                     textBox1.Text = "";
 
@@ -373,7 +375,9 @@ namespace UI
                     comboBox1.Visible = true;
                     comboBox2.Visible = true;
                     dataGridView1.Visible = true;
-                
+                    dataGridView1.ReadOnly = true;
+                 //   metroButton3.Visible = false;
+
                     textBox2.Text = "";
                     textBox1.Text = "";
                 }
@@ -469,6 +473,10 @@ namespace UI
                     }
                     else
                     {
+                        if(this.Tag != null && traducciones.ContainsKey(this.Tag.ToString()))
+                        {
+                            this.Text = traducciones[this.Tag.ToString()].texto;
+                        }
                         if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
                         {
                             this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
@@ -525,27 +533,30 @@ namespace UI
         {
             try
             {
-                dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = null;
 
-                if (idioma == null || idioma == string.Empty)
-                {
-                    MessageBox.Show("you must select a language");
+                    if (idioma == null || idioma == string.Empty)
+                    {
+                        MessageBox.Show("you must select a language");
+                    }
+                    else
+                    {
+                        servicios.ClasesMultiLenguaje.Idioma Oidioma = Otraductor.TraerIdioma(idioma);
+
+
+                        dataGridView1.DataSource = Otraductor.traerTablaxIdioma(Oidioma.ID);
+                        dataGridView1.AutoResizeColumns();
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dataGridView1.Columns["IDidioma"].Visible = false;
+                        dataGridView1.Columns["ID"].Visible = false;
+                 /*   if (radioButton3.Checked == true)
+                    {
+                        dataGridView1.Columns["Traduccion"].ReadOnly = false;
+                    }*/
+
                 }
-                else
-                {
-                    servicios.ClasesMultiLenguaje.Idioma Oidioma = Otraductor.TraerIdioma(idioma);
-
-
-                    dataGridView1.DataSource = Otraductor.traerTablaxIdioma(Oidioma.ID);
-                    dataGridView1.AutoResizeColumns();
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    dataGridView1.Columns["IDidioma"].Visible = false;
-                    dataGridView1.Columns["ID"].Visible = false;
-
-                }
-
-
-
+                
+                
             }
             catch(NullReferenceException ex)
             {
@@ -576,7 +587,11 @@ namespace UI
                 List<string> palabras = Traductor.obtenerIdiomaOriginal();
                 
 
-
+                if(this.Tag != null && palabras.Contains(this.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(this.Tag.ToString()));
+                    this.Text = traduccion;
+                }
                 if (metroButton1.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
                 {
                     string traduccion = palabras.Find(p => p.Equals(metroButton1.Tag.ToString()));
@@ -634,10 +649,34 @@ namespace UI
            
            }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+     /*   private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView1.ReadOnly = true;
-        }
+            if (radioButton3.Checked == true)
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["traduccion"].Index)
+                {
+                    DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                    int ididioma = Convert.ToInt32(row.Cells["IDidioma"].Value);
+                    int idpalabra = Convert.ToInt32(row.Cells["ID"].Value);
+                    string traduccion = Convert.ToString(row.Cells["traduccion"].Value);
+                    textBox2.Text = traduccion;
+                    if (!validar.traduccion(traduccion))
+                    {
+                        MessageBox.Show("the translation was not written correctly");
+                    }
+                    else
+                    {
+                       Otraductor.ActualizarTraduccion(ididioma, idpalabra, traduccion);
+                    }
+                    // Actualizar la traducción en la base de datos
+                    //  UpdateTranslation(ididioma, idpalabra, traduccion);
+
+                }
+            }
+
+           
+
+        }*/
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -652,6 +691,94 @@ namespace UI
             }
             refrescar();
             ListarPalabras();
+        }
+
+        private void dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)/////////////////////////////////////////////////////////////////////////////////////////
+        {
+            // Capturar el cambio en la traducción y guardarla en la base de datos
+            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["traduccion"].Index)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                int ididioma = Convert.ToInt32(row.Cells["IDidioma"].Value);
+                int idpalabra = Convert.ToInt32(row.Cells["ID"].Value);
+                string traduccion = Convert.ToString(row.Cells["traduccion"].Value);
+
+                if (!validar.traduccion(traduccion))
+                {
+                    MessageBox.Show("the translation was not written correctly");
+                }
+                else
+                {
+                    Otraductor.ActualizarTraduccion(ididioma,idpalabra,traduccion);
+                    refrescar();
+                }
+                // Actualizar la traducción en la base de datos
+              //  UpdateTranslation(ididioma, idpalabra, traduccion);
+             
+            }
+        }
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+              /*  if (radioButton3.Checked == true)
+                {
+                    metroButton1.Visible = false;
+                    metroLabel4.Visible = false;
+                    textBox1.Visible = false;
+                    textBox2.Visible = true;
+                    metroButton2.Visible = false;
+                    metroLabel1.Visible = false;
+                    metroLabel2.Visible = true;
+                    metroLabel3.Visible = false;
+                    comboBox1.Visible = false;
+                    comboBox2.Visible = true;
+                    dataGridView1.Visible = true;
+                    metroButton3.Visible = true;
+                    dataGridView1.ReadOnly = false;
+                   if (dataGridView1.Columns.Contains("Traduccion"))
+                    {
+                        dataGridView1.Columns["Traduccion"].ReadOnly = false;
+                    }
+                   
+                    textBox2.Text = "";
+                    textBox1.Text = "";
+                }*/
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void metroButton3_Click_1(object sender, EventArgs e)
+        {
+            if (!validar.traduccion(textBox2.Text))
+            {
+                MessageBox.Show("the translation was not written correctly");
+            }
+            else
+            {
+            //    if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["traduccion"].Index)
+                
+           /*         DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                    int ididioma = Convert.ToInt32(row.Cells["IDidioma"].Value);
+                    int idpalabra = Convert.ToInt32(row.Cells["ID"].Value);
+                    Otraductor.ActualizarTraduccion(ididioma, idpalabra, textBox2.Text);*/
+                
+
+                // Otraductor.ActualizarTraduccion(ididioma, idpalabra, traduccion);
+            }
         }
     }
  }

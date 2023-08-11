@@ -251,6 +251,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "darRol";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
+            this.Tag = "assing role";
             this.Text = "Assing role";
             this.Load += new System.EventHandler(this.darRol_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

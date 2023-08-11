@@ -64,7 +64,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(94, 64);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(120, 20);
             this.textBox1.TabIndex = 1;
@@ -72,7 +72,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(94, 92);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(120, 20);
@@ -81,7 +81,7 @@
             // metroButton1
             // 
             this.metroButton1.Location = new System.Drawing.Point(118, 127);
-            this.metroButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(95, 30);
             this.metroButton1.TabIndex = 4;
@@ -118,10 +118,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "borrarPassword";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
-            this.Tag = "delete password";
+            this.Tag = "changue password";
             this.Text = "Change password";
             this.Load += new System.EventHandler(this.borrarPassword_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

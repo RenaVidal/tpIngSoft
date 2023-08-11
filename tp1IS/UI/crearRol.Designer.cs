@@ -252,7 +252,8 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "crearRol";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
-            this.Text = "Create Rol";
+            this.Tag = "create role";
+            this.Text = "Create Role";
             this.Load += new System.EventHandler(this.crearRol_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

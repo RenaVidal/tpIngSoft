@@ -73,7 +73,8 @@ namespace UI
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.metroButton1);
             this.Name = "ErrorDV";
-            this.Text = "ErrorDV";
+            this.Tag = "check digit error";
+            this.Text = "check digit error";
             this.Load += new System.EventHandler(this.ErrorDV_Load);
             this.ResumeLayout(false);
 

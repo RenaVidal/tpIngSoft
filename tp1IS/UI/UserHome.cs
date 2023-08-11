@@ -201,6 +201,11 @@ namespace UI
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
                 List<string> palabras = Traductor.obtenerIdiomaOriginal();
 
+                if (this.Tag != null && palabras.Contains(this.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(this.Tag.ToString()));
+                    this.Text = traduccion;
+                }
                 if (metroButton4.Tag != null && palabras.Contains(metroButton4.Tag.ToString()))
                 {
                     string traduccion = palabras.Find(p => p.Equals(metroButton4.Tag.ToString()));
@@ -245,6 +250,10 @@ namespace UI
                     }
                     else
                     {
+                        if (this.Tag != null && traducciones.ContainsKey(this.Tag.ToString()))
+                        {
+                            this.Text = traducciones[this.Tag.ToString()].texto;
+                        }
                         if (metroButton4.Tag != null && traducciones.ContainsKey(metroButton4.Tag.ToString()))
                         {
                             this.metroButton4.Text = traducciones[metroButton4.Tag.ToString()].texto;

@@ -178,6 +178,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Changes";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
+            this.Tag = "user history";
             this.Text = "User History";
             this.Load += new System.EventHandler(this.controlCambios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

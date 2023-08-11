@@ -52,6 +52,22 @@ namespace BLL
            
         }
 
+        public bool ActualizarTraduccion(int IDidioma,int IDpalabra,string traduccion)
+        {
+            try
+            {
+                return OMPPtraductor.ActualizarTraduccion(IDidioma,IDpalabra,traduccion);
+
+            }catch(NullReferenceException ex)
+            {
+                throw ex;
+            }catch(Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
+        }
+
         public List<Palabra> obtenerPalabrasSinTraducir(int idioma)
         {
             try

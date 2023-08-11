@@ -27,6 +27,8 @@ namespace UI
             InitializeComponent();
             groupBox1.Hide();
             es_traductor();
+            ajustarControles();
+            this.MinimumSize = new System.Drawing.Size(1373,540);
         }
         SessionManager session = SessionManager.GetInstance;
         public void es_traductor()
@@ -69,6 +71,24 @@ namespace UI
         {
             try
             {
+                
+                metroButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;//////////////////////////////////////////////////////////////////////////////////////////
+                metroButton2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                metroButton3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                metroButton4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                metroButton5.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                metroButton6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                metroButton7.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                metroButton8.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                metroButton9.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                metroButton10.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                metroButton11.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                metroButton12.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                comboBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                textBox1.Dock = DockStyle.Top;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                metroLabel1.Dock = DockStyle.Top;
+                metroLabel2.Dock = DockStyle.Top;
+               
                 ListarIdiomas();
 
                 servicios.Observer.agregarObservador(this);
@@ -404,6 +424,10 @@ namespace UI
                     }
                     else
                     {
+                        if (this.Tag != null && traducciones.ContainsKey(this.Tag.ToString()))
+                        {
+                            this.Text = traducciones[this.Tag.ToString()].texto;
+                        }
                         if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
                         {
                             this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
@@ -460,7 +484,10 @@ namespace UI
                         {
                             this.metroButton10.Text = traducciones[metroButton10.Tag.ToString()].texto;
                         }
-
+                        if (metroButton12.Tag != null && traducciones.ContainsKey(metroButton12.Tag.ToString()))
+                        {
+                            this.metroButton12.Text = traducciones[metroButton12.Tag.ToString()].texto;
+                        }
                     }
 
                 }
@@ -490,7 +517,11 @@ namespace UI
                 List<string> palabras = Traductor.obtenerIdiomaOriginal();
 
 
-
+                if (this.Tag != null && palabras.Contains(this.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(this.Tag.ToString()));
+                    this.Text = traduccion;
+                }
                 if (metroButton1.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
                 {
                     string traduccion = palabras.Find(p => p.Equals(metroButton1.Tag.ToString()));
@@ -560,6 +591,11 @@ namespace UI
                 {
                     string traduccion = palabras.Find(p => p.Equals(metroButton8.Tag.ToString()));
                     this.metroButton8.Text = traduccion;
+                }
+                if (metroButton12.Tag != null && palabras.Contains(metroButton12.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton12.Tag.ToString()));
+                    this.metroButton12.Text = traduccion;
                 }
 
             }
@@ -664,6 +700,23 @@ namespace UI
         private void metroButton12_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void metroButton12_Click_1(object sender, EventArgs e)
+        {
+            modificarTranslation from = new modificarTranslation();
+            AbrirFormulario(from);
+        }
+
+        void ajustarControles()
+        {
+           /* TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
+            tableLayoutPanel.Dock = DockStyle.Fill;
+            tableLayoutPanel.ColumnCount = 2;
+            tableLayoutPanel.Controls.Add(metroButton1, 0, 0);
+            this.Controls.Add(tableLayoutPanel);*/
+            metroButton1.Anchor = AnchorStyles.Right;
+           // metroButton1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
         }
     }
 }
