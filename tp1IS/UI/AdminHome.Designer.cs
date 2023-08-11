@@ -321,7 +321,7 @@
             this.metroButton8.Size = new System.Drawing.Size(99, 146);
             this.metroButton8.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton8.TabIndex = 12;
-            this.metroButton8.Tag = "delete rol";
+            this.metroButton8.Tag = "delete role";
             this.metroButton8.Text = "Delete role";
             this.metroButton8.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.metroButton8.Theme = MetroFramework.MetroThemeStyle.Light;
