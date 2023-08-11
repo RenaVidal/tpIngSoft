@@ -29,6 +29,7 @@ namespace UI
         private void modificarTranslation_Load(object sender, EventArgs e)
         {
             ListarIdiomas();
+            servicios.Observer.agregarObservador(this);
          
         }
 
@@ -125,7 +126,7 @@ namespace UI
 
                     if (idioma.Default == true)
                     {
-
+                        comboBox2.Items.Add(idioma.Nombre);
                     }
                     else
                     {
@@ -302,6 +303,42 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string idiomaSelec = comboBox2.SelectedItem.ToString();
+                BLL.BLLTraductor traductor = new BLL.BLLTraductor();
+                Idioma Oidioma = new Idioma();
+                Oidioma = traductor.TraerIdioma(idiomaSelec);
+                servicios.Observer.cambiarIdioma(Oidioma);
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+        private void form_closed(object sender, FormClosedEventArgs e)
+        {
+            servicios.Observer.eliminarObservador(this);
         }
     }
 }

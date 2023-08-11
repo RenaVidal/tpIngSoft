@@ -63,6 +63,7 @@ namespace UI
             this.label1.TabIndex = 2;
             this.label1.Tag = "select language";
             this.label1.Text = "Select language";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBox2
             // 
@@ -71,6 +72,7 @@ namespace UI
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 3;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // modificarTranslation
             // 
@@ -84,6 +86,7 @@ namespace UI
             this.Name = "modificarTranslation";
             this.Tag = "modify translation";
             this.Text = "Modify Translation";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_closed);
             this.Load += new System.EventHandler(this.modificarTranslation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
