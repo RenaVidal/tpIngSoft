@@ -34,7 +34,6 @@ namespace MPP
                 carpaDataTable.Columns.Add("Columna", typeof(int));
                 carpaDataTable.Columns.Add("idBalneario", typeof(int));
 
-                // Populate the DataTable with data from the list
                 foreach (var carpa in carpas)
                 {
                     carpaDataTable.Rows.Add(carpa.fila, carpa.columna, 0);

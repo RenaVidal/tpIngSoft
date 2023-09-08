@@ -300,8 +300,21 @@
       <Name>servicios</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="images\" />
+    <Content Include="images\carpa.png" />
+    <Content Include="images\carpaAz - Copia %282%29.png" />
+    <Content Include="images\carpaAz - Copia.png" />
+    <Content Include="images\carpaAz.png" />
+    <Content Include="images\carpadis.png" />
+    <Content Include="images\carpaOc.png" />
+    <Content Include="images\close.png" />
+    <Content Include="images\Empty.png" />
+    <Content Include="images\Images\03be0719-9d34-4b49-89d1-e7760513e4d7.jpg" />
+    <Content Include="images\Images\2162b870-af06-489e-a00a-5468c1cc834e.jpg" />
+    <Content Include="images\Images\70df2b41-92a5-4638-8f8c-a12c0e54b87c.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\mar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

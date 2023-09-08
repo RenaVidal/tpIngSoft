@@ -39,7 +39,7 @@ namespace UI
 
                 pictureBoxMatrix = new PictureBox[rows, columns];
                 DataTable dataTable = new DataTable();
-                    Bitmap imagen = new Bitmap(System.Windows.Forms.Application.StartupPath + @"\Empty.png");
+                    Bitmap imagen = Properties.Resources.Empty;
                     int newWidth = 10; 
                     int newHeight = 10; 
                     Bitmap resizedImage = new Bitmap(imagen, new Size(newWidth, newHeight));
@@ -122,8 +122,8 @@ namespace UI
         {
             try { 
             InitializePictureBoxMatrix();
-            Bitmap imagen = new Bitmap(System.Windows.Forms.Application.StartupPath + @"\mar.png");
-            pictureBox1.Image = imagen;
+                Bitmap imagen = Properties.Resources.mar;
+                pictureBox1.Image = imagen;
             }
             catch (NullReferenceException ex)
             {
@@ -146,7 +146,7 @@ namespace UI
             try {  
                 if (pictureBoxMatrix[e.RowIndex, e.ColumnIndex] != null && pictureBoxMatrix[e.RowIndex, e.ColumnIndex].Tag == "Full")
                 {
-                    Bitmap imagen = new Bitmap(System.Windows.Forms.Application.StartupPath + @"\Empty.png");
+                    Bitmap imagen = Properties.Resources.Empty;
                     int newWidth = 10; 
                     int newHeight = 10; 
                     Bitmap resizedImage = new Bitmap(imagen, new Size(newWidth, newHeight));
@@ -157,9 +157,9 @@ namespace UI
                 }
                 else
                 {
-                    // Load your image here
-                    Bitmap imagen = new Bitmap(System.Windows.Forms.Application.StartupPath + @"\carpa.png");
+                    Bitmap imagen = Properties.Resources.carpa;
                     pictureBoxMatrix[e.RowIndex, e.ColumnIndex].Image = imagen;
+                    pictureBoxMatrix[e.RowIndex, e.ColumnIndex].SizeMode = PictureBoxSizeMode.Zoom;
                     pictureBoxMatrix[e.RowIndex, e.ColumnIndex].Tag = "Full";
                 }
                 dataGridView1.DataSource = null;
