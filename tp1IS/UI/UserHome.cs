@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using servicios.ClasesMultiLenguaje;
 namespace UI
 {
-    public partial class UserHome : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class UserHome : Form,IdiomaObserver
     {
         public UserHome()
         {

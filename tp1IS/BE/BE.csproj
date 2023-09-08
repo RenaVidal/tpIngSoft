@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BEBalneario.cs" />
     <Compile Include="BEBitacora.cs" />
     <Compile Include="BEBitacoraFilters.cs" />
+    <Compile Include="BECarpa.cs" />
     <Compile Include="BEComposite.cs" />
     <Compile Include="BEEntidad.cs" />
     <Compile Include="BEUsuario.cs" />

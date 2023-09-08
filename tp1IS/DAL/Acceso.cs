@@ -444,6 +444,58 @@ namespace DAL
             { oCnn.Close(); }
 
         }
+
+        public IList<BEBalneario> GetAllBalnearios(int id, int pag)
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "s_balneario_obtener";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("id",  id);
+                Cmd.Parameters.AddWithValue("PageNumber", pag);
+
+                var reader = Cmd.ExecuteReader();
+                IList<BEBalneario> balnearios = new List<BEBalneario>();
+                while (reader.Read())
+                {
+                    BEBalneario balneario = new BEBalneario();
+                    balneario.Name = reader["nombre"].ToString();
+                    balneario.permiteMascotas = Convert.ToBoolean(reader["PermiteNinos"]);
+                    balneario.Extras = reader["Extras"].ToString();
+                    balneario.permiteNinos = Convert.ToBoolean(reader["PermiteNinos"]);
+                    object pre = reader["Picture"];
+                    if (pre != DBNull.Value)
+                    {
+                        balneario.Image = reader["Picture"].ToString();
+                    }
+                    pre = reader["rating"];
+                    if (pre != DBNull.Value)
+                    {
+                        balneario.rating = Convert.ToInt32(reader["rating"]);
+                    }
+                    balnearios.Add(balneario);
+                }
+                reader.Close();
+
+                return balnearios;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+        }
     }
 }
 

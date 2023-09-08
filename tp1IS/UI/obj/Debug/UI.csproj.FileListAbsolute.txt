@@ -114,3 +114,18 @@ C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.csproj
 C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.exe
 C:\Users\Navegador\Source\Repos\RenaVidal\tpIngSoft\tp1IS\UI\obj\Debug\UI.pdb
 C:\Users\rouss\OneDrive\Escritorio\3° año Primer cuatrimestre\Ingenieria de Software\Proyecto\tpIngSoft\tp1IS\UI\obj\Debug\UI.modificarTranslation.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.modificarTranslation.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.CrearBalneario.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\Microsoft.Practices.CompositeUI.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\Microsoft.Practices.CompositeUI.WinForms.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\Telerik.WinControls.CompositeUI.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\Telerik.WinControls.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\Telerik.WinControls.GridView.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\Telerik.WinControls.RadChart.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\Telerik.WinControls.RadDock.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\Telerik.WinControls.UI.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\TelerikCommon.dll
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.CrearB.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.Ratings.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.myResorts.resources
