@@ -13,11 +13,11 @@ namespace BLL
     {
         MPPBalneario mPPBalneario = new MPPBalneario();
         BLLBitacora oBit = new BLLBitacora();
-        public bool incribir_balneario(BEBalneario balneario, List<BECarpa> carpas)
+        public bool incribir_balneario(BEBalneario balneario, List<BECarpa> carpas, byte[] imageData)
         {
             try
             {
-                return mPPBalneario.incribir_balneario(balneario, carpas);
+                return mPPBalneario.incribir_balneario(balneario, carpas, imageData);
 
             }
             catch (Exception ex)

@@ -471,7 +471,7 @@ namespace DAL
                     object pre = reader["Picture"];
                     if (pre != DBNull.Value)
                     {
-                        balneario.Image = reader["Picture"].ToString();
+                        balneario.Image = (byte[])reader["Picture"];
                     }
                     pre = reader["rating"];
                     if (pre != DBNull.Value)

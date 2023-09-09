@@ -43,7 +43,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2383, 68);
+            this.panel1.Size = new System.Drawing.Size(1942, 68);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -54,7 +54,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(128, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(343, 71);
+            this.label1.Size = new System.Drawing.Size(274, 57);
             this.label1.TabIndex = 2;
             this.label1.Text = "My resorts";
             // 
@@ -65,6 +65,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(974, 417);
             this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // button2
             // 
@@ -101,7 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(2383, 1143);
+            this.ClientSize = new System.Drawing.Size(1942, 1102);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.flowLayoutPanel1);

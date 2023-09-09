@@ -254,8 +254,10 @@ namespace UI
                 if (checkBox6.Checked) { ninos = true; }
                 if (checkBox7.Checked) { mascotas = true; }
                 if(Imagename != null) { picture = Imagename; }
-                BEBalneario balneario = new BEBalneario(name, extrasString, ninos, mascotas, picture);
-               if( obLLBalneario.incribir_balneario(balneario, Carpas))
+
+                byte[] imageData = File.ReadAllBytes(System.Windows.Forms.Application.StartupPath + "/Images/" + Imagename);
+                BEBalneario balneario = new BEBalneario(name, extrasString, ninos, mascotas, imageData);
+               if( obLLBalneario.incribir_balneario(balneario, Carpas, imageData))
                 {
                     MetroMessageBox.Show(this, "Success! You can see your resort in -My Resort- section");
                     clean();
@@ -293,6 +295,7 @@ namespace UI
                     {
                         Directory.CreateDirectory(imageDirectory);
                     }
+
                     Imagename = Guid.NewGuid().ToString() + ".jpg";
                     string fileName = Imagename;
                     string imagePath = Path.Combine(imageDirectory, fileName);

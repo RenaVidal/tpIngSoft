@@ -10,12 +10,12 @@ namespace BE
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Image { get; set; }
+        public byte[] Image { get; set; }
         public string Extras { get; set; }
         public bool permiteNinos { get; set; }
         public bool permiteMascotas { get; set; }
         public int rating { get; set; }
-        public BEBalneario(string name, string extras, bool ninos, bool mascotas, string image)
+        public BEBalneario(string name, string extras, bool ninos, bool mascotas, byte[] image)
         {
             Name = name;
             Extras = extras;

@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,12 +49,13 @@ namespace UI
                 AddGalleryItem(image.Image);
             }
         }
-        private void AddGalleryItem(string imagePath)
+        private void AddGalleryItem(byte[] imagePath)
         {
-            string imageDirectory = Path.Combine(System.Windows.Forms.Application.StartupPath, "Images");
-            string imagePathComplete = Path.Combine(imageDirectory, imagePath);
+
             PictureBox pictureBox = new PictureBox();
-            pictureBox.Image = Image.FromFile(imagePathComplete);
+
+                pictureBox.Image = Image.FromStream(new System.IO.MemoryStream(imagePath));
+
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox.Width = 150;
             pictureBox.Height = 150;
@@ -123,6 +125,11 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

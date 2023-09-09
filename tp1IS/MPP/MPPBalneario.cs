@@ -16,7 +16,7 @@ namespace MPP
         Acceso oDatos;
         Hashtable Hdatos;
        
-        public bool incribir_balneario(BEBalneario balneario, List<BECarpa> carpas)
+        public bool incribir_balneario(BEBalneario balneario, List<BECarpa> carpas, byte[] imageData)
         {
             try
             {
@@ -26,13 +26,14 @@ namespace MPP
                 Hdatos.Add("@extras", balneario.Extras);
                 Hdatos.Add("@ninos", balneario.permiteNinos);
                 Hdatos.Add("@mascotas", balneario.permiteMascotas);
-                Hdatos.Add("@image", balneario.Image);
 
 
                 DataTable carpaDataTable = new DataTable();
                 carpaDataTable.Columns.Add("Fila", typeof(int));
                 carpaDataTable.Columns.Add("Columna", typeof(int));
                 carpaDataTable.Columns.Add("idBalneario", typeof(int));
+
+                Hdatos.Add("@image", imageData);
 
                 foreach (var carpa in carpas)
                 {
