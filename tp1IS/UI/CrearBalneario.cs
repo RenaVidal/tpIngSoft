@@ -35,6 +35,7 @@ namespace UI
                 }
 
                 formularioAbierto = formulario;
+                formularioAbierto.Dock = DockStyle.Fill;
                 formularioAbierto.Show();
             }
             catch (NullReferenceException ex)
@@ -198,16 +199,33 @@ namespace UI
         {
             try
             {
-                if (isExpanded)
+                this.WindowState = FormWindowState.Minimized;
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try { 
+                if (this.WindowState == FormWindowState.Maximized)
                 {
-                    this.Size = new Size(800, 600); 
+                    this.WindowState = FormWindowState.Normal;
                 }
                 else
                 {
-                    this.Size = new Size(1525, 731);
+                    this.WindowState = FormWindowState.Maximized;
                 }
-
-                isExpanded = !isExpanded; 
             }
             catch (NullReferenceException ex)
             {

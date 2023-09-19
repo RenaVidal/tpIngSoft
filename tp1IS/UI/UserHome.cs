@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using servicios.ClasesMultiLenguaje;
+using servicios;
+
 namespace UI
 {
     public partial class UserHome : Form,IdiomaObserver
@@ -206,10 +208,10 @@ namespace UI
                     string traduccion = palabras.Find(p => p.Equals(this.Tag.ToString()));
                     this.Text = traduccion;
                 }
-                if (metroButton4.Tag != null && palabras.Contains(metroButton4.Tag.ToString()))
+                if (button3.Tag != null && palabras.Contains(button3.Tag.ToString()))
                 {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton4.Tag.ToString()));
-                    this.metroButton4.Text = traduccion;
+                    string traduccion = palabras.Find(p => p.Equals(button3.Tag.ToString()));
+                    this.button3.Text = traduccion;
                 }
             }
             catch (NullReferenceException ex)
@@ -254,9 +256,9 @@ namespace UI
                         {
                             this.Text = traducciones[this.Tag.ToString()].texto;
                         }
-                        if (metroButton4.Tag != null && traducciones.ContainsKey(metroButton4.Tag.ToString()))
+                        if (button3.Tag != null && traducciones.ContainsKey(button3.Tag.ToString()))
                         {
-                            this.metroButton4.Text = traducciones[metroButton4.Tag.ToString()].texto;
+                            this.button3.Text = traducciones[button3.Tag.ToString()].texto;
                         }
                     }
 
@@ -303,6 +305,201 @@ namespace UI
     
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Close();
+
+                Observer.eliminarObservador(this);
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                this.WindowState = FormWindowState.Minimized;
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                }
+                else
+                {
+                    this.WindowState = FormWindowState.Maximized;
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                ODV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ODV.BuscarDVUsuarios()));
+                oBit.guardar_logOut();
+                SessionManager.Logout();
+                var formularios = Application.OpenForms;
+
+                var copiaFormularios = new List<Form>(formularios.OfType<Form>());
+
+                foreach (Form formulario in copiaFormularios)
+                {
+                    if (formulario.Text != "Welcome!")
+                    {
+                        formulario.Close();
+                    }
+                }
+                SignIn form = new SignIn();
+                form.Show();
+
+                servicios.Observer.eliminarObservador(this);
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Close();
+
+                Observer.eliminarObservador(this);
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                this.WindowState = FormWindowState.Minimized;
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                }
+                else
+                {
+                    this.WindowState = FormWindowState.Maximized;
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public Panel Panel3 { get { return panel3; } }
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

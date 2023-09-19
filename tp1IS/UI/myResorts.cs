@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
@@ -13,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace UI
 {
@@ -43,43 +45,27 @@ namespace UI
             IList<BEBalneario> images = oBAl.GetAllBalnearios(42933252, pag);
             if (images.Count == 0) { button2.Enabled = false; }
             else { button2.Enabled = true; }
-            flowLayoutPanel1.Controls.Remove(flowLayoutPanel1); // --------------------- acaaaa
+            flowLayoutPanel1.Controls.Clear(); 
             foreach (BEBalneario image in images)
             {
-                AddGalleryItem(image.Image);
+                AddGalleryItem(image.Image, image.Id, image.Name);
             }
         }
-        private void AddGalleryItem(byte[] imagePath)
+       
+
+        private void AddGalleryItem(byte[] imagePath, int id, string name)
         {
-
-            PictureBox pictureBox = new PictureBox();
-
-                pictureBox.Image = Image.FromStream(new System.IO.MemoryStream(imagePath));
-
-            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox.Width = 150;
-            pictureBox.Height = 150;
-
-            System.Windows.Forms.Button button = new System.Windows.Forms.Button();
-            button.Text = "Eliminar";
-            button.Click += (sender, e) =>
+            CustomComponent customComponent = new CustomComponent(id, name);
+            customComponent.Picture = Image.FromStream(new System.IO.MemoryStream(imagePath));
+            customComponent.button1.Text = "Remove";
+            customComponent.Button1Click += (sender, e) =>
             {
-                // Maneja el evento de clic para eliminar el elemento de galería.
-                // Puedes implementar la lógica de eliminación aquí.
-                flowLayoutPanel1.Controls.Remove(pictureBox);
-                flowLayoutPanel1.Controls.Remove(button);
+                oBAl.eliminar_balneario(customComponent.id);
+                getBalnearios(0, pag);
             };
+            flowLayoutPanel1.Controls.Add(customComponent);
 
-            flowLayoutPanel1.Controls.Add(pictureBox);
-            flowLayoutPanel1.Controls.Add(button);
-
-            GalleryItem galleryItem = new GalleryItem
-            {
-                Image = pictureBox.Image,
-                Button = button
-            };
-
-            galleryItems.Add(galleryItem);
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -129,3 +129,6 @@ C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\TelerikCommon.dll
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.CrearB.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.Ratings.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.myResorts.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.Alquilar.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.buscador.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.CustomComponent.resources

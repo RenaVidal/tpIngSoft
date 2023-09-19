@@ -224,7 +224,21 @@ namespace UI
 
                 }
                 if (carpas <= 0) { MetroMessageBox.Show(this, "You should add a tent"); return; }
-                if (textBox1.Text == string.Empty || !validar.usuario(textBox1.Text)) { MetroMessageBox.Show(this, "You should add a name without special characters"); return; }
+                if (textBox1.Text == string.Empty || !validar.usuario(textBox1.Text))
+                {
+                    MetroMessageBox.Show(this, "You should add a name without special characters");
+                    return;
+                }
+                if (pictureBox2.Image == null)
+                {
+                    MetroMessageBox.Show(this, "You add an image to show what your resort looks like");
+                    return;
+                }
+                if (numericUpDown1.Value == 0)
+                {
+                    MetroMessageBox.Show(this, "You set the price for a day in a tent");
+                    return;
+                }
                 bool ninos = false;
                 bool mascotas = false;
                 string name = textBox1.Text;
@@ -249,19 +263,24 @@ namespace UI
                 {
                     extras.Add("Vestuario");
                 }
-                string picture= null;
+                string picture = null;
                 string extrasString = string.Join(",", extras);
                 if (checkBox6.Checked) { ninos = true; }
                 if (checkBox7.Checked) { mascotas = true; }
-                if(Imagename != null) { picture = Imagename; }
+                if (Imagename != null) { picture = Imagename; }
 
                 byte[] imageData = File.ReadAllBytes(System.Windows.Forms.Application.StartupPath + "/Images/" + Imagename);
-                BEBalneario balneario = new BEBalneario(name, extrasString, ninos, mascotas, imageData);
-               if( obLLBalneario.incribir_balneario(balneario, Carpas, imageData))
+                BEBalneario balneario = new BEBalneario(name, extrasString, ninos, mascotas, imageData, Convert.ToInt32( numericUpDown1.Value));
+                if (obLLBalneario.incribir_balneario(balneario, Carpas, imageData))
                 {
                     MetroMessageBox.Show(this, "Success! You can see your resort in -My Resort- section");
                     clean();
 
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "Ups! Something went wrong, try again.");
+                    clean();
                 }
             }
             catch (NullReferenceException ex)
@@ -306,6 +325,11 @@ namespace UI
                     pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

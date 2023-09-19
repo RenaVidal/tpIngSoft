@@ -26,6 +26,7 @@ namespace MPP
                 Hdatos.Add("@extras", balneario.Extras);
                 Hdatos.Add("@ninos", balneario.permiteNinos);
                 Hdatos.Add("@mascotas", balneario.permiteMascotas);
+                Hdatos.Add("@price", balneario.price);
 
 
                 DataTable carpaDataTable = new DataTable();
@@ -37,7 +38,7 @@ namespace MPP
 
                 foreach (var carpa in carpas)
                 {
-                    carpaDataTable.Rows.Add(carpa.fila, carpa.columna, 0);
+                    carpaDataTable.Rows.Add(0, carpa.fila, carpa.columna);
                 }
                 Hdatos.Add("@CarpaData", carpaDataTable);
                 oDatos = new Acceso();
@@ -65,6 +66,36 @@ namespace MPP
 
             }
             catch (Exception ex) { throw ex; }
+        }
+        public IList<BEBalneario> GetFIlterBalnearios(int pag, string nombre, int permiteninos, int permitemascotas, string extras)
+        {
+            try
+            {
+                oDatos = new Acceso();
+                return oDatos.GetFIlterBalnearios(pag, nombre, permiteninos, permitemascotas, extras);
+
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public bool eliminar_balneario(int id)
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_balneario_eliminar";
+                Hdatos.Add("@id", id);
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

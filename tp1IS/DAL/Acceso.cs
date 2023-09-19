@@ -456,7 +456,8 @@ namespace DAL
                 var sql = "s_balneario_obtener";
                 Cmd = new SqlCommand(sql, oCnn);
                 Cmd.CommandType = CommandType.StoredProcedure;
-                Cmd.Parameters.AddWithValue("id",  id);
+                if( id == 00000000000) Cmd.Parameters.AddWithValue("id", null);
+                else Cmd.Parameters.AddWithValue("id",  id);
                 Cmd.Parameters.AddWithValue("PageNumber", pag);
 
                 var reader = Cmd.ExecuteReader();
@@ -465,6 +466,71 @@ namespace DAL
                 {
                     BEBalneario balneario = new BEBalneario();
                     balneario.Name = reader["nombre"].ToString();
+                    balneario.Id = Convert.ToInt32(reader["idBalneario"]);
+                    balneario.permiteMascotas = Convert.ToBoolean(reader["PermiteNinos"]);
+                    balneario.Extras = reader["Extras"].ToString();
+                    balneario.permiteNinos = Convert.ToBoolean(reader["PermiteNinos"]);
+                    object pre = reader["Picture"];
+                    if (pre != DBNull.Value)
+                    {
+                        balneario.Image = (byte[])reader["Picture"];
+                    }
+                    pre = reader["rating"];
+                    if (pre != DBNull.Value)
+                    {
+                        balneario.rating = Convert.ToInt32(reader["rating"]);
+                    }
+                    balnearios.Add(balneario);
+                }
+                reader.Close();
+
+                return balnearios;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+        }
+
+        public IList<BEBalneario> GetFIlterBalnearios(int pag, string nombre, int permiteninos, int permitemascotas, string extras)
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "sp_FiltrarBalneariosConPaginacion";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("PageNumber", pag);
+
+                if (nombre != null)
+                    Cmd.Parameters.AddWithValue("Nombre", nombre);
+
+                if (permiteninos != 2)
+                    Cmd.Parameters.AddWithValue("PermiteNinos", permiteninos);
+
+                if (permitemascotas != 2)
+                    Cmd.Parameters.AddWithValue("PermiteMascotas", permitemascotas);
+
+                if (extras != null)
+                    Cmd.Parameters.AddWithValue("Extras", extras);
+
+                var reader = Cmd.ExecuteReader();
+                IList<BEBalneario> balnearios = new List<BEBalneario>();
+                while (reader.Read())
+                {
+                    BEBalneario balneario = new BEBalneario();
+                    balneario.Name = reader["nombre"].ToString();
+                    balneario.Id = Convert.ToInt32(reader["idBalneario"]);
                     balneario.permiteMascotas = Convert.ToBoolean(reader["PermiteNinos"]);
                     balneario.Extras = reader["Extras"].ToString();
                     balneario.permiteNinos = Convert.ToBoolean(reader["PermiteNinos"]);
