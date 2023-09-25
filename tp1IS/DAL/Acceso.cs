@@ -467,7 +467,7 @@ namespace DAL
                     BEBalneario balneario = new BEBalneario();
                     balneario.Name = reader["nombre"].ToString();
                     balneario.Id = Convert.ToInt32(reader["idBalneario"]);
-                    balneario.permiteMascotas = Convert.ToBoolean(reader["PermiteNinos"]);
+                    balneario.permiteMascotas = Convert.ToBoolean(reader["PermiteMascotas"]);
                     balneario.Extras = reader["Extras"].ToString();
                     balneario.permiteNinos = Convert.ToBoolean(reader["PermiteNinos"]);
                     object pre = reader["Picture"];
@@ -531,7 +531,8 @@ namespace DAL
                     BEBalneario balneario = new BEBalneario();
                     balneario.Name = reader["nombre"].ToString();
                     balneario.Id = Convert.ToInt32(reader["idBalneario"]);
-                    balneario.permiteMascotas = Convert.ToBoolean(reader["PermiteNinos"]);
+                    balneario.price = Convert.ToInt32(reader["price"]);
+                    balneario.permiteMascotas = Convert.ToBoolean(reader["PermiteMascotas"]);
                     balneario.Extras = reader["Extras"].ToString();
                     balneario.permiteNinos = Convert.ToBoolean(reader["PermiteNinos"]);
                     object pre = reader["Picture"];
@@ -549,6 +550,50 @@ namespace DAL
                 reader.Close();
 
                 return balnearios;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+        }
+
+        public IList<BECarpa> GetAllCarpas(int id, DateTime inicio, DateTime fin)
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "s_balneario_carpas_obtener";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("@idBalneario", id);
+                Cmd.Parameters.AddWithValue("@fechaInicio", inicio);
+                Cmd.Parameters.AddWithValue("@fechaFin", fin);
+
+                var reader = Cmd.ExecuteReader();
+                IList<BECarpa> carpas = new List<BECarpa>();
+                while (reader.Read())
+                {
+                    BECarpa carpa = new BECarpa();
+                    carpa.fila = Convert.ToInt32(reader["fila"]);
+                    carpa.columna = Convert.ToInt32(reader["columna"]);
+                    carpa.Id = Convert.ToInt32(reader["carpa_id"]);
+                    carpa.estado = Convert.ToBoolean(reader["estado"]);
+                   
+                    carpas.Add(carpa);
+                }
+                reader.Close();
+
+                return carpas;
             }
             catch (NullReferenceException ex)
             {

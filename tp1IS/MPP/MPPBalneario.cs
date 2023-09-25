@@ -57,6 +57,45 @@ namespace MPP
             }
         }
 
+        public bool incribir_alquiler(BEBalneario balneario, IList<BECarpa> carpas, DateTime inicio, DateTime fin, int id, int total)
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_alquiler_crear";
+                Hdatos.Add("@idBalneario", balneario.Id);
+                Hdatos.Add("@fechaInicio", inicio);
+                Hdatos.Add("@precio", total);
+                Hdatos.Add("@idUsuario", id);
+                Hdatos.Add("@fechafin",fin);
+                string carpasString = string.Join(",", carpas.Select(carpa => carpa.Id));
+                Hdatos.Add("@idCarpaList", carpasString);
+
+
+                oDatos = new Acceso();
+                DataTable Ds2 = new DataTable();
+                return oDatos.Escribir(Consulta, Hdatos);
+
+
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public IList<BECarpa> GetAllCarpas(int id, DateTime inicio, DateTime fin)
+        {
+            try
+            {
+                oDatos = new Acceso();
+                return oDatos.GetAllCarpas(id, inicio, fin);
+            }
+            catch (Exception ex) { throw ex; }
+        }
         public IList<BEBalneario> GetAllBalnearios(int idUser, int pag)
         {
             try

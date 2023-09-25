@@ -16,20 +16,26 @@ namespace UI
 {
     public partial class UserHome : Form,IdiomaObserver
     {
+        
+         public Panel Panel3 { get { return panel3; } }
+
+          
         public UserHome()
         {
             InitializeComponent();
         }
         BLL.BLLTraductor Otraductor = new BLL.BLLTraductor();
         BLL.BLLDv ODV = new BLL.BLLDv();
+       
         private void UserHome_Load(object sender, EventArgs e)
         {
             try
             {
-                servicios.Observer.agregarObservador(this);
-                ListarIdiomas();
-                SessionManager.GetInstance.idioma = Otraductor.ObtenerIdiomaBase();
-                traducir();
+
+                //servicios.Observer.agregarObservador(this);
+                // ListarIdiomas();
+                // SessionManager.GetInstance.idioma = Otraductor.ObtenerIdiomaBase();
+                // traducir();
 
 
             }
@@ -55,33 +61,7 @@ namespace UI
 
             servicios.Observer.eliminarObservador(this);
         }
-        private Form formularioAbierto = null;
-        private void AbrirFormulario(Form formulario)
-        {
-            try
-            {
-                if (formularioAbierto != null)
-                {
-                    formularioAbierto.Close();
-                }
-
-                formularioAbierto = formulario;
-                formularioAbierto.Show();
-            }
-            catch (NullReferenceException ex)
-            {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
-                MessageBox.Show(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
-                MessageBox.Show(ex.Message);
-            }
-
-        }
+      
 
         private void UserHome_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -491,15 +471,93 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
-        public Panel Panel3 { get { return panel3; } }
+        
         private void button2_Click_1(object sender, EventArgs e)
         {
-
+            try
+            {
+                abrirForm(Panel3,new buscador(Panel3));
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
-
+        public static void abrirForm(Control panel3, object formHijo)
+        {
+            try
+            {
+                if (panel3.Controls.Count > 0)
+                    panel3.Controls.RemoveAt(0);
+                Form fh = formHijo as Form;
+                fh.TopLevel = false;
+                fh.Dock = DockStyle.Fill;
+                panel3.Controls.Add(fh);
+                panel3.Tag = formHijo;
+                fh.Show();
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
+          
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                abrirForm(Panel3, new mybookings());
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                abrirForm(Panel3, new mybookings());
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace UI
+﻿using System.Windows.Controls;
+
+namespace UI
 {
     partial class UserHome
     {
@@ -154,8 +156,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(210, 36);
             this.button1.TabIndex = 11;
-            this.button1.Text = "My Booking";
+            this.button1.Text = "My Bookings";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button3
             // 
@@ -200,7 +203,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(208, 20);
@@ -235,7 +238,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
@@ -243,5 +245,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel3;
     }
 }

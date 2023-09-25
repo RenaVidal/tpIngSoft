@@ -1,4 +1,6 @@
 ﻿using BE;
+using BLL;
+using MetroFramework;
 using Negocio;
 using System;
 using System.Collections.Generic;
@@ -8,17 +10,34 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
+using Telerik.WinControls.Themes.ControlDefault;
 
 namespace UI
 {
     public partial class Alquilar : Form
     {
+        BEBalneario balnearioC;
         public Alquilar(BEBalneario balneario)
         {
             InitializeComponent();
+            label7.Text = balneario.Name;
+            label2.Text = balneario.Extras;
+            string[] extras = balneario.Extras.Split(',');
+            if(balneario.permiteMascotas) checkBox2.Checked = true;
+            if(balneario.permiteNinos) checkBox1.Checked = true;
+            balnearioC = balneario;
+            label8.Text = balneario.price.ToString();
+            metroDateTime1.Format = DateTimePickerFormat.Custom;
+            metroDateTime2.Format = DateTimePickerFormat.Custom;
+            metroDateTime1.CustomFormat = "yyyy/MM/dd";
+            metroDateTime2.CustomFormat = "yyyy/MM/dd";
         }
-
+        int total = 0;
+        BLLBalneario oBal = new BLLBalneario();
+        IList<BECarpa> carpaList;
+        List<BECarpa> alquiladas = new List<BECarpa>();
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -33,9 +52,56 @@ namespace UI
         {
             checkBox1.Enabled = false;
             checkBox2.Enabled = false;
+            carpaList = oBal.GetAllCarpas(balnearioC.Id, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null));
+            InitializePictureBoxMatrix();
+
         }
         private PictureBox[,] pictureBoxMatrix;
         BLLBitacora oBit = new BLLBitacora();
+        private void ColocarImagenesEnMatriz(PictureBox[,] pictureBoxMatrix, IList<BECarpa> carpaList)
+        {
+            try
+            {
+                foreach (BECarpa carpa in carpaList)
+                {
+                        int fila = carpa.fila;
+                        int columna = carpa.columna;
+
+                        if (fila >= 0 && fila < pictureBoxMatrix.GetLength(0) &&
+                            columna >= 0 && columna < pictureBoxMatrix.GetLength(1))
+                        {
+                            if(carpa.estado == false)
+                            {
+                                Bitmap imagen = Properties.Resources.carpaOc;
+
+                                pictureBoxMatrix[fila, columna] = new PictureBox
+                                {
+                                    SizeMode = PictureBoxSizeMode.Zoom,
+                                    Image = imagen,
+                                    Tag = "Ocupado"
+                                };
+                            }
+                            else
+                            {
+                                Bitmap imagen = Properties.Resources.carpaAz;
+                                pictureBoxMatrix[fila, columna] = new PictureBox
+                                {
+                                    SizeMode = PictureBoxSizeMode.Zoom,
+                                    Image = imagen,
+                                    Tag = "Libre"
+                                };
+                            }
+                           
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void InitializePictureBoxMatrix()
         {
             try
@@ -49,6 +115,7 @@ namespace UI
                 int newWidth = 10;
                 int newHeight = 10;
                 Bitmap resizedImage = new Bitmap(imagen, new Size(newWidth, newHeight));
+                ColocarImagenesEnMatriz(pictureBoxMatrix, carpaList);
 
                 for (int i = 0; i < columns; i++)
                 {
@@ -59,12 +126,16 @@ namespace UI
                     DataRow row = dataTable.NewRow();
                     for (int j = 0; j < columns; j++)
                     {
-                        pictureBoxMatrix[i, j] = new PictureBox
+                        if(pictureBoxMatrix[i, j] == null)
                         {
-                            SizeMode = PictureBoxSizeMode.Zoom,
-                            Image = resizedImage,
-                            Tag = "Empty"
-                        };
+                            pictureBoxMatrix[i, j] = new PictureBox
+                            {
+                                SizeMode = PictureBoxSizeMode.Zoom,
+                                Image = resizedImage,
+                                Tag = "Empty"
+                            };
+                        }
+                        
                         row[j] = pictureBoxMatrix[i, j].Image;
 
                     }
@@ -123,6 +194,118 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
             return null;
+        }
+       
+        private void PictureBox_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (pictureBoxMatrix[e.RowIndex, e.ColumnIndex] != null && pictureBoxMatrix[e.RowIndex, e.ColumnIndex].Tag == "Libre")
+                {
+                    Bitmap imagen = Properties.Resources.carpadis;
+                    pictureBoxMatrix[e.RowIndex, e.ColumnIndex].Image = imagen;
+                    pictureBoxMatrix[e.RowIndex, e.ColumnIndex].SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBoxMatrix[e.RowIndex, e.ColumnIndex].Tag = "Seleccionada";
+                    BECarpa carpaI = carpaList.FirstOrDefault(carpa => carpa.fila == e.RowIndex && carpa.columna == e.ColumnIndex);
+                    alquiladas.Add(carpaI);
+
+                }
+                else if (pictureBoxMatrix[e.RowIndex, e.ColumnIndex] != null && pictureBoxMatrix[e.RowIndex, e.ColumnIndex].Tag == "Seleccionada")
+                {
+                    Bitmap imagen = Properties.Resources.carpaAz;
+                    pictureBoxMatrix[e.RowIndex, e.ColumnIndex].Image = imagen;
+                    pictureBoxMatrix[e.RowIndex, e.ColumnIndex].SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBoxMatrix[e.RowIndex, e.ColumnIndex].Tag = "Libre";
+                    BECarpa carpaI = carpaList.FirstOrDefault(carpa => carpa.fila == e.RowIndex && carpa.columna == e.ColumnIndex);
+                    alquiladas.Remove(carpaI);
+                }
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = FillDatagrid(pictureBoxMatrix);
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void metroDateTime1_ValueChanged(object sender, EventArgs e)
+        {
+            if (metroDateTime1.Value == null || DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
+            {
+                MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
+                metroDateTime1.Value = DateTime.Now;
+            }
+            else
+            {
+                carpaList = oBal.GetAllCarpas(balnearioC.Id, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null));
+                InitializePictureBoxMatrix();
+            }
+        }
+
+        private void metroDateTime2_ValueChanged(object sender, EventArgs e)
+        {
+            if (metroDateTime2.Value == null || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
+            {
+                MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
+                metroDateTime2.Value = DateTime.Now;
+            }
+            else
+            {
+                carpaList = oBal.GetAllCarpas(balnearioC.Id, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null));
+                InitializePictureBoxMatrix();
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (metroDateTime1.Value == null || DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
+            {
+                MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
+                return;
+            }
+            if (metroDateTime2.Value == null || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
+            {
+                MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
+                return;
+            }
+            if(balnearioC == null)
+            {
+                MetroMessageBox.Show(this, "Ups! something went wrong");
+                return;
+            }
+            if(alquiladas.Count == 0)
+            {
+                MetroMessageBox.Show(this, "you should select at least one tent");
+                return;
+            }
+            total = (balnearioC.price * (metroDateTime1.Value.Day - metroDateTime2.Value.Day + 1)) * alquiladas.Count;
+            DateTime datetime;
+            oBal.incribir_alquiler(balnearioC,  alquiladas, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) , DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 42933252, total);
+            
+            Pay payment = new Pay(total);
+            payment.FormClosed += Pay_FormClosed; 
+            this.Enabled = false; 
+            payment.Show();
+
+        }
+
+        private void Pay_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Enabled = true;
+            this.Close();
         }
     }
 }

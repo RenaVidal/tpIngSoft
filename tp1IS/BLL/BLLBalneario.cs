@@ -55,11 +55,39 @@ namespace BLL
             }
         }
 
+        public IList<BECarpa> GetAllCarpas(int id, DateTime inicio, DateTime fin)
+        {
+            try
+            {
+                return mPPBalneario.GetAllCarpas(id, inicio, fin);
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
+        }
+
         public IList<BEBalneario> GetFIlterBalnearios(int pag, string nombre, int permiteninos, int permitemascotas, string extras)
         {
             try
             {
                 return mPPBalneario.GetFIlterBalnearios(pag, nombre,permiteninos, permitemascotas, extras);
+
+            }
+            catch (Exception ex)
+            {
+                oBit.guardar_accion(ex.Message, 1);
+                throw ex;
+            }
+        }
+
+        public bool incribir_alquiler(BEBalneario balneario, IList<BECarpa> carpas, DateTime inicio, DateTime fin, int id, int total)
+        {
+
+            try
+            {
+                return mPPBalneario.incribir_alquiler(balneario,carpas,inicio,fin, id,  total);
 
             }
             catch (Exception ex)

@@ -18,15 +18,16 @@ namespace UI
 {
     public partial class buscador : Form
     {
-        Panel panel;
-        UserHome home = new UserHome();
-        public buscador()
+        Panel panel3;
+        public buscador(Panel Panel3)
         {
             InitializeComponent();
             SetRoundedPanel(panel1, 20);
-            panel = home.Panel3;
+            panel3 = Panel3;
+
         }
         public int BorderRadius { get; set; } = 10;
+      
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             
@@ -60,6 +61,7 @@ namespace UI
             comboBox1.DataSource = balnearios;
             comboBox1.DisplayMember = "Name";
             comboBox1.SelectedItem = null;
+           
         }
         public class GalleryItem
         {
@@ -96,14 +98,8 @@ namespace UI
             customComponent.Picture = Image.FromStream(new System.IO.MemoryStream(balneario.Image));
             customComponent.Click += (sender, e) =>
             {
-                if (panel.Controls.Count > 0)
-                    panel.Controls.RemoveAt(0);
-                Form fh = new Alquilar(balneario);
-                fh.TopLevel = false;
-                fh.Dock = DockStyle.Fill;
-                panel.Controls.Add(fh);
-                panel.Tag = fh;
-                fh.Show();
+                this.Hide();
+                UserHome.abrirForm(panel3, new Alquilar(balneario));
             };
             flowLayoutPanel1.Controls.Add(customComponent);
 
@@ -116,7 +112,7 @@ namespace UI
             {
                 button1.Enabled = true;
                 pag += 1;
-                setBalnearios(); //-------------------------------------------------------- aca id
+                setBalnearios(); 
             }
             catch (NullReferenceException ex)
             {

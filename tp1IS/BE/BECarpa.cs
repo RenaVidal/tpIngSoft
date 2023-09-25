@@ -13,9 +13,19 @@ namespace BE
 
         public int balneario { get; set; }
 
+        public bool estado { get; set; }
+
+        public int Id { get; set; }
+
         public BECarpa(int filaP, int columnaP) { 
             fila = filaP;
             columna = columnaP;
+        }
+        public BECarpa(int filaP, int columnaP, int IdP)
+        {
+            fila = filaP;
+            columna = columnaP;
+            Id = IdP;
         }
         public BECarpa() { }
     }
