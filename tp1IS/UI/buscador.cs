@@ -28,11 +28,7 @@ namespace UI
         }
         public int BorderRadius { get; set; } = 10;
       
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            
-
-        }
+       
         private void SetRoundedPanel(Panel panel, int borderRadius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -55,13 +51,21 @@ namespace UI
 
             pag = 1;
             setBalnearios();
+            button1.Enabled = false;
             comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
             comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
-            IList<BEBalneario> balnearios = oBAl.GetAllBalnearios(00000000000, pag);
+            IList<BEBalneario> balnearios = oBAl.GetAllBalnearios(00000000000, 00000000000);
             comboBox1.DataSource = balnearios;
             comboBox1.DisplayMember = "Name";
+            comboBox1.ValueMember = "Id";
             comboBox1.SelectedItem = null;
-           
+
+        }
+        private void buscador_Close(object sender, EventArgs e)
+        {
+
+            
+
         }
         public class GalleryItem
         {
@@ -94,7 +98,7 @@ namespace UI
         }
         private void AddGalleryItem(BEBalneario balneario)
         {
-            balnearioList customComponent = new balnearioList(balneario.Id, balneario.Name);
+            balnearioList customComponent = new balnearioList(balneario.Id, balneario.Name, balneario.rating);
             customComponent.Picture = Image.FromStream(new System.IO.MemoryStream(balneario.Image));
             customComponent.Click += (sender, e) =>
             {
@@ -103,7 +107,7 @@ namespace UI
             };
             flowLayoutPanel1.Controls.Add(customComponent);
 
-
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -151,10 +155,7 @@ namespace UI
             }
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -318,6 +319,51 @@ namespace UI
                 if (checkBox6.Checked) extras.Add("Juegos");
                 else extras.Remove("Juegos");
                 setBalnearios();
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                button1.Enabled = true;
+                pag += 1;
+                setBalnearios();
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                pag -= 1;
+                button1.Enabled = true;
+                if (pag <= 1) button1.Enabled = false;
+                if (pag > 0) setBalnearios();
             }
             catch (NullReferenceException ex)
             {

@@ -50,7 +50,6 @@ namespace DAL
                 }
 
                 int Respuesta = Convert.ToInt32(Cmd.ExecuteScalar());
-                oCnn.Close();
                 return Respuesta;
             }
             catch (NullReferenceException ex)
@@ -61,6 +60,8 @@ namespace DAL
             { throw ex; }
             catch (Exception ex)
             { throw ex; }
+            finally
+            { oCnn.Close(); }
         }
 
         public bool LeerScalar(string Consulta, Hashtable Hdatos)
@@ -70,20 +71,20 @@ namespace DAL
             Cmd.CommandType = CommandType.StoredProcedure;
             try
             {
-                if ((Hdatos != null))
-                {
-                    foreach (string dato in Hdatos.Keys)
+                  if ((Hdatos != null))
                     {
-                        Cmd.Parameters.AddWithValue(dato, Hdatos[dato]);
+                        foreach (string dato in Hdatos.Keys)
+                        {
+                            Cmd.Parameters.AddWithValue(dato, Hdatos[dato]);
+                        }
                     }
-                }
 
-                int Respuesta = Convert.ToInt32(Cmd.ExecuteScalar());
-                oCnn.Close();
-                if (Respuesta > 0)
-                { return true; }
-                else
-                { return false; }
+                    int Respuesta = Convert.ToInt32(Cmd.ExecuteScalar());
+                    if (Respuesta > 0)
+                    { return true; }
+                    else
+                    { return false; }
+                
             }
             catch (NullReferenceException ex)
             {
@@ -93,6 +94,8 @@ namespace DAL
             { throw ex; }
             catch (Exception ex)
             { throw ex; }
+            finally
+            { oCnn.Close(); }
         }
         public DataTable Leer(string Consulta, Hashtable Hdatos)
         {
@@ -295,7 +298,6 @@ namespace DAL
                     }
                 }
                 reader.Close();
-                oCnn.Close();
                 return lista;
             }
             catch (NullReferenceException ex)
@@ -349,7 +351,10 @@ namespace DAL
             }
             catch (Exception ex)
             { throw ex; }
+            finally
+            { oCnn.Close(); }
             return component;
+           
 
 
 
@@ -458,7 +463,62 @@ namespace DAL
                 Cmd.CommandType = CommandType.StoredProcedure;
                 if( id == 00000000000) Cmd.Parameters.AddWithValue("id", null);
                 else Cmd.Parameters.AddWithValue("id",  id);
-                Cmd.Parameters.AddWithValue("PageNumber", pag);
+                if (pag == 00000000000) Cmd.Parameters.AddWithValue("PageNumber", null);
+                else Cmd.Parameters.AddWithValue("PageNumber", pag);
+
+                
+                    var reader = Cmd.ExecuteReader();
+                    IList<BEBalneario> balnearios = new List<BEBalneario>();
+                    while (reader.Read())
+                    {
+                        BEBalneario balneario = new BEBalneario();
+                        balneario.Name = reader["nombre"].ToString();
+                        balneario.Id = Convert.ToInt32(reader["idBalneario"]);
+                        balneario.permiteMascotas = Convert.ToBoolean(reader["PermiteMascotas"]);
+                        balneario.Extras = reader["Extras"].ToString();
+                        balneario.permiteNinos = Convert.ToBoolean(reader["PermiteNinos"]);
+                        object pre = reader["Picture"];
+                        if (pre != DBNull.Value)
+                        {
+                            balneario.Image = (byte[])reader["Picture"];
+                        }
+                        pre = reader["rating"];
+                        if (pre != DBNull.Value)
+                        {
+                            balneario.rating = Convert.ToInt32(reader["rating"]);
+                        }
+                        balnearios.Add(balneario);
+                    }
+
+                    reader.Close();
+
+
+                    return balnearios;
+                
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+        }
+        public IList<BEBalneario> GetAllBalneariosNoP()
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "s_buscar_todos_balnearios";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
 
                 var reader = Cmd.ExecuteReader();
                 IList<BEBalneario> balnearios = new List<BEBalneario>();
@@ -607,6 +667,53 @@ namespace DAL
             { oCnn.Close(); }
 
         }
+        public IList<BEEalquiler> GetAllAlquileres(int id, DateTime fecha, int past, int pagina) // si past es 1 me trae los alquileres pasados
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "s_alquiler_buscar";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("@idUsuario", id);
+                Cmd.Parameters.AddWithValue("@fecha", fecha);
+                Cmd.Parameters.AddWithValue("@Past", past);
+                Cmd.Parameters.AddWithValue("@PageNumber", pagina);
+
+                var reader = Cmd.ExecuteReader();
+                IList<BEEalquiler> alquileres = new List<BEEalquiler>();
+                while (reader.Read())
+                {
+                    BEEalquiler alquiler = new BEEalquiler();
+                    alquiler.Id = Convert.ToInt32(reader["idAlquiler"]);
+                    alquiler.idBalneario = Convert.ToInt32(reader["idBalneario"]);
+                    alquiler.fechaInicio = Convert.ToDateTime(reader["fechaInicio"]);
+                    alquiler.fechaFin = Convert.ToDateTime(reader["fechaFin"]);
+                    alquiler.idUsuario = Convert.ToInt32(reader["idUsuario"]);
+                    alquiler.precio = Convert.ToInt32(reader["precio"]);
+
+                    alquileres.Add(alquiler);
+                }
+                reader.Close();
+
+                return alquileres;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+        }
+       
     }
 }
 

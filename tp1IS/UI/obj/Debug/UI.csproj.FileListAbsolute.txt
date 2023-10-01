@@ -137,3 +137,6 @@ C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.Pay.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\Newtonsoft.Json.dll
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\Newtonsoft.Json.xml
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.mybookings.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.alquileres.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.review.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.balnearioList.resources

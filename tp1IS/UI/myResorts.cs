@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using MetroFramework;
 using Negocio;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,7 @@ namespace UI
             {
                 oBAl.eliminar_balneario(customComponent.id);
                 getBalnearios(0, pag);
+                MetroMessageBox.Show(this, "Users will get credit for their bookings here");
             };
             flowLayoutPanel1.Controls.Add(customComponent);
 

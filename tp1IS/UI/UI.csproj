@@ -114,6 +114,9 @@
     <Compile Include="Alquilar.Designer.cs">
       <DependentUpon>Alquilar.cs</DependentUpon>
     </Compile>
+    <Compile Include="alquileres.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="balnearioList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -225,6 +228,12 @@
     <Compile Include="Ratings.Designer.cs">
       <DependentUpon>Ratings.cs</DependentUpon>
     </Compile>
+    <Compile Include="review.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="review.Designer.cs">
+      <DependentUpon>review.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +258,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alquilar.resx">
       <DependentUpon>Alquilar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="alquileres.resx">
+      <DependentUpon>alquileres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="balnearioList.resx">
+      <DependentUpon>balnearioList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
@@ -314,6 +329,9 @@
     <EmbeddedResource Include="Ratings.resx">
       <DependentUpon>Ratings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="review.resx">
+      <DependentUpon>review.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -368,6 +386,7 @@
     <Content Include="images\carpaOc.png" />
     <Content Include="images\close.png" />
     <Content Include="images\Empty.png" />
+    <Content Include="images\estar.png" />
     <Content Include="images\home.png" />
     <Content Include="images\Images\03be0719-9d34-4b49-89d1-e7760513e4d7.jpg" />
     <Content Include="images\Images\2162b870-af06-489e-a00a-5468c1cc834e.jpg" />
@@ -378,6 +397,9 @@
     <Content Include="images\mar.png" />
     <Content Include="images\minimize.png" />
     <Content Include="images\open.jpg" />
+    <Content Include="images\search.png" />
+    <Content Include="images\star.png" />
+    <None Include="Resources\star.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

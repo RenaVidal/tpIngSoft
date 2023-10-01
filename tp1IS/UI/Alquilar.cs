@@ -95,6 +95,12 @@ namespace UI
                         }
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 var accion = ex.Message;
@@ -238,29 +244,57 @@ namespace UI
 
         private void metroDateTime1_ValueChanged(object sender, EventArgs e)
         {
-            if (metroDateTime1.Value == null || DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
-            {
-                MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
-                metroDateTime1.Value = DateTime.Now;
+            try { 
+                if (metroDateTime1.Value == null || DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
+                {
+                    MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
+                    metroDateTime1.Value = DateTime.Now;
+                }
+                else
+                {
+                    carpaList = oBal.GetAllCarpas(balnearioC.Id, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null));
+                    InitializePictureBoxMatrix();
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                carpaList = oBal.GetAllCarpas(balnearioC.Id, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null));
-                InitializePictureBoxMatrix();
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                 oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void metroDateTime2_ValueChanged(object sender, EventArgs e)
         {
-            if (metroDateTime2.Value == null || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
-            {
-                MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
-                metroDateTime2.Value = DateTime.Now;
+            try { 
+                if (metroDateTime2.Value == null || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
+                {
+                    MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
+                    metroDateTime2.Value = DateTime.Now;
+                }
+                else
+                {
+                    carpaList = oBal.GetAllCarpas(balnearioC.Id, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null));
+                    InitializePictureBoxMatrix();
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                carpaList = oBal.GetAllCarpas(balnearioC.Id, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null));
-                InitializePictureBoxMatrix();
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -271,41 +305,75 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (metroDateTime1.Value == null || DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
+            try
             {
-                MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
-                return;
-            }
-            if (metroDateTime2.Value == null || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
-            {
-                MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
-                return;
-            }
-            if(balnearioC == null)
-            {
-                MetroMessageBox.Show(this, "Ups! something went wrong");
-                return;
-            }
-            if(alquiladas.Count == 0)
-            {
-                MetroMessageBox.Show(this, "you should select at least one tent");
-                return;
-            }
-            total = (balnearioC.price * (metroDateTime1.Value.Day - metroDateTime2.Value.Day + 1)) * alquiladas.Count;
-            DateTime datetime;
-            oBal.incribir_alquiler(balnearioC,  alquiladas, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) , DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 42933252, total);
+                if (metroDateTime1.Value == null || DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
+                {
+                    MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
+                    return;
+                }
+                if (metroDateTime2.Value == null || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) || DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) < DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null))
+                {
+                    MetroMessageBox.Show(this, "you should not make a booking for a date in the past");
+                    return;
+                }
+                if(balnearioC == null)
+                {
+                    MetroMessageBox.Show(this, "Ups! something went wrong");
+                    return;
+                }
+                if(alquiladas.Count == 0)
+                {
+                    MetroMessageBox.Show(this, "you should select at least one tent");
+                    return;
+                }
+                DateTime fechaInicio = DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null);
+                DateTime fechaFin = DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null);
+                TimeSpan diferencia = fechaFin - fechaInicio;
+                int cantidadDias = diferencia.Days + 1;
+
+                total = (balnearioC.price * (cantidadDias)) * alquiladas.Count;
+                DateTime datetime;
+                oBal.incribir_alquiler(balnearioC,  alquiladas, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) , DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 42933252, total);
             
-            Pay payment = new Pay(total);
-            payment.FormClosed += Pay_FormClosed; 
-            this.Enabled = false; 
-            payment.Show();
+                Pay payment = new Pay(total);
+                payment.FormClosed += Pay_FormClosed; 
+                this.Enabled = false; 
+                payment.Show();
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
         private void Pay_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Enabled = true;
-            this.Close();
+            try { 
+                this.Enabled = true;
+                this.Close();
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

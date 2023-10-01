@@ -12,13 +12,14 @@ using QRCoder;
 using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Xml.Linq;
+using Negocio;
 
 namespace UI
 {
     public partial class Pay : Form
     {
         public int TotalC;
-        
+        BLLBitacora oBit = new BLLBitacora();
         public Pay(int total)
         {
             InitializeComponent();
@@ -42,13 +43,27 @@ namespace UI
 
         public void generarQr(string qrData)
         {
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            string urlPagoMercadoPago = "https://www.mercadopago.com/link-de-pago";
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(urlPagoMercadoPago, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20);
-            pictureBox1.Image = qrCodeImage;
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            try { 
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                string urlPagoMercadoPago = "https://www.mercadopago.com/link-de-pago";
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(urlPagoMercadoPago, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                Bitmap qrCodeImage = qrCode.GetGraphic(20);
+                pictureBox1.Image = qrCodeImage;
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

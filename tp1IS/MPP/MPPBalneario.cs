@@ -15,7 +15,7 @@ namespace MPP
     {
         Acceso oDatos;
         Hashtable Hdatos;
-       
+
         public bool incribir_balneario(BEBalneario balneario, List<BECarpa> carpas, byte[] imageData)
         {
             try
@@ -44,7 +44,7 @@ namespace MPP
                 oDatos = new Acceso();
                 DataTable Ds2 = new DataTable();
                 return oDatos.Escribir(Consulta, Hdatos);
-            
+
 
             }
             catch (NullReferenceException ex)
@@ -56,7 +56,84 @@ namespace MPP
                 throw ex;
             }
         }
+        public DataTable get_stars(int balneario, DateTime inicio, DateTime fin)
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_rating_obtener";
+                Hdatos.Add("@idBalneario", balneario);
+                Hdatos.Add("@inicio", inicio);
+                Hdatos.Add("@fin", fin);
 
+
+                oDatos = new Acceso();
+                DataTable Ds2 = new DataTable();
+                return oDatos.Leer(Consulta, Hdatos);
+
+
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable get_revenue(int balneario, DateTime inicio, DateTime fin)
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_recaudacion_obtener";
+                Hdatos.Add("@id", balneario);
+                Hdatos.Add("@inicio", inicio);
+                Hdatos.Add("@fin", fin);
+
+
+                oDatos = new Acceso();
+                DataTable Ds2 = new DataTable();
+                return oDatos.Leer(Consulta, Hdatos);
+
+
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable get_messages(int balneario, DateTime inicio, DateTime fin)
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_feedbacks_obtener";
+                Hdatos.Add("@idBalneario", balneario);
+                Hdatos.Add("@inicio", inicio);
+                Hdatos.Add("@fin", fin);
+
+
+                oDatos = new Acceso();
+                DataTable Ds2 = new DataTable();
+                return oDatos.Leer(Consulta, Hdatos);
+
+
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool incribir_alquiler(BEBalneario balneario, IList<BECarpa> carpas, DateTime inicio, DateTime fin, int id, int total)
         {
             try
@@ -87,6 +164,70 @@ namespace MPP
                 throw ex;
             }
         }
+
+        public bool crear_feedback(int balneario, int usuario, string mensaje,  DateTime fecha, int estrellas)
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_feedback_crear";
+                Hdatos.Add("@idBalneario", balneario);
+                Hdatos.Add("@fecha", fecha);
+                Hdatos.Add("@mensaje", mensaje);
+                Hdatos.Add("@rating", estrellas);
+                Hdatos.Add("@idUsuario", usuario);
+
+
+                oDatos = new Acceso();
+                DataTable Ds2 = new DataTable();
+                return oDatos.Escribir(Consulta, Hdatos);
+
+
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public IList<BEEalquiler> GetAllAlquileres(int id, DateTime fecha, int past, int pagina) // si past es 1 me trae los alquileres pasados
+        {
+            try
+            {
+                oDatos = new Acceso();
+                return oDatos.GetAllAlquileres(id, fecha, past,  pagina);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public IList<BEBalneario> GetAllBalneariosNoP()
+        {
+            try
+            {
+                oDatos = new Acceso();
+                return oDatos.GetAllBalneariosNoP();
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public IList<BECarpa> GetAllCarpas(int id, DateTime inicio, DateTime fin)
         {
             try
@@ -123,6 +264,25 @@ namespace MPP
             {
                 Hdatos = new Hashtable();
                 string Consulta = "s_balneario_eliminar";
+                Hdatos.Add("@id", id);
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool eliminar_reserva(int id)
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_reserva_eliminar";
                 Hdatos.Add("@id", id);
                 oDatos = new Acceso();
                 return oDatos.Escribir(Consulta, Hdatos);
