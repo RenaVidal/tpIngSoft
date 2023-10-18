@@ -18,6 +18,7 @@ using MetroFramework;
 using servicios;
 using BLL;
 using Telerik.WinControls.UI;
+using Patrones.Singleton.Core;
 
 namespace UI
 {
@@ -31,6 +32,7 @@ namespace UI
         BLLBitacora oBit = new BLLBitacora();
         validaciones validar = new validaciones();
         string Imagename = null;
+        SessionManager session = SessionManager.GetInstance;
         private void InitializePictureBoxMatrix()
         {
             try {  
@@ -271,7 +273,7 @@ namespace UI
 
                 byte[] imageData = File.ReadAllBytes(System.Windows.Forms.Application.StartupPath + "/Images/" + Imagename);
                 BEBalneario balneario = new BEBalneario(name, extrasString, ninos, mascotas, imageData, Convert.ToInt32( numericUpDown1.Value));
-                if (obLLBalneario.incribir_balneario(balneario, Carpas, imageData))
+                if (obLLBalneario.incribir_balneario(balneario, Carpas, imageData, session.Usuario.id))
                 {
                     MetroMessageBox.Show(this, "Success! You can see your resort in -My Resort- section");
                     clean();
@@ -306,7 +308,7 @@ namespace UI
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+                openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string imageDirectory = Path.Combine(System.Windows.Forms.Application.StartupPath, "Images");

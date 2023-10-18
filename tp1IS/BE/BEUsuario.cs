@@ -11,6 +11,7 @@ namespace BE
         
         public string password { get; set; }
         public string birthDate {get; set;}
+        public string email { get; set; }
         public int rol { get; set;}
         public int active { get; set;}
 
@@ -30,7 +31,16 @@ namespace BE
             this.birthDate = nacimiento;
             this.Direccion = adress;
         }
-        
+        public BEUsuario(string usuario_e, string contrasena_e, int id, string nacimiento, string adress, string email)
+        {
+            this.user = usuario_e;
+            this.password = contrasena_e;
+            this.id = id;
+            this.birthDate = nacimiento;
+            this.Direccion = adress;
+            this.email = email;
+        }
+
         public BEUsuario() { }
     }
 }

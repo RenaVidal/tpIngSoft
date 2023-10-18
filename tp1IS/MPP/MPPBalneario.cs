@@ -16,7 +16,7 @@ namespace MPP
         Acceso oDatos;
         Hashtable Hdatos;
 
-        public bool incribir_balneario(BEBalneario balneario, List<BECarpa> carpas, byte[] imageData)
+        public bool incribir_balneario(BEBalneario balneario, List<BECarpa> carpas, byte[] imageData, int idUser)
         {
             try
             {
@@ -27,6 +27,7 @@ namespace MPP
                 Hdatos.Add("@ninos", balneario.permiteNinos);
                 Hdatos.Add("@mascotas", balneario.permiteMascotas);
                 Hdatos.Add("@price", balneario.price);
+                Hdatos.Add("@idUser", idUser);
 
 
                 DataTable carpaDataTable = new DataTable();
@@ -65,6 +66,30 @@ namespace MPP
                 Hdatos.Add("@idBalneario", balneario);
                 Hdatos.Add("@inicio", inicio);
                 Hdatos.Add("@fin", fin);
+
+
+                oDatos = new Acceso();
+                DataTable Ds2 = new DataTable();
+                return oDatos.Leer(Consulta, Hdatos);
+
+
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable busca_eliminar_balneario(int balneario)
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "s_alquiler_buscar_balneario";
+                Hdatos.Add("@id", balneario);
 
 
                 oDatos = new Acceso();
@@ -201,6 +226,22 @@ namespace MPP
             {
                 oDatos = new Acceso();
                 return oDatos.GetAllAlquileres(id, fecha, past,  pagina);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public IList<BEEalquiler> GetAllAlquileresD(int id, DateTime fecha, int past, int pagina, int dueno) // si past es 1 me trae los alquileres pasados
+        {
+            try
+            {
+                oDatos = new Acceso();
+                return oDatos.GetAllAlquileresD(id, fecha, past, pagina, dueno);
             }
             catch (NullReferenceException ex)
             {

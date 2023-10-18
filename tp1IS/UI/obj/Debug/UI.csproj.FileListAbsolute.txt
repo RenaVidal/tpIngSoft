@@ -140,3 +140,6 @@ C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.mybookings.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.alquileres.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.review.resources
 C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.balnearioList.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.bookings.resources
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\bin\Debug\BLL.dll.config
+C:\Users\renag\Documents\tpIngSoft\tp1IS\UI\obj\Debug\UI.loading.resources

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using servicios.ClasesMultiLenguaje;
 using Negocio;
 using System.Drawing.Imaging;
+using Patrones.Singleton.Core;
 
 namespace UI
 {
@@ -24,6 +25,7 @@ namespace UI
         private Form formularioAbierto = null;
         BLLBitacora oBit = new BLLBitacora();
         bool isExpanded = false;
+        SessionManager session = SessionManager.GetInstance;
         private void AbrirFormulario(Form formulario)
         {
             try
@@ -187,7 +189,7 @@ namespace UI
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            abrirForm(new bookings());
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -226,6 +228,43 @@ namespace UI
                 {
                     this.WindowState = FormWindowState.Maximized;
                 }
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+        }
+        BLL.BLLDv ODV = new BLL.BLLDv();
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ODV.actualizarDV(servicios.GenerarVD.generarDigitoVS(ODV.BuscarDVUsuarios()));
+                oBit.guardar_logOut();
+                SessionManager.Logout();
+                var formularios = Application.OpenForms;
+
+                var copiaFormularios = new List<Form>(formularios.OfType<Form>());
+
+                foreach (Form formulario in copiaFormularios)
+                {
+                    if (formulario.Text != "Welcome!")
+                    {
+                        formulario.Close();
+                    }
+                }
+                SignIn form = new SignIn();
+                form.Show();
+
+                servicios.Observer.eliminarObservador(this);
             }
             catch (NullReferenceException ex)
             {

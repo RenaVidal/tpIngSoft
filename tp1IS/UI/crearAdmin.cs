@@ -76,6 +76,11 @@ namespace UI
                     errorProvider1.SetError(metroDateTime2, "You should enter a date that is not later than todaymatias");
                     error++;
                 }
+                if (textBox6.Text == string.Empty || !validar.mail(textBox6.Text))
+                {
+                    errorProvider1.SetError(textBox6, "You should enter a valid email adress");
+                    error++;
+                }
 
                 if (error == 0)
                 {
@@ -83,7 +88,7 @@ namespace UI
                     else
                     {
                         string adress = textBox4.Text + " " + textBox5.Text;
-                        oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), metroDateTime2.Value.ToString(),adress);
+                        oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), metroDateTime2.Value.ToString(),adress, textBox6.Text);
                
                         if (oLog.crear_admin(oUsuraio))
                         {

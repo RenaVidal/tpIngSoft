@@ -2,6 +2,7 @@
 using BLL;
 using MetroFramework;
 using Negocio;
+using Patrones.Singleton.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -24,13 +26,15 @@ namespace UI
         public myResorts()
         {
             InitializeComponent();
+            groupBox1.Hide();
         }
 
         private void myResorts_Load(object sender, EventArgs e)
         {
             pag = 1;
-            getBalnearios(0,pag);
+            getBalnearios(pag);
         }
+        SessionManager session = SessionManager.GetInstance;
         public class GalleryItem
         {
             public Image Image { get; set; }
@@ -41,9 +45,9 @@ namespace UI
         BLLBalneario oBAl = new BLLBalneario();
         BLLBitacora oBit = new BLLBitacora();
         int pag;
-        public void getBalnearios(int id, int pag)
+        public void getBalnearios( int pag)
         {
-            IList<BEBalneario> images = oBAl.GetAllBalnearios(42933252, pag);
+            IList<BEBalneario> images = oBAl.GetAllBalnearios(session.Usuario.id, pag);
             if (images.Count == 0) { button2.Enabled = false; }
             else { button2.Enabled = true; }
             flowLayoutPanel1.Controls.Clear(); 
@@ -59,10 +63,15 @@ namespace UI
             CustomComponent customComponent = new CustomComponent(id, name);
             customComponent.Picture = Image.FromStream(new System.IO.MemoryStream(imagePath));
             customComponent.button1.Text = "Remove";
-            customComponent.Button1Click += (sender, e) =>
+            customComponent.Button1Click += async (sender, e) =>
             {
-                oBAl.eliminar_balneario(customComponent.id);
-                getBalnearios(0, pag);
+                groupBox1.Show();
+                this.Enabled = false;
+                Task oTask = Task.Run(() => oBAl.eliminar_balneario(customComponent.id));
+                await oTask;
+                groupBox1.Hide();
+                this.Enabled = true;
+                getBalnearios(pag);
                 MetroMessageBox.Show(this, "Users will get credit for their bookings here");
             };
             flowLayoutPanel1.Controls.Add(customComponent);
@@ -76,7 +85,7 @@ namespace UI
             {
                 button1.Enabled = true;
                 pag += 1;
-                getBalnearios(0, pag); //-------------------------------------------------------- aca id
+                getBalnearios( pag); 
             }
             catch (NullReferenceException ex)
             {
@@ -99,7 +108,7 @@ namespace UI
                 pag -= 1;
                 button1.Enabled = true;
                 if (pag <= 1) button1.Enabled = false;
-                if (pag > 0) getBalnearios(0, pag); //-------------------------------------------------------- aca id
+                if (pag > 0) getBalnearios( pag); 
             }
             catch (NullReferenceException ex)
             {

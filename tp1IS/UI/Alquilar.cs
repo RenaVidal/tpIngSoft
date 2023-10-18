@@ -2,6 +2,7 @@
 using BLL;
 using MetroFramework;
 using Negocio;
+using Patrones.Singleton.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace UI
     public partial class Alquilar : Form
     {
         BEBalneario balnearioC;
+        SessionManager session = SessionManager.GetInstance;
         public Alquilar(BEBalneario balneario)
         {
             InitializeComponent();
@@ -334,7 +336,7 @@ namespace UI
 
                 total = (balnearioC.price * (cantidadDias)) * alquiladas.Count;
                 DateTime datetime;
-                oBal.incribir_alquiler(balnearioC,  alquiladas, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) , DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 42933252, total);
+                oBal.incribir_alquiler(balnearioC,  alquiladas, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) , DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), session.Usuario.id, total);
             
                 Pay payment = new Pay(total);
                 payment.FormClosed += Pay_FormClosed; 

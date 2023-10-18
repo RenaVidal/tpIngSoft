@@ -18,6 +18,15 @@ namespace servicios
             }
             catch (Exception ex) { throw ex; }
         }
+        public bool mail(string contra)
+        {
+            try
+            {
+                return Regex.IsMatch(contra, "^(^[\\w.-]{2,20}@([\\w-]+\\.)[\\w\\.-]{2,4}$)");
+
+            }
+            catch (Exception ex) { throw ex; }
+        }
         public bool usuario(string usuario)
         {
             try

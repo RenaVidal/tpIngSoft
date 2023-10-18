@@ -2,6 +2,7 @@
 using BLL;
 using MetroFramework;
 using Negocio;
+using Patrones.Singleton.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,7 @@ namespace UI
         DateTime inicio;
         DateTime fin;
         IList<BEBalneario> balnearios;
+        SessionManager session = SessionManager.GetInstance;
         public Ratings()
         {
             try { 
@@ -32,7 +34,7 @@ namespace UI
                 id = 0;
                 inicio = DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null);
                 fin = DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null);
-                balnearios = oBAl.GetAllBalnearios(42933252, 00000000000); //---- ACA CAMBIAR ID
+                balnearios = oBAl.GetAllBalnearios(session.Usuario.id, 00000000000);
                 metroComboBox1.DataSource = balnearios;
                 metroComboBox1.DisplayMember = "Name";
                 metroComboBox1.SelectedIndex = -1;
@@ -74,11 +76,14 @@ namespace UI
                 if(id != 0)
                 {
                     DataTable dataTable = oBAl.get_stars(id, inicio, fin);
+                    chart2.Series.Clear();
 
-                    chart2.DataSource = dataTable;
                     if (dataTable.Rows.Count > 0)
                     {
-                        chart2.Series[0].Points.DataBind(dataTable.AsEnumerable(), "estrellas", "cantidad_de_feedbacks", "");
+                        chart2.DataSource = dataTable;
+                        chart2.Series.Add("estrellas");
+                        chart2.Series["estrellas"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+                        chart2.Series["estrellas"].Points.DataBind(dataTable.AsEnumerable(), "estrellas", "cantidad_de_feedbacks", "");
 
                     }
 
@@ -94,9 +99,10 @@ namespace UI
                             mensajes.Rows.Remove(row);
                         }
                     }
-                    if(mensajes.Rows.Count > 0)
+                    dataGridView1.DataSource = null;
+                    if (mensajes.Rows.Count > 0)
                     {
-                        dataGridView1.DataSource = null;
+                       
                         dataGridView1.DataSource = mensajes;
                     }
               
@@ -230,9 +236,12 @@ namespace UI
 
                         DateTime fecha = new DateTime(anio, mes, 1);
                         int numero = Convert.ToInt32(row["TotalMoney"]);
-
-                        DataRow resultadoRowP = intermedia.AsEnumerable()
+                        DataRow resultadoRowP = null;
+                        if(intermedia.Rows.Count > 0)
+                        {
+                            resultadoRowP = intermedia.AsEnumerable()
                            .FirstOrDefault(r => (DateTime)r["Fecha"] == fecha);
+                        }
 
                         if (resultadoRowP != null)
                         {
@@ -246,8 +255,12 @@ namespace UI
                             intermedia.Rows.Add(fecha, numero);
                         }
 
-                        DataRow resultadoRow = dataTableResultado.AsEnumerable()
+                        DataRow resultadoRow = null;
+                        if (dataTableResultado.Rows.Count > 0)
+                        {
+                            resultadoRow = dataTableResultado.AsEnumerable()
                             .FirstOrDefault(r => (DateTime)r["Fecha"] == fecha);
+                        }
                         if (resultadoRow != null)
                         {
                             int parcial = (int)resultadoRow["Total"] + numero;
@@ -262,10 +275,12 @@ namespace UI
                         numeroX += numero;
                        
                     }
-
-                    intermedia = intermedia.AsEnumerable()
-                    .OrderBy(row => (DateTime)row["Fecha"])
-                    .CopyToDataTable();
+                    if (intermedia.Rows.Count > 0)
+                    {
+                        intermedia = intermedia.AsEnumerable()
+                        .OrderBy(row => (DateTime)row["Fecha"])
+                        .CopyToDataTable();
+                    }
                     chart3.Series.Add(balneario.Name);
                     chart3.Series[balneario.Name].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
                     chart3.Series[balneario.Name].BorderDashStyle = ChartDashStyle.Solid;
@@ -288,10 +303,12 @@ namespace UI
                 chart3.Series["Total"].BorderWidth = 3;
                 chart3.Series["Total"].XValueMember = "Fecha";
                 chart3.Series["Total"].YValueMembers = "Total";
-
-                dataTableResultado = dataTableResultado.AsEnumerable()
+                if (dataTableResultado.Rows.Count > 0)
+                {
+                    dataTableResultado = dataTableResultado.AsEnumerable()
                     .OrderBy(row => (DateTime)row["Fecha"])
                     .CopyToDataTable();
+                }
                 if (dataTableResultado.Rows.Count > 0)
                 {
                     DateTime firstDate = (DateTime)dataTableResultado.Rows[0]["Fecha"];

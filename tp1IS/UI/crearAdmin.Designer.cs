@@ -45,6 +45,8 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +89,7 @@
             // 
             // metroDateTime2
             // 
-            this.metroDateTime2.Location = new System.Drawing.Point(136, 294);
+            this.metroDateTime2.Location = new System.Drawing.Point(137, 366);
             this.metroDateTime2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTime2.Name = "metroDateTime2";
@@ -96,7 +98,7 @@
             // 
             // metroButton4
             // 
-            this.metroButton4.Location = new System.Drawing.Point(215, 335);
+            this.metroButton4.Location = new System.Drawing.Point(216, 407);
             this.metroButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(123, 31);
@@ -127,7 +129,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(36, 294);
+            this.metroLabel6.Location = new System.Drawing.Point(37, 366);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(69, 20);
             this.metroLabel6.TabIndex = 6;
@@ -145,8 +147,8 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Español",
             "ingles"});
-            this.comboBox1.Location = new System.Drawing.Point(367, 357);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Location = new System.Drawing.Point(368, 429);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 9;
@@ -198,11 +200,31 @@
             this.textBox5.Size = new System.Drawing.Size(200, 22);
             this.textBox5.TabIndex = 14;
             // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(136, 311);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(200, 22);
+            this.textBox6.TabIndex = 16;
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(55, 311);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(42, 20);
+            this.metroLabel8.TabIndex = 15;
+            this.metroLabel8.Tag = "Email";
+            this.metroLabel8.Text = "Email";
+            // 
             // crearAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 390);
+            this.ClientSize = new System.Drawing.Size(552, 495);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.metroLabel5);
@@ -247,5 +269,7 @@
         private System.Windows.Forms.TextBox textBox5;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel5;
+        private System.Windows.Forms.TextBox textBox6;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
     }
 }

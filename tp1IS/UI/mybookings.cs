@@ -3,6 +3,7 @@ using BLL;
 using MetroFramework;
 using MetroFramework.Controls;
 using Negocio;
+using Patrones.Singleton.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,19 +34,20 @@ namespace UI
         int paginaP;
         int paginaF;
         IList<BEBalneario> balnearios;
+        SessionManager session = SessionManager.GetInstance;
         private void mybookings_Load(object sender, EventArgs e)
         {
             try { 
                paginaP = 1;
                paginaF = 1;
-               alquileresPasados = oBAl.GetAllAlquileres(42933252, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 1, paginaP);  // CABIAR ACA ID
-               alquileresFuturos = oBAl.GetAllAlquileres(42933252, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 0, paginaF); // CABIAR ACA ID
+               alquileresPasados = oBAl.GetAllAlquileres(session.Usuario.id, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 1, paginaP);  
+               alquileresFuturos = oBAl.GetAllAlquileres(session.Usuario.id, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 0, paginaF); 
                 button4.Enabled = false;
                 button1.Enabled = false;
 
                 balnearios = oBAl.GetAllBalneariosNoP();
-                getAlquileresF(42933252, 1);
-                getAlquileresP(42933252, 1);
+                getAlquileresF(session.Usuario.id, 1);
+                getAlquileresP(session.Usuario.id, 1);
             }
             catch (NullReferenceException ex)
             {
@@ -64,7 +66,7 @@ namespace UI
         public void getAlquileresP(int id, int pag)
         {
             try { 
-                alquileresPasados = oBAl.GetAllAlquileres(42933252, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 1, paginaP);  // CABIAR ACA ID
+                alquileresPasados = oBAl.GetAllAlquileres(session.Usuario.id, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 1, paginaP);  
            
                 if (alquileresPasados.Count == 0) { button3.Enabled = false; }
                 else { button3.Enabled = true; }
@@ -93,14 +95,14 @@ namespace UI
         public void getAlquileresF(int id, int pag)
         {
             try { 
-                alquileresFuturos = oBAl.GetAllAlquileres(42933252, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 0, paginaF); // CABIAR ACA ID
+                alquileresFuturos = oBAl.GetAllAlquileres(session.Usuario.id, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 0, paginaF); 
                 if (alquileresFuturos.Count == 0) { button2.Enabled = false; }
                 else { button2.Enabled = true; }
                 flowLayoutPanel1.Controls.Clear();
                 foreach (BEEalquiler alq in alquileresFuturos)
                 {
                     BEBalneario bal = balnearios.FirstOrDefault(b => b.Id == alq.idBalneario);
-                    AddGalleryItemF(bal.Image, alq.Id, bal.Name, alq.fechaInicio, alq.fechaFin, alq.precio);
+                    AddGalleryItemF(bal.Image, alq, bal.Name);
                 }
             }
             catch (NullReferenceException ex)
@@ -150,19 +152,20 @@ namespace UI
 
 
         }
-        private void AddGalleryItemF(byte[] imagePath, int id, string name, DateTime fechaInicio, DateTime fechaFin, int precio)
+        private void AddGalleryItemF(byte[] imagePath, BEEalquiler alquiler, string name)
         {
             try { 
-                alquileres customComponent = new alquileres(id, name, DateTime.ParseExact(fechaInicio.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), DateTime.ParseExact(fechaFin.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null));
+                alquileres customComponent = new alquileres(alquiler.Id, name, DateTime.ParseExact(alquiler.fechaInicio.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), DateTime.ParseExact(alquiler.fechaFin.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null));
                 customComponent.Picture = Image.FromStream(new System.IO.MemoryStream(imagePath));
                 customComponent.button1.Text = "Cancel";
                 customComponent.Button1Click += (sender, e) =>
                 {
-                    if (DateTime.ParseExact(fechaInicio.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) >= (DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null).AddHours(48))){
+                    if (DateTime.ParseExact(alquiler.fechaInicio.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) >= (DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null).AddHours(48))){
 
                         oBAl.eliminar_reserva(customComponent.id);
-                        getAlquileresF(42933252, paginaP); // CAMBIAR ACA ID
-                        MetroMessageBox.Show(this, "Reservation canceled " + precio.ToString() + " will be deposited in your account.");
+                        getAlquileresF(session.Usuario.id, paginaP); 
+                        MetroMessageBox.Show(this, "Reservation canceled, we sent you an email with the credit corresponding the booking value");
+                        oBAl.enviarMail(session.Usuario, alquiler);
                     }
                     else
                     {
@@ -191,7 +194,7 @@ namespace UI
             {
                 button1.Enabled = true;
                 paginaF += 1;
-                getAlquileresF(42933252, paginaF); //-------------------------------------------------------- aca id
+                getAlquileresF(session.Usuario.id, paginaF);
             }
             catch (NullReferenceException ex)
             {
@@ -214,7 +217,7 @@ namespace UI
                 paginaF -= 1;
                 button1.Enabled = true;
                 if (paginaF <= 1) button1.Enabled = false;
-                if (paginaF > 0) getAlquileresF(42933252, paginaF); //-------------------------------------------------------- aca id
+                if (paginaF > 0) getAlquileresF(session.Usuario.id, paginaF); 
             }
             catch (NullReferenceException ex)
             {
@@ -236,7 +239,7 @@ namespace UI
             {
                 button4.Enabled = true;
                 paginaP += 1;
-                getAlquileresP(42933252, paginaP); //-------------------------------------------------------- aca id
+                getAlquileresP(session.Usuario.id, paginaP);
             }
             catch (NullReferenceException ex)
             {
@@ -260,7 +263,7 @@ namespace UI
                 paginaP -= 1;
                 button4.Enabled = true;
                 if (paginaP <= 1) button4.Enabled = false;
-                if (paginaP > 0) getAlquileresP(42933252, paginaP); //-------------------------------------------------------- aca id
+                if (paginaP > 0) getAlquileresP(session.Usuario.id, paginaP); 
             }
             catch (NullReferenceException ex)
             {

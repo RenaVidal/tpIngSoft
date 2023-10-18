@@ -351,8 +351,6 @@ namespace DAL
             }
             catch (Exception ex)
             { throw ex; }
-            finally
-            { oCnn.Close(); }
             return component;
            
 
@@ -379,18 +377,17 @@ namespace DAL
 
                 var reader = Cmd.ExecuteReader();
                 IList<IBitacora> listBitacora = new List<IBitacora>();
-                    while (reader.Read())
-                    {
-                        IBitacora bitacora = new BEBitacora();
-                        bitacora.IdBitacora = Convert.ToInt32(reader["id"].ToString());
-                        bitacora.Username = reader["username"].ToString();
-                        bitacora.Date = Convert.ToDateTime(reader["time"].ToString());
-                        bitacora.Type = Convert.ToInt32(reader["tipo"]);
-                        bitacora.Message = reader["action"].ToString();
-                        listBitacora.Add(bitacora);
-                    }
+                while (reader.Read())
+                {
+                    IBitacora bitacora = new BEBitacora();
+                    bitacora.IdBitacora = Convert.ToInt32(reader["id"].ToString());
+                    bitacora.Username = reader["username"].ToString();
+                    bitacora.Date = Convert.ToDateTime(reader["time"].ToString());
+                    bitacora.Type = Convert.ToInt32(reader["tipo"]);
+                    bitacora.Message = reader["action"].ToString();
+                    listBitacora.Add(bitacora);
+                }
                 reader.Close();
-
                 return listBitacora;
             }
             catch (NullReferenceException ex)
@@ -713,7 +710,54 @@ namespace DAL
             { oCnn.Close(); }
 
         }
-       
+        public IList<BEEalquiler> GetAllAlquileresD(int id, DateTime fecha, int past, int pagina, int dueno) // si past es 1 me trae los alquileres pasados
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "s_alquiler_buscar_Dueno";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("@idUsuario", id);
+                Cmd.Parameters.AddWithValue("@idDueno", dueno);
+                Cmd.Parameters.AddWithValue("@fecha", fecha);
+                Cmd.Parameters.AddWithValue("@Past", past);
+                Cmd.Parameters.AddWithValue("@PageNumber", pagina);
+
+                var reader = Cmd.ExecuteReader();
+                IList<BEEalquiler> alquileres = new List<BEEalquiler>();
+                while (reader.Read())
+                {
+                    BEEalquiler alquiler = new BEEalquiler();
+                    alquiler.Id = Convert.ToInt32(reader["idAlquiler"]);
+                    alquiler.idBalneario = Convert.ToInt32(reader["idBalneario"]);
+                    alquiler.fechaInicio = Convert.ToDateTime(reader["fechaInicio"]);
+                    alquiler.fechaFin = Convert.ToDateTime(reader["fechaFin"]);
+                    alquiler.idUsuario = Convert.ToInt32(reader["idUsuario"]);
+                    alquiler.precio = Convert.ToInt32(reader["precio"]);
+
+                    alquileres.Add(alquiler);
+                }
+                reader.Close();
+
+                return alquileres;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+        }
+
     }
 }
 

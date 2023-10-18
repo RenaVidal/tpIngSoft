@@ -2,6 +2,7 @@
 using BLL;
 using MetroFramework;
 using Negocio;
+using Patrones.Singleton.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,6 +27,7 @@ namespace UI
         int set = 0;
         int score = 0;
         BLLBitacora oBit = new BLLBitacora();
+        SessionManager session = SessionManager.GetInstance;
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
@@ -155,7 +157,7 @@ namespace UI
                     }
                 }
                 BLLBalneario oBAl = new BLLBalneario();
-                oBAl.crear_feedback(BalnearioID, 42933252, message, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), stars); // ACA CAMBIAR ID
+                oBAl.crear_feedback(BalnearioID, session.Usuario.id, message, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), stars); 
                 this.Close();
             }
             catch (NullReferenceException ex)
@@ -170,6 +172,11 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void review_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

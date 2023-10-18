@@ -26,7 +26,7 @@ namespace UI
         }
         BLL.BLLTraductor Otraductor = new BLL.BLLTraductor();
         BLL.BLLDv ODV = new BLL.BLLDv();
-       
+        SessionManager session = SessionManager.GetInstance;
         private void UserHome_Load(object sender, EventArgs e)
         {
             try

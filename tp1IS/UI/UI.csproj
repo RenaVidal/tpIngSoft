@@ -126,6 +126,12 @@
     <Compile Include="Bitacora.Designer.cs">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </Compile>
+    <Compile Include="bookings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bookings.Designer.cs">
+      <DependentUpon>bookings.cs</DependentUpon>
+    </Compile>
     <Compile Include="borrarPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,12 @@
     <Compile Include="ErrorDV.Designer.cs">
       <DependentUpon>ErrorDV.cs</DependentUpon>
     </Compile>
+    <Compile Include="loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loading.Designer.cs">
+      <DependentUpon>loading.cs</DependentUpon>
+    </Compile>
     <Compile Include="modificarTranslation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +280,9 @@
     <EmbeddedResource Include="Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="bookings.resx">
+      <DependentUpon>bookings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="borrarPassword.resx">
       <DependentUpon>borrarPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -303,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorDV.resx">
       <DependentUpon>ErrorDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loading.resx">
+      <DependentUpon>loading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modificarTranslation.resx">
       <DependentUpon>modificarTranslation.cs</DependentUpon>
@@ -391,6 +409,7 @@
     <Content Include="images\Images\03be0719-9d34-4b49-89d1-e7760513e4d7.jpg" />
     <Content Include="images\Images\2162b870-af06-489e-a00a-5468c1cc834e.jpg" />
     <Content Include="images\Images\70df2b41-92a5-4638-8f8c-a12c0e54b87c.jpg" />
+    <Content Include="images\load.gif" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo1.png" />
     <Content Include="images\logo2.png" />

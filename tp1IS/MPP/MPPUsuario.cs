@@ -101,7 +101,7 @@ namespace MPP
                     user.password = fila["password"].ToString();
                     user.id = Convert.ToInt32(fila["id"]);
                     user.birthDate = fila["birthdate"].ToString();
-                  
+                    user.email = fila["Email"].ToString();
                     string Dencrip = fila["Direccion"].ToString();
                     user.Direccion = encriptar.Desencriptar(Dencrip);
                 }
@@ -203,6 +203,7 @@ namespace MPP
                 Hdatos.Add("@password", usuario.password);
                 Hdatos.Add("@active", true);
                 Hdatos.Add("@birthdate", usuario.birthDate);
+                Hdatos.Add("@mail", usuario.email);
                 Hdatos.Add("@dv", usuario.DV);
 
                 string DEncript = servicios.encriptar.Encriptar(Convert.ToString(usuario.Direccion));
@@ -291,6 +292,7 @@ namespace MPP
                 Hdatos.Add("@id", usuario.id);
                 Hdatos.Add("@user", usuario.user);
                 Hdatos.Add("@password", usuario.password);
+                Hdatos.Add("@mail", usuario.email);
                 Hdatos.Add("@active", true);
                 Hdatos.Add("@birthdate", usuario.birthDate);
                 Hdatos.Add("@dv", usuario.DV);
@@ -343,6 +345,7 @@ namespace MPP
                 Hdatos.Add("@password", user.password);
                 Hdatos.Add("@active", user.active);
                 Hdatos.Add("@birthdate", user.birthDate);
+                Hdatos.Add("@mail", user.email);
                 string DEncript = servicios.encriptar.Encriptar(Convert.ToString(user.Direccion));
                 Hdatos.Add("Direccion", DEncript);
                 string DV = servicios.GenerarVD.generarDigitoVU(user);
@@ -414,7 +417,8 @@ namespace MPP
                     user.user = fila["username"].ToString();
                     user.password = fila["password"].ToString();
                     user.id = Convert.ToInt32(fila["id"]);
-                     user.birthDate = fila["birthdate"].ToString();
+                    user.birthDate = fila["birthdate"].ToString();
+                    user.email = fila["Email"].ToString();
                     string Dencrip = fila["Direccion"].ToString();
                     user.Direccion = Convert.ToString(encriptar.Desencriptar(Dencrip));
                 }
@@ -487,6 +491,7 @@ namespace MPP
                 {
                     user.user = fila["username"].ToString();
                     user.password = fila["password"].ToString();
+                    user.email = fila["Email"].ToString();
                     user.id = Convert.ToInt32(fila["id"]);
                     string encriptado = fila["birthdate"].ToString();
                      user.birthDate = fila["birthdate"].ToString();

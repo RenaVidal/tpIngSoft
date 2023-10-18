@@ -145,9 +145,16 @@ namespace UI
                             servicios.Observer.eliminarObservador(this);
 
                         }
-                        else
+                        else if (SessionManager.tiene_permiso(61))
                         {
                            
+                            CrearBalneario home = new CrearBalneario();
+                            home.Show();
+                            this.Hide();
+                            servicios.Observer.eliminarObservador(this);
+                        }
+                        else
+                        {
                             UserHome home = new UserHome();
                             home.Show();
                             this.Hide();
@@ -278,7 +285,11 @@ namespace UI
                     errorProvider1.SetError(textBox5, "You should enter an street number with 1 to 9 numbers");
                     error++;
                 }
-
+                if (textBox6.Text == string.Empty || !validar.mail(textBox6.Text))
+                {
+                    errorProvider1.SetError(textBox6, "You should enter a valid email adress");
+                    error++;
+                }
                 if (metroDateTime1.Value == null || metroDateTime1.Value > DateTime.Now)
                 {
                     errorProvider1.SetError(metroDateTime1, "You should enter a date that is not later than today");
@@ -298,7 +309,7 @@ namespace UI
                         if (DV.DigitovBaseDeDatos == DV.DigitovActual || DV.DigitovBaseDeDatos == string.Empty)
                         {
                             string adreess = textBox3.Text + " " + textBox5.Text;
-                            oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox4.Text), metroDateTime1.Value.ToString(),adreess);
+                            oUsuraio = new BEUsuario(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox4.Text), metroDateTime1.Value.ToString(),adreess, textBox6.Text);
                             oUsuraio.DV = GenerarVD.generarDigitoVU(oUsuraio);
                             if (oLog.cargar_usuario(oUsuraio))
                             {

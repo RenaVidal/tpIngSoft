@@ -49,6 +49,8 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.botonOjo = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -115,6 +117,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.metroLabel8);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.metroLabel7);
             this.groupBox1.Controls.Add(this.metroLabel6);
@@ -137,7 +141,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(135, 170);
+            this.textBox5.Location = new System.Drawing.Point(135, 134);
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(265, 22);
@@ -146,7 +150,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(3, 170);
+            this.metroLabel7.Location = new System.Drawing.Point(3, 134);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(101, 20);
             this.metroLabel7.TabIndex = 8;
@@ -156,7 +160,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(15, 126);
+            this.metroLabel6.Location = new System.Drawing.Point(15, 90);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(87, 20);
             this.metroLabel6.TabIndex = 7;
@@ -166,7 +170,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(15, 89);
+            this.metroLabel1.Location = new System.Drawing.Point(15, 53);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(54, 20);
             this.metroLabel1.TabIndex = 6;
@@ -175,7 +179,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(135, 124);
+            this.textBox3.Location = new System.Drawing.Point(135, 88);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(265, 22);
@@ -237,7 +241,7 @@
             // botonOjo
             // 
             this.botonOjo.Location = new System.Drawing.Point(419, 107);
-            this.botonOjo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.botonOjo.Margin = new System.Windows.Forms.Padding(5);
             this.botonOjo.Name = "botonOjo";
             this.botonOjo.Size = new System.Drawing.Size(69, 42);
             this.botonOjo.TabIndex = 4;
@@ -249,11 +253,29 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(419, 519);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 8;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(135, 178);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(265, 22);
+            this.textBox6.TabIndex = 11;
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(51, 178);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(42, 20);
+            this.metroLabel8.TabIndex = 10;
+            this.metroLabel8.Tag = "Email";
+            this.metroLabel8.Text = "Email";
             // 
             // SignIn
             // 
@@ -305,6 +327,8 @@
         private System.Windows.Forms.TextBox textBox5;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel6;
+        private System.Windows.Forms.TextBox textBox6;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
     }
 }
 

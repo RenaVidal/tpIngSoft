@@ -18,7 +18,7 @@ namespace UI
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new CrearBalneario());
+                Application.Run(new SignIn());
             }
             catch (NullReferenceException ex)
             {
