@@ -75,6 +75,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 23);
             this.label2.TabIndex = 2;
+            this.label2.Tag = "Message";
             this.label2.Text = "Message";
             // 
             // panel1
@@ -167,6 +168,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(281, 37);
             this.label3.TabIndex = 4;
+            this.label3.Tag = "Leave your review";
             this.label3.Text = "Leave your review";
             // 
             // button1
@@ -179,6 +181,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(124, 42);
             this.button1.TabIndex = 5;
+            this.button1.Tag = "Send";
             this.button1.Text = "Send";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);

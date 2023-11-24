@@ -11,6 +11,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using servicios.ClasesMultiLenguaje;
 using servicios;
+using System.Net;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Bouncycastle;
+using System.IO;
+
 
 namespace UI
 {
@@ -19,7 +26,7 @@ namespace UI
         
          public Panel Panel3 { get { return panel3; } }
 
-          
+        
         public UserHome()
         {
             InitializeComponent();
@@ -31,11 +38,12 @@ namespace UI
         {
             try
             {
-
-                //servicios.Observer.agregarObservador(this);
-                // ListarIdiomas();
-                // SessionManager.GetInstance.idioma = Otraductor.ObtenerIdiomaBase();
-                // traducir();
+                groupBox1.Visible = false;
+                servicios.Observer.agregarObservador(this);
+                ListarIdiomas();
+                SessionManager.GetInstance.idioma = Otraductor.ObtenerIdiomaBase();
+                traducir();
+                
 
 
             }
@@ -208,56 +216,7 @@ namespace UI
             }
            
         }
-        private void traducir()
-        {
-            try
-            {
-                Idioma Idioma = null;
-
-                if (SessionManager.TraerUsuario())
-                    Idioma = SessionManager.GetInstance.idioma;
-                if (Idioma.Nombre == "Ingles")
-                {
-                    VolverAidiomaOriginal();
-                }
-                else
-                {
-                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-                    var traducciones = Traductor.obtenertraducciones(Idioma);
-                    List<string> Lista = new List<string>();
-                    Lista = Traductor.obtenerIdiomaOriginal();
-                    if (traducciones.Values.Count != Lista.Count)
-                    {
-                      //  MessageBox.Show("The lenguaje change is not complete for " + Idioma.Nombre);
-                    }
-                    else
-                    {
-                        if (this.Tag != null && traducciones.ContainsKey(this.Tag.ToString()))
-                        {
-                            this.Text = traducciones[this.Tag.ToString()].texto;
-                        }
-                        if (button3.Tag != null && traducciones.ContainsKey(button3.Tag.ToString()))
-                        {
-                            this.button3.Text = traducciones[button3.Tag.ToString()].texto;
-                        }
-                    }
-
-                }
-            }
-            catch (NullReferenceException ex)
-            {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
-                MessageBox.Show(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                var accion = ex.Message;
-                oBit.guardar_accion(accion, 1);
-                MessageBox.Show(ex.Message);
-            }
-
-        }
+      
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -496,7 +455,10 @@ namespace UI
             try
             {
                 if (panel3.Controls.Count > 0)
+                {
+                    servicios.Observer.eliminarObservador((IdiomaObserver)panel3.Controls[0].Tag);
                     panel3.Controls.RemoveAt(0);
+                }
                 Form fh = formHijo as Form;
                 fh.TopLevel = false;
                 fh.Dock = DockStyle.Fill;
@@ -560,7 +522,115 @@ namespace UI
             }
         }
 
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
+        void RecorrerPanel(Control panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(this, 1);
+                        RecorrerPanel(panel2, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               if (groupBox1.Visible)
+               {
+                    groupBox1.Visible = false;
+               }
+               else
+               {
+                    string contenidoTexto = Properties.Resources.manualUsuario;
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "Archivos PDF|*.pdf";
+                    saveFileDialog.Title = "Descargar Manual en PDF";
+                    saveFileDialog.FileName = "ManualUsuarioInnTent.pdf";
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        using (var writer = new PdfWriter(saveFileDialog.FileName))
+                        {
+                            using (var pdf = new PdfDocument(writer))
+                            {
+                                var document = new Document(pdf);
+                                document.Add(new Paragraph(contenidoTexto));
+                            }
+                        }
+                    }
+
+                     groupBox1.Visible = true;
+               }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

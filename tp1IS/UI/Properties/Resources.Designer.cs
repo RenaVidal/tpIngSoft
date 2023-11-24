@@ -63,6 +63,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ayuda {
+            get {
+                object obj = ResourceManager.GetObject("ayuda", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap carpa {
             get {
                 object obj = ResourceManager.GetObject("carpa", resourceCulture);
@@ -153,10 +163,68 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Image1 {
+            get {
+                object obj = ResourceManager.GetObject("Image1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 
+        ///InnTent
+        ///Manual de Usuario
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///Renata Victorina Vidal
+        ///
+        ///Sign up &amp; Log in	2
+        ///Utilidades - Cliente	3
+        ///2. Crear Balneario	3
+        ///3. Ver balnearios	3
+        ///4. Ver estadísticas	4
+        ///5. Ver alquileres	5
+        ///6. Cerrar Sesión	5
+        ///7. Cambiar idioma	5
+        ///Utilidades - Usuario	6
+        ///2. Alquilar	6
+        ///3. Ver reservas	7
+        ///4. Cerrar Sesión	8
+        ///5. Cambiar idioma	8
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///Sign up &amp; Log in
+        ///Encienda el programa
+        ///Ingrese los datos correspondientes como nombre de usuario y contraseña, presione el botón de “inscribirse”  [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string manualUsuario {
+            get {
+                return ResourceManager.GetString("manualUsuario", resourceCulture);
             }
         }
         

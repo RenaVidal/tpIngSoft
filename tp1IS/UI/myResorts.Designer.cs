@@ -33,8 +33,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label2 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 49);
             this.label1.TabIndex = 11;
+            this.label1.Tag = "My resorts";
             this.label1.Text = "My resorts";
             // 
             // groupBox1
@@ -104,6 +105,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 29);
             this.label2.TabIndex = 0;
+            this.label2.Tag = "Loading...";
             this.label2.Text = "Loading...";
             // 
             // myResorts

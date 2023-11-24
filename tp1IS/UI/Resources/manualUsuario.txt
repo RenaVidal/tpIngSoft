@@ -1,0 +1,74 @@
+
+InnTent
+Manual de Usuario
+
+Sign up & Log in
+Encienda el programa
+Ingrese los datos correspondientes como nombre de usuario y contraseña, presione el botón de “inscribirse” y complete los campos nuevos que aparecen.
+En caso de ya tener una cuenta ingrese nombre de usuario y contraseña y presione “iniciar sesión”
+
+
+Utilidades - Cliente
+Seleccione la opción que desee del menú izquierdo, allí podrá crear un balneario, ver sus balnearios, ver estadísticas, ver reservas y cerrar sesión. 
+Crear Balneario
+Seleccione la opción “Crear Balneario”.
+Ingrese la distribución de carpas que desea clickeando sobre el recuadro amarillo.
+Ingrese las cualidades de su balneario clickeando en los checkboxes de la derecha.
+Ingrese un nombre para su balneario, el cual será visible para los usuarios.
+Ingrese una imagen para su balneario, también visible para los usuarios.
+Presione crear.
+
+Ver balnearios
+Seleccione la opción “Mis balnearios”.
+Podrá ver sus balnearios y desplazar las páginas con las flechas en la parte derecha inferior del recuadro.
+Cada balneario puede eliminarse con el botón “Eliminar”, esto emitirá un email a todos los usuarios con reservas futuras o presentes devolviendo el dinero pagado.
+
+Ver estadísticas
+Seleccione la opción “Valuaciones”.
+Podrá ver diferentes métricas sobre sus balnearios, así como opiniones y valoraciones en estrellas. Esto permitirá filtrar por fecha en la parte superior de la pantalla y por balneario en el recuadro inferior derecho. 
+
+Ver alquileres
+Seleccione la opción “alquileres”.
+Filtre por id de usuario en el recuadro superior.
+Podrá eliminar reservas futuras en caso de desearlo con el botón “Eliminar” en el recuadro derecho, el cual devolverá el dinero al usuario por medio de email. 
+
+Cerrar Sesión
+Seleccione la opción “Cerrar sesión”.
+Vuelve al Log In/ Sign up.
+Cambiar idioma
+Selecciona el idioma deseado del dropdown del menú izquierdo.
+El idioma será modificado en todos los formularios.
+
+
+
+
+
+Utilidades - Usuario
+Seleccione la opción que desee del menú izquierdo, allí podrá alquilar, ver sus alquileres y cerrar sesión. 
+Alquilar
+Seleccione la opción “Alquilar”.
+Ingrese las características que desea clickeando sobre el recuadro izquierdo o ingrese un nombre en la esquina superior izquierda en caso de que ya sepa el nombre deseado.
+Seleccione el balneario deseado.
+
+Ingrese la fecha que desea alquilar, podrá ver que carpas están disponibles (gris), cuales están ocupadas (rojo) y cuales selecciona usted (verde).
+Puede ver el precio por carpa en la esquina inferior derecha.
+Presione alquilar.
+Escanee el QR para realizar el pago, el cual equivale a un 100% del valor de la reserva.
+
+3. Ver reservas
+Seleccione la opción “Mis reservas”.
+Podrá ver sus reservas y desplazar las páginas con las flechas en la parte derecha inferior del recuadro.
+Cada reserva puede eliminarse con el botón “Eliminar”, si esta está fuera del plazo de 48 horas antes al inicio de la reserva esta se eliminará,  esto emitirá un email devolviéndole el dinero pagado.
+
+Las reservas pasadas pueden valuarse presionando el boton “Dar opinion” las veces que desee, se abrirá un recuadro para puntuar de 0 a 5 estrellas y dejar una opinión escrita, esto será visto por el staff del balneario y los usuarios podrán ver un promedio de las estrellas.
+ 
+4. Cerrar Sesión
+Seleccione la opción “Cerrar sesión”.
+Vuelve al Log In/ Sign up.
+5. Cambiar idioma
+Selecciona el idioma deseado del dropdown del menú izquierdo.
+El idioma será modificado en todos los formularios.
+	
+
+
+

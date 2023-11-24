@@ -114,6 +114,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 23);
             this.label2.TabIndex = 7;
+            this.label2.Tag = "Extras";
             this.label2.Text = "Extras";
             // 
             // checkBox1
@@ -124,6 +125,7 @@
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(74, 32);
             this.checkBox1.TabIndex = 14;
+            this.checkBox1.Tag = "Pool";
             this.checkBox1.Text = "Pool";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -135,6 +137,7 @@
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(127, 32);
             this.checkBox2.TabIndex = 15;
+            this.checkBox2.Tag = "Restaurant";
             this.checkBox2.Text = "Restaurant";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
@@ -146,6 +149,7 @@
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(93, 32);
             this.checkBox3.TabIndex = 16;
+            this.checkBox3.Tag = "Games";
             this.checkBox3.Text = "Games";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
@@ -157,6 +161,7 @@
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(62, 32);
             this.checkBox4.TabIndex = 17;
+            this.checkBox4.Tag = "Bar";
             this.checkBox4.Text = "Bar";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
@@ -168,6 +173,7 @@
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(175, 32);
             this.checkBox5.TabIndex = 18;
+            this.checkBox5.Tag = "Dressing Rooms";
             this.checkBox5.Text = "Dressing Rooms";
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
@@ -182,6 +188,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(389, 48);
             this.button1.TabIndex = 19;
+            this.button1.Tag = "Create";
             this.button1.Text = "Create";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -198,6 +205,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(389, 48);
             this.button2.TabIndex = 20;
+            this.button2.Tag = "Cancel";
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -209,6 +217,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(326, 27);
             this.label3.TabIndex = 21;
+            this.label3.Tag = "Customize your tent pattern!";
             this.label3.Text = "Customize your tent pattern!";
             // 
             // label4
@@ -219,6 +228,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(362, 23);
             this.label4.TabIndex = 22;
+            this.label4.Tag = "Click where you want to add a tent";
             this.label4.Text = "Click where you want to add a tent";
             // 
             // panel1
@@ -247,6 +257,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 23);
             this.label6.TabIndex = 22;
+            this.label6.Tag = "Allows";
             this.label6.Text = "Allows";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -258,6 +269,7 @@
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(71, 32);
             this.checkBox6.TabIndex = 20;
+            this.checkBox6.Tag = "Kids";
             this.checkBox6.Text = "Kids";
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
@@ -269,6 +281,7 @@
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(70, 32);
             this.checkBox7.TabIndex = 21;
+            this.checkBox7.Tag = "Pets";
             this.checkBox7.Text = "Pets";
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
@@ -299,6 +312,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 27);
             this.label7.TabIndex = 26;
+            this.label7.Tag = "Name";
             this.label7.Text = "Name";
             // 
             // openFileDialog1
@@ -316,6 +330,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(223, 48);
             this.button3.TabIndex = 27;
+            this.button3.Tag = "Upload Image";
             this.button3.Text = "Upload Image";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -329,6 +344,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(289, 49);
             this.label8.TabIndex = 30;
+            this.label8.Tag = "Create Resort";
             this.label8.Text = "Create Resort";
             // 
             // label1
@@ -339,6 +355,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(227, 27);
             this.label1.TabIndex = 31;
+            this.label1.Tag = "Price per tent (day)";
             this.label1.Text = "Price per tent (day)";
             // 
             // numericUpDown1

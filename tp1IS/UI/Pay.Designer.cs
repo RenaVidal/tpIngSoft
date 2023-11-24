@@ -64,6 +64,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(183, 27);
             this.label3.TabIndex = 22;
+            this.label3.Tag = "Scan QR to pay";
             this.label3.Text = "Scan QR to pay";
             // 
             // label4
@@ -74,6 +75,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 23);
             this.label4.TabIndex = 23;
+            this.label4.Tag = "Total:";
             this.label4.Text = "Total:";
             // 
             // label1

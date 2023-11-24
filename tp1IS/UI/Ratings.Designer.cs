@@ -119,6 +119,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(183, 23);
             this.label2.TabIndex = 5;
+            this.label2.Tag = "Income per resort";
             this.label2.Text = "Income per resort";
             // 
             // metroDateTime1
@@ -147,6 +148,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 23);
             this.label3.TabIndex = 8;
+            this.label3.Tag = "Resort";
             this.label3.Text = "Resort";
             // 
             // label4
@@ -157,6 +159,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 23);
             this.label4.TabIndex = 9;
+            this.label4.Tag = "from";
             this.label4.Text = "from";
             // 
             // label6
@@ -167,6 +170,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 23);
             this.label6.TabIndex = 11;
+            this.label6.Tag = "Star ratings";
             this.label6.Text = "Star ratings";
             // 
             // chart3
@@ -193,6 +197,7 @@
             this.chart3.Size = new System.Drawing.Size(1462, 226);
             this.chart3.TabIndex = 12;
             this.chart3.Text = "chart3";
+            this.chart3.Click += new System.EventHandler(this.chart3_Click);
             // 
             // label7
             // 
@@ -202,6 +207,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 23);
             this.label7.TabIndex = 13;
+            this.label7.Tag = "Earnings";
             this.label7.Text = "Earnings";
             // 
             // label9
@@ -212,6 +218,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(30, 23);
             this.label9.TabIndex = 17;
+            this.label9.Tag = "to";
             this.label9.Text = "to";
             // 
             // panel1
@@ -263,6 +270,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 23);
             this.label1.TabIndex = 12;
+            this.label1.Tag = "Comments";
             this.label1.Text = "Comments";
             // 
             // Ratings

@@ -3,6 +3,8 @@ using BLL;
 using MetroFramework;
 using Negocio;
 using Patrones.Singleton.Core;
+using servicios;
+using servicios.ClasesMultiLenguaje;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +19,7 @@ using Telerik.WinControls.Themes.ControlDefault;
 
 namespace UI
 {
-    public partial class Alquilar : Form
+    public partial class Alquilar : Form, IdiomaObserver
     {
         BEBalneario balnearioC;
         SessionManager session = SessionManager.GetInstance;
@@ -56,7 +58,91 @@ namespace UI
             checkBox2.Enabled = false;
             carpaList = oBal.GetAllCarpas(balnearioC.Id, DateTime.ParseExact(metroDateTime1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), DateTime.ParseExact(metroDateTime2.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null));
             InitializePictureBoxMatrix();
+            Observer.agregarObservador(this);
+            traducir();
 
+        }
+
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            // throw new NotImplementedException();
+            traducir();
+        }
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(this, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        void RecorrerPanel(System.Windows.Forms.Control panel, int v)
+        {
+            foreach (System.Windows.Forms.Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
+        void VolverAidiomaOriginal()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                palabras = Traductor.obtenerIdiomaOriginal();
+
+                RecorrerPanel(this, 2);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         private PictureBox[,] pictureBoxMatrix;
         BLLBitacora oBit = new BLLBitacora();

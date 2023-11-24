@@ -3,6 +3,7 @@ using BLL;
 using MetroFramework;
 using Negocio;
 using Patrones.Singleton.Core;
+using servicios.ClasesMultiLenguaje;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,7 @@ using Telerik.WinControls.UI;
 
 namespace UI
 {
-    public partial class Ratings : Form
+    public partial class Ratings : Form, IdiomaObserver
     {
         int id;
         DateTime inicio;
@@ -54,6 +55,11 @@ namespace UI
         }
         BLLBalneario oBAl = new BLLBalneario();
         BLLBitacora oBit = new BLLBitacora();
+        public void CambiarIdioma(Idioma Idioma)
+        {
+           
+            traducir();
+        }
 
         public void actualizar()
         {
@@ -343,6 +349,91 @@ namespace UI
         private void Ratings_Load(object sender, EventArgs e)
         {
             fill_general_graphs();
+            servicios.Observer.agregarObservador(this);
+            traducir();
+        }
+
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
+        void RecorrerPanel(Control panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
+        void VolverAidiomaOriginal()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                palabras = Traductor.obtenerIdiomaOriginal();
+
+                RecorrerPanel(this, 2);
+                RecorrerPanel(panel1, 2);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(this, 1);
+                        RecorrerPanel(panel1, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void chart3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -94,6 +94,7 @@
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(99, 21);
             this.checkBox1.TabIndex = 3;
+            this.checkBox1.Tag = "Allows kids";
             this.checkBox1.Text = "Allows kids";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -106,6 +107,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 23);
             this.label1.TabIndex = 4;
+            this.label1.Tag = "Filters";
             this.label1.Text = "Filters";
             // 
             // checkBox2
@@ -115,6 +117,7 @@
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(102, 21);
             this.checkBox2.TabIndex = 5;
+            this.checkBox2.Tag = "Allows pets";
             this.checkBox2.Text = "Allows pets";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
@@ -126,6 +129,7 @@
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(59, 21);
             this.checkBox3.TabIndex = 7;
+            this.checkBox3.Tag = "Pool";
             this.checkBox3.Text = "Pool";
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
@@ -137,6 +141,7 @@
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(50, 21);
             this.checkBox4.TabIndex = 6;
+            this.checkBox4.Tag = "Bar";
             this.checkBox4.Text = "Bar";
             this.checkBox4.UseVisualStyleBackColor = true;
             this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
@@ -148,6 +153,7 @@
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(99, 21);
             this.checkBox5.TabIndex = 10;
+            this.checkBox5.Tag = "Restaurant";
             this.checkBox5.Text = "Restaurant";
             this.checkBox5.UseVisualStyleBackColor = true;
             this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
@@ -159,6 +165,7 @@
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(126, 21);
             this.checkBox7.TabIndex = 8;
+            this.checkBox7.Tag = "Dressing rooms";
             this.checkBox7.Text = "Dressing rooms";
             this.checkBox7.UseVisualStyleBackColor = true;
             this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
@@ -170,6 +177,7 @@
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(76, 21);
             this.checkBox6.TabIndex = 11;
+            this.checkBox6.Tag = "Games";
             this.checkBox6.Text = "Games";
             this.checkBox6.UseVisualStyleBackColor = true;
             this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);

@@ -3,6 +3,8 @@ using BLL;
 using MetroFramework;
 using Negocio;
 using Patrones.Singleton.Core;
+using servicios;
+using servicios.ClasesMultiLenguaje;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,18 +23,21 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace UI
 {
-    public partial class myResorts : Form
+    public partial class myResorts : Form, IdiomaObserver
     {
         public myResorts()
         {
             InitializeComponent();
             groupBox1.Hide();
         }
-
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
         private void myResorts_Load(object sender, EventArgs e)
         {
             pag = 1;
             getBalnearios(pag);
+            Observer.agregarObservador(this);
+            traducir();
         }
         SessionManager session = SessionManager.GetInstance;
         public class GalleryItem
@@ -45,6 +50,87 @@ namespace UI
         BLLBalneario oBAl = new BLLBalneario();
         BLLBitacora oBit = new BLLBitacora();
         int pag;
+
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            // throw new NotImplementedException();
+            traducir();
+        }
+
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(this, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        void RecorrerPanel(Control panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
+        void VolverAidiomaOriginal()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                palabras = Traductor.obtenerIdiomaOriginal();
+
+                RecorrerPanel(this, 2);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void getBalnearios( int pag)
         {
             IList<BEBalneario> images = oBAl.GetAllBalnearios(session.Usuario.id, pag);

@@ -4,6 +4,8 @@ using MetroFramework;
 using MetroFramework.Controls;
 using Negocio;
 using Patrones.Singleton.Core;
+using servicios;
+using servicios.ClasesMultiLenguaje;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +18,12 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class mybookings : Form
+    public partial class mybookings : Form, IdiomaObserver
     {
         public mybookings()
         {
             InitializeComponent();
+            groupBox1.Hide();
         }
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -35,6 +38,8 @@ namespace UI
         int paginaF;
         IList<BEBalneario> balnearios;
         SessionManager session = SessionManager.GetInstance;
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
         private void mybookings_Load(object sender, EventArgs e)
         {
             try { 
@@ -44,7 +49,7 @@ namespace UI
                alquileresFuturos = oBAl.GetAllAlquileres(session.Usuario.id, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), 0, paginaF); 
                 button4.Enabled = false;
                 button1.Enabled = false;
-
+                Observer.agregarObservador(this);
                 balnearios = oBAl.GetAllBalneariosNoP();
                 getAlquileresF(session.Usuario.id, 1);
                 getAlquileresP(session.Usuario.id, 1);
@@ -62,7 +67,86 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
-        
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            // throw new NotImplementedException();
+            traducir();
+        }
+
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(this, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        void RecorrerPanel(Control panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
+        void VolverAidiomaOriginal()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                palabras = Traductor.obtenerIdiomaOriginal();
+
+                RecorrerPanel(this, 2);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void getAlquileresP(int id, int pag)
         {
             try { 
@@ -158,11 +242,15 @@ namespace UI
                 alquileres customComponent = new alquileres(alquiler.Id, name, DateTime.ParseExact(alquiler.fechaInicio.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), DateTime.ParseExact(alquiler.fechaFin.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null));
                 customComponent.Picture = Image.FromStream(new System.IO.MemoryStream(imagePath));
                 customComponent.button1.Text = "Cancel";
-                customComponent.Button1Click += (sender, e) =>
+                customComponent.Button1Click += async (sender, e) =>
                 {
                     if (DateTime.ParseExact(alquiler.fechaInicio.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null) >= (DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null).AddHours(48))){
-
-                        oBAl.eliminar_reserva(customComponent.id);
+                        groupBox1.Show();
+                        this.Enabled = false;
+                        Task oTask = Task.Run(() => oBAl.eliminar_reserva(customComponent.id));
+                        await oTask;
+                        groupBox1.Hide();
+                        this.Enabled = true;
                         getAlquileresF(session.Usuario.id, paginaP); 
                         MetroMessageBox.Show(this, "Reservation canceled, we sent you an email with the credit corresponding the booking value");
                         oBAl.enviarMail(session.Usuario, alquiler);

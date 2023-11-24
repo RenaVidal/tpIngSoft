@@ -36,6 +36,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel2
@@ -43,7 +46,7 @@
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.PowderBlue;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(87, 158);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(704, 904);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(704, 663);
             this.flowLayoutPanel2.TabIndex = 3;
             this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
@@ -52,7 +55,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.PowderBlue;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(827, 158);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(704, 904);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(682, 663);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // label1
@@ -63,6 +66,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(342, 49);
             this.label1.TabIndex = 12;
+            this.label1.Tag = "Former bookings";
             this.label1.Text = "Former bookings";
             // 
             // label2
@@ -73,6 +77,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(353, 49);
             this.label2.TabIndex = 13;
+            this.label2.Tag = "Current bookings";
             this.label2.Text = "Current bookings";
             // 
             // button2
@@ -81,7 +86,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1415, 1067);
+            this.button2.Location = new System.Drawing.Point(1393, 838);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(116, 30);
@@ -96,7 +101,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1293, 1067);
+            this.button1.Location = new System.Drawing.Point(1271, 838);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 30);
@@ -111,7 +116,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(675, 1067);
+            this.button3.Location = new System.Drawing.Point(675, 838);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(116, 30);
@@ -126,7 +131,7 @@
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(553, 1067);
+            this.button4.Location = new System.Drawing.Point(553, 838);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(116, 30);
@@ -135,12 +140,33 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(644, 483);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(319, 136);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(95, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 29);
+            this.label3.TabIndex = 0;
+            this.label3.Tag = "Loading...";
+            this.label3.Text = "Loading...";
+            // 
             // mybookings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1606, 1171);
+            this.ClientSize = new System.Drawing.Size(1606, 1102);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
@@ -153,6 +179,8 @@
             this.Name = "mybookings";
             this.Text = "mybookings";
             this.Load += new System.EventHandler(this.mybookings_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +196,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
     }
 }

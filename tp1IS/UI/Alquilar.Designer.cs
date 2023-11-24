@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Alquilar));
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,6 +59,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 27);
             this.label7.TabIndex = 34;
+            this.label7.Tag = "Name";
             this.label7.Text = "Name";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
@@ -70,6 +71,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(276, 23);
             this.label4.TabIndex = 32;
+            this.label4.Tag = "Click on the tent you want!";
             this.label4.Text = "Click on the tent you want!";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
@@ -99,6 +101,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(178, 48);
             this.button1.TabIndex = 29;
+            this.button1.Tag = "Book";
             this.button1.Text = "Book";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -114,14 +117,14 @@
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LightGoldenrodYellow;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.LightGoldenrodYellow;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightGoldenrodYellow;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.LightGoldenrodYellow;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.GridColor = System.Drawing.Color.LightGoldenrodYellow;
             this.dataGridView1.Location = new System.Drawing.Point(125, 173);
             this.dataGridView1.Name = "dataGridView1";
@@ -129,11 +132,11 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.LightGoldenrodYellow;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightGoldenrodYellow;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.LightGoldenrodYellow;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGoldenrodYellow;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(721, 335);
             this.dataGridView1.TabIndex = 28;
@@ -161,6 +164,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 27);
             this.label1.TabIndex = 35;
+            this.label1.Tag = "Services";
             this.label1.Text = "Services";
             // 
             // checkBox1
@@ -171,6 +175,7 @@
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(140, 27);
             this.checkBox1.TabIndex = 36;
+            this.checkBox1.Tag = "Allows kids";
             this.checkBox1.Text = "Allows kids";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -182,6 +187,7 @@
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(142, 27);
             this.checkBox2.TabIndex = 37;
+            this.checkBox2.Tag = "Allows pets";
             this.checkBox2.Text = "Allows pets";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
@@ -220,6 +226,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 23);
             this.label3.TabIndex = 41;
+            this.label3.Tag = "from";
             this.label3.Text = "From";
             // 
             // label5
@@ -230,6 +237,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 23);
             this.label5.TabIndex = 42;
+            this.label5.Tag = "to";
             this.label5.Text = "To";
             // 
             // label6
@@ -240,6 +248,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 27);
             this.label6.TabIndex = 43;
+            this.label6.Tag = "Price per tent";
             this.label6.Text = "Price per tent";
             // 
             // label8

@@ -1,18 +1,12 @@
-﻿using BE;
-using BLL;
+﻿using BLL;
 using MetroFramework;
 using Negocio;
 using Patrones.Singleton.Core;
+using servicios.ClasesMultiLenguaje;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media;
 
 namespace UI
 {
@@ -31,7 +25,8 @@ namespace UI
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            try { 
+            try
+            {
                 PictureBox pictureBox = sender as PictureBox;
                 int rating = Convert.ToInt32(pictureBox.Tag);
                 for (int i = 1; i <= 5; i++)
@@ -65,6 +60,22 @@ namespace UI
             }
 
         }
+        //private void review_FormClosing(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        servicios.Observer.eliminarObservador(this);
+
+        //    }
+        //    catch (NullReferenceException ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
         private void pictureBox_MouseEnter(object sender, EventArgs e)
         {
             try
@@ -104,10 +115,11 @@ namespace UI
             }
 
         }
-        
+
         private void pictureBox_MouseLeave(object sender, EventArgs e)
         {
-            try { 
+            try
+            {
                 if (set == 0)
                 {
                     PictureBox pictureBox = sender as PictureBox;
@@ -157,7 +169,7 @@ namespace UI
                     }
                 }
                 BLLBalneario oBAl = new BLLBalneario();
-                oBAl.crear_feedback(BalnearioID, session.Usuario.id, message, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), stars); 
+                oBAl.crear_feedback(BalnearioID, session.Usuario.id, message, DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", null), stars);
                 this.Close();
             }
             catch (NullReferenceException ex)
@@ -176,7 +188,114 @@ namespace UI
 
         private void review_Load(object sender, EventArgs e)
         {
-
+           
         }
-    }
+
+      
+
+       
+
+    //private void traducir()
+    //{
+    //    try
+    //    {
+    //        BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+    //        Idioma Idioma = null;
+
+
+    //        Idioma = Traductor.TraerIdioma(comboBox1.SelectedItem.ToString());
+    //        if (Idioma.Nombre == "Ingles")
+    //        {
+    //            VolverAidiomaOriginal();
+    //        }
+    //        else
+    //        {
+
+
+
+    //            var traducciones = Traductor.obtenertraducciones(Idioma);
+    //            List<string> Lista = new List<string>();
+    //            Lista = Traductor.obtenerIdiomaOriginal();
+    //            if (traducciones.Values.Count != Lista.Count)
+    //            {
+
+    //            }
+    //            else
+    //            {
+
+    //                if (this.Tag != null && traducciones.ContainsKey(this.Tag.ToString()))
+    //                {
+    //                    this.Text = traducciones[this.Tag.ToString()].texto;
+    //                }
+    //                if (button1.Tag != null && traducciones.ContainsKey(button1.Tag.ToString()))
+    //                {
+    //                    this.button1.Text = traducciones[button1.Tag.ToString()].texto;
+    //                }
+    //                if (label2.Tag != null && traducciones.ContainsKey(label2.Tag.ToString()))
+    //                {
+    //                    this.label2.Text = traducciones[label2.Tag.ToString()].texto;
+    //                }
+    //                if (label3.Tag != null && traducciones.ContainsKey(label3.Tag.ToString()))
+    //                {
+    //                    this.label3.Text = traducciones[label3.Tag.ToString()].texto;
+    //                }
+    //            }
+
+    //        }
+
+    //    }
+    //    catch (NullReferenceException ex)
+    //    {
+    //        MessageBox.Show(ex.Message);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        MessageBox.Show(ex.Message);
+    //    }
+
+    //}
+
+    //private void VolverAidiomaOriginal()
+    //{
+    //    try
+    //    {
+
+    //        BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+    //        List<string> palabras = Traductor.obtenerIdiomaOriginal();
+
+
+    //        if (this.Tag != null && palabras.Contains(this.Tag.ToString()))
+    //        {
+    //            string traduccion = palabras.Find(p => p.Equals(this.Tag.ToString()));
+    //            this.Text = traduccion;
+    //        }
+    //        if (button1.Tag != null && palabras.Contains(button1.Tag.ToString()))
+    //        {
+    //            string traduccion = palabras.Find(p => p.Equals(button1.Tag.ToString()));
+    //            this.button1.Text = traduccion;
+    //        }
+    //        if (label2.Tag != null && palabras.Contains(label2.Tag.ToString()))
+    //        {
+    //            string traduccion = palabras.Find(p => p.Equals(label2.Tag.ToString()));
+    //            this.label2.Text = traduccion;
+    //        }
+    //        if (label3.Tag != null && palabras.Contains(label3.Tag.ToString()))
+    //        {
+    //            string traduccion = palabras.Find(p => p.Equals(label3.Tag.ToString()));
+    //            this.label3.Text = traduccion;
+    //        }
+
+
+    //    }
+    //    catch (NullReferenceException ex)
+    //    {
+    //        MessageBox.Show(ex.Message);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        MessageBox.Show(ex.Message);
+    //    }
+
+    //}
+}
 }

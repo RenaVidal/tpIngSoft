@@ -36,6 +36,8 @@
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
@@ -49,8 +51,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.botonOjo = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -138,6 +138,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Tag = "sign up";
             this.groupBox1.Text = "Sign Up";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(135, 178);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(265, 22);
+            this.textBox6.TabIndex = 11;
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(51, 178);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(42, 20);
+            this.metroLabel8.TabIndex = 10;
+            this.metroLabel8.Tag = "Email";
+            this.metroLabel8.Text = "Email";
             // 
             // textBox5
             // 
@@ -240,6 +258,8 @@
             // 
             // botonOjo
             // 
+            this.botonOjo.BackgroundImage = global::UI.Properties.Resources.ojoAbierto;
+            this.botonOjo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.botonOjo.Location = new System.Drawing.Point(419, 107);
             this.botonOjo.Margin = new System.Windows.Forms.Padding(5);
             this.botonOjo.Name = "botonOjo";
@@ -258,24 +278,6 @@
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 8;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(135, 178);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(265, 22);
-            this.textBox6.TabIndex = 11;
-            // 
-            // metroLabel8
-            // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(51, 178);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(42, 20);
-            this.metroLabel8.TabIndex = 10;
-            this.metroLabel8.Tag = "Email";
-            this.metroLabel8.Text = "Email";
             // 
             // SignIn
             // 

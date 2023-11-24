@@ -19,10 +19,11 @@ using servicios;
 using BLL;
 using Telerik.WinControls.UI;
 using Patrones.Singleton.Core;
+using servicios.ClasesMultiLenguaje;
 
 namespace UI
 {
-    public partial class CrearB : Form
+    public partial class CrearB : Form, IdiomaObserver
     {
         public CrearB()
         {
@@ -84,6 +85,89 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            // throw new NotImplementedException();
+            traducir();
+        }
+
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(panel1, 1);
+                        RecorrerPanel(this, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
+        void RecorrerPanel(System.Windows.Forms.Control panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
+        void VolverAidiomaOriginal()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                palabras = Traductor.obtenerIdiomaOriginal();
+
+                RecorrerPanel(panel1, 2);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public DataTable FillDatagrid(PictureBox[,] pictureBox)
         {
             try
@@ -123,9 +207,10 @@ namespace UI
         private void CrearB_Load(object sender, EventArgs e)
         {
             try { 
-            InitializePictureBoxMatrix();
+                InitializePictureBoxMatrix();
                 Bitmap imagen = Properties.Resources.mar;
                 pictureBox1.Image = imagen;
+                Observer.agregarObservador(this);
             }
             catch (NullReferenceException ex)
             {
@@ -236,7 +321,7 @@ namespace UI
                     MetroMessageBox.Show(this, "You add an image to show what your resort looks like");
                     return;
                 }
-                if (numericUpDown1.Value == 0)
+                if (numericUpDown1.Value == 0 || numericUpDown1.Value > 5000000)
                 {
                     MetroMessageBox.Show(this, "You set the price for a day in a tent");
                     return;

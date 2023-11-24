@@ -63,12 +63,17 @@ namespace UI
         validaciones validar = new validaciones();
         public void SignIn_Load(object sender, EventArgs e)
         {
-            ojoOpen = false;
-            Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoCerrado.png");
-            botonOjo.Image = imagen;
-            textBox2.UseSystemPasswordChar = true;
-            Observer.agregarObservador(this);
-            ListarIdiomas();
+            try
+            {
+                textBox2.UseSystemPasswordChar = true;
+                Observer.agregarObservador(this);
+                ListarIdiomas();
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
 
         }
 
@@ -364,21 +369,17 @@ namespace UI
             try
             {
 
-            if (ojoOpen == true)
-            {
-                textBox2.UseSystemPasswordChar = true;
-                Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoCerrado.png");
-                botonOjo.Image = imagen;
-                ojoOpen = false;
+                if (ojoOpen == true)
+                {
+                    textBox2.UseSystemPasswordChar = true;
+                    ojoOpen = false;
 
-            }
-            else
-            {
-                textBox2.UseSystemPasswordChar = false;
-                Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoabierto.png");
-                botonOjo.Image = imagen;
-                ojoOpen = true;
-            }
+                }
+                else
+                {
+                    textBox2.UseSystemPasswordChar = false;
+                    ojoOpen = true;
+                }
             }
             catch (NullReferenceException ex)
             {
